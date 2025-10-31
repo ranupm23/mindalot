@@ -6,6 +6,8 @@
   --brand: #0ea5e9; /* sky-500 */
   --brand-dark: #0284c7; /* sky-600 */
   --muted: #475569; /* slate-600 */
+  --font-inter-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 @theme inline {
@@ -16,6 +18,7 @@
   --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter-sans);
 }
 
 @media (prefers-color-scheme: dark) {
