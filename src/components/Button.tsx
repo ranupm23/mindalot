@@ -10,8 +10,8 @@ export default function Button({ variant = "primary", className = "", ...props }
   const variants: Record<string, string> = {
     primary: "bg-brand text-white hover:bg-brand-dark",
     secondary:
-      "border border-slate-300 bg-white text-slate-900 hover:bg-slate-50",
-    ghost: "text-slate-700 hover:bg-slate-100",
+      "border border-[#e6dcd6] bg-white text-[#2f1f1a] hover:bg-[#f7f1ed]",
+    ghost: "text-[#5a4741] hover:bg-[#f2e9e4]",
   };
   return <button className={`${base} ${variants[variant]} ${className}`} {...props} />;
 }

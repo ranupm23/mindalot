@@ -7,19 +7,19 @@ export default function Footer() {
             Mind A Lot – Anonymous support that listens, nudges, and grows with you.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="#download" className="hover:text-slate-900">
+            <a href="#download" className="hover:text-[#2f1f1a]">
               Download App
             </a>
-            <a href="#partner" className="hover:text-slate-900">
+            <a href="#partner" className="hover:text-[#2f1f1a]">
               Partner With Us
             </a>
-            <a href="#privacy" className="hover:text-slate-900">
+            <a href="#privacy" className="hover:text-[#2f1f1a]">
               Privacy Policy
             </a>
-            <a href="#accessibility" className="hover:text-slate-900">
+            <a href="#accessibility" className="hover:text-[#2f1f1a]">
               Accessibility
             </a>
-            <a href="#contact" className="hover:text-slate-900">
+            <a href="/contact" className="hover:text-[#2f1f1a]">
               Contact
             </a>
           </div>
