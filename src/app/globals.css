@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a; /* slate-900 */
-  --brand: #0ea5e9; /* sky-500 */
-  --brand-dark: #0284c7; /* sky-600 */
-  --muted: #475569; /* slate-600 */
+  /* Warmer, lighter palette */
+  --background: #faf5f1; /* lighter warm */
+  --foreground: #3a2a24; /* soft coffee */
+  --brand: #ac9b8a; /* Pantone 7536 C – Grullo */
+  --brand-dark: #9c8a78; /* hover shade for grullo */
+  --muted: #8a766f; /* lighter muted */
 }
 
 @theme inline {
@@ -20,8 +21,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #201713;
+    --foreground: #efe9e6;
   }
 }
 
@@ -61,9 +62,9 @@ body {
   inset: 0;
   background: linear-gradient(
       to right,
-      rgba(2, 6, 23, 0.65),
-      rgba(2, 6, 23, 0.35),
-      rgba(2, 6, 23, 0.1)
+      rgba(2, 6, 23, 0.45),
+      rgba(2, 6, 23, 0.20),
+      rgba(2, 6, 23, 0.05)
     );
   z-index: 0;
 }

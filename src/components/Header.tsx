@@ -26,14 +26,14 @@ export default function Header() {
           <Link href="#resources" className="hover:text-white">
             Resources
           </Link>
-          <Link href="#contact" className="hover:text-white">
+          <Link href="/contact" className="hover:text-white">
             Contact
           </Link>
         </nav>
         <div className="flex items-center gap-3">
           <Link
             href="#download"
-            className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-slate-900 shadow-sm transition-colors hover:bg-white"
+            className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-[#2f1f1a] shadow-sm transition-colors hover:bg-white"
           >
             Download now
           </Link>
