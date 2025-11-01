@@ -7,7 +7,7 @@ export default function Home() {
       <section
         className="hero pt-16"
         style={{
-          backgroundImage: "url(/hero.jpg)",
+          backgroundImage: "url(/globe.svg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
