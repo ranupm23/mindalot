@@ -14,7 +14,7 @@ export default function Header() {
           <Link href="#home" className="hover:text-white">
             Home
           </Link>
-          <Link href="#universities" className="hover:text-white">
+          <Link href="/university" className="hover:text-white">
             For Universities
           </Link>
           <Link href="#corporates" className="hover:text-white">
