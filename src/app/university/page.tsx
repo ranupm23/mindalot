@@ -587,9 +587,9 @@ const Footer = () => {
           <h2 className="font-inter font-bold text-[28px] md:text-[35px] leading-[100%] tracking-[0.05em] text-[#5C4737] mb-4">
             MIND A LOT
           </h2>
-          <p className="font-inter font-normal text-[14px] md:text-[16px] leading-[28px] tracking-[-0.03em] text-[#755840] max-w-[299px] mx-auto lg:mx-0">
-          Anonymous support that listens ,nudges <br/>
-      and grows with you. When your mind feels too much, we’re just a tap away.
+          <p className="font-inter font-normal text-[14px] md:text-[16px] leading-[28px] tracking-[-0.03em] text-[#755840] max-w-[450px] mx-auto lg:mx-0">
+          Anonymous support that listens, nudges ,<br/>
+          and grow with you , When your mind feels too much, we're just a tap away.
           </p>
         </div>
 

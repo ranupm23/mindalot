@@ -4,7 +4,8 @@ export default function Footer() {
       <div className="container-page py-10 text-sm text-slate-600">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
           <p>
-            Mind A Lot – Anonymous support that listens, nudges, and grows with you.
+            Mind A Lot Anonymous support that listens ,nudges 
+            ,and grows with you.
           </p>
           <div className="flex flex-wrap gap-4">
             <a href="#download" className="hover:text-[#2f1f1a]">
