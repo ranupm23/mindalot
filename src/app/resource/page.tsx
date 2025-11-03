@@ -1,0 +1,159 @@
+import Image, { StaticImageData } from 'next/image'
+import subtract from "@/assets/subtract.svg"
+import meditate1 from "@/assets/resource-page/meditate1.webp"
+import meditate2 from "@/assets/resource-page/meditate2.webp"
+import meditate3 from "@/assets/resource-page/meditate3.webp"
+import meditate4 from "@/assets/resource-page/meditate4.webp"
+import meditate5 from "@/assets/resource-page/meditate5.webp"
+import playIcon from "@/assets/play-icon.svg"
+import ourResource1 from "@/assets/resource-page/our-resource-1.webp"
+import ourResource2 from "@/assets/resource-page/our-resource-2.webp"
+import ourResource3 from "@/assets/resource-page/our-resource-3.webp"
+import ourResource4 from "@/assets/resource-page/our-resource-4.webp"
+import podcast1 from "@/assets/resource-page/man-woman-talking-podcast.webp"
+import podcast2 from "@/assets/resource-page/man-woman-talking-podcast-2.webp"
+import arrrow from '@/assets/arrow.svg'
+import avatar1 from '@/assets/resource-page/avatar1.webp'
+import avatar2 from '@/assets/resource-page/avatar2.webp'
+import borderImg from '@/assets/resource-page/border.svg'
+import waveIcon from '@/assets/resource-page/wave.svg'
+import brownPlayIcon from '@/assets/resource-page/play.svg'
+import React from 'react'
+
+const ResourcePage = () => {
+    return (
+        <div className='container-page xl:pr-0! xl:pl-0!'>
+            <div className="pt-16 flex flex-col lg:justify-between lg:flex-row gap-9">
+                <div className="relative z-10 items-center pt-20 lg:pb-20 md:mb-20">
+                    <h1 className='text-[30px] sm:text-[40px] md:text-[50px] lg:text-[40px] xl:text-[60px] text-[#5C4737] font-semibold xl:leading-20 -tracking-[6%] font-inter'>Curated Resources from <br />Real Professionals. No Fluff.</h1>
+                    <Image src={borderImg} alt='' height={2} className='ml-auto w-[88%]' />
+                    <p className='text-xs sm:text-sm lg:text-base xl:text-lg font-medium mt-[30px] leading-[35px] -tracking-[3%] font-inter'>Ever wondered how small daily habits can reshape your mindset? Explore<br /> resources that make mental wellness simple and actionable.</p>
+                    <div className='text-[#6D6D6F] font-inter font-medium text-lg md:text-[24px] gap-2.5 flex items-center mt-[31px]'>
+                        <div className=''>Explore</div>
+                        <Image src={subtract} alt="arrow" width={30} height={30} />
+                        <div className=''>Reflect</div>
+                        <Image src={subtract} alt="arrow" width={30} height={30} />
+                        <div className=''>Learn</div>
+                    </div>
+                </div>
+                <SlideImages />
+            </div>
+            <OurResourcesSection />
+            <PodcastSection />
+            <AccessMoreResourceSection />
+        </div>
+    )
+}
+
+const SlideImages = () => {
+    return (
+        <div className='lg:mt-[57px] mx-auto lg:mx-0 w-full max-w-[523px] h-[250px] sm:h-[345px] md:h-[500px] flex items-center relative'>
+            <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[180px] h-[180px] xl:w-[340px] xl:h-[340px] border-2 border-white/25 rounded-full'></div>
+            <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[130px] h-[130px] xl:w-[250px] xl:h-[250px] border-2 border-white/45 rounded-full'></div>
+            <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-20 h-20 xl:w-[200px] xl:h-[200px] border-2 border-white/65 rounded-full'></div>
+            <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[50px] h-[50px] xl:w-[120px] xl:h-[120px] border-2 border-white/85 rounded-full'></div>
+            <Image src={playIcon} alt="play" width={50} height={60} className='absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[calc(50%-1.5px)] xl:-translate-x-[calc(50%-5px)] z-20 w-[18px] h-[18px] xl:w-[50px] xl:h-[60px]' />
+            <Image src={meditate1} alt="meditate" width={400} height={500} className='object-cover rounded-[20px] absolute left-1/2 -translate-x-1/2 w-[200px] h-[250px] sm:w-[300px] sm:h-[375px] xl:w-[400px] xl:h-[500px]' />
+            <Image src={meditate2} alt="meditate" width={400} height={460} className='object-cover rounded-[20px] absolute left-1/2 translate-x-[calc(-50%+30px)] -z-10 w-[200px] h-[230px] sm:w-[300px] sm:h-[345px] xl:w-[400px] xl:h-[460px]' />
+            <Image src={meditate3} alt="meditate" width={400} height={460} className='object-cover rounded-[20px] absolute left-1/2 translate-x-[calc(-50%-30px)] -z-20 w-[200px] h-[230px] sm:w-[300px] sm:h-[345px] xl:w-[400px] xl:h-[460px]' />
+            <Image src={meditate4} alt="meditate" width={400} height={420} className='object-cover rounded-[20px] absolute left-1/2 translate-x-[calc(-50%-63px)] -z-30 w-[200px] h-[210px] sm:w-[300px] sm:h-[315px] xl:w-[400px] xl:h-[420px]' />
+            <Image src={meditate5} alt="meditate" width={400} height={420} className='object-cover rounded-[20px] absolute left-1/2 translate-x-[calc(-50%+63px)] -z-40 w-[200px] h-[210px] sm:w-[300px] sm:h-[315px] xl:w-[400px] xl:h-[420px]' />
+            <div className='w-[350px] h-[350px] rounded-full absolute bottom-0 left-0 bg-[#BE9B84] -translate-x-1/2 translate-y-2/8 blur-[200px] -z-50'></div>
+        </div>
+    )
+}
+
+const OurResourcesSection = () => {
+    return (
+        <>
+            <h2 className='text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[60px] text-[#5C4737] font-semibold -tracking-[6%] font-inter mt-15 md:mt-0'>Our Resources!</h2>
+            <div className='mt-5 sm:mt-[46px] grid lg:grid-cols-2 gap-x-5 gap-y-[15px] sm:gap-y-[30px] mb-20'>
+                <ResourceCard btnLabel="Listen Audio" img={ourResource1} btnIcon={waveIcon} rotateIconOnHover={false} />
+                <ResourceCard btnLabel="Watch Video" img={ourResource2} btnIcon={brownPlayIcon} />
+                <ResourceCard btnLabel="Read more" img={ourResource3} btnIcon={arrrow} />
+                <ResourceCard btnLabel="Start Quiz" img={ourResource4} btnIcon={arrrow} />
+            </div>
+        </>
+    )
+}
+
+const ResourceCard = ({ btnLabel, img, btnIcon, rotateIconOnHover = true }: { btnLabel: string, img: StaticImageData, btnIcon: StaticImageData, rotateIconOnHover?: boolean }) => {
+    return (
+        <div className='relative mx-auto'>
+            <Image src={img} alt="meditate" height={350} className='rounded-[20px] max-h-[350px] mx-auto' />
+            <button className='bg-[#967B6A] hover:bg-[#BE9B84] group w-[30%] absolute bottom-0 right-0 cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full text-xs sm:text-sm xl:text-base'>
+                {btnLabel}
+                <div className={`w-[30px] h-[30px] sm:w-10 sm:h-10 xl:w-[50px] xl:h-[50px] ml-[5px] lg:ml-[15px] rounded-full bg-white flex justify-center items-center`}>
+                    <Image src={btnIcon} alt="arrow" width={18} height={18} className={`m-auto w-3 h-3 sm:w-[18px] sm:h-[18px] ${rotateIconOnHover ? 'group-hover:rotate-45' : ''} transition-all`} />
+                </div>
+            </button>
+        </div>
+    )
+}
+
+const PodcastSection = () => {
+    return (
+        <>
+            <div className='flex justify-between'>
+                <div className='flex'>
+                    <Image src={podcast1} alt="podcast" width={155} height={155} className='object-cover rounded-[20px] w-[60px] h-[60px] sm:w-20 sm:h-20 md:w-[100px] md:h-[100px] lg:w-[155px] lg:h-[155px]' />
+                    <div className='flex flex-col justify-center items-center font-inter ml-2 xl:ml-3'>
+                        <h3 className='text-[20px] md:text-[30px] lg:text-[40px] xl:text-[50px] tracking-[-3%] text-[#755840] mr-auto'>New Blog</h3>
+                        <p className='text-[10px] sm:text-xs md:text-base lg:text-lg xl:text-[24px] tracking-[-3%] font-semibold text-[#6D6D6F]'>Mind A Lot, Every Day</p>
+                    </div>
+                </div>
+                <div className='font-inter font-medium text-[30px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[100px] text-[#5C4737] tracking-[-3%] my-auto'>PODCAST</div>
+            </div>
+            <div className='w-full relative'>
+                <div className='flex gap-1 sm:gap-2.5 justify-between items-center absolute left-2.5 top-2.5 sm:left-[30px] sm:top-[30px] px-2 py-1 sm:px-4 sm:py-2.5 backdrop-blur-[10px] rounded-full font-medium text-xs sm:text-base shadow-md'>
+                    <Image src={playIcon} alt="play" width={20} height={20} className='w-2 h-2 sm:w-5 sm:h-5 my-auto filter brightness-0' />
+                    Start Listening
+                </div>
+                <Image src={podcast2} alt="podcast" width={1268} height={504} className='object-cover rounded-[20px] w-full mt-10 mb-20' />
+                <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[100px] h-[100px] sm:w-[180px] sm:h-[180px] xl:w-[225px] xl:h-[225px] border-2 border-white/25 rounded-full'></div>
+                <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[70px] h-[70px] sm:w-[130px] sm:h-[130px] xl:w-[175px] xl:h-[175px] border-2 border-white/50 rounded-full'></div>
+                <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-10 h-10 sm:w-20 sm:h-20 xl:w-[125px] xl:h-[125px] border-2 border-white rounded-full'></div>
+                <Image src={playIcon} alt="play" width={50} height={60} className='absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[calc(50%-1.5px)] xl:-translate-x-[calc(50%-5px)] z-20 w-[18px] h-[18px] sm:w-[25px] sm:h-[25px] xl:w-[50px] xl:h-[60px]' />
+                <div className='absolute bottom-2.5 sm:bottom-[30px] right-2.5 sm:right-[30px] w-[60px] h-[30px] sm:w-[120px] sm:h-[60px] flex p-[3px] sm:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group'>
+                    <div className='relative'>
+                        <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white bg-purple-500'>
+                            <Image src={avatar1} alt='avatar-img' width={50} height={50} />
+                        </div>
+                        <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white translate-x-[60%] bg-gray-400'>
+                            <Image src={avatar2} alt='avatar-img' width={50} height={50} />
+                        </div>
+                        <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%]'>
+                            <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 w-2 h-2 sm:w-[18px] sm:h-[18px] transition-all filter brightness-0' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
+
+const AccessMoreResourceSection = () => {
+    return (
+        <div>
+            <h2 className='text-[30px] lg:text-[40px] xl:text-[50px] text-[#5C4737] font-semibold text-center'>Access More Resources</h2>
+            <p className='text-sm md:text-base xl:text-lg font-medium mt-4 mb-[30px] text-center'>Download the Mind A Lot app to access our complete library of mental health resources, tools, and professional content.</p>
+            <div className='flex flex-col sm:flex-row justify-center gap-5 items-center relative'>
+                <div className='w-[250px] h-[250px] rounded-full absolute top-full left-1/2 bg-[#BE9B84] -translate-x-1/2 -translate-y-[15%] blur-[130px] -z-50'></div>
+                <button className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full'>
+                    View all resources
+                    <div className='w-[50px] h-[50px] ml-[15px] rounded-full bg-white flex justify-center items-center'>
+                        <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 transition-all' />
+                    </div>
+                </button>
+                <button className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full'>
+                    Download free tools
+                    <div className='w-[50px] h-[50px] ml-[11px] rounded-full bg-white flex justify-center items-center'>
+                        <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 transition-all' />
+                    </div>
+                </button>
+            </div>
+        </div>
+    )
+}
+
+export default ResourcePage
