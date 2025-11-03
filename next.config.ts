@@ -1,11 +1,6 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
-  experimental: {
-    // Allow accessing the dev server from your LAN IP to silence the warning
-    allowedDevOrigins: ["http://10.117.244.11"],
+// next.config.js
+module.exports = {
+  images: {
+    domains: ["cdn.pixabay.com"],
   },
 };
-
-export default nextConfig;
