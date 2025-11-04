@@ -22,6 +22,26 @@ export default function Footer() {
       <div className="absolute h-full w-full inset-0 -z-10 bg-[url('/footer-bg.webp')] bg-no-repeat bg-[length:100%_100%]" />
       <div className="container-page py-10 mt-[83px] pt-0 text-sm text-white">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
+          <p>
+            Mind A Lot Anonymous support that listens ,nudges 
+            ,and grows with you.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a href="#download" className="hover:text-[#2f1f1a]">
+              Download App
+            </a>
+            <a href="#partner" className="hover:text-[#2f1f1a]">
+              Partner With Us
+            </a>
+            <a href="#privacy" className="hover:text-[#2f1f1a]">
+              Privacy Policy
+            </a>
+            <a href="#accessibility" className="hover:text-[#2f1f1a]">
+              Accessibility
+            </a>
+            <a href="/contact" className="hover:text-[#2f1f1a]">
+              Contact
+            </a>
           <div>
             <div>
               <h2 className="text-[35px] font-bold tracking-[5%] mb-6">MIND A LOT</h2>

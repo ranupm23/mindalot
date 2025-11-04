@@ -31,6 +31,25 @@ export default function Header() {
         <Link href="/">
           <Image src="/logo.svg" alt="Logo" className="w-[90px] lg:w-[130px]" width={130} height={56} />
         </Link>
+        <nav className="hidden gap-6 text-sm text-white/90 sm:flex">
+          <Link href="#home" className="hover:text-white">
+            Home
+          </Link>
+          <Link href="/university" className="hover:text-white">
+            For Universities
+          </Link>
+          <Link href="#corporates" className="hover:text-white">
+            For Corporates
+          </Link>
+          <Link href="#features" className="hover:text-white">
+            Features
+          </Link>
+          <Link href="#resources" className="hover:text-white">
+            Resources
+          </Link>
+          <Link href="/contact" className="hover:text-white">
+            Contact
+          </Link>
         <nav className="hidden gap-2 md:gap-4 lg:gap-8 text-lg text-black/90 md:flex">
           {menus.map((menu) => (
             <Link key={menu.name} href={menu.href} className={`text-xs sm:text-sm lg:text-lg font-inter ${menu.href.includes(currentPath) ? "font-bold text-black" : "text-[#979797]"}`}>
