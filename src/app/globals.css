@@ -2,7 +2,7 @@
 
 :root {
   /* Warmer, lighter palette */
-  --background: #ffffff;
+  --background: #FDFDFD;
   --foreground: #0f172a;
   --brand: #ac9b8a; /* Pantone 7536 C – Grullo */
   --brand-dark: #9c8a78; /* hover shade for grullo */
@@ -20,20 +20,26 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-inter: var(--font-inter-sans);
+  --font-family-nunito-sans: var(--font-nunito-sans), ui-sans-serif, system-ui;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #201713;
-    --foreground: #efe9e6;
+    --background: #FDFDFD;
+    --foreground: #0f172a;
   }
 }
 
+html {
+  overflow-x: auto;
+}
+
 body {
-  background: var(--background);
+  background: #FDFDFD;
   color: var(--foreground);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
     Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  overflow-x: auto;
 }
 
 /* Utility wrappers */
