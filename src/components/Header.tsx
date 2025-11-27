@@ -95,44 +95,31 @@ export default function Header() {
             style={{ width: '103.91px', height: '41.03px' }}
           />
         </Link>
-        <nav 
-          className="hidden md:flex"
-          style={{
-            width: '734px',
-            height: '19px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '32px',
-          }}
-        >
-          {menus.map((menu) => {
-            const isHome = menu.name === "Home";
-            const isActive = currentPath === menu.href || (menu.href === '/' && currentPath === '/');
-            return (
-              <Link 
-                key={menu.name} 
-                href={menu.href}
-                onClick={(e) => handleLinkClick(menu.href, e)}
-                style={{
-                  fontFamily: 'var(--font-inter-sans)',
-                  fontWeight: isHome ? 600 : 400,
-                  fontSize: '16px',
-                  lineHeight: '100%',
-                  letterSpacing: '0%',
-                  width: getLinkWidth(menu.name),
-                  height: '19px',
-                  color: isHome ? '#5C4737' : '#755840',
-                  backgroundColor: 'transparent',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textDecoration: 'none',
-                }}
-              >
-                {menu.name}
-              </Link>
-            );
-          })}
+        <nav className="hidden gap-6 text-sm text-white/90 sm:flex">
+          <Link href="#home" className="hover:text-white">
+            Home
+          </Link>
+          <Link href="/university" className="hover:text-white">
+            For Universities
+          </Link>
+          <Link href="#corporates" className="hover:text-white">
+            For Corporates
+          </Link>
+          <Link href="#features" className="hover:text-white">
+            Features
+          </Link>
+          <Link href="#resources" className="hover:text-white">
+            Resources
+          </Link>
+          <Link href="/contact" className="hover:text-white">
+            Contact
+          </Link>
+        <nav className="hidden gap-2 md:gap-4 lg:gap-8 text-lg text-black/90 md:flex">
+          {menus.map((menu) => (
+            <Link key={menu.name} href={menu.href} className={`text-xs sm:text-sm lg:text-lg font-inter ${menu.href.includes(currentPath) ? "font-bold text-black" : "text-[#979797]"}`}>
+              {menu.name}
+            </Link>
+          ))}
         </nav>
         <div className="flex items-center">
           <Link
