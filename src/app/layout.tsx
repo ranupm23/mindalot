@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +18,12 @@ const interSans = Inter({
   subsets: ["latin"],
 });
 
+const nunitoSans = Nunito_Sans({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-nunito-sans",
+});
+
 export const metadata: Metadata = {
   title: "Mind A Lot – Anonymous Counselling App",
   description:
@@ -32,10 +37,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${interSans.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${interSans.variable} ${nunitoSans.variable} antialiased`}>
         <Header />
         {children}
-       
       </body>
     </html>
   );
