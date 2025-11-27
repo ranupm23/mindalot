@@ -50,6 +50,7 @@ export default function Header() {
           <Link href="/contact" className="hover:text-white">
             Contact
           </Link>
+        </nav>
         <nav className="hidden gap-2 md:gap-4 lg:gap-8 text-lg text-black/90 md:flex">
           {menus.map((menu) => (
             <Link key={menu.name} href={menu.href} className={`text-xs sm:text-sm lg:text-lg font-inter ${menu.href.includes(currentPath) ? "font-bold text-black" : "text-[#979797]"}`}>
