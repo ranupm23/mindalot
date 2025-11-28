@@ -71,12 +71,17 @@ export default function Header() {
       }}
     >
       <div className="md:hidden flex items-center absolute left-4">
-        <button onClick={() => setIsOpen(!isOpen)} className="text-primary dark:text-white cursor-pointer menu focus:outline-none" aria-label="Toggle Menu">
+        <button 
+          onClick={() => setIsOpen(!isOpen)} 
+          className="text-primary dark:text-white cursor-pointer menu focus:outline-none" 
+          aria-label="Toggle Menu"
+        >
           <svg className="w-6 h-6 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}></path>
           </svg>
         </button>
       </div>
+      
       <div 
         style={{
           width: '1255.910400390625px',
@@ -95,13 +100,42 @@ export default function Header() {
             style={{ width: '103.91px', height: '41.03px' }}
           />
         </Link>
-    <nav className="hidden gap-2 md:gap-4 lg:gap-8 text-lg text-black/90 md:flex">
+        <nav className="hidden gap-6 text-sm text-white/90 sm:flex">
+          <Link href="#home" className="hover:text-white">
+            Home
+          </Link>
+          <Link href="/university" className="hover:text-white">
+            For Universities
+          </Link>
+          <Link href="#corporates" className="hover:text-white">
+            For Corporates
+          </Link>
+          <Link href="#features" className="hover:text-white">
+            Features
+          </Link>
+          <Link href="#resources" className="hover:text-white">
+            Resources
+          </Link>
+          <Link href="/contact" className="hover:text-white">
+            Contact
+          </Link>
+        <nav className="hidden gap-2 md:gap-4 lg:gap-8 text-lg text-black/90 md:flex">
           {menus.map((menu) => (
-            <Link key={menu.name} href={menu.href} className={`text-xs sm:text-sm lg:text-lg font-inter ${menu.href.includes(currentPath) ? "font-bold text-black" : "text-[#979797]"}`}>
+            <Link 
+              key={menu.name} 
+              href={menu.href} 
+              onClick={(e) => handleLinkClick(menu.href, e)}
+              className={`text-xs sm:text-sm lg:text-lg font-inter ${
+                currentPath === menu.href || (menu.href === '/' && currentPath === '/') 
+                  ? "font-bold text-black" 
+                  : "text-[#979797]"
+              }`}
+            >
               {menu.name}
             </Link>
           ))}
         </nav>
+        
         <div className="flex items-center">
           <Link
             href="#chat"
@@ -132,6 +166,8 @@ export default function Header() {
           </Link>
         </div>
       </div>
+      
+      {/* Mobile menu */}
       {isOpen && (
         <nav className="fixed h-screen top-[70px] left-0 w-full bg-white border-t border-slate-200/70 flex flex-col items-center py-4 gap-4 md:hidden z-50">
           {menus.map((menu) => {
@@ -144,7 +180,9 @@ export default function Header() {
                   handleLinkClick(menu.href, e);
                   setIsOpen(false);
                 }}
-                className={`text-base font-inter py-2 ${isActive ? "font-bold text-black" : "text-[#979797]"}`}
+                className={`text-base font-inter py-2 ${
+                  isActive ? "font-bold text-black" : "text-[#979797]"
+                }`}
               >
                 {menu.name}
               </Link>
@@ -155,5 +193,3 @@ export default function Header() {
     </header>
   );
 }
-
-
