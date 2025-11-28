@@ -9,7 +9,30 @@ import Footer from "@/components/Footer";
 //Import Framer Motion
 import { motion } from "framer-motion";
 import { useState ,useEffect } from "react";
-
+import u1 from "@/assets/universityPage/2.jpg";
+import u2 from "@/assets/universityPage/3.jpg";
+import u3 from "@/assets/universityPage/4.jpg";
+import u4 from "@/assets/universityPage/5.jpg";
+import u5 from "@/assets/universityPage/6.jpg";
+import u6 from "@/assets/universityPage/7.jpg";
+import u7 from "@/assets/universityPage/8.jpg";
+import u8 from "@/assets/universityPage/9.jpg";
+import u9 from "@/assets/universityPage/10.jpg";
+import u10 from "@/assets/universityPage/11.jpg";
+import u11 from "@/assets/universityPage/12.jpg";
+import u12 from "@/assets/universityPage/13.jpg";
+import u13 from "@/assets/universityPage/14.jpg";
+import u14 from "@/assets/universityPage/15.jpg";
+import u15 from "@/assets/universityPage/1.jpg";
+import student from "@/assets/universityPage/student.png";
+import line from "@/assets/universityPage/line-1.png";
+import of1 from "@/assets/universityPage/24.png";
+import holistic from "@/assets/universityPage/holistic.png";
+import Risk from "@/assets/universityPage/Risk.png";
+import Dashboard from "@/assets/universityPage/dashboard.png";
+import Global from "@/assets/universityPage/global.png";
+import Custom from "@/assets/universityPage/custom.png";
+import Regulator from "@/assets/universityPage/Regulatory.png";
 
 export default function University() {
 const [isMobile, setIsMobile] = useState(false);
@@ -67,21 +90,21 @@ const [isMobile, setIsMobile] = useState(false);
   // ========== HERO SECTION ==========
   const HeroSection = () => {
     const avatars = [
-      { src: "/2.jpg", w: 60, h: 60, top: 226, left: 1334, rotate: -19.14 },
-      { src: "/3.jpg", w: 60, h: 60, top: 93, left: 1178, rotate: -27.33 },
-      { src: "/4.jpg", w: 75, h: 75, top: 94, left: 929, rotate: 24.76 },
-      { src: "/5.jpg", w: 75, h: 75, top: 109.63, left: 1280.63, rotate: -22.15 },
-      { src: "/6.jpg", w: 75, h: 75, top: 434, left: 1316, rotate: -7 },
-      { src: "/7.jpg", w: 75, h: 75, top: 350, left: 777, rotate: 10.99 },
-      { src: "/8.jpg", w: 65, h: 65, top: 214, left: 914, rotate: 12.58 },
-      { src: "/9.jpg", w: 25, h: 25, top: 423, left: 1261, rotate: -27.23 },
-      { src: "/10.jpg", w: 25, h: 25, top: 264, left: 1276, rotate: -8.46 },
-      { src: "/11.jpg", w: 25, h: 25, top: 305, left: 881, rotate: 11.62 },
-      { src: "/12.jpg", w: 50, h: 50, top: 338, left: 1286, rotate: 0 },
-      { src: "/13.jpg", w: 50, h: 50, top: 201, left: 1211, rotate: 0 },
-      { src: "/14.jpg", w: 50, h: 50, top: 264, left: 772, rotate: 10.88 },
-      { src: "/15.jpg", w: 50, h: 50, top: 97, left: 840, rotate: 19.55 },
-      { src: "/1.jpg", w: 50, h: 50, top: 194, left: 826, rotate: 12.22 },
+      { src: u1, w: 60, h: 60, top: 226, left: 1334, rotate: -19.14 },
+      { src: u2, w: 60, h: 60, top: 93, left: 1178, rotate: -27.33 },
+      { src: u3, w: 75, h: 75, top: 94, left: 929, rotate: 24.76 },
+      { src: u4, w: 75, h: 75, top: 109.63, left: 1280.63, rotate: -22.15 },
+      { src: u5, w: 75, h: 75, top: 434, left: 1316, rotate: -7 },
+      { src: u6, w: 75, h: 75, top: 350, left: 777, rotate: 10.99 },
+      { src: u7, w: 65, h: 65, top: 214, left: 914, rotate: 12.58 },
+      { src: u8, w: 25, h: 25, top: 423, left: 1261, rotate: -27.23 },
+      { src: u9, w: 25, h: 25, top: 264, left: 1276, rotate: -8.46 },
+      { src: u10, w: 25, h: 25, top: 305, left: 881, rotate: 11.62 },
+      { src: u11, w: 50, h: 50, top: 338, left: 1286, rotate: 0 },
+      { src: u12, w: 50, h: 50, top: 201, left: 1211, rotate: 0 },
+      { src: u13, w: 50, h: 50, top: 264, left: 772, rotate: 10.88 },
+      { src: u14, w: 50, h: 50, top: 97, left: 840, rotate: 19.55 },
+      { src: u15, w: 50, h: 50, top: 194, left: 826, rotate: 12.22 },
     ];
 
     return (
@@ -127,7 +150,7 @@ const [isMobile, setIsMobile] = useState(false);
     >
           
             <Image
-              src="/line-1.png"
+              src={line}
               alt="Sand underline"
               layout="fill"
               objectFit="contain"
@@ -192,7 +215,7 @@ const [isMobile, setIsMobile] = useState(false);
           transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
         >
           <Image
-            src="/student.png"
+            src= {student}
             alt="student"
             width={509}
             height={764}
@@ -226,7 +249,7 @@ const [isMobile, setIsMobile] = useState(false);
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <Image src="/student.png" alt="student" width={mobileW} height={mobileH} className="w-full h-auto" />
+                <Image src={student} alt="student" width={mobileW} height={mobileH} className="w-full h-auto" />
                 {mapped.map((m, idx) => (
                   <motion.div
                     key={idx}
@@ -313,49 +336,49 @@ const [isMobile, setIsMobile] = useState(false);
     // Array of offer data for mapping (improving readability and reusability)
     const offers = [
       {
-        icon: "/24.png",
+        icon: of1,
         iconW: "56.25px",
         iconH: "62.46px",
         title: "24/7 Anonymous Access",
         description: "Real counselling with no ID or booking needed, ensuring complete privacy and immediate support.",
       },
       {
-        icon: "/holistic.png",
+        icon: holistic,
         iconW: "62.5px",
         iconH: "56.84px",
         title: "Holistic Student Support",
         description: "Covering exam stress, homesickness, relationships, identity, focus, and more.",
       },
       {
-        icon: "/Risk.png",
+        icon: Risk,
         iconW: "62.47px",
         iconH: "62.47px",
         title: "High-Risk Case Escalation",
         description: "Built-in protocols for high-risk cases with seamless escalation to partner hospitals.",
       },
       {
-        icon: "/dashboard.png",
+        icon: Dashboard,
         iconW: "62.5px",
         iconH: "62.5px",
         title: "Institutional Dashboards",
         description: "Anonymized, real-time wellness insights to inform campus-wide mental health strategy.",
       },
       {
-        icon: "/global.png", // Icon was missing in original code, adding a placeholder here
+        icon: Global, // Icon was missing in original code, adding a placeholder here
         iconW: "62.5px",
         iconH: "62.5px",
         title: "Global Accessibility",
         description: "Works seamlessly across devices, time zones, and multiple languages to serve all students.",
       },
       {
-        icon: "/custom.png",
+        icon: Custom,
         iconW: "62.5px",
         iconH: "62.5px",
         title: "Custom Content Drops",
         description: "Targeted resources for exam anxiety, burnout, homesickness, and self-harm prevention.",
       },
       {
-        icon: "/Regulatory.png",
+        icon: Regulator,
         iconW: "63.5px",
         iconH: "63.5px",
         title: "Regulatory Compliance",
@@ -402,11 +425,12 @@ const [isMobile, setIsMobile] = useState(false);
                    }}
               ></div>
               <div className="absolute top-[20px] left-[20px] w-[75px] h-[75px]">
-                <img
+                <Image
                   src={offer.icon}
                   alt="offer icon"
+                  width={75}
+                  height={75}
                   className="object-contain"
-                  style={{ width: offer.iconW, height: offer.iconH }}
                 />
               </div>
 
@@ -446,11 +470,12 @@ const [isMobile, setIsMobile] = useState(false);
               ></div>
               {/* Icon (Re-added based on the data structure and original intent) */}
               <div className="absolute top-[20px] left-[20px] w-[75px] h-[75px]">
-                <img
+                <Image
                   src={offer.icon}
                   alt="offer icon"
+                  width={75}
+                  height={75}
                   className="object-contain"
-                  style={{ width: offer.iconW, height: offer.iconH }}
                 />
               </div>
 
