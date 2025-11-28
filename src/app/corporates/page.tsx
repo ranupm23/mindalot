@@ -1,188 +1,303 @@
+"use client";
 import Image from "next/image";
+import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-export default function CorporatesPage() {
+// Import all images from assets
+import graphic1 from "@/assets/corporate-assets/graphic1.svg";
+import cardGraphic from "@/assets/corporate-assets/card-circle-white/card-graphic.svg";
+import subtract from "@/assets/corporate-assets/subtract.png";
+import mentalHealthIcon from "@/assets/corporate-assets/your-mental-health.png";
+import cardExportCircle from "@/assets/corporate-assets/card-export-circle.svg";
+import cardSecurity from "@/assets/corporate-assets/card-security.svg";
+import groupClipPath1 from "@/assets/corporate-assets/group/group-clip-path1.png";
+import groupClipPath2 from "@/assets/corporate-assets/group/group-clip-path2.png";
+import groupClipPath3 from "@/assets/corporate-assets/group/group-clip-path3.png";
+
+export default function CorporatePage() {
   return (
-    <main className="pt-[70px]">
-      {/* Hero Section */}
-      <section className="bg-[#FFFCF9] py-20 sm:py-24">
-        <div className="container-page">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div>
-              <h1 className="font-inter font-semibold text-[60px] leading-[80px] text-[#5C4837] mb-6" style={{ letterSpacing: '-0.06em' }}>
-                Real Mental Wellness, Not Just Another EAP.
-              </h1>
-              <p className="font-inter font-medium text-[18px] leading-[35px] text-[#1E1E1E] mb-6" style={{ width: '538px', height: '105px', letterSpacing: '-0.03em' }}>
-                Mind A Lot is built for the modern workforce: instant, anonymous, and effective. Because people don't wait for office hours to break down.
-              </p>
-              <p className="font-inter font-medium text-[18px] leading-[35px] text-[#6D6D6F] mb-8" style={{ width: '538px', height: '70px', letterSpacing: '-0.03em' }}>
-                Let's discuss how Mind A Lot can fit your organization's wellness strategy in just 15 minutes.
-              </p>
-              <button className="px-6 py-3 rounded-full bg-[#B18972] hover:bg-[#9a755f] text-white font-inter font-medium text-lg transition-colors flex items-center gap-2">
-                Book a 15-Min Call
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
+    <div className="bg-[#FDFDFD] text-[#5c4737] overflow-x-hidden">
+      <Header />
 
-            {/* Right Image */}
-            <div className="relative">
-              <div className="relative rounded-xl overflow-hidden">
+      {/* HERO SECTION */}
+      <section className="w-full bg-[#FDFDFD] pt-[100px] pb-[60px] px-6">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[80px] items-start">
+          
+          {/* LEFT TEXT */}
+          <div className="pt-[40px] text-center lg:text-left flex flex-col items-center lg:items-start">
+            <div className="relative inline-block mb-[28px]">
+              <h1 className="text-[52px] font-semibold leading-[1.15] text-[#4b3729] tracking-[-0.02em]">
+                Real Mental Wellness,<br />
+                Not Just Another EAP.
+              </h1>
+              <div className="absolute left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 bottom-[-10px] w-[420px] h-[12px]">
                 <Image
-                  src="/images/corporates-hero.jpg"
-                  alt="Corporate team"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-xl"
-                  priority
+                  src={graphic1}
+                  alt="Decorative underline"
+                  className="w-full h-full object-contain"
                 />
               </div>
+            </div>
+
+            <div className="space-y-[20px] mt-[44px]">
+              <p className="text-[#1e1e1e] text-[15px] leading-[1.65] max-w-[460px] font-normal">
+                Mind A Lot is built for the modern workforce: instant, anonymous, and effective. Because people don't wait for office hours to break down.
+              </p>
+              <p className="text-[#8a8a8a] text-[15px] leading-[1.65] max-w-[440px] font-normal">
+                Let's discuss how Mind A Lot can fit your organization's wellness strategy in just 15 minutes.
+              </p>
+            </div>
+
+            {/* CTA BUTTON */}
+            <div className="mt-[36px] flex justify-center lg:justify-start">
+              <button className="flex items-center gap-[8px] text-white text-[15px] font-medium bg-[#9a8070] pl-[26px] pr-[4px] py-[4px] rounded-[40px] hover:bg-[#856a59] transition shadow-sm">
+                <span className="tracking-[-0.01em]">Schedule A Demo</span>
+                <div className="w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center">
+                  <Image
+                    src={cardGraphic}
+                    alt="Arrow"
+                    className="w-[20px] h-[12px] rotate-[-45deg]"
+                  />
+                </div>
+              </button>
+            </div>
+          </div>
+
+          {/* RIGHT IMAGE SECTION */}
+          <div className="relative flex justify-center lg:justify-end items-start pt-[20px]">
+            <div className="relative" style={{ width: '540px', height: '400px' }}>
               
-              {/* Circular Overlay */}
-              <div className="absolute top-4 right-4 w-32 h-32 rounded-full bg-white/90 flex items-center justify-center p-4">
-                <p className="text-[#5C4837] font-nunito-sans font-bold text-xs text-center">
-                  YOUR MENTAL HEALTH
-                </p>
+              {/* FRAME 1 */}
+              <div
+                className="absolute rounded-[22px] z-[1] pointer-events-none"
+                style={{
+                  top: '-46px',
+                  left: '-46px',
+                  width: '586px',
+                  height: '446px',
+                  borderRadius: '22px',
+                  background: 'linear-gradient(180deg, rgba(199,183,169,0.3), rgba(199,183,169,0))',
+                  WebkitMask:
+                    'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  WebkitMaskComposite: 'xor',
+                  maskComposite: 'exclude',
+                  padding: '1px',
+                  border: '1px solid transparent',
+                }}
+              ></div>
+
+              {/* FRAME 2 */}
+              <div
+                className="absolute rounded-[20px] z-[2] pointer-events-none"
+                style={{
+                  top: '-28px',
+                  left: '-28px',
+                  width: '568px',
+                  height: '428px',
+                  borderRadius: '20px',
+                  background: 'linear-gradient(180deg, rgba(199,183,169,0.45), rgba(199,183,169,0))',
+                  WebkitMask:
+                    'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  WebkitMaskComposite: 'xor',
+                  maskComposite: 'exclude',
+                  padding: '1px',
+                  border: '1px solid transparent',
+                }}
+              ></div>
+
+              {/* FRAME 3 */}
+              <div
+                className="absolute rounded-[18px] z-[3] pointer-events-none"
+                style={{
+                  top: '-14px',
+                  left: '-14px',
+                  width: '554px',
+                  height: '414px',
+                  borderRadius: '18px',
+                  background: 'linear-gradient(180deg, rgba(199,183,169,0.55), rgba(199,183,169,0))',
+                  WebkitMask:
+                    'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  WebkitMaskComposite: 'xor',
+                  maskComposite: 'exclude',
+                  padding: '1px',
+                  border: '1px solid transparent',
+                }}
+              ></div>
+
+              {/* MAIN IMAGE */}
+              <div className="absolute top-0 left-0 w-[620px] h-[460px] -translate-x-[50px] rounded-[16px] overflow-hidden z-[10]">
+                <Image
+                  src={subtract}
+                  width={620}
+                  height={460}
+                  alt="Corporate group"
+                  className="w-full h-full object-contain bg-transparent"
+                />
               </div>
 
-              {/* Quote Card */}
-              <div className="absolute bottom-4 left-4 bg-white/95 rounded-lg p-4 shadow-lg max-w-xs">
-                <p className="text-[#5C4837] font-nunito-sans text-sm mb-2">
-                  Investing in mental wellness means investing in lasting success.
-                </p>
-                <svg className="w-5 h-5 text-[#B18972]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+              {/* CIRCULAR BADGE */}
+              <div
+                className="absolute rounded-full flex items-center justify-center z-[20] bg-white/50 backdrop-blur-[30px] border border-white/40 shadow-[0_8px_24px_rgba(92,71,55,0.12)]"
+                style={{
+                  top: '-34px',
+                  right: '-4px',
+                  width: '88px',
+                  height: '88px',
+                  WebkitBackdropFilter: 'blur(30px)',
+                }}
+              >
+                <Image
+                  src={mentalHealthIcon}
+                  width={44}
+                  height={44}
+                  alt="Your Mental Health"
+                  className="object-contain"
+                />
+              </div>
+
+              {/* QUOTE CARD */}
+              <div
+                className="absolute bg-[#f7f4f0] rounded-[11px] z-[30]"
+                style={{
+                  bottom: '-35px',
+                  left: '-156px',
+                  width: '300px',
+                  height: '126px',
+                  border: '1px solid rgba(227, 217, 210, 0.8)',
+                  boxShadow: '0 2px 12px rgba(92, 71, 55, 0.06)',
+                  padding: '16px 18px',
+                }}
+              >
+                <div className="flex flex-col h-full justify-between">
+                  <div className="flex justify-end">
+                    <Image
+                      src={cardExportCircle}
+                      width={28}
+                      height={28}
+                      alt="Decorative Icon"
+                      className="opacity-70"
+                      style={{ transform: 'rotate(160deg)' }}
+                    />
+                  </div>
+                  <p className="text-[15px] leading-[1.5] text-[#74726f] font-normal tracking-[-0.01em]">
+                    Investing in mental wellness means<br />investing in lasting success.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What we Offer Section */}
-      <section className="bg-white py-20">
-        <div className="container-page">
-          <h2 className="font-nunito-sans font-bold text-4xl sm:text-5xl text-[#5C4837] text-center mb-12">
+      {/* OFFER SECTION */}
+      <section className="w-full bg-[#FDFDFD] py-16 sm:py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3a2b20] text-left mb-10 sm:mb-14">
             What we Offer to Organizations?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {/* Card 1 */}
-            <div className="bg-[#FFFCF9] rounded-xl p-6 border border-[#B18972]/20">
-              <div className="w-12 h-12 rounded-lg bg-[#B18972] flex items-center justify-center mb-4">
-                <span className="text-white font-bold text-xl">24</span>
+          {/* GRID */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {[
+              {
+                icon: groupClipPath1,
+                title: "Always-available, chat-first",
+                text: "Get instant support anytime, even during late nights and weekends.",
+              },
+              {
+                icon: cardExportCircle,
+                title: "No stigma or exposure",
+                text: "Employees stay completely anonymous; counsellors never see personal or identifying details.",
+              },
+              {
+                icon: groupClipPath3,
+                title: "Global support network",
+                text: "Wherever your workforce is located, our professionals are available to help.",
+              },
+              {
+                icon: groupClipPath2,
+                title: "Smart goal nudges",
+                text: "Gentle reminders and insights designed to reduce burnout, boost focus, and improve sleep and mindset.",
+              },
+              {
+                icon: cardSecurity,
+                title: "Insightful, privacy-first reports",
+                text: "HR teams receive usage trends and well-being analytics without revealing individual identities.",
+              },
+            ].map((card, i) => (
+              <div
+                key={i}
+                className="p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]"
+              >
+                <div className="bg-[#FDFDFD] rounded-[15px] p-6 h-full">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 mb-3 sm:mb-4">
+                    <Image src={card.icon} width={40} height={40} alt={card.title} />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-semibold text-[#3a2b20] mb-2">
+                    {card.title}
+                  </h3>
+                  <p className="text-[#6d6d6f] text-sm leading-relaxed">{card.text}</p>
+                </div>
               </div>
-              <h3 className="font-nunito-sans font-bold text-xl text-[#5C4837] mb-2">
-                Always-available, chat-first
-              </h3>
-              <p className="font-nunito-sans text-[#5C4837]/80">
-                Get instant support anytime, even during late nights and weekends.
-              </p>
-            </div>
+            ))}
 
-            {/* Card 2 */}
-            <div className="bg-[#FFFCF9] rounded-xl p-6 border border-[#B18972]/20">
-              <div className="w-12 h-12 rounded-full bg-[#B18972] flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            {/* DARK CARD */}
+            <div className="relative p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]">
+              <div className="relative bg-[#5c4737] text-white rounded-[15px] p-6 flex items-center justify-center text-center h-full">
+                <div className="absolute top-3 right-3 flex flex-col gap-[6px]">
+                  <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
+                  <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
+                </div>
+                <p className="text-sm sm:text-base leading-relaxed">
+                  Well-being at work isn't a benefit, it's a strength!
+                </p>
               </div>
-              <h3 className="font-nunito-sans font-bold text-xl text-[#5C4837] mb-2">
-                No stigma or exposure
-              </h3>
-              <p className="font-nunito-sans text-[#5C4837]/80">
-                Employees stay completely anonymous; counsellors never see personal or identifying details.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-[#FFFCF9] rounded-xl p-6 border border-[#B18972]/20">
-              <div className="w-12 h-12 rounded-lg bg-[#B18972] flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="font-nunito-sans font-bold text-xl text-[#5C4837] mb-2">
-                Global support network
-              </h3>
-              <p className="font-nunito-sans text-[#5C4837]/80">
-                Wherever your workforce is located, our professionals are available to help.
-              </p>
-            </div>
-
-            {/* Card 4 */}
-            <div className="bg-[#FFFCF9] rounded-xl p-6 border border-[#B18972]/20">
-              <div className="w-12 h-12 rounded-lg bg-[#B18972] flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="font-nunito-sans font-bold text-xl text-[#5C4837] mb-2">
-                Smart goal nudges
-              </h3>
-              <p className="font-nunito-sans text-[#5C4837]/80">
-                Gentle reminders and insights designed to reduce burnout, boost focus, and improve sleep and mindset.
-              </p>
-            </div>
-
-            {/* Card 5 */}
-            <div className="bg-[#FFFCF9] rounded-xl p-6 border border-[#B18972]/20">
-              <div className="w-12 h-12 rounded-lg bg-[#B18972] flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="font-nunito-sans font-bold text-xl text-[#5C4837] mb-2">
-                Insightful, privacy-first reports
-              </h3>
-              <p className="font-nunito-sans text-[#5C4837]/80">
-                HR teams receive usage trends and well-being analytics without revealing individual identities.
-              </p>
-            </div>
-
-            {/* Card 6 - Special Card */}
-            <div className="bg-[#5C4837] rounded-xl p-6 text-white">
-              <p className="font-nunito-sans text-lg mb-6">
-                Well-being at work isn't a benefit, it's a strength — Request Corporate Deck now.
-              </p>
-              <button className="px-6 py-3 rounded-full bg-white hover:bg-white/90 text-[#5C4837] font-inter font-medium text-lg transition-colors flex items-center gap-2 w-full justify-center">
-                Request Corporate Deck
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA Section */}
-      <section className="bg-[#FFFCF9] py-20">
-        <div className="container-page text-center">
-          <h2 className="font-nunito-sans font-bold text-4xl sm:text-5xl text-[#5C4837] mb-6">
+      {/* FINAL CTA */}
+      <section className="bg-[#FDFDFD] py-16 sm:py-20 mt-10 px-6 text-center">
+        <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
             Let's Build a Healthier Workplace Together
           </h2>
-          <p className="font-nunito-sans text-lg leading-relaxed text-[#5C4837] mb-8 max-w-2xl mx-auto">
-            Partner with Mind A Lot to provide mental health support that your employees will actually use.
+          <p className="text-[#6d6d6f] text-sm sm:text-base max-w-2xl mx-auto">
+            Partner with Mind A Lot to provide mental health support that your employees will
+            actually use.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <button className="px-6 py-3 rounded-full bg-[#B18972] hover:bg-[#9a755f] text-white font-inter font-medium text-lg transition-colors flex items-center gap-2">
-              Book a 15-Min Call
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            {/* CTA 1 */}
+            <button className="flex items-center justify-between bg-[#967b6a] text-white pl-6 pr-2 py-4 rounded-full font-medium hover:bg-[#856a59] transition h-[56px] sm:h-[60px] w-full sm:w-auto">
+              <span className="mr-4 whitespace-nowrap">Book a 15-Min Call</span>
+              <div className="w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                <Image
+                  src={cardGraphic}
+                  alt="Arrow"
+                  className="w-[22px] sm:w-[26px] h-[12px] sm:h-[15px] rotate-[-45deg]"
+                />
+              </div>
             </button>
-            <button className="px-6 py-3 rounded-full bg-[#5C4837] hover:bg-[#4a392d] text-white font-inter font-medium text-lg transition-colors flex items-center gap-2">
-              Request Corporate Deck
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+
+            {/* CTA 2 */}
+            <button className="flex items-center justify-between bg-[#967b6a] text-white pl-6 pr-2 py-4 rounded-full font-medium hover:bg-[#856a59] transition h-[56px] sm:h-[60px] w-full sm:w-auto">
+              <span className="mr-4 whitespace-nowrap">Request Corporate Deck</span>
+              <div className="w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                <Image
+                  src={cardGraphic}
+                  alt="Arrow"
+                  className="w-[22px] sm:w-[26px] h-[12px] sm:w-[15px] rotate-[-45deg]"
+                />
+              </div>
             </button>
           </div>
         </div>
       </section>
-    </main>
+
+      <Footer />
+    </div>
   );
 }
-
