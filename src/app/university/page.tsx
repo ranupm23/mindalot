@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
+import Footer from "@/components/Footer";
 //Import Framer Motion
 import { motion } from "framer-motion";
 import { useState ,useEffect } from "react";
@@ -600,8 +601,7 @@ const [isMobile, setIsMobile] = useState(false);
     );
   };
 
-  // // ========= FOOTER SECTION ==========
-  // //if anyone need footer use this
+ 
   // const Footer = () => {
   //   return (
   //     <footer className="bg-[#E4D6CD] w-full flex flex-col justify-start items-start mt-[85px] py-8 relative">
@@ -727,6 +727,7 @@ const [isMobile, setIsMobile] = useState(false);
         <HeroSection />
         <OfferSection />
         <ConnectCampus />
+        <Footer/>
       </main>
     </>
   );
