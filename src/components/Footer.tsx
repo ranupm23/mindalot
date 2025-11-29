@@ -1,306 +1,127 @@
-import Image from "next/image";
 import Link from "next/link";
-import emailIcon from '@/assets/email.svg';
-import phoneIcon from '@/assets/phone.svg';
-import locationIcon from '@/assets/location.svg';
-import instagramIcon from '@/assets/instagram.svg';
-import linkedInIcon from '@/assets/linkedin.svg';
+import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io";
 
-export default function Footer() {
-  return (
-    <footer 
-      className="mt-20 font-inter"
-      style={{
-        width: '1440px',
-        height: '542px',
-        backgroundColor: '#E4D6CD',
-        border: '1px solid #BFBFBD',
-        marginLeft: '50%',
-        transform: 'translateX(-50%)',
-        boxSizing: 'border-box',
-        paddingTop: '60px',
-        paddingBottom: '40px',
-        paddingLeft: '86px',
-        paddingRight: '86px',
-        position: 'relative',
-        zIndex: 1,
-      }}
-    >
-      <div className="w-full h-full flex flex-col" style={{ position: 'relative', zIndex: 2 }}>
-        {/* Three Columns */}
-        <div className="grid md:grid-cols-3 gap-12 mb-12 flex-1">
-          {/* Left Column - MIND A LOT */}
-          <div style={{ position: 'relative', zIndex: 3 }}>
-            <h2 
-              className="mb-4"
-              style={{
-                width: '220px',
-                height: '42px',
-                fontFamily: 'var(--font-inter-sans)',
-                fontWeight: 700,
-                fontSize: '35px',
-                lineHeight: '100%',
-                letterSpacing: '5%',
-                color: '#5C4737',
-                display: 'flex',
-                alignItems: 'center',
-                position: 'relative',
-                zIndex: 3,
-              }}
-            >
-              MIND A LOT
-            </h2>
-            <p 
-              className="mb-6"
-              style={{
-                width: '299px',
-                height: '90px',
-                fontFamily: 'var(--font-inter-sans)',
-                fontWeight: 400,
-                fontSize: '16px',
-                lineHeight: '30px',
-                letterSpacing: '-0.03em',
-                color: '#755840',
-                opacity: 1,
-                position: 'relative',
-                zIndex: 3,
-              }}
-            >
-              Anonymous support that listens, nudges, and grows with you. When your mind feels too much, we're just a tap away.
-            </p>
-            <div className="flex gap-3">
-              <a href="#" aria-label="Instagram" className="hover:opacity-80 transition">
-                <Image src={instagramIcon} alt="Instagram" width={24} height={24} style={{ filter: 'brightness(0) saturate(100%) invert(23%) sepia(12%) saturate(1200%) hue-rotate(15deg) brightness(95%) contrast(85%)' }} />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="hover:opacity-80 transition">
-                <Image src={linkedInIcon} alt="LinkedIn" width={24} height={24} style={{ filter: 'brightness(0) saturate(100%) invert(23%) sepia(12%) saturate(1200%) hue-rotate(15deg) brightness(95%) contrast(85%)' }} />
-              </a>
-              <a href="#" aria-label="YouTube" className="hover:opacity-80 transition">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#5C4737"/>
-                </svg>
-              </a>
+  const Footer = () => {
+    return (
+      <footer className="bg-[#E4D6CD] w-full flex flex-col justify-start items-start mt-[85px] py-8 relative">
+        <div className="w-full px-[30px] sm:px-[50px] md:px-[70px] lg:px-[86px]">
+          {/* ===== Main Footer Row (No motion added here as it's typically static) ===== */}
+          <div className="flex flex-col lg:flex-row justify-start lg:items-start items-center w-full gap-[40px] lg:gap-[0px]">
+            {/* ===== Left Section ===== */}
+            <div className="flex flex-col text-center lg:text-left mt-[13px]">
+              <h2 className="font-inter font-bold text-[28px] md:text-[35px] leading-[100%] tracking-[0.05em] text-[#5C4737] mb-4">
+                MIND A LOT
+              </h2>
+              <p className="font-inter font-normal text-[14px] md:text-[16px] leading-[28px] tracking-[-0.03em] text-[#755840] max-w-[450px] mx-auto lg:mx-0">
+                Anonymous support that listens, nudges ,<br />
+                and grow with you , When your mind feels too much, we're just a
+                tap away.
+              </p>
             </div>
-          </div>
 
-          {/* Middle Column - Company */}
-          <div style={{ position: 'relative', zIndex: 3 }}>
-            <h2 
-              className="mb-5"
-              style={{
-                width: '88px',
-                height: '24px',
-                fontFamily: 'var(--font-inter-sans)',
-                fontWeight: 500,
-                fontSize: '20px',
-                lineHeight: '100%',
-                letterSpacing: '-0.03em',
-                color: '#5C4737',
-                opacity: 1,
-                position: 'relative',
-                zIndex: 3,
-              }}
-            >
-              Company
-            </h2>
-            <div className="flex flex-col gap-4" style={{ position: 'relative', zIndex: 3 }}>
-              <Link 
-                href="#features" 
-                style={{
-                  width: '63px',
-                  height: '19px',
-                  fontFamily: 'var(--font-inter-sans)',
-                  fontWeight: 400,
-                  fontSize: '16px',
-                  lineHeight: '100%',
-                  letterSpacing: '-0.03em',
-                  color: '#755840',
-                  textDecoration: 'none',
-                  opacity: 1,
-                  position: 'relative',
-                  zIndex: 3,
-                }}
-                className="hover:opacity-80 transition"
-              >
+            {/* ===== Company Section ===== */}
+            <div className="lg:ml-[152px] mt-[20px] lg:mt-[10px] flex flex-col text-center lg:text-left space-y-[10px] md:space-y-[16px]">
+              <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737]">
+                Company
+              </h3>
+              <Link href="/features" className={footerLink}>
                 Features
               </Link>
-              <Link 
-                href="#contact" 
-                style={{
-                  width: '82px',
-                  height: '19px',
-                  fontFamily: 'var(--font-inter-sans)',
-                  fontWeight: 400,
-                  fontSize: '16px',
-                  lineHeight: '100%',
-                  letterSpacing: '-0.03em',
-                  color: '#755840',
-                  textDecoration: 'none',
-                  opacity: 1,
-                  position: 'relative',
-                  zIndex: 3,
-                }}
-                className="hover:opacity-80 transition"
-              >
+              <Link href="/contact" className={footerLink}>
                 Contact Us
               </Link>
-              <Link 
-                href="#resources" 
-                style={{
-                  fontFamily: 'var(--font-inter-sans)',
-                  fontWeight: 400,
-                  fontSize: '16px',
-                  lineHeight: '100%',
-                  letterSpacing: '-3%',
-                  color: '#5C4737',
-                  textDecoration: 'none',
-                  position: 'relative',
-                  zIndex: 3,
-                }}
-                className="hover:opacity-80 transition"
-              >
+              <Link href="/resources" className={footerLink}>
                 Resources
               </Link>
             </div>
-          </div>
 
-          {/* Right Column - Contact */}
-          <div style={{ position: 'relative', zIndex: 3 }}>
-            <h2 
-              className="mb-5"
-              style={{
-                fontFamily: 'var(--font-inter-sans)',
-                fontWeight: 500,
-                fontSize: '20px',
-                lineHeight: '100%',
-                letterSpacing: '-3%',
-                color: '#5C4737',
-                position: 'relative',
-                zIndex: 3,
-              }}
-            >
-              Contact
-            </h2>
-            <div className="flex flex-col gap-4" style={{ position: 'relative', zIndex: 3 }}>
-              <div className="flex items-start" style={{ gap: '5px', position: 'relative', zIndex: 3 }}>
-                <Image src={emailIcon} alt="email" width={20} height={20} className="mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(23%) sepia(12%) saturate(1200%) hue-rotate(15deg) brightness(95%) contrast(85%)' }} />
-                <span 
-                  style={{
-                    fontFamily: 'var(--font-inter-sans)',
-                    fontWeight: 400,
-                    fontSize: '16px',
-                    lineHeight: '24px',
-                    letterSpacing: '-3%',
-                    color: '#5C4737',
-                    position: 'relative',
-                    zIndex: 3,
-                  }}
-                >
-                  info@mindalot.care
-                </span>
+            {/* ===== Contact Section ===== */}
+            <div className="lg:ml-[140px] mt-[20px] lg:mt-[10px] flex flex-col text-center lg:text-left space-y-[12px] md:space-y-[16px]">
+              <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737]">
+                Contact
+              </h3>
+              <div className="flex justify-center lg:justify-start items-center gap-[5px]">
+                <Mail size={16} className="text-[#755840]" />
+                <span className={footerText}>hello@mindalot.com</span>
               </div>
-              <div className="flex items-start" style={{ gap: '5px', position: 'relative', zIndex: 3 }}>
-                <Image src={phoneIcon} alt="phone" width={20} height={20} className="mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(23%) sepia(12%) saturate(1200%) hue-rotate(15deg) brightness(95%) contrast(85%)' }} />
-                <span 
-                  style={{
-                    fontFamily: 'var(--font-inter-sans)',
-                    fontWeight: 400,
-                    fontSize: '16px',
-                    lineHeight: '24px',
-                    letterSpacing: '-3%',
-                    color: '#5C4737',
-                    position: 'relative',
-                    zIndex: 3,
-                  }}
-                >
-                  +91-96062-58596
-                </span>
+              <div className="flex justify-center lg:justify-start items-center gap-[5px]">
+                <Phone size={16} className="text-[#755840]" />
+                <span className={footerText}>+91-96062-58596</span>
               </div>
-              <div className="flex items-start" style={{ gap: '5px', position: 'relative', zIndex: 3 }}>
-                <Image src={locationIcon} alt="location" width={20} height={20} className="mt-1 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(23%) sepia(12%) saturate(1200%) hue-rotate(15deg) brightness(95%) contrast(85%)' }} />
-                <span 
-                  style={{
-                    fontFamily: 'var(--font-inter-sans)',
-                    fontWeight: 400,
-                    fontSize: '16px',
-                    lineHeight: '24px',
-                    letterSpacing: '-3%',
-                    color: '#5C4737',
-                    position: 'relative',
-                    zIndex: 3,
-                  }}
-                >
-                  #122K, 1st block, 14th cross, 19th 'B' Main, Rajajinagar, Bengaluru - 560010
-                </span>
+              <div className="flex justify-center lg:justify-start items-center gap-[5px]">
+                <MapPin size={16} className="text-[#755840] min-w-[16px] mt-[-4px]" />
+                <p className={`${footerText} max-w-[323px]`}>
+                  #122K, 1st block, 14th cross, 19th 'B' Main, Rajajinagar,
+                  Bengaluru - 560010
+                </p>
+              </div>
+            </div>
+
+            {/* ===== Follow Us Section ===== */}
+            <div className="lg:ml-[140px] mt-[20px] lg:mt-[10px] flex flex-col items-center lg:items-start">
+              <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737] mb-[16px] whitespace-nowrap">
+                Follow us on
+              </h3>
+              <div className="flex items-center justify-center lg:justify-start gap-[15px]">
+                <Link href="https://instagram.com" target="_blank">
+                  <Instagram size={24} className={iconHover} />
+                </Link>
+                <Link href="https://linkedin.com" target="_blank">
+                  <FaLinkedin size={24} className={iconHover} />
+                </Link>
+                 <Link href="https://youtube.com" target="_blank">
+                  <IoLogoYoutube size={24} className={iconHover} />
+                </Link>
               </div>
             </div>
           </div>
+
+          {/* ===== Divider Line ===== */}
+          <div className="border-t border-[#00000080] mt-[60px]" />
         </div>
 
-        {/* Border Line */}
-        <div 
-          style={{
-            width: '1268px',
-            height: '0px',
-            borderTop: '1px solid rgba(0, 0, 0, 0.5)',
-            marginBottom: '20px',
-          }}
-        />
-
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4" style={{ position: 'relative', zIndex: 3 }}>
-          <div className="flex items-center gap-4" style={{ position: 'relative', zIndex: 3 }}>
-            <span 
-              style={{
-                fontFamily: 'var(--font-inter-sans)',
-                fontWeight: 500,
-                fontSize: '20px',
-                lineHeight: '100%',
-                letterSpacing: '-3%',
-                color: '#5C4737',
-                position: 'relative',
-                zIndex: 3,
-              }}
-            >
-              Follow us on
-            </span>
-            <div className="flex gap-3">
-              <a href="#" aria-label="Instagram" className="hover:opacity-80 transition">
-                <Image src={instagramIcon} alt="Instagram" width={24} height={24} style={{ filter: 'brightness(0) saturate(100%) invert(23%) sepia(12%) saturate(1200%) hue-rotate(15deg) brightness(95%) contrast(85%)' }} />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="hover:opacity-80 transition">
-                <Image src={linkedInIcon} alt="LinkedIn" width={24} height={24} style={{ filter: 'brightness(0) saturate(100%) invert(23%) sepia(12%) saturate(1200%) hue-rotate(15deg) brightness(95%) contrast(85%)' }} />
-              </a>
-              <a href="#" aria-label="YouTube" className="hover:opacity-80 transition">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#5C4737"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div 
-            className="flex items-center gap-2"
-            style={{
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 400,
-              fontSize: '16px',
-              lineHeight: '100%',
-              letterSpacing: '-3%',
-              color: '#5C4737',
-              position: 'relative',
-              zIndex: 3,
-            }}
+        {/* ===== Terms + Privacy (Below Divider) ===== */}
+        <div className="w-full px-[30px] sm:px-[50px] md:px-[70px] lg:px-[86px]">
+          <div
+            className="flex items-center justify-center lg:justify-end gap-[40px] mt-[30px] pb-4"
           >
-            <Link href="#terms" className="hover:opacity-80 transition" style={{ textDecoration: 'none', position: 'relative', zIndex: 3 }}>
-              Terms & Conditions
-            </Link>
-            <span style={{ position: 'relative', zIndex: 3 }}>•</span>
-            <Link href="#privacy" className="hover:opacity-80 transition" style={{ textDecoration: 'none', position: 'relative', zIndex: 3 }}>
-              Privacy Policy
-            </Link>
+            {/* ===== Terms + Dot ===== */}
+            <div className="flex items-center gap-[6px]">
+              <div className="w-[5px] h-[5px] rounded-full bg-[#000000]" />
+              <Link
+                href="/terms"
+                className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#5C4737] transition-colors"
+              >
+                Terms & Conditions
+              </Link>
+            </div>
+
+            {/* ===== Privacy + Dot ===== */}
+            <div className="flex items-center gap-[6px]">
+              <div className="w-[5px] h-[5px] rounded-full bg-[#000000]" />
+              <Link
+                href="/privacy"
+                className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#5C4737] transition-colors"
+              >
+                Privacy Policy
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
-  );
-}
+      </footer>
+    );
+  };
+
+  // Tailwind helper classes
+  const footerLink =
+    "font-inter font-normal text-[14px] md:text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#5C4737] transition-colors";
+  const footerText =
+    "font-inter font-normal text-[14px] md:text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840]";
+  const iconHover =
+    "text-[#5C4737] hover:text-[#755840] transition-colors cursor-pointer";
+
+
+
+    export default Footer;
