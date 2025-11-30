@@ -1,7 +1,5 @@
 "use client";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
@@ -33,6 +31,7 @@ import Dashboard from "@/assets/universityPage/dashboard.png";
 import Global from "@/assets/universityPage/global.png";
 import Custom from "@/assets/universityPage/custom.png";
 import Regulator from "@/assets/universityPage/Regulatory.png";
+import arrow from "@/assets/arrow.svg";
 
 export default function University() {
 const [isMobile, setIsMobile] = useState(false);
@@ -172,39 +171,12 @@ const [isMobile, setIsMobile] = useState(false);
           </motion.div>
 
           {/* CTA BUTTON */}
-          <motion.button
-            className="
-              group relative mt-[40px] w-[225px] h-[60px] bg-[#BE9B84]
-              rounded-[43px] flex items-center justify-start pl-[24px] pr-[24px]
-              text-white font-inter font-medium text-[16px] tracking-[-0.03em]
-              transition-all duration-300 ease-in-out
-              hover:bg-[#967B6A] hover:-translate-y-[3px] hover:shadow-lg
-              cursor-pointer
-            "
-            variants={ctaButtonVariants}
-            initial="initial"
-            animate="animate"
-            whileHover="hover"
-          >
-            Schedule a Demo
-            <div
-              className="
-                absolute right-[10px] top-[5px] w-[50px] h-[50px] bg-white
-                rounded-full flex items-center justify-center
-                transition-transform duration-300 ease-in-out
-                group-hover:translate-x-[5px]
-              "
-            >
-              <ArrowRight
-                className="
-                  w-[24px] h-[24px] text-[#967B6A]
-                  transition-transform duration-300 ease-in-out
-                  group-hover:-rotate-45
-                "
-                strokeWidth={2.5}
-              />
-            </div>
-          </motion.button>
+             <button className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 mt-5 p-[5px] flex justify-between items-center rounded-full'>
+                              Schedule a Demo
+                              <div className='w-[50px] h-[50px] ml-[15px] rounded-full bg-white flex justify-center items-center'>
+                                  <Image src={arrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 transition-all' />
+                              </div>
+              </button>
         </motion.div>
 
         {/* ===== RIGHT SIDE ELEMENTS ===== */}
@@ -293,7 +265,7 @@ const [isMobile, setIsMobile] = useState(false);
               flex items-center justify-center
             "
           >
-            <ArrowRight
+            <image src= {arrow} alt="home-bt"
               className="w-[18px] h-[18px] text-[#755840] rotate-[120deg]"
               strokeWidth={1.5}
             />
@@ -336,8 +308,8 @@ const [isMobile, setIsMobile] = useState(false);
     const offers = [
       {
         icon: of1,
-        iconW: "56.25px",
-        iconH: "62.46px",
+        iconW: "50.25px",
+        iconH: "60.46px",
         title: "24/7 Anonymous Access",
         description: "Real counselling with no ID or booking needed, ensuring complete privacy and immediate support.",
       },
@@ -423,7 +395,7 @@ const [isMobile, setIsMobile] = useState(false);
                      borderImage: "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%) 1",
                    }}
               ></div>
-              <div className="absolute top-[20px] left-[20px] w-[75px] h-[75px]">
+              <div className="absolute top-[20px] left-[20px] w-[50px] h-[50px]">
                 <Image
                   src={offer.icon}
                   alt="offer icon"
@@ -468,7 +440,7 @@ const [isMobile, setIsMobile] = useState(false);
                    }}
               ></div>
               {/* Icon (Re-added based on the data structure and original intent) */}
-              <div className="absolute top-[20px] left-[20px] w-[75px] h-[75px]">
+              <div className="absolute top-[20px] left-[20px] w-[50px] h-[50px]">
                 <Image
                   src={offer.icon}
                   alt="offer icon"
@@ -547,80 +519,75 @@ const [isMobile, setIsMobile] = useState(false);
         </motion.p>
 
         {/* Buttons Section */}
-        <motion.div
-          className="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 w-full px-4 md:px-0 justify-center"
-          variants={containerVariants}
-        >
-          {/* Schedule a Demo Button */}
-          <motion.button
-            className="
-              group relative w-full md:w-[225px] h-[60px] bg-[#BE9B84]
-              rounded-[43px] flex items-center justify-start pl-[24px] pr-[24px]
-              text-white font-inter font-medium text-[16px] tracking-[-0.03em]
-              transition-all duration-300 ease-in-out
-              hover:bg-[#967B6A] hover:-translate-y-[3px] hover:shadow-lg
-              cursor-pointer
-            "
-            variants={ctaButtonVariants}
-            initial="initial"
-            animate="animate"
-            whileHover="hover"
-          >
-            Schedule a Demo
-            <div
-              className="
-                absolute right-[10px] top-[5px] w-[50px] h-[50px] bg-white
-                rounded-full flex items-center justify-center
-                transition-transform duration-300 ease-in-out
-                group-hover:translate-x-[5px]
-              "
-            >
-              <ArrowRight
-                className="
-                  w-[24px] h-[24px] text-[#967B6A]
-                  transition-transform duration-300 ease-in-out
-                  group-hover:-rotate-45
-                "
-                strokeWidth={2.5}
-              />
-            </div>
-          </motion.button>
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 w-full px-4 md:px-0 justify-center">
 
-          {/* Download University Partnership Kit Button */}
-          <motion.button
-            className="
-              group relative w-full md:w-[360px] h-[60px] bg-[#BE9B84]
-              rounded-[43px] flex items-center justify-start pl-[16px] sm:pl-[20px] md:pl-[24px] pr-[65px] sm:pr-[70px] md:pr-[24px]
-              text-white font-inter font-medium text-[14px] sm:text-[13px] md:text-[16px] tracking-[-0.03em]
-              transition-all duration-300 ease-in-out
-              hover:bg-[#967B6A] hover:-translate-y-[3px] hover:shadow-lg
-              cursor-pointer overflow-hidden
-            "
-            variants={ctaButtonVariants}
-            initial="initial"
-            animate="animate"
-            whileHover="hover"
-          >
-            <span className="whitespace-nowrap truncate text-ellipsis">Download University Partnership Kit</span>
-            <div
-              className="
-                absolute right-[8px] sm:right-[10px] top-[5px] w-[50px] h-[50px] bg-white
-                rounded-full flex items-center justify-center
-                transition-transform duration-300 ease-in-out
-                group-hover:translate-x-[5px] flex-shrink-0 z-10
-              "
-            >
-              <ArrowRight
-                className="
-                  w-[24px] h-[24px] text-[#967B6A]
-                  transition-transform duration-300 ease-in-out
-                  group-hover:-rotate-45
-                "
-                strokeWidth={2.5}
-              />
-            </div>
-          </motion.button>
-        </motion.div>
+  {/* Schedule a Demo Button */}
+  <button
+    className="
+      group relative w-full md:w-[225px] h-[60px] 
+      bg-[#967B6A] hover:bg-[#BE9B84]
+      rounded-[43px] flex items-center justify-start 
+      pl-[24px]
+      text-white font-inter font-medium text-[16px] tracking-[-0.03em]
+      transition-all cursor-pointer
+    "
+  >
+    Schedule a Demo
+
+    <div
+      className="
+        absolute top-[5px] right-[6px]   /* <-- Perfect like reference */
+        w-[50px] h-[50px] bg-white
+        rounded-full flex items-center justify-center
+        transition-all
+      "
+    >
+      <Image
+        src={arrow}
+        alt="arrow"
+        width={18}
+        height={18}
+        className="transition-all group-hover:rotate-45"
+      />
+    </div>
+  </button>
+
+
+  {/* Download University Partnership Kit Button */}
+  <button
+    className="
+      group relative w-full md:w-[360px] h-[60px] 
+      bg-[#967B6A] hover:bg-[#BE9B84]
+      rounded-[43px] flex items-center justify-start 
+      pl-[24px]
+      text-white font-inter font-medium text-[16px] tracking-[-0.03em]
+      transition-all cursor-pointer overflow-hidden
+    "
+  >
+    <span className="whitespace-nowrap truncate">
+      Download University Partnership Kit
+    </span>
+
+    <div
+      className="
+        absolute top-[5px] right-[6px]  /* <-- Reference spacing */
+        w-[50px] h-[50px] bg-white
+        rounded-full flex items-center justify-center
+        transition-all
+      "
+    >
+      <Image
+        src={arrow}
+        alt="arrow"
+        width={18}
+        height={18}
+        className="transition-all group-hover:rotate-45"
+      />
+    </div>
+  </button>
+
+</div>
+
       </motion.section>
     );
   };
