@@ -265,9 +265,9 @@ const [isMobile, setIsMobile] = useState(false);
               flex items-center justify-center
             "
           >
-            <image src= {arrow} alt="home-bt"
-              className="w-[18px] h-[18px] text-[#755840] rotate-[120deg]"
-              strokeWidth={1.5}
+            <Image src= {arrow} alt="home-bt"
+              className="w-[18px] h-[18px] text-[#755840] rotate-[170deg]"
+             
             />
           </div>
         </motion.div>
@@ -307,9 +307,11 @@ const [isMobile, setIsMobile] = useState(false);
     // Array of offer data for mapping (improving readability and reusability)
     const offers = [
       {
+
+
         icon: of1,
-        iconW: "50.25px",
-        iconH: "60.46px",
+        iconW: "37.5px",
+        iconH: "41px",
         title: "24/7 Anonymous Access",
         description: "Real counselling with no ID or booking needed, ensuring complete privacy and immediate support.",
       },
