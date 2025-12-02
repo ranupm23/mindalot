@@ -1,16 +1,20 @@
 import Image from "next/image";
-
+import Footer from "../components/Footer";
 export default function Home() {
   return (
-    <main style={{ overflowX: 'auto', backgroundColor: '#FDFDFD' }}>
+    <main style={{ backgroundColor: '#FDFDFD', overflow: 'hidden' }}>
       <div
         style={{
-          width: '1440px',
+          width: '100%',
+          maxWidth: '1440px',
           height: '5567px',
           marginLeft: 'auto',
           marginRight: 'auto',
           position: 'relative',
           backgroundColor: '#FDFDFD',
+          paddingRight: '20px',
+          paddingLeft: '20px',
+          boxSizing: 'border-box',
         }}
       >
         <div
@@ -3002,7 +3006,11 @@ export default function Home() {
             transform: 'rotate(0deg)',
             zIndex: 1,
           }}
-        />
+        >
+          <br></br>
+          <br></br>
+        <Footer/>
+        </div>
       </div>
     </main>
   );
