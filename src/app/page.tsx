@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Footer from "../components/Footer";
+import Link from "next/link";
+import arrow from "../assets/arrow.svg";
+
 export default function Home() {
   return (
     <main style={{ backgroundColor: '#FDFDFD', overflow: 'hidden' }}>
@@ -126,8 +129,12 @@ export default function Home() {
           No bookings, No waiting, No judgement. Just real help, right when you need it.
         </p>
         
-        {/* Start Chat Now Button */}
-        <button
+        {/* Start Chat Now Button (links to YouTube) */}
+        <a
+          href="https://discord.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-btn group"
           style={{
             position: 'absolute',
             top: '498px',
@@ -140,6 +147,8 @@ export default function Home() {
             cursor: 'pointer',
             paddingLeft: '24px',
             paddingRight: '24px',
+            display: 'block',
+            textDecoration: 'none',
           }}
         >
           <span
@@ -178,29 +187,23 @@ export default function Home() {
               justifyContent: 'center',
             }}
           >
-            {/* Arrow */}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                transform: 'rotate(-45deg)',
-              }}
-            >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="#967B6A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            {/* Arrow Image */}
+            <Image
+              src={arrow}
+              alt="arrow"
+              width={18}
+              height={18}
+              className='m-auto group-hover:rotate-45 transition-all'
+            />
           </div>
-        </button>
+        </a>
         
-        {/* Download the App Button */}
-        <button
+        {/* Download the App Button (links to YouTube) */}
+        <a
+          href="https://play.google.com/store/games"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-btn group"
           style={{
             position: 'absolute',
             top: '498px',
@@ -211,6 +214,8 @@ export default function Home() {
             borderRadius: '30px',
             border: 'none',
             cursor: 'pointer',
+            display: 'block',
+            textDecoration: 'none',
           }}
         >
           <span
@@ -249,26 +254,16 @@ export default function Home() {
               justifyContent: 'center',
             }}
           >
-            {/* Arrow */}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                transform: 'rotate(-45deg)',
-              }}
-            >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="#967B6A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            {/* Arrow Image */}
+            <Image
+              src={arrow}
+              alt="arrow"
+              width={18}
+              height={18}
+              className='m-auto group-hover:rotate-45 transition-all'
+            />
             </div>
-        </button>
+        </a>
         
         {/* Your safe space text */}
         <p
@@ -2773,8 +2768,12 @@ export default function Home() {
           Start talking. Stay anonymous. Feel lighter. Because your mind matters a lot.
         </p>
         
-        {/* Rectangle 1 - Download App */}
-        <div
+        {/* Rectangle 1 - Download App (links to YouTube) */}
+        <a
+          href="https://play.google.com/store/games"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-btn group"
           style={{
             position: 'absolute',
             top: '5012px',
@@ -2786,6 +2785,8 @@ export default function Home() {
             opacity: 1,
             transform: 'rotate(0deg)',
             zIndex: 11,
+            display: 'block',
+            textDecoration: 'none',
           }}
         >
           <span
@@ -2825,29 +2826,23 @@ export default function Home() {
               justifyContent: 'center',
             }}
           >
-            {/* Arrow */}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                transform: 'rotate(-45deg)',
-              }}
-            >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="#967B6A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            {/* Arrow Image */}
+            <Image
+              src={arrow}
+              alt="arrow"
+              width={18}
+              height={18}
+              className='m-auto group-hover:rotate-45 transition-all'
+            />
           </div>
-        </div>
+        </a>
         
-        {/* Rectangle 2 */}
-        <div
+        {/* Rectangle 2 - Partner With Us (links to YouTube) */}
+        <a
+          href="https://discord.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-btn group"
           style={{
             position: 'absolute',
             top: '5012px',
@@ -2859,6 +2854,8 @@ export default function Home() {
             opacity: 1,
             transform: 'rotate(0deg)',
             zIndex: 11,
+            display: 'block',
+            textDecoration: 'none',
           }}
         >
           <span
@@ -2898,29 +2895,23 @@ export default function Home() {
               justifyContent: 'center',
             }}
           >
-            {/* Arrow */}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                transform: 'rotate(-45deg)',
-              }}
-            >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="#967B6A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            {/* Arrow Image */}
+            <Image
+              src={arrow}
+              alt="arrow"
+              width={18}
+              height={18}
+              className='m-auto group-hover:rotate-45 transition-all'
+            />
           </div>
-        </div>
+        </a>
         
-        {/* Rectangle 3 */}
-        <div
+        {/* Rectangle 3 - Talk To Our Team (links to YouTube) */}
+        <a
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-btn group"
           style={{
             position: 'absolute',
             top: '5012px',
@@ -2932,6 +2923,8 @@ export default function Home() {
             opacity: 1,
             transform: 'rotate(0deg)',
             zIndex: 11,
+            display: 'block',
+            textDecoration: 'none',
           }}
         >
           <span
@@ -2971,26 +2964,16 @@ export default function Home() {
               justifyContent: 'center',
             }}
           >
-            {/* Arrow */}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                transform: 'rotate(-45deg)',
-              }}
-            >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="#967B6A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            {/* Arrow Image */}
+            <Image
+              src={arrow}
+              alt="arrow"
+              width={18}
+              height={18}
+              className='m-auto group-hover:rotate-45 transition-all'
+            />
           </div>
-        </div>
+        </a>
         
         {/* Footer Rectangle */}
         <div

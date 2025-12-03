@@ -63,7 +63,7 @@ export default function Header() {
 
         {/* Chat Now Button */}
         <Link
-          href="/chat"
+          href="https://www.instagram.com/"
           className="
             bg-[#967B6A]
             text-white
