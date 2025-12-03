@@ -78,15 +78,22 @@ const OurResourcesSection = () => {
 }
 
 const ResourceCard = ({ btnLabel, img, btnIcon, rotateIconOnHover = true }: { btnLabel: string, img: StaticImageData, btnIcon: StaticImageData, rotateIconOnHover?: boolean }) => {
+    const links: { [key: string]: string } = {
+        'Listen Audio': 'https://www.google.com/',
+        'Watch Video': 'https://www.microsoft.com/',
+        'Read more': 'https://www.apple.com/',
+        'Start Quiz': 'https://www.amazon.com/'
+    };
+    
     return (
         <div className='relative mx-auto'>
             <Image src={img} alt="meditate" height={350} className='rounded-[20px] max-h-[350px] mx-auto' />
-            <button className='bg-[#967B6A] hover:bg-[#BE9B84] group w-[30%] absolute bottom-0 right-0 cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full text-xs sm:text-sm xl:text-base'>
+            <a href={links[btnLabel]} target="_blank" rel="noopener noreferrer" className='bg-[#967B6A] hover:bg-[#BE9B84] group w-[30%] absolute bottom-0 right-0 cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full text-xs sm:text-sm xl:text-base inline-flex'>
                 {btnLabel}
                 <div className={`w-[30px] h-[30px] sm:w-10 sm:h-10 xl:w-[50px] xl:h-[50px] ml-[5px] lg:ml-[15px] rounded-full bg-white flex justify-center items-center`}>
                     <Image src={btnIcon} alt="arrow" width={18} height={18} className={`m-auto w-3 h-3 sm:w-[18px] sm:h-[18px] ${rotateIconOnHover ? 'group-hover:rotate-45' : ''} transition-all`} />
                 </div>
-            </button>
+            </a>
         </div>
     )
 }
@@ -139,18 +146,18 @@ const AccessMoreResourceSection = () => {
             <p className='text-sm md:text-base xl:text-lg font-medium mt-4 mb-[30px] text-center'>Download the Mind A Lot app to access our complete library of mental health resources, tools, and professional content.</p>
             <div className='flex flex-col sm:flex-row justify-center gap-5 items-center relative'>
                 <div className='w-[250px] h-[250px] rounded-full absolute top-full left-1/2 bg-[#BE9B84] -translate-x-1/2 -translate-y-[15%] blur-[130px] -z-50'></div>
-                <button className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full'>
+                <a href='https://www.ibm.com/' target='_blank' rel='noopener noreferrer' className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full inline-flex'>
                     View all resources
                     <div className='w-[50px] h-[50px] ml-[15px] rounded-full bg-white flex justify-center items-center'>
                         <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 transition-all' />
                     </div>
-                </button>
-                <button className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full'>
+                </a>
+                <a href='https://www.meta.com/' target='_blank' rel='noopener noreferrer' className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full inline-flex'>
                     Download free tools
                     <div className='w-[50px] h-[50px] ml-[11px] rounded-full bg-white flex justify-center items-center'>
                         <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 transition-all' />
                     </div>
-                </button>
+                </a>
             </div>
         </div>
     )

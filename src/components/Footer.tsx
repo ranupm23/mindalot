@@ -91,7 +91,7 @@ import { IoLogoYoutube } from "react-icons/io";
             <div className="flex items-center gap-[6px]">
               <div className="w-[5px] h-[5px] rounded-full bg-[#000000]" />
               <Link
-                href="/terms"
+                href="https://en.wikipedia.org/wiki/Terms_of_service"
                 className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#5C4737] transition-colors"
               >
                 Terms & Conditions
@@ -102,7 +102,7 @@ import { IoLogoYoutube } from "react-icons/io";
             <div className="flex items-center gap-[6px]">
               <div className="w-[5px] h-[5px] rounded-full bg-[#000000]" />
               <Link
-                href="/privacy"
+                href="https://policies.google.com/privacy?hl=en-US"
                 className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#5C4737] transition-colors"
               >
                 Privacy Policy

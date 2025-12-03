@@ -86,3 +86,29 @@ body {
     width:300px;
   }
 }
+
+/* CTA button animation that matches university page hover behaviour */
+.cta-btn {
+  display: inline-block;
+  transition: transform 180ms cubic-bezier(.2,.9,.2,1), box-shadow 180ms ease;
+  will-change: transform;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cta-btn:active {
+  transform: translateY(-1px) scale(0.99);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+/* Match university button hover: change background and rotate inner arrow */
+.cta-btn:hover {
+  background-color: #BE9B84 !important;
+}
+.rotate-on-hover {
+  display: inline-block;
+  transform: rotate(0deg);
+  transition: transform 180ms cubic-bezier(.2,.9,.2,1);
+}
+.cta-btn:hover .rotate-on-hover {
+  transform: rotate(45deg);
+}
