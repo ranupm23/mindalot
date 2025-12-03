@@ -77,3 +77,12 @@ body {
     );
   z-index: 0;
 }
+@media screen and (max-width:764px){
+
+  .hero-section{
+    margin-top:3rem;
+  }
+  .final{
+    width:300px;
+  }
+}
