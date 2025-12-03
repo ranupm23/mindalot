@@ -50,19 +50,20 @@ export default function CorporatePage() {
             </div>
 
             {/* CTA BUTTON */}
-            <div className="mt-[36px] flex justify-center lg:justify-start">
-              <button className="flex items-center gap-[8px] text-white text-[15px] font-medium bg-[#9a8070] pl-[26px] pr-[4px] py-[4px] rounded-[40px] hover:bg-[#856a59] transition shadow-sm">
-                <span className="tracking-[-0.01em]">Schedule A Demo</span>
-                <div className="w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center">
-                  <Image
-                    src={cardGraphic}
-                    alt="Arrow"
-                    className="w-[20px] h-[12px] rotate-[-45deg]"
-                  />
-                </div>
-              </button>
-            </div>
-          </div>
+<div className="mt-[36px] flex justify-center lg:justify-start">
+  <Link href="/" className="flex items-center gap-[8px] text-white text-[15px] font-medium bg-[#9a8070] pl-[26px] pr-[4px] py-[4px] rounded-[40px] hover:bg-[#856a59] transition shadow-sm">
+    <span className="tracking-[-0.01em]">Schedule A Demo</span>
+    <div className="w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center">
+      <Image
+        src={cardGraphic}
+        alt="Arrow"
+        className="w-[20px] h-[12px] rotate-[-45deg]"
+      />
+    </div>
+  </Link>
+  </div>
+</div>
+
 
           {/* RIGHT IMAGE SECTION */}
           <div className="relative flex justify-center lg:justify-end items-start pt-[20px]">
@@ -271,28 +272,37 @@ export default function CorporatePage() {
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             {/* CTA 1 */}
-            <button className="flex items-center justify-between bg-[#967b6a] text-white pl-6 pr-2 py-4 rounded-full font-medium hover:bg-[#856a59] transition h-[56px] sm:h-[60px] w-full sm:w-auto">
-              <span className="mr-4 whitespace-nowrap">Book a 15-Min Call</span>
-              <div className="w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                <Image
-                  src={cardGraphic}
-                  alt="Arrow"
-                  className="w-[22px] sm:w-[26px] h-[12px] sm:h-[15px] rotate-[-45deg]"
-                />
-              </div>
-            </button>
+         <Link
+  href="/"
+  className="flex items-center justify-between bg-[#967b6a] text-white pl-6 pr-2 py-4 rounded-full font-medium hover:bg-[#856a59] transition h-[56px] sm:h-[60px] w-full sm:w-auto"
+>
+  <span className="mr-4 whitespace-nowrap">Book a 15-Min Call</span>
+  <div className="w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] bg-white rounded-full flex items-center justify-center flex-shrink-0">
+    <Image
+      src={cardGraphic}
+      alt="Arrow"
+      className="w-[22px] sm:w-[26px] h-[12px] sm:h-[15px] rotate-[-45deg]"
+    />
+  </div>
+</Link>
+
 
             {/* CTA 2 */}
-            <button className="flex items-center justify-between bg-[#967b6a] text-white pl-6 pr-2 py-4 rounded-full font-medium hover:bg-[#856a59] transition h-[56px] sm:h-[60px] w-full sm:w-auto">
-              <span className="mr-4 whitespace-nowrap">Request Corporate Deck</span>
-              <div className="w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                <Image
-                  src={cardGraphic}
-                  alt="Arrow"
-                  className="w-[22px] sm:w-[26px] h-[12px] sm:w-[15px] rotate-[-45deg]"
-                />
-              </div>
-            </button>
+          <Link
+  href="/"
+  className="flex items-center justify-between bg-[#967b6a] text-white pl-6 pr-2 py-4 rounded-full font-medium hover:bg-[#856a59] transition h-[56px] sm:h-[60px] w-full sm:w-auto"
+>
+  <span className="mr-4 whitespace-nowrap">Request Corporate Deck</span>
+
+  <div className="w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] bg-white rounded-full flex items-center justify-center flex-shrink-0">
+    <Image
+      src={cardGraphic}
+      alt="Arrow"
+      className="w-[22px] sm:w-[26px] h-[12px] sm:h-[15px] rotate-[-45deg]"
+    />
+  </div>
+</Link>
+
           </div>
         </div>
       </section>

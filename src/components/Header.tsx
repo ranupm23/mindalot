@@ -62,22 +62,26 @@ export default function Header() {
         </nav>
 
         {/* Chat Now Button */}
-        <Link
-          href="/chat"
-          className="
-            bg-[#967B6A]
-            text-white
-            px-8
-            py-3
-            rounded-full
-            text-[16px]
-            font-semibold
-            hover:opacity-90
-            transition
-          "
-        >
-          Chat Now
-        </Link>
+        <a
+  href="https://wa.me/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    bg-[#967B6A]
+    text-white
+    px-8
+    py-3
+    rounded-full
+    text-[16px]
+    font-semibold
+    hover:opacity-90
+    transition
+    inline-block
+  "
+>
+  Chat Now
+</a>
+
       </div>
     </header>
   );

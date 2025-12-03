@@ -127,149 +127,160 @@ export default function Home() {
         </p>
         
         {/* Start Chat Now Button */}
-        <button
-          style={{
-            position: 'absolute',
-            top: '498px',
-            left: '66px',
-            width: '212px',
-            height: '60px',
-            backgroundColor: '#967B6A',
-            borderRadius: '30px',
-            border: 'none',
-            cursor: 'pointer',
-            paddingLeft: '24px',
-            paddingRight: '24px',
-          }}
-        >
-          <span
-            style={{
-              position: 'absolute',
-              top: '21px',
-              left: '24px',
-              width: '112px',
-              height: '19px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '100%',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              display: 'flex',
-              alignItems: 'center',
-              whiteSpace: 'nowrap',
-            }}
-          >
-                Start Chat Now
-          </span>
-          
-          {/* Circle */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '5px',
-              left: '157px',
-              width: '50px',
-              height: '50px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {/* Arrow */}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                transform: 'rotate(-45deg)',
-              }}
-            >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="#967B6A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-        </button>
+      <a
+  href="https://wa.me/"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    position: 'absolute',
+    top: '498px',
+    left: '66px',
+    width: '212px',
+    height: '60px',
+    backgroundColor: '#967B6A',
+    borderRadius: '30px',
+    border: 'none',
+    cursor: 'pointer',
+    paddingLeft: '24px',
+    paddingRight: '24px',
+    display: 'block',
+    textDecoration: 'none',
+  }}
+>
+  <span
+    style={{
+      position: 'absolute',
+      top: '21px',
+      left: '24px',
+      width: '112px',
+      height: '19px',
+      fontFamily: 'var(--font-inter-sans)',
+      fontWeight: 500,
+      fontSize: '16px',
+      lineHeight: '100%',
+      letterSpacing: '-3%',
+      color: '#FFFFFF',
+      display: 'flex',
+      alignItems: 'center',
+      whiteSpace: 'nowrap',
+    }}
+  >
+    Start Chat Now
+  </span>
+
+  {/* Circle */}
+  <div
+    style={{
+      position: 'absolute',
+      top: '5px',
+      left: '157px',
+      width: '50px',
+      height: '50px',
+      backgroundColor: '#FFFFFF',
+      borderRadius: '50%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
+    {/* Arrow */}
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      style={{
+        transform: 'rotate(-45deg)',
+      }}
+    >
+      <path
+        d="M5 12H19M19 12L12 5M19 12L12 19"
+        stroke="#967B6A"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </div>
+</a>
+
         
         {/* Download the App Button */}
-        <button
-          style={{
-            position: 'absolute',
-            top: '498px',
-            left: '298px',
-            width: '235px',
-            height: '60px',
-            backgroundColor: '#967B6A',
-            borderRadius: '30px',
-            border: 'none',
-            cursor: 'pointer',
-          }}
-        >
-          <span
-            style={{
-              position: 'absolute',
-              top: '21px',
-              left: '24px',
-              width: '134px',
-              height: '19px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '100%',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              display: 'flex',
-              alignItems: 'center',
-              whiteSpace: 'nowrap',
-            }}
-          >
-                Download the App
-          </span>
-          
-          {/* Circle */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '5px',
-              left: '180px',
-              width: '50px',
-              height: '50px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {/* Arrow */}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                transform: 'rotate(-45deg)',
-              }}
-            >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="#967B6A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            </div>
-        </button>
-        
+        <a
+  href="https://play.google.com/store"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    position: 'absolute',
+    top: '498px',
+    left: '298px',
+    width: '235px',
+    height: '60px',
+    backgroundColor: '#967B6A',
+    borderRadius: '30px',
+    border: 'none',
+    cursor: 'pointer',
+    display: 'block',
+    textDecoration: 'none'
+  }}
+>
+  <span
+    style={{
+      position: 'absolute',
+      top: '21px',
+      left: '24px',
+      width: '134px',
+      height: '19px',
+      fontFamily: 'var(--font-inter-sans)',
+      fontWeight: 500,
+      fontSize: '16px',
+      lineHeight: '100%',
+      letterSpacing: '-3%',
+      color: '#FFFFFF',
+      display: 'flex',
+      alignItems: 'center',
+      whiteSpace: 'nowrap',
+    }}
+  >
+    Download the App
+  </span>
+
+  {/* Circle */}
+  <div
+    style={{
+      position: 'absolute',
+      top: '5px',
+      left: '180px',
+      width: '50px',
+      height: '50px',
+      backgroundColor: '#FFFFFF',
+      borderRadius: '50%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
+    {/* Arrow */}
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      style={{
+        transform: 'rotate(-45deg)',
+      }}
+    >
+      <path
+        d="M5 12H19M19 12L12 5M19 12L12 19"
+        stroke="#967B6A"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </div>
+</a>
+
         {/* Your safe space text */}
         <p
           style={{
@@ -2774,77 +2785,83 @@ export default function Home() {
         </p>
         
         {/* Rectangle 1 - Download App */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '5012px',
-            left: '382px',
-            width: '212px',
-            height: '60px',
-            borderRadius: '30px',
-            backgroundColor: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            zIndex: 11,
-          }}
-        >
-          <span
-            style={{
-              position: 'absolute',
-              top: '21px',
-              left: '24px',
-              width: '107px',
-              height: '19px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '100%',
-              letterSpacing: '-0.03em',
-              color: '#FFFFFF',
-              opacity: 1,
-              display: 'flex',
-              alignItems: 'center',
-              whiteSpace: 'nowrap',
-            }}
-          >
-              Download App
-          </span>
-          
-          {/* Circle */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '5px',
-              left: '157px',
-              width: '50px',
-              height: '50px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {/* Arrow */}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                transform: 'rotate(-45deg)',
-              }}
-            >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="#967B6A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-        </div>
+<a
+  href="https://play.google.com/store"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    position: 'absolute',
+    top: '5012px',
+    left: '382px',
+    width: '212px',
+    height: '60px',
+    borderRadius: '30px',
+    backgroundColor: '#967B6A',
+    opacity: 1,
+    transform: 'rotate(0deg)',
+    zIndex: 11,
+    display: 'block',
+    textDecoration: 'none',
+  }}
+>
+  <span
+    style={{
+      position: 'absolute',
+      top: '21px',
+      left: '24px',
+      width: '107px',
+      height: '19px',
+      fontFamily: 'var(--font-inter-sans)',
+      fontWeight: 500,
+      fontSize: '16px',
+      lineHeight: '100%',
+      letterSpacing: '-0.03em',
+      color: '#FFFFFF',
+      opacity: 1,
+      display: 'flex',
+      alignItems: 'center',
+      whiteSpace: 'nowrap',
+    }}
+  >
+    Download App
+  </span>
+
+  {/* Circle */}
+  <div
+    style={{
+      position: 'absolute',
+      top: '5px',
+      left: '157px',
+      width: '50px',
+      height: '50px',
+      backgroundColor: '#FFFFFF',
+      borderRadius: '50%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
+    {/* Arrow */}
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      style={{
+        transform: 'rotate(-45deg)',
+      }}
+    >
+      <path
+        d="M5 12H19M19 12L12 5M19 12L12 19"
+        stroke="#967B6A"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </div>
+</a>
+
         
         {/* Rectangle 2 */}
         <div
@@ -2920,77 +2937,81 @@ export default function Home() {
         </div>
         
         {/* Rectangle 3 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '5012px',
-            left: '846px',
-            width: '212px',
-            height: '60px',
-            borderRadius: '30px',
-            backgroundColor: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            zIndex: 11,
-          }}
-        >
-          <span
-            style={{
-              position: 'absolute',
-              top: '21px',
-              left: '24px',
-              width: '126px',
-              height: '19px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '100%',
-              letterSpacing: '-0.03em',
-              color: '#FFFFFF',
-              opacity: 1,
-              display: 'flex',
-              alignItems: 'center',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Talk To Our Team
-          </span>
-          
-          {/* Circle */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '5px',
-              left: '157px',
-              width: '50px',
-              height: '50px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {/* Arrow */}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                transform: 'rotate(-45deg)',
-              }}
-            >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="#967B6A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-        </div>
+\<a
+  href="mailto:hello@mindalot.com"
+  style={{
+    position: 'absolute',
+    top: '5012px',
+    left: '846px',
+    width: '212px',
+    height: '60px',
+    borderRadius: '30px',
+    backgroundColor: '#967B6A',
+    opacity: 1,
+    transform: 'rotate(0deg)',
+    zIndex: 11,
+    display: 'block',
+    textDecoration: 'none',
+  }}
+>
+  <span
+    style={{
+      position: 'absolute',
+      top: '21px',
+      left: '24px',
+      width: '126px',
+      height: '19px',
+      fontFamily: 'var(--font-inter-sans)',
+      fontWeight: 500,
+      fontSize: '16px',
+      lineHeight: '100%',
+      letterSpacing: '-0.03em',
+      color: '#FFFFFF',
+      opacity: 1,
+      display: 'flex',
+      alignItems: 'center',
+      whiteSpace: 'nowrap',
+    }}
+  >
+    Talk To Our Team
+  </span>
+
+  {/* Circle */}
+  <div
+    style={{
+      position: 'absolute',
+      top: '5px',
+      left: '157px',
+      width: '50px',
+      height: '50px',
+      backgroundColor: '#FFFFFF',
+      borderRadius: '50%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
+    {/* Arrow */}
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      style={{
+        transform: 'rotate(-45deg)',
+      }}
+    >
+      <path
+        d="M5 12H19M19 12L12 5M19 12L12 19"
+        stroke="#967B6A"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </div>
+</a>
+
         
         {/* Footer Rectangle */}
         <div
