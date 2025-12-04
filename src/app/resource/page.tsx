@@ -19,6 +19,7 @@ import borderImg from '@/assets/resource-page/border.svg'
 import waveIcon from '@/assets/resource-page/wave.svg'
 import brownPlayIcon from '@/assets/resource-page/play.svg'
 import React from 'react'
+import Footer from "@/components/Footer";
 
 const ResourcePage = () => {
     return (
@@ -174,8 +175,11 @@ const AccessMoreResourceSection = () => {
 </a>
 
             </div>
+          <div className="-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-24">
+                <Footer />
+            </div>
         </div>
     )
 }
 
-export default ResourcePage
+export default ResourcePage;
