@@ -32,7 +32,7 @@ import { IoLogoYoutube } from "react-icons/io";
               <Link href="/contact" className={footerLink}>
                 Contact Us
               </Link>
-              <Link href="/resources" className={footerLink}>
+              <Link href="/resource" className={footerLink}>
                 Resources
               </Link>
             </div>
