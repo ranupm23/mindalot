@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import headerLogo from "@/assets/Header assets/headerLogo.png";
+import headerLogo from "@/assets/header-assets/headerLogo.png";
 
 const menuItems = [
   { name: "Home", path: "/" },
