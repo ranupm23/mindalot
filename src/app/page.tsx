@@ -9,12 +9,169 @@ export default function Home() {
       <div
         style={{
           width: '100%',
-            </div>
-        </a>
+          maxWidth: '1440px',
+          height: '5567px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          position: 'relative',
+          backgroundColor: '#FDFDFD',
+          paddingRight: '20px',
+          paddingLeft: '20px',
+          boxSizing: 'border-box',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            top: '121px',
+            left: '816px',
+            width: '538px',
+            height: '500px',
+            borderRadius: '20px',
+            opacity: 1,
+            transform: 'rotate(0deg)',
+            overflow: 'hidden',
+            zIndex: 1,
+          }}
+        >
+          <Image
+            src="/images/hero-woman-yoga.jpg"
+            alt="Hero Woman"
+            width={538}
+            height={500}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+        </div>
+
+        {/* Rectangle with Background and Noise */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '225px',
+            left: '675px',
+            width: '254px',
+            height: '202px',
+            borderRadius: '10px',
+            backgroundColor: '#BE9B8433',
+            opacity: 1,
+            transform: 'rotate(0deg)',
+            zIndex: 99,
+            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.15)',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              borderRadius: '10px',
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.35'/%3E%3C/svg%3E")`,
+              backgroundSize: '0.5px 0.5px',
+              mixBlendMode: 'multiply',
+              pointerEvents: 'none',
+            }}
+          />
+        </div>
+
+        {/* Headline Text */}
+        <h1
+          style={{
+            position: 'absolute',
+            top: '144px',
+            left: '66px',
+            width: '695px',
+            height: '240px',
+            fontFamily: 'var(--font-inter-sans)',
+            fontWeight: 600,
+            fontSize: '60px',
+            lineHeight: '80px',
+            letterSpacing: '-6%',
+            color: '#5C4737',
+          }}
+        >
+          You Don't Have to Say Who You Are to<br />Start Feeling Better
+        </h1>
+
+        {/* Line below headline */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '383px',
+            left: '90px',
+            width: '502px',
+            height: '1px',
+            borderTop: '3px solid #000000',
+          }}
+        />
+
+        {/* Description Text */}
+        <p
+          style={{
+            position: 'absolute',
+            top: '408px',
+            left: '66px',
+            width: '444px',
+            height: '70px',
+            fontFamily: 'var(--font-inter-sans)',
+            fontWeight: 500,
+            fontSize: '18px',
+            lineHeight: '35px',
+            letterSpacing: '-3%',
+            color: '#0D0D0D',
+          }}
+        >
+          No bookings, No waiting, No judgement. Just real help, right when you need it.
+        </p>
+
+        {/* Start Chat Now Button (links to Discord) */}
+        <a
+          href="https://discord.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-btn group"
+          style={{
+            position: 'absolute',
+            top: '498px',
+            left: '66px',
+            width: '212px',
+            height: '60px',
+            backgroundColor: '#967B6A',
+            borderRadius: '30px',
+            border: 'none',
+            cursor: 'pointer',
+            paddingLeft: '24px',
+            paddingRight: '24px',
+            display: 'block',
+            textDecoration: 'none',
+          }}
+        >
+          <span
+            style={{
+              position: 'absolute',
+              top: '21px',
+              left: '24px',
+              width: '112px',
+              height: '19px',
+              fontFamily: 'var(--font-inter-sans)',
+              fontWeight: 500,
+              fontSize: '16px',
+              lineHeight: '100%',
+              letterSpacing: '-3%',
+              color: '#FFFFFF',
+              display: 'flex',
+              alignItems: 'center',
+              whiteSpace: 'nowrap',
+            }}
           >
-                Start Chat Now
+            Start Chat Now
           </span>
-          
+
           {/* Circle */}
           <div
             style={{
@@ -40,8 +197,8 @@ export default function Home() {
             />
           </div>
         </a>
-        
-        {/* Download the App Button (links to YouTube) */}
+
+        {/* Download the App Button (links to Play Store) */}
         <a
           href="https://play.google.com/store/games"
           target="_blank"
@@ -79,9 +236,9 @@ export default function Home() {
               whiteSpace: 'nowrap',
             }}
           >
-                Download the App
+            Download the App
           </span>
-          
+
           {/* Circle */}
           <div
             style={{
@@ -105,165 +262,9 @@ export default function Home() {
               height={18}
               className='m-auto group-hover:rotate-45 transition-all'
             />
-            </div>
+          </div>
         </a>
-        
-=======
-        {/* Start Chat Now Button */}
-      <a
-  href="https://wa.me/"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    position: 'absolute',
-    top: '498px',
-    left: '66px',
-    width: '212px',
-    height: '60px',
-    backgroundColor: '#967B6A',
-    borderRadius: '30px',
-    border: 'none',
-    cursor: 'pointer',
-    paddingLeft: '24px',
-    paddingRight: '24px',
-    display: 'block',
-    textDecoration: 'none',
-  }}
->
-  <span
-    style={{
-      position: 'absolute',
-      top: '21px',
-      left: '24px',
-      width: '112px',
-      height: '19px',
-      fontFamily: 'var(--font-inter-sans)',
-      fontWeight: 500,
-      fontSize: '16px',
-      lineHeight: '100%',
-      letterSpacing: '-3%',
-      color: '#FFFFFF',
-      display: 'flex',
-      alignItems: 'center',
-      whiteSpace: 'nowrap',
-    }}
-  >
-    Start Chat Now
-  </span>
 
-  {/* Circle */}
-  <div
-    style={{
-      position: 'absolute',
-      top: '5px',
-      left: '157px',
-      width: '50px',
-      height: '50px',
-      backgroundColor: '#FFFFFF',
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    {/* Arrow */}
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      style={{
-        transform: 'rotate(-45deg)',
-      }}
-    >
-      <path
-        d="M5 12H19M19 12L12 5M19 12L12 19"
-        stroke="#967B6A"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </div>
-</a>
-
-        
-        {/* Download the App Button */}
-        <a
-  href="https://play.google.com/store"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    position: 'absolute',
-    top: '498px',
-    left: '298px',
-    width: '235px',
-    height: '60px',
-    backgroundColor: '#967B6A',
-    borderRadius: '30px',
-    border: 'none',
-    cursor: 'pointer',
-    display: 'block',
-    textDecoration: 'none'
-  }}
->
-  <span
-    style={{
-      position: 'absolute',
-      top: '21px',
-      left: '24px',
-      width: '134px',
-      height: '19px',
-      fontFamily: 'var(--font-inter-sans)',
-      fontWeight: 500,
-      fontSize: '16px',
-      lineHeight: '100%',
-      letterSpacing: '-3%',
-      color: '#FFFFFF',
-      display: 'flex',
-      alignItems: 'center',
-      whiteSpace: 'nowrap',
-    }}
-  >
-    Download the App
-  </span>
-
-  {/* Circle */}
-  <div
-    style={{
-      position: 'absolute',
-      top: '5px',
-      left: '180px',
-      width: '50px',
-      height: '50px',
-      backgroundColor: '#FFFFFF',
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    {/* Arrow */}
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      style={{
-        transform: 'rotate(-45deg)',
-      }}
-    >
-      <path
-        d="M5 12H19M19 12L12 5M19 12L12 19"
-        stroke="#967B6A"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </div>
-</a>
-        {/* Your safe space text */}
         <p
           style={{
             position: 'absolute',
@@ -2766,8 +2767,7 @@ export default function Home() {
           Start talking. Stay anonymous. Feel lighter. Because your mind matters a lot.
         </p>
         
-<<<<<<< HEAD
-        {/* Rectangle 1 - Download App (links to YouTube) */}
+        {/* Rectangle 1 - Download App */}
         <a
           href="https://play.google.com/store/games"
           target="_blank"
@@ -2835,86 +2835,6 @@ export default function Home() {
             />
           </div>
         </a>
-=======
-        {/* Rectangle 1 - Download App */}
-<a
-  href="https://play.google.com/store"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    position: 'absolute',
-    top: '5012px',
-    left: '382px',
-    width: '212px',
-    height: '60px',
-    borderRadius: '30px',
-    backgroundColor: '#967B6A',
-    opacity: 1,
-    transform: 'rotate(0deg)',
-    zIndex: 11,
-    display: 'block',
-    textDecoration: 'none',
-  }}
->
-  <span
-    style={{
-      position: 'absolute',
-      top: '21px',
-      left: '24px',
-      width: '107px',
-      height: '19px',
-      fontFamily: 'var(--font-inter-sans)',
-      fontWeight: 500,
-      fontSize: '16px',
-      lineHeight: '100%',
-      letterSpacing: '-0.03em',
-      color: '#FFFFFF',
-      opacity: 1,
-      display: 'flex',
-      alignItems: 'center',
-      whiteSpace: 'nowrap',
-    }}
-  >
-    Download App
-  </span>
-
-  {/* Circle */}
-  <div
-    style={{
-      position: 'absolute',
-      top: '5px',
-      left: '157px',
-      width: '50px',
-      height: '50px',
-      backgroundColor: '#FFFFFF',
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    {/* Arrow */}
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      style={{
-        transform: 'rotate(-45deg)',
-      }}
-    >
-      <path
-        d="M5 12H19M19 12L12 5M19 12L12 19"
-        stroke="#967B6A"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </div>
-</a>
-
->>>>>>> 6b641fb1cfc0cade005492fffd2c765bf474449f
         
         {/* Rectangle 2 - Partner With Us (links to YouTube) */}
         <a
@@ -2985,12 +2905,9 @@ export default function Home() {
           </div>
         </a>
         
-<<<<<<< HEAD
-        {/* Rectangle 3 - Talk To Our Team (links to YouTube) */}
+        {/* Rectangle 3 - Talk To Our Team */}
         <a
-          href="https://www.youtube.com/"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="mailto:hello@mindalot.com"
           className="cta-btn group"
           style={{
             position: 'absolute',
@@ -3054,84 +2971,6 @@ export default function Home() {
             />
           </div>
         </a>
-=======
-        {/* Rectangle 3 */}
-\<a
-  href="mailto:hello@mindalot.com"
-  style={{
-    position: 'absolute',
-    top: '5012px',
-    left: '846px',
-    width: '212px',
-    height: '60px',
-    borderRadius: '30px',
-    backgroundColor: '#967B6A',
-    opacity: 1,
-    transform: 'rotate(0deg)',
-    zIndex: 11,
-    display: 'block',
-    textDecoration: 'none',
-  }}
->
-  <span
-    style={{
-      position: 'absolute',
-      top: '21px',
-      left: '24px',
-      width: '126px',
-      height: '19px',
-      fontFamily: 'var(--font-inter-sans)',
-      fontWeight: 500,
-      fontSize: '16px',
-      lineHeight: '100%',
-      letterSpacing: '-0.03em',
-      color: '#FFFFFF',
-      opacity: 1,
-      display: 'flex',
-      alignItems: 'center',
-      whiteSpace: 'nowrap',
-    }}
-  >
-    Talk To Our Team
-  </span>
-
-  {/* Circle */}
-  <div
-    style={{
-      position: 'absolute',
-      top: '5px',
-      left: '157px',
-      width: '50px',
-      height: '50px',
-      backgroundColor: '#FFFFFF',
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    {/* Arrow */}
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      style={{
-        transform: 'rotate(-45deg)',
-      }}
-    >
-      <path
-        d="M5 12H19M19 12L12 5M19 12L12 19"
-        stroke="#967B6A"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </div>
-</a>
-
->>>>>>> 6b641fb1cfc0cade005492fffd2c765bf474449f
         
         {/* Footer Rectangle */}
         <div
