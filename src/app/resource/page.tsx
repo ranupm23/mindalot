@@ -19,6 +19,7 @@ import borderImg from '@/assets/resource-page/border.svg'
 import waveIcon from '@/assets/resource-page/wave.svg'
 import brownPlayIcon from '@/assets/resource-page/play.svg'
 import React from 'react'
+import Footer from "@/components/Footer";
 
 const ResourcePage = () => {
     return (
@@ -146,21 +147,21 @@ const AccessMoreResourceSection = () => {
             <p className='text-sm md:text-base xl:text-lg font-medium mt-4 mb-[30px] text-center'>Download the Mind A Lot app to access our complete library of mental health resources, tools, and professional content.</p>
             <div className='flex flex-col sm:flex-row justify-center gap-5 items-center relative'>
                 <div className='w-[250px] h-[250px] rounded-full absolute top-full left-1/2 bg-[#BE9B84] -translate-x-1/2 -translate-y-[15%] blur-[130px] -z-50'></div>
-                <a href='https://www.ibm.com/' target='_blank' rel='noopener noreferrer' className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full inline-flex'>
+                <button className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full'>
                     View all resources
                     <div className='w-[50px] h-[50px] ml-[15px] rounded-full bg-white flex justify-center items-center'>
                         <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 transition-all' />
                     </div>
-                </a>
-                <a href='https://www.meta.com/' target='_blank' rel='noopener noreferrer' className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full inline-flex'>
+                </button>
+                <button className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full'>
                     Download free tools
                     <div className='w-[50px] h-[50px] ml-[11px] rounded-full bg-white flex justify-center items-center'>
                         <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 transition-all' />
                     </div>
-                </a>
+                </button>
             </div>
         </div>
     )
 }
 
-export default ResourcePage
+export default ResourcePage;

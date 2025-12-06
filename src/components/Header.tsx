@@ -62,6 +62,7 @@ export default function Header() {
         </nav>
 
         {/* Chat Now Button */}
+<<<<<<< HEAD
         <Link
           href="https://www.instagram.com/"
           className="
@@ -78,6 +79,28 @@ export default function Header() {
         >
           Chat Now
         </Link>
+=======
+        <a
+  href="https://wa.me/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    bg-[#967B6A]
+    text-white
+    px-8
+    py-3
+    rounded-full
+    text-[16px]
+    font-semibold
+    hover:opacity-90
+    transition
+    inline-block
+  "
+>
+  Chat Now
+</a>
+
+>>>>>>> 6b641fb1cfc0cade005492fffd2c765bf474449f
       </div>
     </header>
   );
