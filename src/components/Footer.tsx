@@ -65,13 +65,13 @@ import { IoLogoYoutube } from "react-icons/io";
                 Follow us on
               </h3>
               <div className="flex items-center justify-center lg:justify-start gap-[15px]">
-                <Link href="https://instagram.com" target="_blank">
+                <Link href="https://www.linkedin.com/showcase/mind-a-lot/about/?viewAsMember=true" target="_blank">
                   <Instagram size={24} className={iconHover} />
                 </Link>
-                <Link href="https://linkedin.com" target="_blank">
+                <Link href="https://www.instagram.com/mind.alot?igsh=dWh5bGNtc3JoYTNs" target="_blank">
                   <FaLinkedin size={24} className={iconHover} />
                 </Link>
-                 <Link href="https://youtube.com" target="_blank">
+                 <Link href="https://youtube.com/@mind_alot?si=Y_E5tD3qxVunQ2e3" target="_blank">
                   <IoLogoYoutube size={24} className={iconHover} />
                 </Link>
               </div>
