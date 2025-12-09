@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Footer from "../components/Footer";
+import Link from "next/link";
+import arrow from "../assets/arrow.svg";
+
 export default function Home() {
   return (
     <main style={{ backgroundColor: '#FDFDFD', overflow: 'hidden' }}>
@@ -2863,8 +2866,12 @@ export default function Home() {
 </a>
 
         
-        {/* Rectangle 2 */}
-        <div
+        {/* Rectangle 2 - Partner With Us (links to YouTube) */}
+        <a
+          href="https://discord.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-btn group"
           style={{
             position: 'absolute',
             top: '5012px',
@@ -2876,6 +2883,8 @@ export default function Home() {
             opacity: 1,
             transform: 'rotate(0deg)',
             zIndex: 11,
+            display: 'block',
+            textDecoration: 'none',
           }}
         >
           <span
@@ -2915,26 +2924,16 @@ export default function Home() {
               justifyContent: 'center',
             }}
           >
-            {/* Arrow */}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                transform: 'rotate(-45deg)',
-              }}
-            >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="#967B6A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            {/* Arrow Image */}
+            <Image
+              src={arrow}
+              alt="arrow"
+              width={18}
+              height={18}
+              className='m-auto group-hover:rotate-45 transition-all'
+            />
           </div>
-        </div>
+        </a>
         
         {/* Rectangle 3 */}
 \<a

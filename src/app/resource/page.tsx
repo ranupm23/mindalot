@@ -79,15 +79,22 @@ const OurResourcesSection = () => {
 }
 
 const ResourceCard = ({ btnLabel, img, btnIcon, rotateIconOnHover = true }: { btnLabel: string, img: StaticImageData, btnIcon: StaticImageData, rotateIconOnHover?: boolean }) => {
+    const links: { [key: string]: string } = {
+        'Listen Audio': 'https://www.google.com/',
+        'Watch Video': 'https://www.microsoft.com/',
+        'Read more': 'https://www.apple.com/',
+        'Start Quiz': 'https://www.amazon.com/'
+    };
+    
     return (
         <div className='relative mx-auto'>
             <Image src={img} alt="meditate" height={350} className='rounded-[20px] max-h-[350px] mx-auto' />
-            <button className='bg-[#967B6A] hover:bg-[#BE9B84] group w-[30%] absolute bottom-0 right-0 cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full text-xs sm:text-sm xl:text-base'>
+            <a href={links[btnLabel]} target="_blank" rel="noopener noreferrer" className='bg-[#967B6A] hover:bg-[#BE9B84] group w-[30%] absolute bottom-0 right-0 cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full text-xs sm:text-sm xl:text-base inline-flex'>
                 {btnLabel}
                 <div className={`w-[30px] h-[30px] sm:w-10 sm:h-10 xl:w-[50px] xl:h-[50px] ml-[5px] lg:ml-[15px] rounded-full bg-white flex justify-center items-center`}>
                     <Image src={btnIcon} alt="arrow" width={18} height={18} className={`m-auto w-3 h-3 sm:w-[18px] sm:h-[18px] ${rotateIconOnHover ? 'group-hover:rotate-45' : ''} transition-all`} />
                 </div>
-            </button>
+            </a>
         </div>
     )
 }
