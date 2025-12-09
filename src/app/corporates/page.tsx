@@ -7,8 +7,8 @@ import Footer from "@/components/Footer";
 // Import all images from assets
 import graphic1 from "@/assets/corporate-assets/graphic1.svg";
 import cardGraphic from "@/assets/corporate-assets/card-circle-white/card-graphic.svg";
-import subtract from "@/assets/corporate-assets/subtract.png";
-import mentalHealthIcon from "@/assets/corporate-assets/your-mental-health.png";
+import heroimage from "@/assets/corporate-assets/hero.png";
+import roundcircle from "@/assets/corporate-assets/round-circle.png";
 import cardExportCircle from "@/assets/corporate-assets/card-export-circle.svg";
 import cardSecurity from "@/assets/corporate-assets/card-security.svg";
 import groupClipPath1 from "@/assets/corporate-assets/group/group-clip-path1.png";
@@ -18,7 +18,7 @@ import groupClipPath3 from "@/assets/corporate-assets/group/group-clip-path3.png
 export default function CorporatePage() {
   return (
     <div className="bg-[#FDFDFD] text-[#5c4737] overflow-x-hidden">
-      <Header />
+      
 
       {/* HERO SECTION */}
       <section className="w-full bg-[#FDFDFD] pt-[100px] pb-[60px] px-6">
@@ -31,16 +31,16 @@ export default function CorporatePage() {
                 Real Mental Wellness,<br />
                 Not Just Another EAP.
               </h1>
-              <div className="absolute left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 bottom-[-10px] w-[420px] h-[12px]">
+              {/* <div className="absolute left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 bottom-[-10px] w-[420px] h-[12px]">
                 <Image
                   src={graphic1}
                   alt="Decorative underline"
                   className="w-full h-full object-contain"
                 />
-              </div>
+              </div> */}
             </div>
 
-            <div className="space-y-[20px] mt-[44px]">
+            <div className="mt-[44px]">
               <p className="text-[#1e1e1e] text-[15px] leading-[1.65] max-w-[460px] font-normal">
                 Mind A Lot is built for the modern workforce: instant, anonymous, and effective. Because people don't wait for office hours to break down.
               </p>
@@ -48,87 +48,103 @@ export default function CorporatePage() {
                 Let's discuss how Mind A Lot can fit your organization's wellness strategy in just 15 minutes.
               </p>
             </div>
+{/* CTA BUTTON */}
+<div className="mt-[36px] flex justify-center lg:justify-start">
+  <Link
+    href="/"
+    className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
+    style={{
+      fontFamily: "'Nunito Sans', sans-serif",
+      fontWeight: 500,
+      lineHeight: "100%",
+      letterSpacing: "0%",
+    }}
+  >
+    <span className="tracking-[-0.01em]">Schedule A Demo</span>
 
-            {/* CTA BUTTON */}
-            <div className="mt-[36px] flex justify-center lg:justify-start">
-              <button className="flex items-center gap-[8px] text-white text-[15px] font-medium bg-[#9a8070] pl-[26px] pr-[4px] py-[4px] rounded-[40px] hover:bg-[#856a59] transition shadow-sm">
-                <span className="tracking-[-0.01em]">Schedule A Demo</span>
-                <div className="w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center">
-                  <Image
-                    src={cardGraphic}
-                    alt="Arrow"
-                    className="w-[20px] h-[12px] rotate-[-45deg]"
-                  />
-                </div>
-              </button>
-            </div>
-          </div>
+    {/* Circle with arrow */}
+    <div className="w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center transition-transform duration-300">
+      <Image
+        src={cardGraphic}
+        alt="Arrow"
+        className="w-[20px] h-[12px] rotate-[-45deg] transition-transform duration-300 ease-in-out group-hover:rotate-0"
+      />
+    </div>
+  </Link>
+</div>
+
+
+</div>
+
 
           {/* RIGHT IMAGE SECTION */}
-          <div className="relative flex justify-center lg:justify-end items-start pt-[20px]">
+          <div className="relative flex justify-center lg:justify-end items-start pt-[40px]">
             <div className="relative" style={{ width: '540px', height: '400px' }}>
               
-              {/* FRAME 1 */}
-              <div
-                className="absolute rounded-[22px] z-[1] pointer-events-none"
-                style={{
-                  top: '-46px',
-                  left: '-46px',
-                  width: '586px',
-                  height: '446px',
-                  borderRadius: '22px',
-                  background: 'linear-gradient(180deg, rgba(199,183,169,0.3), rgba(199,183,169,0))',
-                  WebkitMask:
-                    'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  WebkitMaskComposite: 'xor',
-                  maskComposite: 'exclude',
-                  padding: '1px',
-                  border: '1px solid transparent',
-                }}
-              ></div>
+   {/* FRAME 1 */}
+<div
+  className="absolute rounded-[22px] z-[-0] pointer-events-none"
+  style={{
+    top: '-46px',
+    left: '-46px',
+    width: '586px',
+    height: '446px',
+    borderRadius: '22px',
+    // Radial gradient at top-left corner
+    background: 'radial-gradient(circle at top left, rgba(199,183,169,0.3) 0%, rgba(199,183,169,0.05) 30%, rgba(199,183,169,0) 100%)',
+    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+    WebkitMaskComposite: 'xor',
+    maskComposite: 'exclude',
+    padding: '1px',
+    // Remove border entirely
+    // border: '1px solid transparent',
+  }}
+></div>
 
-              {/* FRAME 2 */}
-              <div
-                className="absolute rounded-[20px] z-[2] pointer-events-none"
-                style={{
-                  top: '-28px',
-                  left: '-28px',
-                  width: '568px',
-                  height: '428px',
-                  borderRadius: '20px',
-                  background: 'linear-gradient(180deg, rgba(199,183,169,0.45), rgba(199,183,169,0))',
-                  WebkitMask:
-                    'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  WebkitMaskComposite: 'xor',
-                  maskComposite: 'exclude',
-                  padding: '1px',
-                  border: '1px solid transparent',
-                }}
-              ></div>
 
-              {/* FRAME 3 */}
-              <div
-                className="absolute rounded-[18px] z-[3] pointer-events-none"
-                style={{
-                  top: '-14px',
-                  left: '-14px',
-                  width: '554px',
-                  height: '414px',
-                  borderRadius: '18px',
-                  background: 'linear-gradient(180deg, rgba(199,183,169,0.55), rgba(199,183,169,0))',
-                  WebkitMask:
-                    'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  WebkitMaskComposite: 'xor',
-                  maskComposite: 'exclude',
-                  padding: '1px',
-                  border: '1px solid transparent',
-                }}
-              ></div>
+
+             {/* FRAME 2 */}
+<div
+  className="absolute rounded-[20px] z-[-0] pointer-events-none"
+  style={{
+    top: '-28px',
+    left: '-28px',
+    width: '568px',
+    height: '428px',
+    borderRadius: '20px',
+    // Radial gradient at top-left corner
+    background: 'radial-gradient(circle at top left, rgba(199,183,169,0.45) 0%, rgba(199,183,169,0.05) 30%, rgba(199,183,169,0) 100%)',
+    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+    WebkitMaskComposite: 'xor',
+    maskComposite: 'exclude',
+    padding: '1px',
+    border: '1px solid transparent',
+  }}
+></div>
+
+             {/* FRAME 3 */}
+<div
+  className="absolute rounded-[18px] z-[0] pointer-events-none"
+  style={{
+    top: '-14px',
+    left: '-14px',
+    width: '554px',
+    height: '414px',
+    borderRadius: '18px',
+    // Radial gradient at top-left corner
+    background: 'radial-gradient(circle at top left, rgba(199,183,169,0.55) 0%, rgba(199,183,169,0.05) 30%, rgba(199,183,169,0) 100%)',
+    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+    WebkitMaskComposite: 'xor',
+    maskComposite: 'exclude',
+    padding: '1px',
+    border: '1px solid transparent',
+  }}
+></div>
 
               {/* MAIN IMAGE */}
               <div className="absolute top-0 left-0 w-[620px] h-[460px] -translate-x-[50px] rounded-[16px] overflow-hidden z-[10]">
                 <Image
-                  src={subtract}
+                  src={heroimage}
                   width={620}
                   height={460}
                   alt="Corporate group"
@@ -136,57 +152,96 @@ export default function CorporatePage() {
                 />
               </div>
 
-              {/* CIRCULAR BADGE */}
-              <div
-                className="absolute rounded-full flex items-center justify-center z-[20] bg-white/50 backdrop-blur-[30px] border border-white/40 shadow-[0_8px_24px_rgba(92,71,55,0.12)]"
-                style={{
-                  top: '-34px',
-                  right: '-4px',
-                  width: '88px',
-                  height: '88px',
-                  WebkitBackdropFilter: 'blur(30px)',
-                }}
-              >
-                <Image
-                  src={mentalHealthIcon}
-                  width={44}
-                  height={44}
-                  alt="Your Mental Health"
-                  className="object-contain"
-                />
-              </div>
+              {/* REPLACED CIRCULAR BADGE WITH IMAGE */}
+<div
+  className="absolute z-[20]"
+  style={{
+    top: '-34px',
+    right: '-4px',
+    width: '88px',
+    height: '88px',
+  }}
+>
+  <Image
+    src={roundcircle}
+    alt="Your Mental Health"
+    className="w-full h-full object-contain rounded-full"
+  />
+</div>
 
-              {/* QUOTE CARD */}
-              <div
-                className="absolute bg-[#f7f4f0] rounded-[11px] z-[30]"
-                style={{
-                  bottom: '-35px',
-                  left: '-156px',
-                  width: '300px',
-                  height: '126px',
-                  border: '1px solid rgba(227, 217, 210, 0.8)',
-                  boxShadow: '0 2px 12px rgba(92, 71, 55, 0.06)',
-                  padding: '16px 18px',
-                }}
-              >
-                <div className="flex flex-col h-full justify-between">
-                  <div className="flex justify-end">
-                    <Image
-                      src={cardExportCircle}
-                      width={28}
-                      height={28}
-                      alt="Decorative Icon"
-                      className="opacity-70"
-                      style={{ transform: 'rotate(160deg)' }}
-                    />
-                  </div>
-                  <p className="text-[15px] leading-[1.5] text-[#74726f] font-normal tracking-[-0.01em]">
-                    Investing in mental wellness means<br />investing in lasting success.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+{/* QUOTE CARD */}
+<div
+  className="absolute rounded-[11px] z-[30]"
+  style={{
+    bottom: '-265px',
+    left: '-156px',
+    width: '300px',
+    height: '126px',
+    borderRadius: '11px',
+    backgroundColor: '#BE9B84',
+    padding: '16px 18px',
+    boxShadow: '0 2px 12px rgba(92, 71, 55, 0.06)',
+    position: 'relative', // for internal positioning
+  }}
+>
+  {/* Noise overlay */}
+  <div
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      backgroundImage:
+        'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'64\' height=\'64\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.5\' numOctaves=\'1\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'64\' height=\'64\' filter=\'url(%23noise)\' fill=\'%2300000059\'/%3E%3C/svg%3E")',
+      backgroundRepeat: 'repeat',
+      opacity: 0.8, // density 80%
+      mixBlendMode: 'overlay', // monotone effect
+    }}
+  ></div>
+
+  {/* Card content */}
+  <div className="flex flex-col h-full justify-between relative z-[10]">
+    <div className="flex justify-end">
+      <Image
+        src={cardExportCircle}
+        width={58}
+        height={58}
+        alt="Decorative Icon"
+        className="opacity-70"
+        style={{ transform: 'rotate(160deg)' }}
+      />
+    </div>
+    <p
+      style={{
+        fontFamily: 'Inter, sans-serif',
+        fontWeight: 400,
+        fontStyle: 'normal',
+        fontSize: '14px',
+        lineHeight: '25px',
+        letterSpacing: '-0.03em',
+        color: '#fff',
+      }}
+    >
+      Investing in mental wellness means<br />investing in lasting success.
+    </p>
+  </div>
+
+  {/* Image inside quote card */}
+  <Image
+    src={roundcircle} // replace with your image
+    alt="Quote Card Image"
+    width={65}
+    height={65}
+    style={{
+      position: 'absolute',
+      top: '496px', // relative to the page, not card
+      left: '869px', // relative to the page, not card
+      borderRadius: '15px',
+    }}
+  />
+</div>
+
+
+</div>
+</div>
+
         </div>
       </section>
 
@@ -259,7 +314,7 @@ export default function CorporatePage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-[#FDFDFD] py-16 sm:py-20 mt-10 px-6 text-center">
+      <section className="bg-[#FDFDFD] py-12 sm:py-20 px-6 text-center">
         <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
             Let's Build a Healthier Workplace Together
@@ -269,31 +324,54 @@ export default function CorporatePage() {
             actually use.
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            {/* CTA 1 */}
-            <button className="flex items-center justify-between bg-[#967b6a] text-white pl-6 pr-2 py-4 rounded-full font-medium hover:bg-[#856a59] transition h-[56px] sm:h-[60px] w-full sm:w-auto">
-              <span className="mr-4 whitespace-nowrap">Book a 15-Min Call</span>
-              <div className="w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                <Image
-                  src={cardGraphic}
-                  alt="Arrow"
-                  className="w-[22px] sm:w-[26px] h-[12px] sm:h-[15px] rotate-[-45deg]"
-                />
-              </div>
-            </button>
+         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-[36px]">
+  {/* CTA 1 */}
+  <Link
+    href="/"
+    className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
+    style={{
+      fontFamily: "'Nunito Sans', sans-serif",
+      fontWeight: 500,
+      lineHeight: "100%",
+      letterSpacing: "0%",
+    }}
+  >
+    <span className="tracking-[-0.01em]">Book a 15-Min Call</span>
 
-            {/* CTA 2 */}
-            <button className="flex items-center justify-between bg-[#967b6a] text-white pl-6 pr-2 py-4 rounded-full font-medium hover:bg-[#856a59] transition h-[56px] sm:h-[60px] w-full sm:w-auto">
-              <span className="mr-4 whitespace-nowrap">Request Corporate Deck</span>
-              <div className="w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                <Image
-                  src={cardGraphic}
-                  alt="Arrow"
-                  className="w-[22px] sm:w-[26px] h-[12px] sm:w-[15px] rotate-[-45deg]"
-                />
-              </div>
-            </button>
-          </div>
+    {/* Circle with arrow */}
+    <div className="w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center transition-transform duration-300">
+      <Image
+        src={cardGraphic}
+        alt="Arrow"
+        className="w-[20px] h-[12px] rotate-[-45deg] transition-transform duration-300 ease-in-out group-hover:rotate-0"
+      />
+    </div>
+  </Link>
+
+  {/* CTA 2 */}
+  <Link
+    href="/"
+    className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
+    style={{
+      fontFamily: "'Nunito Sans', sans-serif",
+      fontWeight: 500,
+      lineHeight: "100%",
+      letterSpacing: "0%",
+    }}
+  >
+    <span className="tracking-[-0.01em]">Request Corporate Deck</span>
+
+    {/* Circle with arrow */}
+    <div className="w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center transition-transform duration-300">
+      <Image
+        src={cardGraphic}
+        alt="Arrow"
+        className="w-[20px] h-[12px] rotate-[-45deg] transition-transform duration-300 ease-in-out group-hover:rotate-0"
+      />
+    </div>
+  </Link>
+</div>
+
         </div>
       </section>
 

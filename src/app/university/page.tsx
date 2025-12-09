@@ -171,12 +171,22 @@ const [isMobile, setIsMobile] = useState(false);
           </motion.div>
 
           {/* CTA BUTTON */}
-             <a href="https://www.amazon.com/" target="_blank" rel="noopener noreferrer" className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 mt-5 p-[5px] flex justify-between items-center rounded-full' style={{ display: 'inline-flex' }}>
-                              Schedule a Demo
-                              <div className='w-[50px] h-[50px] ml-[15px] rounded-full bg-white flex justify-center items-center'>
-                                  <Image src={arrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 transition-all' />
-                              </div>
-              </a>
+<button
+  onClick={() => window.location.href = '/'}
+  className="bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 mt-5 p-[5px] flex justify-between items-center rounded-full"
+>
+  Schedule a Demo
+  <div className="w-[50px] h-[50px] ml-[15px] rounded-full bg-white flex justify-center items-center">
+    <Image
+      src={arrow}
+      alt="arrow"
+      width={18}
+      height={18}
+      className="m-auto group-hover:rotate-45 transition-all"
+    />
+  </div>
+</button>
+
         </motion.div>
 
         {/* ===== RIGHT SIDE ELEMENTS ===== */}
@@ -524,61 +534,70 @@ const [isMobile, setIsMobile] = useState(false);
         <div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 w-full px-4 md:px-0 justify-center">
 
   {/* Schedule a Demo Button */}
-  <a
-    href="https://www.spotify.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="group relative w-full md:w-[225px] h-[60px] bg-[#967B6A] hover:bg-[#BE9B84] rounded-[43px] flex items-center justify-start pl-[24px] text-white font-inter font-medium text-[16px] tracking-[-0.03em] transition-all cursor-pointer inline-flex"
-  >
-    Schedule a Demo
+ <button
+  onClick={() => window.location.href = '/'}
+  className="
+    group relative w-full md:w-[225px] h-[60px] 
+    bg-[#967B6A] hover:bg-[#BE9B84]
+    rounded-[43px] flex items-center justify-start 
+    pl-[24px]
+    text-white font-inter font-medium text-[16px] tracking-[-0.03em]
+    transition-all cursor-pointer
+  "
+>
+  Schedule a Demo
 
-    <div
-      className="
-        absolute top-[5px] right-[6px]   /* <-- Perfect like reference */
-        w-[50px] h-[50px] bg-white
-        rounded-full flex items-center justify-center
-        transition-all
-      "
-    >
-      <Image
-        src={arrow}
-        alt="arrow"
-        width={18}
-        height={18}
-        className="transition-all group-hover:rotate-45"
-      />
-    </div>
-  </a>
+  <div
+    className="
+      absolute top-[5px] right-[6px]   /* <-- Perfect like reference */
+      w-[50px] h-[50px] bg-white
+      rounded-full flex items-center justify-center
+      transition-all
+    "
+  >
+    <Image
+      src={arrow}
+      alt="arrow"
+      width={18}
+      height={18}
+      className="transition-all group-hover:rotate-45"
+    />
+  </div>
+</button>
 
 
   {/* Download University Partnership Kit Button */}
   <a
-    href="https://www.netflix.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="group relative w-full md:w-[360px] h-[60px] bg-[#967B6A] hover:bg-[#BE9B84] rounded-[43px] flex items-center justify-start pl-[24px] text-white font-inter font-medium text-[16px] tracking-[-0.03em] transition-all cursor-pointer overflow-hidden inline-flex"
-  >
-    <span className="whitespace-nowrap truncate">
-      Download University Partnership Kit
-    </span>
+  href="https://play.google.com/store"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group relative w-full md:w-[360px] h-[60px] 
+             bg-[#967B6A] hover:bg-[#BE9B84]
+             rounded-[43px] flex items-center justify-start 
+             pl-[24px] text-white font-inter font-medium text-[16px] tracking-[-0.03em]
+             transition-all cursor-pointer overflow-hidden"
+>
+  <span className="whitespace-nowrap truncate">
+    Download University Partnership Kit
+  </span>
 
-    <div
-      className="
-        absolute top-[5px] right-[6px]  /* <-- Reference spacing */
-        w-[50px] h-[50px] bg-white
-        rounded-full flex items-center justify-center
-        transition-all
-      "
-    >
-      <Image
-        src={arrow}
-        alt="arrow"
-        width={18}
-        height={18}
-        className="transition-all group-hover:rotate-45"
-      />
-    </div>
-  </a>
+  <div
+    className="
+      absolute top-[5px] right-[6px]
+      w-[50px] h-[50px] bg-white
+      rounded-full flex items-center justify-center
+      transition-all
+    "
+  >
+    <Image
+      src={arrow}
+      alt="arrow"
+      width={18}
+      height={18}
+      className="transition-all group-hover:rotate-45"
+    />
+  </div>
+</a>
 
 </div>
 

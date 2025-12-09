@@ -1,127 +1,293 @@
+
+
+// import Link from "next/link";
+// import Image from "next/image";
+// import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+// import { FaLinkedin } from "react-icons/fa";
+// import { IoLogoYoutube } from "react-icons/io";
+
+// // IMPORT LOGO
+// import headerLogo from "@/assets/header-assets/headerLogo.png";
+
+// const Footer = () => {
+//   return (
+//     <footer
+//       className="w-full relative -mt-[140px]"
+//       style={{
+//         background:
+//           "linear-gradient(125.54deg, #5B4B3E -12.44%, #F6F1EB -2.52%, #E8DED4 19.98%, #ABA093 80.72%, #8A8077 101.75%)",
+//       }}
+//     >
+//       <div className="w-full px-[30px] sm:px-[50px] md:px-[70px] lg:px-[86px] pt-[260px] pb-[180px]">
+//         {/* ===== Main Footer Row ===== */}
+//         <div className="flex flex-col lg:flex-row justify-start lg:items-start items-center w-full gap-[40px] lg:gap-[0px]">
+
+//           {/* ===== Left Section (Logo + Heading) ===== */}
+//           <div className="flex flex-col text-center lg:text-left mt-[13px]">
+//             <div className="flex items-center justify-center lg:justify-start gap-[12px]">
+//               <Image
+//                 src={headerLogo}
+//                 alt="Mind A Lot Logo"
+//                 width={196}
+//                 height={119}
+//                 className="object-contain"
+//               />
+//             </div>
+
+//             <p className="font-inter font-normal text-[14px] md:text-[16px] leading-[28px] tracking-[-0.03em] text-[#5C4737] max-w-[450px] mx-auto lg:mx-0 mt-4">
+//               Anonymous support that listens, nudges,<br />
+//               and grows with you. When your mind feels too much, we’re just a
+//               tap away.
+//             </p>
+//           </div>
+
+//           {/* ===== Company Section ===== */}
+//           <div className="lg:ml-[152px] mt-[20px] lg:mt-[10px] flex flex-col text-center lg:text-left space-y-[10px] md:space-y-[16px]">
+//             <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737]">
+//               Company
+//             </h3>
+//             <Link href="/features" className={footerLink}>
+//               Features
+//             </Link>
+//             <Link href="/contact" className={footerLink}>
+//               Contact Us
+//             </Link>
+//             <Link href="/resource" className={footerLink}>
+//               Resources
+//             </Link>
+//           </div>
+
+//           {/* ===== Contact Section ===== */}
+//           <div className="lg:ml-[140px] mt-[20px] lg:mt-[10px] flex flex-col text-center lg:text-left space-y-[12px] md:space-y-[16px]">
+//             <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737]">
+//               Contact
+//             </h3>
+
+//             <div className="flex justify-center lg:justify-start items-center gap-[5px] group cursor-pointer">
+//               <Mail
+//                 size={16}
+//                 className="text-[#5B4A3E] group-hover:text-[#7A634E] transition-colors"
+//               />
+//               <span className="font-inter font-normal text-[14px] md:text-[16px] leading-[100%] tracking-[-0.03em] text-[#5B4A3E] group-hover:text-[#7A634E] transition-colors">
+//                 hello@mindalot.com
+//               </span>
+//             </div>
+
+//             <div className="flex justify-center lg:justify-start items-center gap-[5px] group cursor-pointer">
+//               <Phone
+//                 size={16}
+//                 className="text-[#5B4A3E] group-hover:text-[#7A634E] transition-colors"
+//               />
+//               <span className="font-inter font-normal text-[14px] md:text-[16px] leading-[100%] tracking-[-0.03em] text-[#5B4A3E] group-hover:text-[#7A634E] transition-colors">
+//                 +91-96062-58596
+//               </span>
+//             </div>
+
+//             <div className="flex justify-center lg:justify-start items-center gap-[5px] group cursor-pointer">
+//               <MapPin
+//                 size={16}
+//                 className="text-[#5B4A3E] group-hover:text-[#7A634E] transition-colors min-w-[16px] mt-[-4px]"
+//               />
+//               <p className="font-inter font-normal text-[14px] md:text-[16px] leading-[100%] tracking-[-0.03em] text-[#5B4A3E] max-w-[323px] group-hover:text-[#7A634E] transition-colors">
+//                 #122K, 1st block, 14th cross, 19th 'B' Main, Rajajinagar,
+//                 Bengaluru - 560010
+//               </p>
+//             </div>
+//           </div>
+
+//           {/* ===== Follow Us Section ===== */}
+//           <div className="lg:ml-[140px] mt-[20px] lg:mt-[10px] flex flex-col items-center lg:items-start">
+//             <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737] mb-[16px] whitespace-nowrap">
+//               Follow us on
+//             </h3>
+//             <div className="flex items-center justify-center lg:justify-start gap-[15px]">
+//               <Link href="https://instagram.com" target="_blank">
+//                 <Instagram className={iconHover} size={24} />
+//               </Link>
+//               <Link href="https://linkedin.com" target="_blank">
+//                 <FaLinkedin className={iconHover} size={24} />
+//               </Link>
+//               <Link href="https://youtube.com" target="_blank">
+//                 <IoLogoYoutube className={iconHover} size={24} />
+//               </Link>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* ===== Divider Line ===== */}
+//         <div className="border-t border-[#00000080] mt-[60px]" />
+
+//         {/* ===== Terms & Privacy ===== */}
+//         <div className="flex items-center justify-center lg:justify-end gap-[40px] mt-[30px] flex-wrap">
+//           <div className="flex items-center gap-[6px]">
+//             <div className="w-[5px] h-[5px] rounded-full bg-[#000000]" />
+//             <Link
+//               href="/terms"
+//               className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#7A634E] transition-colors"
+//             >
+//               Terms & Conditions
+//             </Link>
+//           </div>
+
+//           <div className="flex items-center gap-[6px]">
+//             <div className="w-[5px] h-[5px] rounded-full bg-[#000000]" />
+//             <Link
+//               href="/privacy"
+//               className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#7A634E] transition-colors"
+//             >
+//               Privacy Policy
+//             </Link>
+//           </div>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// };
+
+// // Tailwind helper classes
+// const footerLink =
+//   "font-inter font-normal text-[14px] md:text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#9C7F67] transition-colors"; // lighter color on hover
+
+// const iconHover =
+//   "text-[#5B4A3E] hover:text-[#7A634E] transition-colors cursor-pointer"; // partial fill/stroke only
+
+// export default Footer;
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 
-  const Footer = () => {
-    return (
-      <footer className="bg-[#E4D6CD] w-full flex flex-col justify-start items-start mt-[85px] py-8 relative">
-        <div className="w-full px-[30px] sm:px-[50px] md:px-[70px] lg:px-[86px]">
-          {/* ===== Main Footer Row (No motion added here as it's typically static) ===== */}
-          <div className="flex flex-col lg:flex-row justify-start lg:items-start items-center w-full gap-[40px] lg:gap-[0px]">
-            {/* ===== Left Section ===== */}
-            <div className="flex flex-col text-center lg:text-left mt-[13px]">
-              <h2 className="font-inter font-bold text-[28px] md:text-[35px] leading-[100%] tracking-[0.05em] text-[#5C4737] mb-4">
-                MIND A LOT
-              </h2>
-              <p className="font-inter font-normal text-[14px] md:text-[16px] leading-[28px] tracking-[-0.03em] text-[#755840] max-w-[450px] mx-auto lg:mx-0">
-                Anonymous support that listens, nudges ,<br />
-                and grow with you , When your mind feels too much, we're just a
-                tap away.
-              </p>
-            </div>
+import headerLogo from "@/assets/header-assets/headerLogo.png";
+import footerBgLogo from "@/assets/footer-assets/footer-background-logo.png";
 
-            {/* ===== Company Section ===== */}
-            <div className="lg:ml-[152px] mt-[20px] lg:mt-[10px] flex flex-col text-center lg:text-left space-y-[10px] md:space-y-[16px]">
-              <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737]">
-                Company
-              </h3>
-              <Link href="/features" className={footerLink}>
-                Features
+const Footer = () => {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  return (
+    <footer
+      className={`
+        relative w-full text-[#5B4A3E]
+        ${isHome ? "pt-24 pb-10" : "pt-20 pb-16"}
+        bg-gradient-to-br from-[#5B4B3E] via-[#F6F1EB] via-[#E8DED4] via-[#ABA093] to-[#8A8077]
+        overflow-hidden
+      `}
+      style={{
+        background:
+          "linear-gradient(125.54deg, #5B4B3E -12.44%, #F6F1EB -2.52%, #E8DED4 19.98%, #ABA093 80.72%, #8A8077 101.75%)",
+      }}
+    >
+      {/* Overlay Image */}
+      <div
+        className="absolute right-0 pointer-events-none z-0"
+        style={{
+          top: "50px",
+          bottom: "-20px",
+          width: "auto",
+          maxHeight: "calc(100% - 70px)",
+        }}
+      >
+        <Image
+          src={footerBgLogo}
+          alt="footer overlay logo"
+          style={{ height: "100%", width: "auto", objectFit: "contain", opacity: 1 }}
+        />
+      </div>
+
+      {/* Footer Content */}
+      <div className="relative z-10 mx-auto max-w-[1350px] px-8 md:px-12 lg:px-16 xl:px-20">
+        <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-24">
+          {/* LOGO + DESCRIPTION */}
+          <div className="max-w-[360px]">
+            <Image src={headerLogo} alt="logo" className="w-[150px]" />
+            <p className="mt-6 text-[15px] leading-relaxed">
+              Anonymous support that listens, nudges, and grows with you. When
+              your mind feels too much, we’re just a tap away.
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-10">
+              <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B]">
+                <span className="text-[28px] leading-none">•</span> Terms & Conditions
               </Link>
-              <Link href="/contact" className={footerLink}>
-                Contact Us
-              </Link>
-              <Link href="/resources" className={footerLink}>
-                Resources
+              <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B]">
+                <span className="text-[28px] leading-none">•</span> Privacy Policy
               </Link>
             </div>
+          </div>
 
-            {/* ===== Contact Section ===== */}
-            <div className="lg:ml-[140px] mt-[20px] lg:mt-[10px] flex flex-col text-center lg:text-left space-y-[12px] md:space-y-[16px]">
-              <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737]">
-                Contact
-              </h3>
-              <div className="flex justify-center lg:justify-start items-center gap-[5px]">
-                <Mail size={16} className="text-[#755840]" />
-                <span className={footerText}>hello@mindalot.com</span>
-              </div>
-              <div className="flex justify-center lg:justify-start items-center gap-[5px]">
-                <Phone size={16} className="text-[#755840]" />
-                <span className={footerText}>+91-96062-58596</span>
-              </div>
-              <div className="flex justify-center lg:justify-start items-center gap-[5px]">
-                <MapPin size={16} className="text-[#755840] min-w-[16px] mt-[-4px]" />
-                <p className={`${footerText} max-w-[323px]`}>
-                  #122K, 1st block, 14th cross, 19th 'B' Main, Rajajinagar,
-                  Bengaluru - 560010
-                </p>
-              </div>
-            </div>
+          {/* COMPANY SECTION */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <ul className="flex flex-col gap-3 text-[15px]">
+              <li>
+                <Link href="/features" className="hover:text-[#8C7A6B]">Features</Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-[#8C7A6B]">Contact Us</Link>
+              </li>
+              <li>
+                <Link href="/resource" className="hover:text-[#8C7A6B]">Resources</Link>
+              </li>
+            </ul>
+          </div>
 
-            {/* ===== Follow Us Section ===== */}
-            <div className="lg:ml-[140px] mt-[20px] lg:mt-[10px] flex flex-col items-center lg:items-start">
-              <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737] mb-[16px] whitespace-nowrap">
-                Follow us on
-              </h3>
-              <div className="flex items-center justify-center lg:justify-start gap-[15px]">
-                <Link href="https://instagram.com" target="_blank">
-                  <Instagram size={24} className={iconHover} />
-                </Link>
-                <Link href="https://linkedin.com" target="_blank">
-                  <FaLinkedin size={24} className={iconHover} />
-                </Link>
-                 <Link href="https://youtube.com" target="_blank">
-                  <IoLogoYoutube size={24} className={iconHover} />
-                </Link>
+          {/* CONTACT SECTION */}
+          <div className="max-w-[320px]">
+            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <div className="flex flex-col gap-4 text-[15px]">
+              <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
+                <Mail size={18} stroke="#5B4A3E" /> support@mindalot.com
+              </div>
+              <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
+                <Phone size={18} stroke="#5B4A3E" /> +91-96062-58596
+              </div>
+              <div className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight">
+                <MapPin size={18} stroke="#5B4A3E" />
+                #122K, 1st block, 14th cross, 19th ‘B’ Main,<br />
+                Rajajinagar, Bengaluru – 560010
               </div>
             </div>
           </div>
 
-          {/* ===== Divider Line ===== */}
-          <div className="border-t border-[#00000080] mt-[60px]" />
-        </div>
-
-        {/* ===== Terms + Privacy (Below Divider) ===== */}
-        <div className="w-full px-[30px] sm:px-[50px] md:px-[70px] lg:px-[86px]">
-          <div
-            className="flex items-center justify-center lg:justify-end gap-[40px] mt-[30px] pb-4"
-          >
-            {/* ===== Terms + Dot ===== */}
-            <div className="flex items-center gap-[6px]">
-              <div className="w-[5px] h-[5px] rounded-full bg-[#000000]" />
-              <Link
-                href="https://en.wikipedia.org/wiki/Terms_of_service"
-                className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#5C4737] transition-colors"
+          {/* SOCIAL MEDIA */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Follow us on</h3>
+            <div className="flex items-center gap-5">
+              <a
+                href="https://www.instagram.com/mind.alot?igsh=dWh5bGNtc3JoYTNs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer"
               >
-                Terms & Conditions
-              </Link>
-            </div>
-
-            {/* ===== Privacy + Dot ===== */}
-            <div className="flex items-center gap-[6px]">
-              <div className="w-[5px] h-[5px] rounded-full bg-[#000000]" />
-              <Link
-                href="https://policies.google.com/privacy?hl=en-US"
-                className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#5C4737] transition-colors"
+                <Instagram stroke="#5B4A3E" size={26} className="hover:opacity-70" />
+              </a>
+              <a
+                href="https://www.linkedin.com/showcase/mind-a-lot/about/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer"
               >
-                Privacy Policy
-              </Link>
+                <FaLinkedin color="#5B4A3E" size={26} className="hover:opacity-70" />
+              </a>
+              <a
+                href="https://youtube.com/@mind_alot?si=Y_E5tD3qxVunQ2e3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer"
+              >
+                <IoLogoYoutube color="#5B4A3E" size={30} className="hover:opacity-70" />
+              </a>
             </div>
           </div>
         </div>
-      </footer>
-    );
-  };
+      </div>
+    </footer>
+  );
+};
 
-  // Tailwind helper classes
-  const footerLink =
-    "font-inter font-normal text-[14px] md:text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#5C4737] transition-colors";
-  const footerText =
-    "font-inter font-normal text-[14px] md:text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840]";
-  const iconHover =
-    "text-[#5C4737] hover:text-[#755840] transition-colors cursor-pointer";
-
-
-
-    export default Footer;
+export default Footer;
