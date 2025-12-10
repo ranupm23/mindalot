@@ -265,6 +265,7 @@ export default function Home() {
           </div>
         </a>
 
+        {/* Your safe space text */}
         <p
           style={{
             position: 'absolute',
@@ -2768,6 +2769,7 @@ export default function Home() {
         </p>
         
         {/* Rectangle 1 - Download App */}
+        {/* Download App Button */}
         <a
           href="https://play.google.com/store/games"
           target="_blank"

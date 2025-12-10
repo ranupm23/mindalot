@@ -169,6 +169,9 @@ const AccessMoreResourceSection = () => {
                     </button>
                 </Link>
             </div>
+          <div className="-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-24">
+                <Footer />
+            </div>
         </div>
     )
 }
