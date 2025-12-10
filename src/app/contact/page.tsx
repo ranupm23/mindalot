@@ -66,6 +66,7 @@ export default function ContactPage() {
           <p className="text-[#5D4037]/80 text-sm mb-10 max-w-md leading-relaxed">
             Fill out the form below and our team will get in touch with you soon.
           </p>
+        </motion.div>
 
         {/* LEFT FORM AREA */}
         <div className="w-full max-w-full lg:max-w-[646px]">
