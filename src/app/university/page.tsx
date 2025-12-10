@@ -313,8 +313,8 @@ const OfferSection = () => {
     <section
       style={{
         backgroundColor: "#F6F2EB",
-        height: "100vh",
-       
+        height: "180vh", // enough height for second row
+
       }}
     >
       {/* Heading Layout */}
@@ -354,7 +354,7 @@ const OfferSection = () => {
         </h1>
       </div>
 
-      {/* First Card */}
+      {/* First Row (No Changes) */}
       <div
         style={{
           width: "290px",
@@ -371,15 +371,13 @@ const OfferSection = () => {
           borderImageSlice: 1,
         }}
       ></div>
-
-      {/* Second Card */}
       <div
         style={{
           width: "290px",
           height: "350px",
           position: "absolute",
           top: "1064px",
-          left: "386px", // small space from first
+          left: "386px",
           borderRadius: "10px",
           background: "#F8F8F8",
           borderWidth: "1px",
@@ -387,18 +385,15 @@ const OfferSection = () => {
           borderImageSource:
             "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
           borderImageSlice: 1,
-          opacity: 1,
         }}
       ></div>
-
-      {/* Third Card */}
       <div
         style={{
           width: "290px",
           height: "350px",
           position: "absolute",
           top: "1094px",
-          left: "688px", // small space from second
+          left: "688px",
           borderRadius: "10px",
           background: "#F8F8F8",
           borderWidth: "1px",
@@ -406,18 +401,15 @@ const OfferSection = () => {
           borderImageSource:
             "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
           borderImageSlice: 1,
-          opacity: 1,
         }}
       ></div>
-
-      {/* Fourth Card */}
       <div
         style={{
           width: "290px",
           height: "350px",
           position: "absolute",
           top: "1124px",
-          left: "990px", // small space from third
+          left: "990px",
           borderRadius: "10px",
           background: "#F8F8F8",
           borderWidth: "1px",
@@ -425,12 +417,150 @@ const OfferSection = () => {
           borderImageSource:
             "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
           borderImageSlice: 1,
-          opacity: 1,
         }}
       ></div>
+
+      {/* Second Row - ADJUSTED LEFT POSITIONS */}
+
+      {/* First Card (left: 84px - NO CHANGE) */}
+      <div
+        style={{
+          width: "290px",
+          height: "350px",
+          position: "absolute",
+          top: "1496px",
+          left: "84px",
+          borderRadius: "10px",
+          background: "#F8F8F8",
+          borderWidth: "1px",
+          borderStyle: "solid",
+          borderImageSource:
+            "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
+          borderImageSlice: 1,
+        }}
+      ></div>
+
+      {/* Second Card (left: 406px -> 384px) - REDUCED GAP */}
+      <div
+        style={{
+          width: "290px",
+          height: "350px",
+          position: "absolute",
+          top: "1526px",
+          left: "384px", // Changed from 406px
+          borderRadius: "10px",
+          background: "#F8F8F8",
+          borderWidth: "1px",
+          borderStyle: "solid",
+          borderImageSource:
+            "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
+          borderImageSlice: 1,
+        }}
+      ></div>
+
+      {/* Third Card (left: 728px -> 684px) - REDUCED GAP */}
+      <div
+        style={{
+          width: "290px",
+          height: "350px",
+          position: "absolute",
+          top: "1556px",
+          left: "684px", // Changed from 728px
+          borderRadius: "10px",
+          background: "#F8F8F8",
+          borderWidth: "1px",
+          borderStyle: "solid",
+          borderImageSource:
+            "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
+          borderImageSlice: 1,
+        }}
+      ></div>
+
+      {/* Fourth Card (left: 1050px -> 984px) - REDUCED GAP */}
+      <div
+        style={{
+          width: "290px",
+          height: "350px",
+          position: "absolute",
+          top: "1586px",
+          left: "984px", // Changed from 1050px
+          borderRadius: "10px",
+          background: "#5C4737",
+          opacity: 1,
+          padding: "20px",
+          boxSizing: "border-box",
+        }}
+      >
+        {/* Inner Text */}
+        <div
+          style={{
+            width: "227px",
+            height: "140px",
+            position: "absolute",
+            top: "20px",
+            left: "20px",
+            fontFamily: "Inter",
+            fontWeight: 500,
+            fontSize: "18px",
+            lineHeight: "35px",
+            letterSpacing: "-3%",
+            color: "#FFFFFF",
+          }}
+        >
+          Start building a mentally healthy campus - remove other lines and the download balloon
+        </div>
+
+        {/* Button */}
+        <button
+          style={{
+            width: "262px",
+            height: "60px",
+            position: "absolute",
+            top: "242px",
+            left: "20px",
+            borderRadius: "30px",
+            background: "#967B6A",
+            color: "#FFFFFF",
+            fontSize: "16px",
+            fontWeight: 500,
+            border: "none",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            paddingLeft: "20px",
+            paddingRight: "20px",
+          }}
+        >
+          Download University Kit
+          {/* White Circle */}
+              <div
+              className="
+                absolute top-[5px] right-[6px]   /* <-- Perfect like reference */
+                w-[50px] h-[50px] bg-white
+                rounded-full flex items-center justify-center
+                transition-all
+              "
+            >
+              <Image
+                src={arrow}
+                alt="arrow"
+                width={18}
+                height={18}
+                className="transition-all group-hover:rotate-45"
+              />
+            </div>
+        </button>
+      </div>
     </section>
   );
 };
+
+
+
+
+
+
 
   // ========== CONNECT SECTION ==========
   const ConnectCampus = () => {
