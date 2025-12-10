@@ -24,6 +24,7 @@ import Footer from "@/components/Footer";
 
 const ResourcePage = () => {
     return (
+        <>
         <div className='container-page xl:pr-0! xl:pl-0!'>
             <div className="pt-16 flex flex-col lg:justify-between lg:flex-row gap-9">
                 <div className="relative z-10 items-center pt-20 lg:pb-20 md:mb-20">
@@ -43,7 +44,10 @@ const ResourcePage = () => {
             <OurResourcesSection />
             <PodcastSection />
             <AccessMoreResourceSection />
+         
         </div>
+           <Footer />
+           </>
     )
 }
 

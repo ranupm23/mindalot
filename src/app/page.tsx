@@ -2773,7 +2773,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           className="cta-btn group"
-          style={{
+          style={{ 
             position: 'absolute',
             top: '5012px',
             left: '382px',

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Button from "@/components/Button";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Footer from "../../components/Footer";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -53,8 +54,9 @@ export default function ContactPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#EEDAC8] to-[#D8C3A5] text-[#3E2723] pt-24 pb-16 overflow-hidden">
-      <section className="mx-auto max-w-6xl px-5 md:px-10 grid gap-14 lg:grid-cols-2 items-center">
+ 
+    <main className="min-h-screen bg-gradient-to-b from-[#EEDAC8] to-[#D8C3A5] text-[#3E2723] pt-24 pb-0 overflow-hidden flex flex-col">
+      <section className="mx-auto max-w-6xl px-5 md:px-10 grid gap-14 lg:grid-cols-2 items-center flex-grow">
         {/* Left Section */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
@@ -202,6 +204,9 @@ export default function ContactPage() {
           ))}
         </motion.div>
       </section>
+      <Footer/>
     </main>
+    
+  
   );
 }
