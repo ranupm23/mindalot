@@ -6,10 +6,12 @@ import { motion } from "framer-motion";
 import arrow from "@/assets/corporate-assets/graphic2.svg";
 import contactpage from "@/assets/contact-page/contactpage.png";
 import cardGraphic from "@/assets/contact-page/right-side-image.png";
+import box from "@/assets/contact-page/box.png";
 import rightside1 from "@/assets/corporate-assets/group/group-clip-path3.png";
 import call from "@/assets/contact-page/call.png";
 import email from "@/assets/contact-page/sms.png";
 import Footer from "@/components/Footer";
+
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -116,9 +118,7 @@ export default function ContactPage() {
             <div className="flex flex-col">
               <div className="flex items-center justify-between">
                 <label className="text-[14px] text-[#5B4A3E]">Email</label>
-                <button type="button" className="text-[12px] text-[#7D5B4F] hover:underline">
-                  Forgot?
-                </button>
+                
               </div>
               <input
                 type="email"
@@ -151,24 +151,28 @@ export default function ContactPage() {
             </label>
 
             {/* BUTTON */}
-            <div className="mt-2 flex justify-center lg:justify-start">
-              <button
-                type="submit"
-                disabled={loading}
-                className="group flex items-center justify-between w-full sm:w-[200px] h-[50px] text-white text-[16px] sm:text-[18px] font-medium pl-6 pr-2 py-2 rounded-[40px] border border-[#967B6A] bg-[#967B6A] shadow-sm transition-all duration-300 hover:bg-[#A78870]"
-              >
-                <span className="tracking-[-0.01em]">{loading ? "Sending..." : "Book A Demo"}</span>
-                {!loading && (
-                  <div className="w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center">
-                    <Image
-                      src={arrow}
-                      alt="Arrow"
-                      className="w-[20px] h-[12px] rotate-[-45deg] transition-transform duration-300 ease-in-out group-hover:rotate-0"
-                    />
-                  </div>
-                )}
-              </button>
-            </div>
+<div className="mt-2 flex justify-center lg:justify-start">
+  <button
+    type="submit"
+    disabled={loading}
+    className="relative group flex items-center w-full sm:w-[200px] h-[50px] text-white text-[16px] sm:text-[18px] font-medium pl-6 pr-2 py-2 rounded-[40px] border border-[#967B6A] bg-[#967B6A] shadow-sm transition-all duration-300 hover:bg-[#A78870]"
+  >
+    {/* Button Text */}
+    <span className="tracking-[-0.01em]">{loading ? "Sending..." : "Book A Demo"}</span>
+
+    {/* Circle with Arrow slightly inside from the right */}
+    {!loading && (
+      <div className="absolute right-[3px] top-1/2 -translate-y-1/2 w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
+        <Image
+          src={arrow}
+          alt="Arrow"
+          className="w-[20px] h-[12px] rotate-[-45deg]"
+        />
+      </div>
+    )}
+  </button>
+</div>
+
 
             {/* ALERTS */}
             {success && <p className="text-green-600 text-[14px] pt-2">✔️ Message sent successfully.</p>}
@@ -190,21 +194,92 @@ export default function ContactPage() {
 
       </section>
 
-      {/* CONTACT BOXES */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-6 mt-16 sm:mt-20 text-center pb-24">
-        <h2 className="text-[#3E2723] mb-8 sm:mb-12 text-[20px] sm:text-[24px] font-semibold leading-tight -tracking-[0.03em]">
-          For institutions, business queries, or partnerships—reach out:
-        </h2>
+  {/* CONTACT BOXES */}
+<section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-6 mt-16 sm:mt-20 text-center pb-24">
+  <h2 className="text-[#3E2723] mb-8 sm:mb-12 text-[20px] sm:text-[24px] font-semibold leading-tight -tracking-[0.03em]">
+    For institutions, business queries, or partnerships—reach out:
+  </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-          {/* EMAIL */}
-          <ContactCard icon={email} label="support@mindalot.com" />
-          {/* PHONE */}
-          <ContactCard icon={call} label="+91-96062-58596" />
-          {/* WEBSITE */}
-          <ContactCard icon={rightside1} label="www.mindalot.care" />
-        </div>
-      </section>
+  <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+
+    {/* EMAIL */}
+    <div className="relative w-[300px] h-[169px] flex items-center justify-start px-6">
+      {/* BACKGROUND IMAGE */}
+      <Image
+        src={box}
+        alt="contact box"
+        fill
+        className="object-contain opacity-100"
+      />
+
+      {/* TOP RIGHT DECORATION */}
+      <Image
+        src={cardGraphic}
+        alt="decoration"
+        className="absolute top-2 right-2 w-[45px] h-[45px]"
+      />
+
+      {/* CONTENT */}
+      <div className="relative flex flex-col items-start gap-1">
+        <Image src={email} alt="email" className="w-[30px] h-[30px]" />
+        <p className="text-[#3E2723] text-[15px] sm:text-[16px] font-medium">
+          support@mindalot.com
+        </p>
+      </div>
+    </div>
+
+    {/* PHONE */}
+    <div className="relative w-[300px] h-[169px] flex items-center justify-start px-6">
+      <Image
+        src={box}
+        alt="contact box"
+        fill
+        className="object-contain opacity-100"
+      />
+
+      <Image
+        src={cardGraphic}
+        alt="decoration"
+        className="absolute top-2 right-2 w-[45px] h-[45px]"
+      />
+
+      <div className="relative flex flex-col items-start gap-1">
+        <Image src={call} alt="call" className="w-[30px] h-[30px]" />
+        <p className="text-[#3E2723] text-[15px] sm:text-[16px] font-medium">
+          +91-96062-58596
+        </p>
+      </div>
+    </div>
+
+    {/* WEBSITE */}
+    <div className="relative w-[300px] h-[169px] flex items-center justify-start px-6">
+      <Image
+        src={box}
+        alt="contact box"
+        fill
+        className="object-contain opacity-100"
+      />
+
+      <Image
+        src={cardGraphic}
+        alt="decoration"
+        className="absolute top-2 right-2 w-[45px] h-[45px]"
+      />
+
+      <div className="relative flex flex-col items-start gap-1">
+        <Image src={rightside1} alt="website" className="w-[30px] h-[30px]" />
+        <p className="text-[#3E2723] text-[15px] sm:text-[16px] font-medium">
+          www.mindalot.care
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
 
       <Footer />
     </main>
