@@ -61,7 +61,7 @@ const Footer = () => {
               <Link href="/terms-and-condition" className="flex items-center gap-2 hover:text-[#8C7A6B]">
                 <span className="text-[28px] leading-none">•</span> Terms & Conditions
               </Link>
-              <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B]">
+              <Link href="/privacy-policy" className="flex items-center gap-2 hover:text-[#8C7A6B]">
                 <span className="text-[28px] leading-none">•</span> Privacy Policy
               </Link>
             </div>
