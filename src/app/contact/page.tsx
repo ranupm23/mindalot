@@ -379,16 +379,28 @@ export default function ContactPage() {
             </div>
 
             {/* EMAIL */}
-            <div className="flex flex-col">
-              <label className="text-[14px] text-[#5B4A3E]">Email</label>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="Enter your email"
-                className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[14px]"
-              />
-            </div>
+<div className="flex flex-col">
+  <div className="flex items-center justify-between">
+    <label className="text-[14px] text-[#5B4A3E]">Email</label>
+
+    {/* Forgot password link */}
+    <a
+      href="/forgot-password"
+      className="text-[12px] text-[#967B6A] hover:text-[#A78870] transition-colors"
+    >
+      Forgot Password?
+    </a>
+  </div>
+
+  <input
+    type="email"
+    name="email"
+    required
+    placeholder="Enter your email"
+    className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[14px] placeholder:text-[#9E9086] focus:outline-none"
+  />
+</div>
+
 
             {/* REASON */}
             <div className="flex flex-col">
