@@ -141,7 +141,7 @@ export default function ContactPage() {
   <button
     type="submit"
     disabled={loading}
-    className="relative group flex items-center w-full sm:w-[200px] h-[50px] text-white text-[16px] sm:text-[18px] font-medium pl-6 pr-2 py-2 rounded-[40px] border border-[#967B6A] bg-[#967B6A] shadow-sm transition-all duration-300 hover:bg-[#A78870]"
+    className="relative group flex items-center w-full sm:w-[200px] h-[50px] text-white text-[16px] sm:text-[18px] font-medium pl-6 pr-2 py-2 rounded-[40px] border border-[#967B6A] bg-[#967B6A] shadow-sm transition-all duration-300 hover:bg-[#A78870] hover:text-black"
   >
     <span className="tracking-[-0.01em]">{loading ? "Sending..." : "Book A Demo"}</span>
     {!loading && (
