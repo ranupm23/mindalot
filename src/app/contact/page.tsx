@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import arrow from "@/assets/corporate-assets/graphic2.svg";
 import contactpage from "@/assets/contact-page/contactpage.png";
 import cardGraphic from "@/assets/contact-page/right-side-image.png";
@@ -52,23 +51,9 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#EEDAC8] to-[#D8C3A5] text-[#3E2723] pt-24 pb-0 overflow-hidden flex flex-col">
-      <section className="mx-auto max-w-6xl px-5 md:px-10 grid gap-14 lg:grid-cols-2 items-center flex-grow">
-        {/* Left Section */}
-        <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="relative z-10"
-        >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-[#6D4C41] to-[#3E2723]">
-            Need to Know More? <br />
-            We're Here.
-          </h1>
-          <p className="text-[#5D4037]/80 text-sm mb-10 max-w-md leading-relaxed">
-            Fill out the form below and our team will get in touch with you soon.
-          </p>
-        </motion.div>
+    <main className="w-full bg-white text-[#3E2723] pt-20 sm:pt-24 lg:pt-32">
+      {/* MAIN SECTION */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20">
 
         {/* LEFT FORM AREA */}
         <div className="w-full max-w-full lg:max-w-[646px]">
@@ -283,8 +268,6 @@ export default function ContactPage() {
 
       <Footer />
     </main>
-    
-  
   );
 }
 
