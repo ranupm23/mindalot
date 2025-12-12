@@ -60,8 +60,6 @@ const ResourcePage = () => {
             {/* FOOTER */}
             <Footer />
         </div>
-           <Footer />
-           </>
     )
 }
 
