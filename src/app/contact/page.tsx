@@ -136,26 +136,26 @@ export default function ContactPage() {
               <input type="checkbox" required className="w-4 h-4 mt-0.5" />
               By clicking submit, you agree to Mind A Lot Privacy Policy and Terms & Conditions
             </label>
+{/* BUTTON */}
+<div className="mt-2 flex justify-center lg:justify-start">
+  <button
+    type="submit"
+    disabled={loading}
+    className="relative group flex items-center w-full sm:w-[200px] h-[50px] text-white text-[16px] sm:text-[18px] font-medium pl-6 pr-2 py-2 rounded-[40px] border border-[#967B6A] bg-[#967B6A] shadow-sm transition-all duration-300 hover:bg-[#A78870]"
+  >
+    <span className="tracking-[-0.01em]">{loading ? "Sending..." : "Book A Demo"}</span>
+    {!loading && (
+      <div className="absolute right-[3px] top-1/2 -translate-y-1/2 w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
+        <Image
+          src={arrow}
+          alt="Arrow"
+          className="w-[20px] h-[12px] rotate-[-45deg] transition-transform duration-300 group-hover:rotate-[0deg]"
+        />
+      </div>
+    )}
+  </button>
+</div>
 
-            {/* BUTTON */}
-            <div className="mt-2 flex justify-center lg:justify-start">
-              <button
-                type="submit"
-                disabled={loading}
-                className="relative group flex items-center w-full sm:w-[200px] h-[50px] text-white text-[16px] sm:text-[18px] font-medium pl-6 pr-2 py-2 rounded-[40px] border border-[#967B6A] bg-[#967B6A] shadow-sm transition-all duration-300 hover:bg-[#A78870]"
-              >
-                <span className="tracking-[-0.01em]">{loading ? "Sending..." : "Book A Demo"}</span>
-                {!loading && (
-                  <div className="absolute right-[3px] top-1/2 -translate-y-1/2 w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
-                    <Image
-                      src={arrow}
-                      alt="Arrow"
-                      className="w-[20px] h-[12px] rotate-[-45deg]"
-                    />
-                  </div>
-                )}
-              </button>
-            </div>
 
             {/* ALERTS */}
             {success && <p className="text-green-600 text-[14px] pt-2">✔️ Message sent successfully.</p>}
