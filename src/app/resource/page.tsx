@@ -7,12 +7,12 @@ import meditate3 from "@/assets/resource-page/meditate3.webp"
 import meditate4 from "@/assets/resource-page/meditate4.webp"
 import meditate5 from "@/assets/resource-page/meditate5.webp"
 import playIcon from "@/assets/play-icon.svg"
-import ourResource1 from "@/assets/resource-page/our-resource-1.webp"
-import ourResource2 from "@/assets/resource-page/our-resource-2.webp"
-import ourResource3 from "@/assets/resource-page/our-resource-3.webp"
-import ourResource4 from "@/assets/resource-page/our-resource-4.webp"
+import ourResource1 from "@/assets/resource-page/podcost1.png"
+import ourResource2 from "@/assets/resource-page/podcost2.png"
+import ourResource3 from "@/assets/resource-page/podcost3.png"
+import ourResource4 from "@/assets/resource-page/podcost4.png"
 import podcast1 from "@/assets/resource-page/man-woman-talking-podcast.webp"
-import podcast2 from "@/assets/resource-page/man-woman-talking-podcast-2.webp"
+import podcast2 from "@/assets/resource-page/podcost-hero.png"
 import arrrow from '@/assets/arrow.svg'
 import avatar1 from '@/assets/resource-page/avatar1.webp'
 import avatar2 from '@/assets/resource-page/avatar2.webp'
@@ -22,34 +22,49 @@ import brownPlayIcon from '@/assets/resource-page/play.svg'
 import React from 'react'
 import Footer from "@/components/Footer";
 
+
 const ResourcePage = () => {
     return (
-        <>
-        <div className='container-page xl:pr-0! xl:pl-0!'>
-            <div className="pt-16 flex flex-col lg:justify-between lg:flex-row gap-9">
-                <div className="relative z-10 items-center pt-20 lg:pb-20 md:mb-20">
-                    <h1 className='text-[30px] sm:text-[40px] md:text-[50px] lg:text-[40px] xl:text-[60px] text-[#5C4737] font-semibold xl:leading-20 -tracking-[6%] font-inter'>Curated Resources from <br />Real Professionals. No Fluff.</h1>
-                    <Image src={borderImg} alt='' height={2} className='ml-auto w-[88%]' />
-                    <p className='text-xs sm:text-sm lg:text-base xl:text-lg font-medium mt-[30px] leading-[35px] -tracking-[3%] font-inter'>Ever wondered how small daily habits can reshape your mindset? Explore<br /> resources that make mental wellness simple and actionable.</p>
-                    <div className='text-[#6D6D6F] font-inter font-medium text-lg md:text-[24px] gap-2.5 flex items-center mt-[31px]'>
-                        <div className=''>Explore</div>
-                        <Image src={subtract} alt="arrow" width={30} height={30} />
-                        <div className=''>Reflect</div>
-                        <Image src={subtract} alt="arrow" width={30} height={30} />
-                        <div className=''>Learn</div>
+        <div className="flex flex-col min-h-screen">
+            {/* MAIN CONTENT */}
+            <div className='flex-1 container-page xl:pr-0 xl:pl-0 px-4 sm:px-6 md:px-8'>
+                <div className="pt-16 flex flex-col lg:flex-row lg:justify-between gap-9">
+                    {/* Left Text Section */}
+                    <div className="relative z-10 flex flex-col items-center sm:items-start pt-20 lg:pb-20 md:mb-20 text-center sm:text-left">
+                        <h1 className="font-inter font-semibold text-[32px] sm:text-[42px] md:text-[50px] lg:text-[60px] leading-[40px] sm:leading-[55px] md:leading-[65px] lg:leading-[80px] tracking-[-0.06em] text-[#5C4737]">
+                            Curated Resources from<br />
+                            Real Professionals. <span className="whitespace-nowrap">No Fluff.</span>
+                        </h1>
+                        <p className='text-[12px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-medium mt-[20px] sm:mt-[30px] leading-[20px] sm:leading-[28px] md:leading-[32px] lg:leading-[35px] -tracking-[3%] font-inter'>
+                            Ever wondered how small daily habits can reshape your mindset? Explore<br /> 
+                            resources that make mental wellness simple and actionable.
+                        </p>
+                        <div className='text-[#6D6D6F] font-inter font-medium text-[16px] sm:text-lg md:text-[24px] gap-2 flex flex-wrap justify-center sm:justify-start mt-[20px] sm:mt-[31px]'>
+                            <div className='mb-2 sm:mb-0'>Explore</div>
+                            <Image src={subtract} alt="arrow" width={20} height={20} className="sm:w-[30px] sm:h-[30px]" />
+                            <div className='mb-2 sm:mb-0'>Reflect</div>
+                            <Image src={subtract} alt="arrow" width={20} height={20} className="sm:w-[30px] sm:h-[30px]" />
+                            <div className='mb-2 sm:mb-0'>Learn</div>
+                        </div>
                     </div>
+                    {/* Slide Images */}
+                    <SlideImages />
                 </div>
-                <SlideImages />
+
+                {/* Sections */}
+                <OurResourcesSection />
+                <PodcastSection />
+                <AccessMoreResourceSection />
             </div>
-            <OurResourcesSection />
-            <PodcastSection />
-            <AccessMoreResourceSection />
-         
+
+            {/* FOOTER */}
+            <Footer />
         </div>
            <Footer />
            </>
     )
 }
+
 
 const SlideImages = () => {
     return (
@@ -145,35 +160,82 @@ const PodcastSection = () => {
     )
 }
 
-const AccessMoreResourceSection = () => {
-    return (
-        <div>
-            <h2 className='text-[30px] lg:text-[40px] xl:text-[50px] text-[#5C4737] font-semibold text-center'>Access More Resources</h2>
-            <p className='text-sm md:text-base xl:text-lg font-medium mt-4 mb-[30px] text-center'>Download the Mind A Lot app to access our complete library of mental health resources, tools, and professional content.</p>
-            <div className='flex flex-col sm:flex-row justify-center gap-5 items-center relative'>
-                <div className='w-[250px] h-[250px] rounded-full absolute top-full left-1/2 bg-[#BE9B84] -translate-x-1/2 -translate-y-[15%] blur-[130px] -z-50'></div>
-                <Link href="/resource">
-                    <button className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full'>
-                        View all resources
-                        <div className='w-[50px] h-[50px] ml-[15px] rounded-full bg-white flex justify-center items-center'>
-                            <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 transition-all' />
-                        </div>
-                    </button>
-                </Link>
-                <Link href="/corporates">
-                    <button className='bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full'>
-                        Download free tools
-                        <div className='w-[50px] h-[50px] ml-[11px] rounded-full bg-white flex justify-center items-center'>
-                            <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 transition-all' />
-                        </div>
-                    </button>
-                </Link>
-            </div>
-          <div className="-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-24">
-                <Footer />
-            </div>
-        </div>
-    )
-}
+
+   const AccessMoreResourceSection = () => {
+  return (
+    <div className="pb-20">
+      <h2 className="text-[30px] lg:text-[40px] xl:text-[50px] text-[#5C4737] font-semibold text-center">
+        Access More Resources
+      </h2>
+
+      <p className="text-sm md:text-base xl:text-lg font-medium mt-4 mb-[30px] text-center">
+        Download the Mind A Lot app to access our complete library of mental health resources, tools, and professional content.
+      </p>
+
+      <div className="flex flex-col sm:flex-row justify-center gap-5 items-center relative mb-10">
+        <div className="w-[250px] h-[250px] rounded-full absolute top-full left-1/2 bg-[#BE9B84] -translate-x-1/2 -translate-y-[15%] blur-[130px] -z-50"></div>
+
+        {/* BUTTON 1 */}
+        <a
+          href="/resource"
+          className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
+          style={{
+            fontFamily: "'Nunito Sans', sans-serif",
+            fontWeight: 500,
+            lineHeight: "100%",
+            letterSpacing: "0%",
+          }}
+        >
+          <span className="tracking-[-0.01em]">View all resources</span>
+
+          {/* Circle with Arrow */}
+          <div className="w-[46px] h-[46px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="12"
+              viewBox="0 0 20 12"
+              className="text-white transition-colors duration-300 -rotate-45 group-hover:text-[#5B4A3E]"
+              fill="none"
+            >
+              <path d="M0 6h18M12 0l6 6-6 6" stroke="currentColor" strokeWidth="2" />
+            </svg>
+          </div>
+        </a>
+
+        {/* BUTTON 2 */}
+        <a
+          href="https://play.google.com/store"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
+          style={{
+            fontFamily: "'Nunito Sans', sans-serif",
+            fontWeight: 500,
+            lineHeight: "100%",
+            letterSpacing: "0%",
+          }}
+        >
+          <span className="tracking-[-0.01em]">Download free tools</span>
+
+          {/* Circle with Arrow */}
+          <div className="w-[46px] h-[46px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="12"
+              viewBox="0 0 20 12"
+              className="text-white transition-colors duration-300 -rotate-45 group-hover:text-[#5B4A3E]"
+              fill="none"
+            >
+              <path d="M0 6h18M12 0l6 6-6 6" stroke="currentColor" strokeWidth="2" />
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  );
+};
+
 
 export default ResourcePage;
