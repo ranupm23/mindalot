@@ -25,7 +25,16 @@ export default function Header() {
     <header className="w-full h-[90px] fixed top-0 left-0 z-50 flex items-center justify-center bg-transparent backdrop-blur-[6px]">
       <div className="w-[1440px] h-[90px] flex items-center justify-between px-[75px]">
         {/* LOGO */}
-        <Image src={headerLogo} alt="Logo" width={112} height={68} className="opacity-100" priority />
+       <Link href="/">
+  <Image
+    src={headerLogo}
+    alt="Logo"
+    width={112}
+    height={68}
+    className="opacity-100 cursor-pointer"
+    priority
+  />
+</Link>
 
         {/* MENU for Large Screens */}
         <nav className="hidden md:flex items-center gap-[40px]">
