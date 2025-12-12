@@ -7,23 +7,8 @@ import Footer from "@/components/Footer";
 //Import Framer Motion
 import { motion } from "framer-motion";
 import { useState ,useEffect } from "react";
-import u1 from "@/assets/universityPage/2.jpg";
-import u2 from "@/assets/universityPage/3.jpg";
-import u3 from "@/assets/universityPage/4.jpg";
-import u4 from "@/assets/universityPage/5.jpg";
-import u5 from "@/assets/universityPage/6.jpg";
-import u6 from "@/assets/universityPage/7.jpg";
-import u7 from "@/assets/universityPage/8.jpg";
-import u8 from "@/assets/universityPage/9.jpg";
-import u9 from "@/assets/universityPage/10.jpg";
-import u10 from "@/assets/universityPage/11.jpg";
-import u11 from "@/assets/universityPage/12.jpg";
-import u12 from "@/assets/universityPage/13.jpg";
-import u13 from "@/assets/universityPage/14.jpg";
-import u14 from "@/assets/universityPage/15.jpg";
-import u15 from "@/assets/universityPage/1.jpg";
-import student from "@/assets/universityPage/student.png";
-import line from "@/assets/universityPage/line-1.png";
+import hero1 from "@/assets/universityPage/hero-1.png";
+import c1 from "@/assets/universityPage/24.png";
 import of1 from "@/assets/universityPage/24.png";
 import holistic from "@/assets/universityPage/holistic.png";
 import Risk from "@/assets/universityPage/Risk.png";
@@ -32,699 +17,1286 @@ import Global from "@/assets/universityPage/global.png";
 import Custom from "@/assets/universityPage/custom.png";
 import Regulator from "@/assets/universityPage/Regulatory.png";
 import arrow from "@/assets/arrow.svg";
-
+import whitea from "@/assets/universityPage/Arrow 1.png";
+import blacka from "@/assets/universityPage/black arr.png";
 export default function University() {
-const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize(); // check on mount
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // 💡 Framer Motion Variants
-  const containerVariants: any = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants: any = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const cardVariants: any = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-    hover: {
-      y: -5,
-      boxShadow: "0 10px 15px rgba(0, 0, 0, 0.1)",
-      transition: { duration: 0.3 },
-    },
-  };
-
-  const ctaButtonVariants: any = {
-    initial: { opacity: 0, scale: 0.9 },
-    animate: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100 } },
-    hover: { scale: 1.05 },
-  };
-
-  // ========== HERO SECTION ==========
-  const HeroSection = () => {
-    const avatars = [
-      { src: u1, w: 60, h: 60, top: 226, left: 1334, rotate: -19.14 },
-      { src: u2, w: 60, h: 60, top: 93, left: 1178, rotate: -27.33 },
-      { src: u3, w: 75, h: 75, top: 94, left: 929, rotate: 24.76 },
-      { src: u4, w: 75, h: 75, top: 109.63, left: 1280.63, rotate: -22.15 },
-      { src: u5, w: 75, h: 75, top: 434, left: 1316, rotate: -7 },
-      { src: u6, w: 75, h: 75, top: 350, left: 777, rotate: 10.99 },
-      { src: u7, w: 65, h: 65, top: 214, left: 914, rotate: 12.58 },
-      { src: u8, w: 25, h: 25, top: 423, left: 1261, rotate: -27.23 },
-      { src: u9, w: 25, h: 25, top: 264, left: 1276, rotate: -8.46 },
-      { src: u10, w: 25, h: 25, top: 305, left: 881, rotate: 11.62 },
-      { src: u11, w: 50, h: 50, top: 338, left: 1286, rotate: 0 },
-      { src: u12, w: 50, h: 50, top: 201, left: 1211, rotate: 0 },
-      { src: u13, w: 50, h: 50, top: 264, left: 772, rotate: 10.88 },
-      { src: u14, w: 50, h: 50, top: 97, left: 840, rotate: 19.55 },
-      { src: u15, w: 50, h: 50, top: 194, left: 826, rotate: 12.22 },
-    ];
-
-    return (
-      // 💡 Wrap section with motion.section
-      <motion.section
-        className="
-          hero-section
-          relative
-          flex
-          flex-col
-          md:flex-row
-          justify-between
-          items-center
-          md:items-start
-          w-full
-          -ml-0
-          md:-ml-[50px]
-          px-4
-          md:px-0
-        "
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
-        {/* Hero Left Content */}
-        <motion.div
-          className="hero-left relative w-full md:w-[695px] mt-[40px] md:mt-[144px] ml-0 md:ml-[86px]"
-          variants={itemVariants}
-        >
-          {/* Heading Text */}
-          <motion.h1
-            className="hero-heading font-inter font-semibold text-[40px] md:text-[60px] leading-[48px] md:leading-[80px] tracking-[-0.06em] text-[#5C4737]"
-            variants={itemVariants}
-          >
-            Mental Health on Campus is No Longer Optional.
-          </motion.h1>
-          {/* Sand Line Image - MODIFIED */}
-            <motion.div
-      className="final relative w-[280px] md:w-[450px] h-[38px] mt-[-13px] mx-auto md:mx-0 md:ml-[38px]"
-      initial={{ width: 0 }}
-      animate={{ width: isMobile ? "350px" : "480px" }} // 👈 reduced width for mobile
-      transition={{ duration: 0.8, delay: 0.5 }}
+// ========== HERO SECTION ==========
+const HeroSection = () => {
+  return (
+    <motion.section
+      className="relative w-full flex items-center justify-center overflow-hidden mx-auto min-h-[90vh] md:h-[866px]"
+      style={{
+        maxWidth: '1440px',
+        width: '100%',
+        opacity: 1,
+      }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
     >
-          
-            <Image
-              src={line}
-              alt="Sand underline"
-              layout="fill"
-              objectFit="contain"
-              priority
-            />
-          </motion.div>
-
-          {/* Description Text */}
-          <motion.div
-            className="w-full md:w-[538px] mt-[20px] px-4 md:px-0"
-            variants={itemVariants}
-          >
-            <p className="font-inter font-medium text-[16px] md:text-[18px] leading-[28px] md:leading-[35px] tracking-[-0.03em] text-[#0D0D0D]">
-              Students are struggling silently. Depression, anxiety, burnout, and
-              identity crises don't wait for counselling center hours. Mind A Lot
-              gives your students instant, anonymous access to licensed mental
-              health professionals, 24/7. No stigma. No waiting lists. Just real
-              support, in real time.
-            </p>
-          </motion.div>
-
-          {/* CTA BUTTON */}
-<button
-  onClick={() => window.location.href = '/'}
-  className="bg-[#967B6A] hover:bg-[#BE9B84] group cursor-pointer transition-all text-white pl-6 mt-5 p-[5px] flex justify-between items-center rounded-full"
->
-  Schedule a Demo
-  <div className="w-[50px] h-[50px] ml-[15px] rounded-full bg-white flex justify-center items-center">
-    <Image
-      src={arrow}
-      alt="arrow"
-      width={18}
-      height={18}
-      className="m-auto group-hover:rotate-45 transition-all"
-    />
-  </div>
-</button>
-
-        </motion.div>
-
-        {/* ===== RIGHT SIDE ELEMENTS ===== */}
-        <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+      {/* Background and Overlays */}
+      <div className="absolute inset-0 w-full h-full">
+        <Image src={hero1} alt="Hero background" fill className="object-cover opacity-100" priority />
+      </div>
+      <div className="absolute inset-0 w-full h-full z-[1]" style={{ background: '#00000099' }} />
+      <div 
+        className="absolute inset-0 w-full h-full z-[2]"
+        style={{
+          background: 'linear-gradient(125.54deg, #5B4B3E -12.44%, #F6F1EB -2.52%, #E8DED4 19.98%, #ABA093 80.72%, #8A8077 101.75%)',
+          mixBlendMode: 'multiply',
+          opacity: 0.8,
+        }}
+      />
+      
+      <div className="relative z-10 w-full h-full px-4 md:px-0 flex flex-col items-center justify-center py-12 md:py-0 md:block">
+        
+        {/* 1. H1 Layout */}
+        <div
+          className="w-[90%] md:w-[704px] mb-6 md:mb-0 mt-16 md:mt-0 md:absolute md:top-[259px] md:left-1/2 md:-translate-x-1/2"
+          style={{
+            color: '#F6F2EB',
+            opacity: 1,
+          }}
         >
-          <Image
-            src= {student}
-            alt="student"
-            width={509}
-            height={764}
-            className="student-img hidden md:block absolute top-[-100px] left-[820px] opacity-100 pointer-events-none select-none"
-          />
-        </motion.div>
-
-        {/* Mobile student image + avatars (mobile-only) */}
-        <div className="student-mobile-container block md:hidden w-full mt-8 relative flex justify-center pointer-events-none select-none">
-          {(() => {
-            const desktopStudent = { left: 820, top: -100, width: 509, height: 764 };
-            const mobileW = 300;
-            const mobileH = 450;
-            const scaleX = mobileW / desktopStudent.width;
-            const scaleY = mobileH / desktopStudent.height;
-            const indices = [0, 1, 2, 3, 4, 5, 6, 12];
-            const mapped = indices.map((i) => {
-              const a = avatars[i];
-              const w = Math.max(28, Math.round(a.w * scaleX));
-              const h = Math.max(28, Math.round(a.h * scaleY));
-              const left = Math.round((a.left - desktopStudent.left) * scaleX);
-              const top = Math.round((a.top - desktopStudent.top) * scaleY);
-              return { src: a.src, w, h, left, top, rotate: a.rotate };
-            });
-
-            return (
-              <motion.div
-                className="relative"
-                style={{ width: mobileW }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <Image src={student} alt="student" width={mobileW} height={mobileH} className="w-full h-auto" />
-                {mapped.map((m, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="absolute rounded-full overflow-hidden shadow-md"
-                    style={{ width: m.w, height: m.h, left: m.left, top: m.top }}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.8 + idx * 0.1 }}
-                  >
-                    <Image src={m.src} alt={`m${idx}`} width={m.w} height={m.h} className={`object-cover w-full h-full`} />
-                  </motion.div>
-                ))}
-              </motion.div>
-            );
-          })()}
+          <div className="flex items-center justify-center w-full h-full">
+            <h1
+              className="text-[32px] sm:text-[30px] md:text-[50px] lg:text-[60px] leading-[38px] sm:leading-[46px] md:leading-[55px] lg:leading-[66px] text-center font-medium"
+              style={{
+                fontFamily: 'Helvetica Neue, Arial, sans-serif',
+                letterSpacing: '-3%',
+                color: '#F6F2EB',
+                margin: 0,
+              }}
+            >
+              Mental health on campus is no longer optional.
+            </h1>
+          </div>
         </div>
 
-        {/* Rectangle Layout */}
-        <motion.div
-          className="
-            absolute top-[470px] left-[640px] w-[260px] h-[115px]
-            bg-[#BE9B8433] rounded-[10px] opacity-100
-          "
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+        {/* 2. First Paragraph */}
+        <div 
+          className="w-[90%] md:w-[588px] mt-4 md:mt-0 mb-3 md:mb-0 md:absolute md:top-[421px] md:left-1/2 md:-translate-x-1/2"
+          style={{
+            color: '#F6F2EB',
+            opacity: 1,
+          }}
         >
-          <p
-            className="
-              absolute top-[58px] left-[16px] w-[220px]
-              font-inter font-normal text-[13px] leading-[22px]
-              tracking-[-0.03em] text-[#6D6D6F]
-            "
-          >
-            Your mind matters. Take care of it like you do your dreams.
-          </p>
-
-          <div
-            className="
-              absolute top-[-12px] left-[190px] w-[60px] h-[60px]
-              rounded-full bg-white border border-[#755840]
-              flex items-center justify-center
-            "
-          >
-            <Image src= {arrow} alt="home-bt"
-              className="w-[18px] h-[18px] text-[#755840] rotate-[170deg]"
-             
-            />
+          <div className="flex items-center justify-center w-full h-full">
+            <p
+              className="text-[16px] sm:text-[17px] md:text-[18px] leading-[22px] sm:leading-[23px] md:leading-[25px] text-center font-light"
+              style={{
+                fontFamily: 'Inter',
+                letterSpacing: '-3%',
+                color: '#F6F2EB',
+                margin: 0,
+              }}
+            >
+              Students are struggling silently. Depression, anxiety, burnout, and identity crises don't wait for counselling centre hours.
+            </p>
           </div>
-        </motion.div>
+        </div>
 
-        {/* ===== AVATARS (Desktop) ===== */}
-        {avatars.map((a, i) => (
-          <motion.div
-            key={i}
-            className="avatar absolute rounded-full overflow-hidden shadow-md hidden md:block" // Hide on mobile for desktop-only map
-            style={{
-              width: `${a.w}px`,
-              height: `${a.h}px`,
-              top: `${a.top}px`,
-              left: `${a.left}px`,
-              transform: `rotate(${a.rotate}deg)`,
-              opacity: 1,
-            }}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 100, delay: 0.5 + i * 0.05 }}
-          >
-            <Image
-              src={a.src}
-              alt={`Avatar ${i + 1}`}
-              width={a.w}
-              height={a.h}
-              className="object-cover w-full h-full"
-            />
-          </motion.div>
-        ))}
-      </motion.section>
-    );
-  };
-
-  // ========== OFFER SECTION ==========
-  const OfferSection = () => {
-    // Array of offer data for mapping (improving readability and reusability)
-    const offers = [
-      {
-
-
-        icon: of1,
-        iconW: "37.5px",
-        iconH: "41px",
-        title: "24/7 Anonymous Access",
-        description: "Real counselling with no ID or booking needed, ensuring complete privacy and immediate support.",
-      },
-      {
-        icon: holistic,
-        iconW: "62.5px",
-        iconH: "56.84px",
-        title: "Holistic Student Support",
-        description: "Covering exam stress, homesickness, relationships, identity, focus, and more.",
-      },
-      {
-        icon: Risk,
-        iconW: "62.47px",
-        iconH: "62.47px",
-        title: "High-Risk Case Escalation",
-        description: "Built-in protocols for high-risk cases with seamless escalation to partner hospitals.",
-      },
-      {
-        icon: Dashboard,
-        iconW: "62.5px",
-        iconH: "62.5px",
-        title: "Institutional Dashboards",
-        description: "Anonymized, real-time wellness insights to inform campus-wide mental health strategy.",
-      },
-      {
-        icon: Global, // Icon was missing in original code, adding a placeholder here
-        iconW: "62.5px",
-        iconH: "62.5px",
-        title: "Global Accessibility",
-        description: "Works seamlessly across devices, time zones, and multiple languages to serve all students.",
-      },
-      {
-        icon: Custom,
-        iconW: "62.5px",
-        iconH: "62.5px",
-        title: "Custom Content Drops",
-        description: "Targeted resources for exam anxiety, burnout, homesickness, and self-harm prevention.",
-      },
-      {
-        icon: Regulator,
-        iconW: "63.5px",
-        iconH: "63.5px",
-        title: "Regulatory Compliance",
-        description: "Helps your institution stay compliant with UGC/NAAC/AICTE mental health directives.",
-      },
-    ];
-
-    return (
-      // 💡 Wrap section with motion.section
-      <motion.section
-        className="offer-section relative mt-[60px] md:mt-[120px] ml-0 md:ml-[67px] px-4 md:px-0 w-full"
-        initial="hidden"
-        whileInView="visible" // Animate when the section comes into view
-        viewport={{ once: true, amount: 0.1 }}
-        variants={containerVariants}
-      >
-        {/* ====== Title ====== */}
-        <motion.div
-          className="w-full md:w-[660px] h-auto md:h-[61px] opacity-100 mb-[30px] md:mb-[40px] text-center md:text-left"
-          variants={itemVariants}
+        {/* 3. Second Paragraph */}
+        <div 
+          className="w-[90%] md:w-[534px] mt-3 md:mt-0 mb-3 md:mb-0 md:absolute md:top-[485px] md:left-1/2 md:-translate-x-1/2"
+          style={{
+            color: '#F6F2EB',
+            opacity: 1,
+          }}
         >
-          <h2 className="offer-title font-inter font-semibold text-[32px] md:text-[50px] leading-[120%] md:leading-[100%] tracking-[-0.06em] text-[#5C4737]">
-            What we Offer to Universities ?
-          </h2>
-        </motion.div>
-
-        {/* ====== Cards Grid ====== */}
-        <motion.div
-          className="offer-grid flex flex-wrap md:flex-nowrap gap-[13px] mb-[20px] md:mb-[40px] justify-center items-center md:justify-start w-full mx-auto"
-          variants={containerVariants}
-        >
-          {/* ====== 1st Row Cards (1-4) ====== */}
-          {offers.slice(0, 4).map((offer, index) => (
-            <motion.div
-              key={index}
-              className="offer-card group relative w-full max-w-[302px] md:w-[302px] h-[302px] rounded-md bg-[#F8F8F8] cursor-pointer transition-all duration-300 ease-in-out hover:rounded-lg overflow-hidden mx-auto md:mx-0"
-              variants={cardVariants}
-              whileHover="hover"
+          <div className="flex items-center justify-center w-full h-full">
+            <p
+              className="text-[16px] sm:text-[17px] md:text-[18px] leading-[22px] sm:leading-[23px] md:leading-[25px] text-center font-light"
+              style={{
+                fontFamily: 'Inter',
+                letterSpacing: '-3%',
+                textAlign: 'center',
+                color: '#F6F2EB',
+                margin: 0,
+              }}
             >
-              {/* Animated border overlay */}
-              <div className="absolute inset-0 rounded-md border-2 border-transparent group-hover:border-[#5C4737] transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100 pointer-events-none"
-                   style={{
-                     borderImage: "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%) 1",
-                   }}
-              ></div>
-              <div className="absolute top-[20px] left-[20px] w-[50px] h-[50px]">
-                <Image
-                  src={offer.icon}
-                  alt="offer icon"
-                  width={75}
-                  height={75}
-                  className="object-contain"
-                />
-              </div>
+              Mind A Lot gives your students instant, anonymous access to licensed mental health professionals, 24/7.
+            </p>
+          </div>
+        </div>
 
-              <div className="absolute top-[139px] left-[20px] w-[195px] h-[58px]">
-                <p className="font-inter font-semibold text-[24px] leading-[100%] tracking-[-0.03em] text-[#5C4737]">
-                  {offer.title}
-                </p>
-              </div>
-
-              <div className="absolute top-[207px] left-[20px] w-[262px] h-[75px]">
-                <p className="font-inter font-medium text-[14px] leading-[25px] tracking-[-0.03em] text-[#6D6D6F]">
-                  {offer.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* ====== 2nd Row Cards (5-7) + CTA Card (8) ====== */}
-        <motion.div
-          className="flex flex-wrap md:flex-nowrap gap-[13px] justify-center items-center md:justify-start w-full mx-auto"
-          variants={containerVariants}
+        {/* 4. Third Paragraph */}
+        <div 
+          className="w-[90%] md:w-[456px] mt-3 md:mt-0 mb-6 md:mb-0 md:absolute md:top-[561px] md:left-1/2 md:-translate-x-1/2"
+          style={{
+            color: '#F6F2EB',
+            opacity: 1,
+          }}
         >
-          {/* Cards 5-7 */}
-          {offers.slice(4, 7).map((offer, index) => (
-            <motion.div
-              key={index + 4}
-              className="group relative w-full max-w-[302px] md:w-[302px] h-[302px] rounded-md bg-[#F8F8F8] cursor-pointer transition-all duration-300 ease-in-out hover:rounded-lg overflow-hidden mx-auto md:mx-0"
-              variants={cardVariants}
-              whileHover="hover"
+          <div className="flex items-center justify-center w-full h-full">
+            <p
+              className="text-[16px] sm:text-[17px] md:text-[18px] leading-[22px] sm:leading-[23px] md:leading-[25px] text-center font-light whitespace-normal md:whitespace-nowrap"
+              style={{
+                fontFamily: 'Inter',
+                letterSpacing: '-3%',
+                textAlign: 'center',
+                color: '#F6F2EB',
+                margin: 0,
+              }}
             >
-              {/* Animated border overlay */}
-              <div className="absolute inset-0 rounded-md border-2 border-transparent group-hover:border-[#5C4737] transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100 pointer-events-none"
-                   style={{
-                     borderImage: "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%) 1",
-                   }}
-              ></div>
-              {/* Icon (Re-added based on the data structure and original intent) */}
-              <div className="absolute top-[20px] left-[20px] w-[50px] h-[50px]">
-                <Image
-                  src={offer.icon}
-                  alt="offer icon"
-                  width={75}
-                  height={75}
-                  className="object-contain"
-                />
-              </div>
+              No stigma. No waiting lists. Just real support, in real time.
+            </p>
+          </div>
+        </div>
 
-              {/* Title */}
-              <div className="absolute top-[139px] left-[20px] w-[196px] h-[58px]">
-                <p className="font-inter font-semibold text-[24px] leading-[100%] tracking-[-0.03em] text-[#5C4737]">
-                  {offer.title}
-                </p>
-              </div>
-
-              {/* Description */}
-              <div className="absolute top-[207px] left-[20px] w-[262px] h-[75px]">
-                <p className="font-inter font-medium text-[14px] leading-[25px] tracking-[-0.03em] text-[#6D6D6F]">
-                  {offer.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-
-          {/* ==== Card 8 (CTA) ==== */}
-          <motion.div
-            className="group relative w-full max-w-[302px] md:w-[302px] h-[302px] rounded-md bg-[#5C4737] transition-all duration-300 ease-in-out hover:rounded-lg overflow-hidden mx-auto md:mx-0"
-            variants={cardVariants}
-            whileHover={{ scale: 1 }} // Override default card hover for this special CTA
-          >
-            {/* Animated border overlay */}
-            <div className="absolute inset-0 rounded-md border-2 border-transparent group-hover:border-[#5C4737] transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100 pointer-events-none"
-                 style={{
-                   borderImage: "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%) 1",
-                 }}
-            ></div>
-            {/* Text Content */}
-            <div className="absolute w-[210px] h-[70px] top-[116px] left-[46px]">
-              <p className="font-inter font-medium text-[18px] leading-[35px] tracking-[-0.03em] text-white text-center">
-                Start building a mentally healthy campus!
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-      </motion.section>
-    );
-  };
-
-  // ========== CONNECT SECTION ==========
-  const ConnectCampus = () => {
-    return (
-      // 💡 Wrap section with motion.section
-      <motion.section
-        className="flex flex-col justify-center items-center mt-30 space-y-8 px-4 md:px-[128px]"
-        initial="hidden"
-        whileInView="visible" // Animate when the section comes into view
-        viewport={{ once: true, amount: 0.5 }}
-        variants={containerVariants}
-      >
-        {/* Heading */}
-        <motion.h2
-          className="connect-heading font-inter font-semibold text-[32px] md:text-[50px] leading-[120%] md:leading-[100%] tracking-[-0.06em] text-center text-[#5C4737] whitespace-normal md:whitespace-nowrap"
-          variants={itemVariants}
+        {/* ---------------------------------------------
+            ⭐ 5. NEW BUTTON LAYOUT (212 × 60)
+        ---------------------------------------------- */}
+        <div
+          className="w-[180px] md:w-[212px] h-[50px] md:h-[60px] md:absolute md:top-[636px] md:left-1/2 md:-translate-x-1/2"
+          style={{
+            opacity: 1,
+          }}
         >
-          Bring Mental Wellness to Every Corner of Your Campus.
-        </motion.h2>
-
-        {/* Subtext */}
-        <motion.p
-          className="connect-subtext font-inter font-medium text-[18px] leading-[100%] tracking-[-0.03em] text-center text-[#000000A6] max-w-[1020px]"
-          variants={itemVariants}
-        >
-          Empower your students and faculty with 24/7 confidential support, real
-          counselling, and real results — powered by Mind A Lot.
-        </motion.p>
-
-        {/* Buttons Section */}
-        <div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 w-full px-4 md:px-0 justify-center">
-
-  {/* Schedule a Demo Button */}
- <button
-  onClick={() => window.location.href = '/'}
-  className="
-    group relative w-full md:w-[225px] h-[60px] 
-    bg-[#967B6A] hover:bg-[#BE9B84]
-    rounded-[43px] flex items-center justify-start 
-    pl-[24px]
-    text-white font-inter font-medium text-[16px] tracking-[-0.03em]
-    transition-all cursor-pointer
-  "
+     {/* Button */}
+     {/* 5. Button Layout Container */}
+<button
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = "#5C4737";
+    e.currentTarget.style.border = "2px solid transparent"; // remove border
+    const img = e.currentTarget.querySelector("img");
+    if (img) img.style.transform = "rotate(45deg)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = "transparent";
+    e.currentTarget.style.border = "2px solid #F6F2EB"; // reset border
+    const img = e.currentTarget.querySelector("img");
+    if (img) img.style.transform = "rotate(0deg)";
+  }}
+  style={{
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "start",
+    position: "relative",
+    border: "2px solid #F6F2EB",
+    borderRadius: "30px",
+    background: "transparent",
+    transition: "0.3s",
+  }}
 >
-  Schedule a Demo
+  {/* Button Text */}
+  <span
+    className="text-[14px] md:text-[16px] absolute top-1/2 -translate-y-1/2 left-[16px] md:left-[20px]"
+    style={{
+      width: "auto",
+      fontFamily: "Nunito Sans",
+      fontWeight: 500,
+      color: "#F6F2EB",
+    }}
+  >
+    Schedule a demo
+  </span>
 
+  {/* Circle */}
   <div
-    className="
-      absolute top-[5px] right-[6px]   /* <-- Perfect like reference */
-      w-[50px] h-[50px] bg-white
-      rounded-full flex items-center justify-center
-      transition-all
-    "
+    className="absolute w-[42px] h-[42px] md:w-[50px] md:h-[50px] left-[130px] md:left-[155px] top-1/2 -translate-y-1/2 rounded-full flex items-center justify-center"
+    style={{
+      backgroundColor: "#F6F2EB",
+      border: "1px solid #F6F2EBEE",
+    }}
   >
     <Image
-      src={arrow}
-      alt="arrow"
+      src={blacka}
+      alt="arrow icon"
       width={18}
       height={18}
-      className="transition-all group-hover:rotate-45"
+      className="md:w-5 md:h-5"
+      style={{
+        transition: "0.3s", // smooth rotation
+      }}
     />
   </div>
 </button>
 
 
-  {/* Download University Partnership Kit Button */}
-  <a
-  href="https://play.google.com/store"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group relative w-full md:w-[360px] h-[60px] 
-             bg-[#967B6A] hover:bg-[#BE9B84]
-             rounded-[43px] flex items-center justify-start 
-             pl-[24px] text-white font-inter font-medium text-[16px] tracking-[-0.03em]
-             transition-all cursor-pointer overflow-hidden"
->
-  <span className="whitespace-nowrap truncate">
-    Download University Partnership Kit
-  </span>
+</div>
+    
+        </div>
 
-  <div
+      
+    </motion.section>
+  );
+};
+
+
+
+
+
+// ========== OFFER SECTION =========
+const OfferSection = () => {
+  return (
+    <section
+      // Desktop Height 180vh. On Mobile: height auto (!important to override inline style), padding on top/bottom
+      // **Changed to max-md:!h-auto to force height to auto on mobile**
+      className="max-md:py-12 max-md:!h-auto"
+      style={{
+        backgroundColor: "#F6F2EB",
+        height: "180vh", // Desktop fixed height
+      }}
+    >
+    
+
+  
+      {/* Heading Layout */}
+      <div
+  // Desktop styles for absolute positioning
+  style={{
+    width: "713px",
+    height: "68px",
+    position: "absolute",
+    top: "916px",
+    left: "84px",
+    opacity: 1,
+  }}
+  // Mobile styles: relative positioning, full width, padding, margin-bottom
+  className="max-md:relative max-md:w-full max-md:px-4 max-md:top-auto max-md:left-auto max-md:mb-8 max-md:!static"
+>
+  <h1
     className="
-      absolute top-[5px] right-[6px]
-      w-[50px] h-[50px] bg-white
-      rounded-full flex items-center justify-center
-      transition-all
+      font-nunito font-bold 
+      text-[50px] leading-[100%] 
+      break-words 
+      max-md:!text-[32px] max-md:leading-[120%] 
+      max-sm:!text-[28px] max-[420px]:!text-[24px]
     "
+    style={{
+      fontFamily: "Nunito Sans",
+      fontWeight: 700,
+      fontSize: "50px", // Desktop stays the same
+      lineHeight: "100%",
+      letterSpacing: "0%",
+      margin: 0,
+    }}
   >
-    <Image
-      src={arrow}
-      alt="arrow"
-      width={18}
-      height={18}
-      className="transition-all group-hover:rotate-45"
-    />
-  </div>
-</a>
+    What{" "}
+    <span
+      className="
+        max-md:!text-[32px] 
+        max-sm:!text-[28px] 
+        max-[420px]:!text-[24px]
+      "
+      style={{
+        fontFamily: "Nunito Sans",
+        fontWeight: 700,
+        fontSize: "50px", // Desktop font
+        lineHeight: "100%",
+        letterSpacing: "0%",
+      }}
+    >
+      we
+    </span>{" "}
+    offer to universities?
+  </h1>
+</div>
+
+
+
+
+
+
+      {/* Cards Container - Mobile: Stacked, full width, with gap */}
+      <div className="max-md:flex max-md:flex-col max-md:gap-6">
+        {/* --- Card 1 --- */}
+        <div
+          // Desktop styles for absolute positioning and fixed size
+          style={{
+            width: "290px",
+            height: "350px",
+            position: "absolute",
+            top: "1030px",
+            left: "84px",
+            borderRadius: "10px",
+            background: "#F8F8F8",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderImageSource:
+              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
+            borderImageSlice: 1,
+          }}
+          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
+          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
+        >
+          {/* Inner Image Box */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "75px",
+              height: "75px",
+              position: "absolute",
+              top: "20px",
+              left: "20px",
+            }}
+            // Mobile styles: relative, smaller size, margin-bottom.
+            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
+          >
+            <Image
+              src={c1} // replace with actual import
+              alt="icon"
+              // Desktop image size and position
+              style={{
+                width: "56.25px",
+                height: "62.4609375px",
+                position: "absolute",
+                top: "6.25px",
+                left: "9.38px",
+              }}
+              // Mobile image size and position.
+              className="max-md:relative max-md:w-[45px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
+            />
+          </div>
+
+          {/* Title */}
+          <p
+            // Desktop styles for absolute positioning
+            style={{
+              width: "195px",
+              height: "58px",
+              position: "absolute",
+              top: "139px",
+              left: "20px",
+              fontFamily: "Inter",
+              fontWeight: 600,
+              fontSize: "24px",
+              lineHeight: "100%",
+              letterSpacing: "-0.03em",
+              color: "#5C4737",
+            }}
+            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            24/7 Anonymous Access
+          </p>
+
+          {/* Description */}
+          <p
+            // Desktop styles for absolute positioning
+            style={{
+              width: "262px",
+              height: "75px",
+              position: "absolute",
+              top: "207px",
+              left: "20px",
+              fontFamily: "Inter",
+              fontWeight: 500,
+              fontSize: "14px",
+              lineHeight: "25px",
+              letterSpacing: "-0.03em",
+              color: "#6D6D6F",
+            }}
+            // Mobile styles: relative, full width, auto height, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Real counselling, round the clock — with complete privacy and
+            immediate support, whenever and wherever you need it.
+          </p>
+        </div>
+
+        {/* --- Card 2 --- */}
+        <div
+          // Desktop styles for absolute positioning and fixed size
+          style={{
+            width: "290px",
+            height: "350px",
+            position: "absolute",
+            top: "1064px",
+            left: "386px",
+            borderRadius: "10px",
+            background: "#F8F8F8",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderImageSource:
+              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
+            borderImageSlice: 1,
+          }}
+          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
+          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
+        >
+          {/* Inner Image Box */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "75px",
+              height: "75px",
+              position: "absolute",
+              top: "20px",
+              left: "20px",
+            }}
+            // Mobile styles: relative, smaller size, margin-bottom.
+            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
+          >
+            {/* Image */}
+            <Image
+              src={holistic}
+              alt="icon"
+              // Desktop image size and position
+              style={{
+                width: "62.5px",
+                height: "59.3425px",
+                position: "absolute",
+                top: "6px",
+                left: "6.25px",
+              }}
+              // Mobile styles.
+              className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
+            />
+          </div>
+
+          {/* Title */}
+          <p
+            // Desktop styles for absolute positioning
+            style={{
+              width: "196px",
+              height: "58px",
+              position: "absolute",
+              top: "127px",
+              left: "20px",
+              fontFamily: "Inter",
+              fontWeight: 600,
+              fontSize: "24px",
+              lineHeight: "100%",
+              letterSpacing: "-0.03em",
+              color: "#5C4737",
+            }}
+            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Holistic Student Support
+          </p>
+
+          {/* Description */}
+          <p
+            // Desktop styles for absolute positioning
+            style={{
+              width: "262px",
+              height: "100px",
+              position: "absolute",
+              top: "195px",
+              left: "20px",
+              fontFamily: "Inter",
+              fontWeight: 500,
+              fontSize: "14px",
+              lineHeight: "25px",
+              letterSpacing: "-0.03em",
+              color: "#6D6D6F",
+            }}
+            // Mobile styles: relative, full width, auto height, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Covering exam stress, relationships, identity, focus, and more —
+            because whatever you’re going through, you don’t have to face it
+            alone.
+          </p>
+        </div>
+
+        {/* --- Card 3 --- */}
+        <div
+          // Desktop styles for absolute positioning and fixed size
+          style={{
+            width: "290px",
+            height: "350px",
+            position: "absolute",
+            top: "1094px",
+            left: "688px",
+            borderRadius: "10px",
+            background: "#F8F8F8",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderImageSource:
+              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
+            borderImageSlice: 1,
+          }}
+          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
+          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
+        >
+          {/* Inner Image Box */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "75px",
+              height: "75px",
+              position: "absolute",
+              top: "20px",
+              left: "20px",
+            }}
+            // Mobile styles: relative, smaller size, margin-bottom.
+            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
+          >
+            {/* Image */}
+            <Image
+              src={Risk} // <-- replace with your actual image import
+              alt="icon"
+              // Desktop image size and position
+              style={{
+                width: "62.4688px",
+                height: "62.4688px",
+                position: "absolute",
+                top: "6.27px",
+                left: "6.26px",
+              }}
+              // Mobile image size and position.
+              className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
+            />
+          </div>
+
+          {/* Title */}
+          <p
+            // Desktop styles for absolute positioning
+            style={{
+              width: "197px",
+              height: "58px",
+              position: "absolute",
+              top: "121px",
+              left: "20px",
+              fontFamily: "Inter",
+              fontWeight: 600,
+              fontSize: "24px",
+              lineHeight: "100%",
+              letterSpacing: "-0.03em",
+              color: "#5C4737",
+            }}
+            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            High-Risk Case Escalation
+          </p>
+
+          {/* Description */}
+          <p
+            // Desktop styles for absolute positioning
+            style={{
+              width: "262px",
+              height: "100px",
+              position: "absolute",
+              top: "189px",
+              left: "20px",
+              fontFamily: "Inter",
+              fontWeight: 500,
+              fontSize: "14px",
+              lineHeight: "25px",
+              letterSpacing: "-0.03em",
+              color: "#6D6D6F",
+            }}
+            // Mobile styles: relative, full width, auto height, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Built-in protocols for high-risk cases with seamless escalation to
+            partner hospitals, guaranteeing safety, continuity, and quality of
+            care.
+          </p>
+        </div>
+
+        {/* --- Card 4 --- */}
+        <div
+          // Desktop styles for absolute positioning and fixed size
+          style={{
+            width: "290px",
+            height: "350px",
+            position: "absolute",
+            top: "1124px",
+            left: "990px",
+            borderRadius: "10px",
+            background: "#F8F8F8",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderImageSource:
+              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
+            borderImageSlice: 1,
+          }}
+          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
+          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
+        >
+          {/* Inner Image Box */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "75px",
+              height: "75px",
+              position: "absolute",
+              top: "20px",
+              left: "20px",
+            }}
+            // Mobile styles: relative, smaller size, margin-bottom.
+            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
+          >
+            {/* Image */}
+            <Image
+              src={Dashboard} // <-- replace with your actual image import
+              alt="icon"
+              // Desktop image size and position
+              style={{
+                width: "62.5px",
+                height: "62.5px",
+                position: "absolute",
+                top: "6.25px",
+                left: "6.25px",
+              }}
+              // Mobile image size and position.
+              className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
+            />
+          </div>
+
+          {/* Title */}
+          <p
+            // Desktop styles for absolute positioning
+            style={{
+              width: "198px",
+              height: "58px",
+              position: "absolute",
+              top: "119px",
+              left: "20px",
+              fontFamily: "Inter",
+              fontWeight: 600,
+              fontSize: "24px",
+              lineHeight: "100%",
+              letterSpacing: "-0.03em",
+              color: "#5C4737",
+            }}
+            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Institutional Dashboards
+          </p>
+
+          {/* Description */}
+          <p
+            // Desktop styles for absolute positioning
+            style={{
+              width: "262px",
+              height: "100px",
+              position: "absolute",
+              top: "187px",
+              left: "20px",
+              fontFamily: "Inter",
+              fontWeight: 500,
+              fontSize: "14px",
+              lineHeight: "25px",
+              letterSpacing: "-0.03em",
+              color: "#6D6D6F",
+            }}
+            // Mobile styles: relative, full width, auto height, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Anonymized, real-time wellness insights to inform campus-wide mental
+            health status, helping institutions identify trends and support
+            students proactively.
+          </p>
+        </div>
+
+        {/* --- Card 5 (Second Row First) --- */}
+        <div
+          // Desktop styles for absolute positioning and fixed size
+          style={{
+            width: "290px",
+            height: "350px",
+            position: "absolute",
+            top: "1496px",
+            left: "84px",
+            borderRadius: "10px",
+            background: "#F8F8F8",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderImageSource:
+              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
+            borderImageSlice: 1,
+          }}
+          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
+          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
+        >
+          {/* Inner Image Box */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "75px",
+              height: "75px",
+              position: "absolute",
+              top: "20px",
+              left: "20px",
+              opacity: 1,
+              transform: "rotate(0deg)",
+            }}
+            // Mobile styles: relative, smaller size, margin-bottom.
+            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
+          >
+            {/* Direct Image inside — NOT another layout */}
+            <Image
+              src={Global}
+              alt="icon"
+              width={62.5}
+              height={62.5}
+              // Desktop image size and position
+              style={{
+                position: "absolute",
+                top: "6.25px",
+                left: "6.25px",
+                opacity: 1,
+                transform: "rotate(0deg)",
+              }}
+              // Mobile image size and position.
+              className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
+            />
+          </div>
+          {/* Title */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "195px",
+              height: "58px",
+              position: "absolute",
+              top: "124px",
+              left: "20px",
+              opacity: 1,
+              transform: "rotate(0deg)",
+              fontFamily: "Inter",
+              fontWeight: 600,
+              fontSize: "24px",
+              lineHeight: "100%",
+              letterSpacing: "-3%",
+              color: "#5C4737",
+            }}
+            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Global Accessibility
+          </div>
+
+          {/* Description */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "262px",
+              height: "100px",
+              position: "absolute",
+              top: "192px",
+              left: "20px",
+              opacity: 1,
+              transform: "rotate(0deg)",
+              fontFamily: "Inter",
+              fontWeight: 500,
+              fontSize: "14px",
+              lineHeight: "25px",
+              letterSpacing: "-3%",
+              color: "#6D6D6F",
+            }}
+            // Mobile styles: relative, full width, auto height, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Works seamlessly across devices, time zones, and multiple languages
+            to serve all students — because help should always be within reach.
+          </div>
+        </div>
+
+        {/* --- Card 6 (Second Row Second) --- */}
+        <div
+          // Desktop styles for absolute positioning and fixed size
+          style={{
+            width: "290px",
+            height: "350px",
+            position: "absolute",
+            top: "1526px",
+            left: "384px",
+            borderRadius: "10px",
+            background: "#F8F8F8",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderImageSource:
+              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
+            borderImageSlice: 1,
+          }}
+          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
+          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
+        >
+          {/* Inner Image Box */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "75px",
+              height: "75px",
+              position: "absolute",
+              top: "20px",
+              left: "20px",
+              opacity: 1,
+            }}
+            // Mobile styles: relative, smaller size, margin-bottom.
+            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
+          >
+            {/* Direct Image Inside */}
+            <Image
+              src={Custom} // replace with actual image variable
+              alt="icon"
+              width={62.5}
+              height={62.5}
+              // Desktop image size and position
+              style={{
+                position: "absolute",
+                top: "6.25px",
+                left: "6.25px",
+                opacity: 1,
+                transform: "rotate(0deg)",
+              }}
+              // Mobile image size and position.
+              className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "196px",
+              height: "58px",
+              position: "absolute",
+              top: "120px",
+              left: "20px",
+              opacity: 1,
+              transform: "rotate(0deg)",
+              fontFamily: "Inter",
+              fontWeight: 600,
+              fontSize: "24px",
+              lineHeight: "100%",
+              letterSpacing: "-3%",
+              color: "#5C4737",
+            }}
+            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Custom Content Drops
+          </div>
+
+          {/* Description */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "262px",
+              height: "100px",
+              position: "absolute",
+              top: "188px",
+              left: "20px",
+              opacity: 1,
+              transform: "rotate(0deg)",
+              fontFamily: "Inter",
+              fontWeight: 500,
+              fontSize: "14px",
+              lineHeight: "25px",
+              letterSpacing: "-3%",
+              color: "#6D6D6F",
+            }}
+            // Mobile styles: relative, full width, auto height, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Targeted resources for exam anxiety, homesickness, burnout, and
+            self-harm prevention — fostering a safer, more supportive campus
+            environment.
+          </div>
+        </div>
+
+        {/* --- Card 7 (Second Row Third) --- */}
+        <div
+          // Desktop styles for absolute positioning and fixed size
+          style={{
+            width: "290px",
+            height: "350px",
+            position: "absolute",
+            top: "1556px",
+            left: "684px",
+            borderRadius: "10px",
+            background: "#F8F8F8",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderImageSource:
+              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
+            borderImageSlice: 1,
+          }}
+          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
+          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
+        >
+          {/* Inner Image Box */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "75px",
+              height: "75px",
+              position: "absolute",
+              top: "20px",
+              left: "20px",
+              opacity: 1,
+              transform: "rotate(0deg)",
+            }}
+            // Mobile styles: relative, smaller size, margin-bottom.
+            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
+          >
+            {/* Direct Image inside */}
+            <Image
+              src={Regulator} // replace with actual image variable
+              alt="icon"
+              width={56.28125}
+              height={58.203125}
+              // Desktop image size and position
+              style={{
+                position: "absolute",
+                top: "7.42px",
+                left: "6.25px",
+                opacity: 1,
+                transform: "rotate(0deg)",
+                objectFit: "contain",
+              }}
+              // Mobile image size and position.
+              className="max-md:relative max-md:w-[45px] max-md:h-[47px] max-md:top-auto max-md:left-auto max-md:!static"
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "197px",
+              height: "58px",
+              position: "absolute",
+              top: "120px",
+              left: "20px",
+              opacity: 1,
+              fontFamily: "Inter",
+              fontWeight: 600,
+              fontSize: "24px",
+              lineHeight: "100%",
+              letterSpacing: "-3%",
+              color: "#5C4737",
+              transform: "rotate(0deg)",
+            }}
+            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Regulatory Compliance
+          </div>
+
+          {/* Description */}
+          <div
+            // Desktop styles for absolute positioning
+            style={{
+              width: "262px",
+              height: "100px",
+              position: "absolute",
+              top: "188px",
+              left: "20px",
+              opacity: 1,
+              fontFamily: "Inter",
+              fontWeight: 500,
+              fontSize: "14px",
+              lineHeight: "25px",
+              letterSpacing: "-3%",
+              color: "#6D6D6F",
+              transform: "rotate(0deg)",
+            }}
+            // Mobile styles: relative, full width, auto height, font size.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Helps your institution stay compliant with UGC/NAAC/AICTE mental
+            health directives — turning compliance into meaningful student
+            well-being action.
+          </div>
+        </div>
+
+        {/* --- Card 8 (Last Card, Call to Action) --- */}
+         {/* --- Card 8 (Last Card, Call to Action) --- */}
+        {/* --- Card 8 (Last Card, Call to Action) --- */}
+        {/* --- Card 8 (Last Card, Call to Action) --- */}
+        <div
+          // Desktop styles for absolute positioning and fixed size (UNTOCUHED)
+          style={{
+            width: "290px",
+            height: "350px",
+            position: "absolute",
+            top: "1586px",
+            left: "984px", // Changed from 1050px
+            borderRadius: "10px",
+            background: "#5C4737",
+            opacity: 1,
+            padding: "20px",
+            boxSizing: "border-box",
+          }}
+          // Mobile styles: Flex structure to position button at the bottom
+          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:min-h-[250px] max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto max-md:flex max-md:flex-col max-md:justify-between"
+        >
+          {/* Inner Text - Content for flex item 1 (UNTOCUHED) */}
+          <div
+            // Desktop styles for absolute positioning and fixed width/height (UNTOCUHED)
+            style={{
+              width: "227px",
+              height: "140px",
+              position: "absolute",
+              top: "20px",
+              left: "20px",
+              fontFamily: "Inter",
+              fontWeight: 500,
+              fontSize: "18px",
+              lineHeight: "35px",
+              letterSpacing: "-3%",
+              color: "#FFFFFF",
+            }}
+            // Mobile styles: relative, full width, auto height, padding reset.
+            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:p-0 max-md:!static max-md:!w-auto max-md:!h-auto"
+          >
+            Start building a mentally healthy campus - remove other lines and the
+            download balloon
+          </div>
+
+          {/* Button - Content for flex item 2 */}
+          <button
+            // Desktop styles (UNTOCUHED)
+            style={{
+              width: "262px",
+              height: "60px",
+              position: "absolute",
+              top: "242px",
+              left: "20px",
+              opacity: 1,
+              borderRadius: "30px",
+              background: "#967B6A",
+              color: "#FFFFFF",
+              fontSize: "16px",
+              fontWeight: 500,
+              border: "none",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              paddingLeft: "20px",
+              paddingRight: "20px", // Desktop padding right
+              transform: "rotate(0deg)",
+            }}
+            // Mobile styles:
+            // max-md:w-[262px] (Desktop width) and max-md:mx-auto (Centered).
+            // **MODIFIED:** Added max-md:!px-4 (reduced horizontal padding) and max-md:text-sm (reduced font size)
+            className="max-md:relative max-md:!static max-md:w-[262px] max-md:mx-auto max-md:h-[60px] max-md:top-auto max-md:left-auto max-md:mt-auto max-md:mb-0 max-md:!h-auto max-md:!px-4 max-md:text-sm"
+          >
+            Download University Kit
+            {/* White Circle */}
+            <div
+              className="
+                  absolute top-[5px] right-[6px]
+                  w-[50px] h-[50px] bg-white
+                  rounded-full flex items-center justify-center
+                  transition-all
+                  /* MODIFIED: Increased negative right margin to simulate better overhang with reduced mobile padding */
+                  max-md:relative max-md:top-auto max-md:right-auto 
+                  max-md:!static max-md:shrink-0 max-md:-mr-3
+                "
+            >
+              <Image
+                src={arrow}
+                alt="arrow"
+                width={18}
+                height={18}
+                className="transition-all group-hover:rotate-45"
+              />
+            </div>
+          </button>
+        </div>
+      </div>
+      {/* End Cards Container */}
+    </section>
+  );
+};
+// ========== CONNECT SECTION ==========
+const ConnectCampus = () => {
+  return (
+    // 💡 Wrapper: Adjusted padding/margin for mobile (max-md:mt-16, max-md:pb-16)
+    <motion.section
+      className="
+        flex flex-col justify-center items-center
+        mt-30 space-y-8 px-4 md:px-[128px] pb-30
+        max-md:mt-16 max-md:pb-16 max-md:space-y-6
+      "
+      initial="hidden"
+      whileInView="visible" // Animate when the section comes into view
+    >
+      {/* Heading */}
+      <motion.h2
+        className="
+          connect-heading font-inter font-semibold
+          text-[32px] md:text-[50px]
+          leading-[120%] md:leading-[100%]
+          tracking-[-0.06em] text-center text-[#5C4737]
+          whitespace-normal md:whitespace-nowrap
+          max-md:text-[28px] max-md:px-2 max-md:leading-[120%]
+        "
+      >
+        Bring Mental Wellness to Every Corner of Your Campus.
+      </motion.h2>
+
+      {/* Subtext - One Line */}
+      <motion.p
+        className="
+          connect-subtext
+          font-inter font-medium
+          text-[18px] leading-[100%]
+          tracking-[-0.03em]
+          text-center text-[#000000A6]
+          max-w-[1020px]
+          whitespace-nowrap
+          max-md:whitespace-normal max-md:text-[16px] max-md:px-4 max-md:leading-normal
+        "
+      >
+        Empower your students and faculty with 24/7 confidential support, real
+        counselling, and real results — powered by Mind A Lot.
+      </motion.p>
+{/* Buttons Section: Mobile: Stack (flex-col), full width */}
+<div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 w-full px-4 md:px-0 justify-center">
+
+  {/* Schedule a Demo Button */}
+  <Link href="/contact" className="max-md:w-full">
+    <button
+      className="
+        group relative
+        w-[212px] h-[60px]
+        border-[2px] border-[#5B4A3E]
+        rounded-[30px]
+        flex items-center 
+        cursor-pointer
+        bg-transparent
+        transition-all
+        hover:bg-[#5C4737]
+        hover:border-transparent
+        max-md:w-full max-md:justify-center max-md:px-4
+      "
+    >
+      {/* Text */}
+      <span
+        className="
+          absolute 
+          top-[21px] left-[24px]
+          font-inter font-medium
+          text-[16px] leading-[100%]
+          tracking-[-0.03em]
+          text-[#5B4A3E]
+          whitespace-nowrap
+          transition-all
+          group-hover:text-white
+          max-md:relative max-md:!top-auto max-md:!left-auto max-md:text-center
+        "
+      >
+        Schedule a demo
+      </span>
+
+      {/* Circle */}
+      <div
+        className="
+          absolute 
+          left-[155px]
+          w-[50px] h-[50px]
+          rounded-full 
+          bg-[#5B4A3E]
+          flex items-center justify-center
+          transition-all
+          group-hover:bg-white
+          max-md:absolute max-md:left-auto max-md:right-2
+        "
+      >
+        {/* WHITE ARROW (default) */}
+        <Image
+          src={whitea}
+          alt="arrow"
+          width={18}
+          height={18}
+          className="transition-all group-hover:hidden"
+        />
+
+        {/* BLACK ARROW (on hover) */}
+        <Image
+          src={blacka}
+          alt="arrow"
+          width={18}
+          height={18}
+          className="hidden group-hover:block transition-all group-hover:rotate-45"
+        />
+      </div>
+    </button>
+  </Link>
+
+  {/* Download University Partnership Kit Button */}
+  <Link href="/resource" className="max-md:w-full">
+    <button
+      className="
+        group relative
+        w-[270px] h-[60px]
+        border-[2px] border-[#5B4A3E]
+        rounded-[30px]
+        flex items-center
+        cursor-pointer
+        bg-transparent
+        transition-all
+        hover:bg-[#5C4737]
+        hover:border-transparent
+        max-md:w-full max-md:justify-center max-md:px-4
+      "
+    >
+      {/* Text */}
+      <span
+        className="
+          absolute 
+          top-[21px] left-[24px]
+          font-inter font-medium
+          text-[16px] leading-[100%]
+          tracking-[-0.03em]
+          text-[#5B4A3E]
+          whitespace-nowrap
+          transition-all
+          group-hover:text-white
+          max-md:relative max-md:!top-auto max-md:!left-auto max-md:text-center
+        "
+      >
+        Download University Kit
+      </span>
+
+      {/* Circle */}
+      <div
+        className="
+          absolute
+          left-[213px]
+          w-[50px] h-[50px]
+          rounded-full
+          bg-[#5B4A3E]
+          flex items-center justify-center
+          transition-all
+          group-hover:bg-white
+          max-md:absolute max-md:left-auto max-md:right-2
+        "
+      >
+        {/* WHITE ARROW (default) */}
+        <Image
+          src={whitea}
+          alt="arrow"
+          width={18}
+          height={18}
+          className="transition-all group-hover:hidden"
+        />
+
+        {/* BLACK ARROW (on hover) */}
+        <Image
+          src={blacka}
+          alt="arrow"
+          width={18}
+          height={18}
+          className="hidden group-hover:block transition-all group-hover:rotate-45"
+        />
+      </div>
+    </button>
+  </Link>
 
 </div>
 
-      </motion.section>
-    );
-  };
+    </motion.section>
+  );
+};
 
- 
-  // const Footer = () => {
-  //   return (
-  //     <footer className="bg-[#E4D6CD] w-full flex flex-col justify-start items-start mt-[85px] py-8 relative">
-  //       <div className="w-full px-[30px] sm:px-[50px] md:px-[70px] lg:px-[86px]">
-  //         {/* ===== Main Footer Row (No motion added here as it's typically static) ===== */}
-  //         <div className="flex flex-col lg:flex-row justify-start lg:items-start items-center w-full gap-[40px] lg:gap-[0px]">
-  //           {/* ===== Left Section ===== */}
-  //           <div className="flex flex-col text-center lg:text-left mt-[13px]">
-  //             <h2 className="font-inter font-bold text-[28px] md:text-[35px] leading-[100%] tracking-[0.05em] text-[#5C4737] mb-4">
-  //               MIND A LOT
-  //             </h2>
-  //             <p className="font-inter font-normal text-[14px] md:text-[16px] leading-[28px] tracking-[-0.03em] text-[#755840] max-w-[450px] mx-auto lg:mx-0">
-  //               Anonymous support that listens, nudges ,<br />
-  //               and grow with you , When your mind feels too much, we're just a
-  //               tap away.
-  //             </p>
-  //           </div>
-
-  //           {/* ===== Company Section ===== */}
-  //           <div className="lg:ml-[152px] mt-[20px] lg:mt-[10px] flex flex-col text-center lg:text-left space-y-[10px] md:space-y-[16px]">
-  //             <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737]">
-  //               Company
-  //             </h3>
-  //             <Link href="/features" className={footerLink}>
-  //               Features
-  //             </Link>
-  //             <Link href="/contact" className={footerLink}>
-  //               Contact Us
-  //             </Link>
-  //             <Link href="/resources" className={footerLink}>
-  //               Resources
-  //             </Link>
-  //           </div>
-
-  //           {/* ===== Contact Section ===== */}
-  //           <div className="lg:ml-[140px] mt-[20px] lg:mt-[10px] flex flex-col text-center lg:text-left space-y-[12px] md:space-y-[16px]">
-  //             <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737]">
-  //               Contact
-  //             </h3>
-  //             <div className="flex justify-center lg:justify-start items-center gap-[5px]">
-  //               <Mail size={16} className="text-[#755840]" />
-  //               <span className={footerText}>hello@mindalot.com</span>
-  //             </div>
-  //             <div className="flex justify-center lg:justify-start items-center gap-[5px]">
-  //               <Phone size={16} className="text-[#755840]" />
-  //               <span className={footerText}>+91-96062-58596</span>
-  //             </div>
-  //             <div className="flex justify-center lg:justify-start items-center gap-[5px]">
-  //               <MapPin size={16} className="text-[#755840] min-w-[16px] mt-[-4px]" />
-  //               <p className={`${footerText} max-w-[323px]`}>
-  //                 #122K, 1st block, 14th cross, 19th 'B' Main, Rajajinagar,
-  //                 Bengaluru - 560010
-  //               </p>
-  //             </div>
-  //           </div>
-
-  //           {/* ===== Follow Us Section ===== */}
-  //           <div className="lg:ml-[140px] mt-[20px] lg:mt-[10px] flex flex-col items-center lg:items-start">
-  //             <h3 className="font-inter font-medium text-[18px] md:text-[20px] text-[#5C4737] mb-[16px] whitespace-nowrap">
-  //               Follow us on
-  //             </h3>
-  //             <div className="flex items-center justify-center lg:justify-start gap-[15px]">
-  //               <Link href="https://instagram.com" target="_blank">
-  //                 <Instagram size={24} className={iconHover} />
-  //               </Link>
-  //               <Link href="https://linkedin.com" target="_blank">
-  //                 <FaLinkedin size={24} className={iconHover} />
-  //               </Link>
-  //             </div>
-  //           </div>
-  //         </div>
-
-  //         {/* ===== Divider Line ===== */}
-  //         <div className="w-full px-[30px] sm:px-[50px] md:px-[70px] lg:px-[86px]">
-  //           <div className="border-t border-[#00000080] mt-[60px]" />
-  //         </div>
-
-  //         {/* ===== Terms + Privacy ===== */}
-  //         <div className="w-full px-[30px] sm:px-[50px] md:px-[70px] lg:px-[86px]">
-  //           <div
-  //             className="flex items-center justify-center lg:justify-end gap-[40px] mt-[30px] pb-4"
-  //           >
-  //             {/* ===== Terms + Dot ===== */}
-  //             <div className="flex items-center gap-[6px]">
-  //               <div className="w-[5px] h-[5px] rounded-full bg-[#000000]" />
-  //               <Link
-  //                 href="/terms"
-  //                 className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#5C4737] transition-colors"
-  //               >
-  //                 Terms & Conditions
-  //               </Link>
-  //             </div>
-
-  //             {/* ===== Privacy + Dot ===== */}
-  //             <div className="flex items-center gap-[6px]">
-  //               <div className="w-[5px] h-[5px] rounded-full bg-[#000000]" />
-  //               <Link
-  //                 href="/privacy"
-  //                 className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#5C4737] transition-colors"
-  //               >
-  //                 Privacy Policy
-  //               </Link>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </footer>
-  //   );
-  // };
-
-  // // Tailwind helper classes
-  // const footerLink =
-  //   "font-inter font-normal text-[14px] md:text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840] hover:text-[#5C4737] transition-colors";
-  // const footerText =
-  //   "font-inter font-normal text-[14px] md:text-[16px] leading-[100%] tracking-[-0.03em] text-[#755840]";
-  // const iconHover =
-  //   "text-[#5C4737] hover:text-[#755840] transition-colors cursor-pointer";
-
-  // ✅ ALL COMPONENTS
+  
   return (
     <>
       <main className="overflow-hidden bg-[#FDFDFD]">
@@ -736,3 +1308,6 @@ const [isMobile, setIsMobile] = useState(false);
     </>
   );
 }
+
+
+

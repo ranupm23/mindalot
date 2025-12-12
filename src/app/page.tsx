@@ -46,7 +46,7 @@ export default function Home() {
             }}
           />
         </div>
-        
+
         {/* Rectangle with Background and Noise */}
         <div
           style={{
@@ -78,10 +78,10 @@ export default function Home() {
             }}
           />
         </div>
-        
+
         {/* Headline Text */}
         <h1
-        style={{
+          style={{
             position: 'absolute',
             top: '144px',
             left: '66px',
@@ -96,8 +96,8 @@ export default function Home() {
           }}
         >
           You Don't Have to Say Who You Are to<br />Start Feeling Better
-            </h1>
-        
+        </h1>
+
         {/* Line below headline */}
         <div
           style={{
@@ -109,7 +109,7 @@ export default function Home() {
             borderTop: '3px solid #000000',
           }}
         />
-        
+
         {/* Description Text */}
         <p
           style={{
@@ -128,161 +128,142 @@ export default function Home() {
         >
           No bookings, No waiting, No judgement. Just real help, right when you need it.
         </p>
-        
-        {/* Start Chat Now Button */}
-      <a
-  href="https://wa.me/"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    position: 'absolute',
-    top: '498px',
-    left: '66px',
-    width: '212px',
-    height: '60px',
-    backgroundColor: '#967B6A',
-    borderRadius: '30px',
-    border: 'none',
-    cursor: 'pointer',
-    paddingLeft: '24px',
-    paddingRight: '24px',
-    display: 'block',
-    textDecoration: 'none',
-  }}
->
-  <span
-    style={{
-      position: 'absolute',
-      top: '21px',
-      left: '24px',
-      width: '112px',
-      height: '19px',
-      fontFamily: 'var(--font-inter-sans)',
-      fontWeight: 500,
-      fontSize: '16px',
-      lineHeight: '100%',
-      letterSpacing: '-3%',
-      color: '#FFFFFF',
-      display: 'flex',
-      alignItems: 'center',
-      whiteSpace: 'nowrap',
-    }}
-  >
-    Start Chat Now
-  </span>
 
-  {/* Circle */}
-  <div
-    style={{
-      position: 'absolute',
-      top: '5px',
-      left: '157px',
-      width: '50px',
-      height: '50px',
-      backgroundColor: '#FFFFFF',
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    {/* Arrow */}
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      style={{
-        transform: 'rotate(-45deg)',
-      }}
-    >
-      <path
-        d="M5 12H19M19 12L12 5M19 12L12 19"
-        stroke="#967B6A"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </div>
-</a>
-
-        
-        {/* Download the App Button */}
+        {/* Start Chat Now Button (links to Discord) */}
         <a
-  href="https://play.google.com/store"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    position: 'absolute',
-    top: '498px',
-    left: '298px',
-    width: '235px',
-    height: '60px',
-    backgroundColor: '#967B6A',
-    borderRadius: '30px',
-    border: 'none',
-    cursor: 'pointer',
-    display: 'block',
-    textDecoration: 'none'
-  }}
->
-  <span
-    style={{
-      position: 'absolute',
-      top: '21px',
-      left: '24px',
-      width: '134px',
-      height: '19px',
-      fontFamily: 'var(--font-inter-sans)',
-      fontWeight: 500,
-      fontSize: '16px',
-      lineHeight: '100%',
-      letterSpacing: '-3%',
-      color: '#FFFFFF',
-      display: 'flex',
-      alignItems: 'center',
-      whiteSpace: 'nowrap',
-    }}
-  >
-    Download the App
-  </span>
+          href="https://discord.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-btn group"
+          style={{
+            position: 'absolute',
+            top: '498px',
+            left: '66px',
+            width: '212px',
+            height: '60px',
+            backgroundColor: '#967B6A',
+            borderRadius: '30px',
+            border: 'none',
+            cursor: 'pointer',
+            paddingLeft: '24px',
+            paddingRight: '24px',
+            display: 'block',
+            textDecoration: 'none',
+          }}
+        >
+          <span
+            style={{
+              position: 'absolute',
+              top: '21px',
+              left: '24px',
+              width: '112px',
+              height: '19px',
+              fontFamily: 'var(--font-inter-sans)',
+              fontWeight: 500,
+              fontSize: '16px',
+              lineHeight: '100%',
+              letterSpacing: '-3%',
+              color: '#FFFFFF',
+              display: 'flex',
+              alignItems: 'center',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Start Chat Now
+          </span>
 
-  {/* Circle */}
-  <div
-    style={{
-      position: 'absolute',
-      top: '5px',
-      left: '180px',
-      width: '50px',
-      height: '50px',
-      backgroundColor: '#FFFFFF',
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    {/* Arrow */}
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      style={{
-        transform: 'rotate(-45deg)',
-      }}
-    >
-      <path
-        d="M5 12H19M19 12L12 5M19 12L12 19"
-        stroke="#967B6A"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </div>
-</a>
+          {/* Circle */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '5px',
+              left: '157px',
+              width: '50px',
+              height: '50px',
+              backgroundColor: '#FFFFFF',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {/* Arrow Image */}
+            <Image
+              src={arrow}
+              alt="arrow"
+              width={18}
+              height={18}
+              className='m-auto group-hover:rotate-45 transition-all'
+            />
+          </div>
+        </a>
+
+        {/* Download the App Button (links to Play Store) */}
+        <a
+          href="https://play.google.com/store/games"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-btn group"
+          style={{
+            position: 'absolute',
+            top: '498px',
+            left: '298px',
+            width: '235px',
+            height: '60px',
+            backgroundColor: '#967B6A',
+            borderRadius: '30px',
+            border: 'none',
+            cursor: 'pointer',
+            display: 'block',
+            textDecoration: 'none',
+          }}
+        >
+          <span
+            style={{
+              position: 'absolute',
+              top: '21px',
+              left: '24px',
+              width: '134px',
+              height: '19px',
+              fontFamily: 'var(--font-inter-sans)',
+              fontWeight: 500,
+              fontSize: '16px',
+              lineHeight: '100%',
+              letterSpacing: '-3%',
+              color: '#FFFFFF',
+              display: 'flex',
+              alignItems: 'center',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Download the App
+          </span>
+
+          {/* Circle */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '5px',
+              left: '180px',
+              width: '50px',
+              height: '50px',
+              backgroundColor: '#FFFFFF',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {/* Arrow Image */}
+            <Image
+              src={arrow}
+              alt="arrow"
+              width={18}
+              height={18}
+              className='m-auto group-hover:rotate-45 transition-all'
+            />
+          </div>
+        </a>
 
         {/* Your safe space text */}
         <p
@@ -2788,83 +2769,74 @@ export default function Home() {
         </p>
         
         {/* Rectangle 1 - Download App */}
-<a
-  href="https://play.google.com/store"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    position: 'absolute',
-    top: '5012px',
-    left: '382px',
-    width: '212px',
-    height: '60px',
-    borderRadius: '30px',
-    backgroundColor: '#967B6A',
-    opacity: 1,
-    transform: 'rotate(0deg)',
-    zIndex: 11,
-    display: 'block',
-    textDecoration: 'none',
-  }}
->
-  <span
-    style={{
-      position: 'absolute',
-      top: '21px',
-      left: '24px',
-      width: '107px',
-      height: '19px',
-      fontFamily: 'var(--font-inter-sans)',
-      fontWeight: 500,
-      fontSize: '16px',
-      lineHeight: '100%',
-      letterSpacing: '-0.03em',
-      color: '#FFFFFF',
-      opacity: 1,
-      display: 'flex',
-      alignItems: 'center',
-      whiteSpace: 'nowrap',
-    }}
-  >
-    Download App
-  </span>
-
-  {/* Circle */}
-  <div
-    style={{
-      position: 'absolute',
-      top: '5px',
-      left: '157px',
-      width: '50px',
-      height: '50px',
-      backgroundColor: '#FFFFFF',
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    {/* Arrow */}
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      style={{
-        transform: 'rotate(-45deg)',
-      }}
-    >
-      <path
-        d="M5 12H19M19 12L12 5M19 12L12 19"
-        stroke="#967B6A"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </div>
-</a>
-
+        {/* Download App Button */}
+        <a
+          href="https://play.google.com/store/games"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-btn group"
+          style={{ 
+            position: 'absolute',
+            top: '5012px',
+            left: '382px',
+            width: '212px',
+            height: '60px',
+            borderRadius: '30px',
+            backgroundColor: '#967B6A',
+            opacity: 1,
+            transform: 'rotate(0deg)',
+            zIndex: 11,
+            display: 'block',
+            textDecoration: 'none',
+          }}
+        >
+          <span
+            style={{
+              position: 'absolute',
+              top: '21px',
+              left: '24px',
+              width: '107px',
+              height: '19px',
+              fontFamily: 'var(--font-inter-sans)',
+              fontWeight: 500,
+              fontSize: '16px',
+              lineHeight: '100%',
+              letterSpacing: '-0.03em',
+              color: '#FFFFFF',
+              opacity: 1,
+              display: 'flex',
+              alignItems: 'center',
+              whiteSpace: 'nowrap',
+            }}
+          >
+              Download App
+          </span>
+          
+          {/* Circle */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '5px',
+              left: '157px',
+              width: '50px',
+              height: '50px',
+              backgroundColor: '#FFFFFF',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {/* Arrow Image */}
+            <Image
+              src={arrow}
+              alt="arrow"
+              width={18}
+              height={18}
+              className='m-auto group-hover:rotate-45 transition-all'
+            />
+          </div>
+        </a>
         
         {/* Rectangle 2 - Partner With Us (links to YouTube) */}
         <a
@@ -2935,82 +2907,72 @@ export default function Home() {
           </div>
         </a>
         
-        {/* Rectangle 3 */}
-\<a
-  href="mailto:hello@mindalot.com"
-  style={{
-    position: 'absolute',
-    top: '5012px',
-    left: '846px',
-    width: '212px',
-    height: '60px',
-    borderRadius: '30px',
-    backgroundColor: '#967B6A',
-    opacity: 1,
-    transform: 'rotate(0deg)',
-    zIndex: 11,
-    display: 'block',
-    textDecoration: 'none',
-  }}
->
-  <span
-    style={{
-      position: 'absolute',
-      top: '21px',
-      left: '24px',
-      width: '126px',
-      height: '19px',
-      fontFamily: 'var(--font-inter-sans)',
-      fontWeight: 500,
-      fontSize: '16px',
-      lineHeight: '100%',
-      letterSpacing: '-0.03em',
-      color: '#FFFFFF',
-      opacity: 1,
-      display: 'flex',
-      alignItems: 'center',
-      whiteSpace: 'nowrap',
-    }}
-  >
-    Talk To Our Team
-  </span>
-
-  {/* Circle */}
-  <div
-    style={{
-      position: 'absolute',
-      top: '5px',
-      left: '157px',
-      width: '50px',
-      height: '50px',
-      backgroundColor: '#FFFFFF',
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    {/* Arrow */}
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      style={{
-        transform: 'rotate(-45deg)',
-      }}
-    >
-      <path
-        d="M5 12H19M19 12L12 5M19 12L12 19"
-        stroke="#967B6A"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </div>
-</a>
-
+        {/* Rectangle 3 - Talk To Our Team */}
+        <a
+          href="mailto:hello@mindalot.com"
+          className="cta-btn group"
+          style={{
+            position: 'absolute',
+            top: '5012px',
+            left: '846px',
+            width: '212px',
+            height: '60px',
+            borderRadius: '30px',
+            backgroundColor: '#967B6A',
+            opacity: 1,
+            transform: 'rotate(0deg)',
+            zIndex: 11,
+            display: 'block',
+            textDecoration: 'none',
+          }}
+        >
+          <span
+            style={{
+              position: 'absolute',
+              top: '21px',
+              left: '24px',
+              width: '126px',
+              height: '19px',
+              fontFamily: 'var(--font-inter-sans)',
+              fontWeight: 500,
+              fontSize: '16px',
+              lineHeight: '100%',
+              letterSpacing: '-0.03em',
+              color: '#FFFFFF',
+              opacity: 1,
+              display: 'flex',
+              alignItems: 'center',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Talk To Our Team
+          </span>
+          
+          {/* Circle */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '5px',
+              left: '157px',
+              width: '50px',
+              height: '50px',
+              backgroundColor: '#FFFFFF',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {/* Arrow Image */}
+            <Image
+              src={arrow}
+              alt="arrow"
+              width={18}
+              height={18}
+              className='m-auto group-hover:rotate-45 transition-all'
+            />
+          </div>
+        </a>
         
         {/* Footer Rectangle */}
         <div

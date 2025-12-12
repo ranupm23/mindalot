@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from 'next/image'
+import Link from 'next/link'
 import subtract from "@/assets/subtract.svg"
 import meditate1 from "@/assets/resource-page/meditate1.webp"
 import meditate2 from "@/assets/resource-page/meditate2.webp"

@@ -248,7 +248,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight">
                 <MapPin size={18} stroke="#5B4A3E" />
-                #122K, 1st block, 14th cross, 19th ‘B’ Main,<br />
+                #122K, 1st block, 14th cross, 19th 'B' Main,<br />
                 Rajajinagar, Bengaluru – 560010
               </div>
             </div>
