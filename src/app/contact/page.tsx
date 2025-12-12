@@ -145,7 +145,7 @@ export default function ContactPage() {
   >
     <span className="tracking-[-0.01em]">{loading ? "Sending..." : "Book A Demo"}</span>
     {!loading && (
-      <div className="absolute right-[3px] top-1/2 -translate-y-1/2 w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
+      <div className="absolute right-[3px] top-1/2 -translate-y-1/2 w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center">
         <Image
           src={arrow}
           alt="Arrow"
