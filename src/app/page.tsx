@@ -4,6 +4,9 @@ import Link from "next/link";
 import arrow from "../assets/arrow.svg";
 import Homebg from "../assets/home-page/hero/rock.png";
 import line from "../assets/home-page/ourDiffrent/m1.png";
+import w1 from "../assets/home-page/deserves/w1.png";
+import w2 from "../assets/home-page/deserves/w2.png";
+import w3 from "../assets/home-page/deserves/w3.png";
 export default function Home() {
 
 
@@ -309,7 +312,7 @@ const HomeHero = () => {
 const MakeUs = () => {
   return (
     <section
-      className="w-full"
+      className="w-full h-[850px]"
       style={{
         opacity: 1,
       }}
@@ -863,43 +866,75 @@ const MakeUs = () => {
 
 
 
+const Whowant = () => {
+  return (
+    <section className="w-full h-[1169px] bg-[#F6F2EB] overflow-x-hidden">
 
-// const Whowant = () => {
-//   return (
-//     <section
-//       className="w-full relative"
-//       style={{
-//         width: "100%",
-//         height: "1169px",
-//         position: "absolute",
-//         background: "#F6F2EB",
-//         opacity: 1,
-//       }}
-//     >
-//       {/* Heading Layout */}
-//       <h2
-//         style={{
-//           width: "321px",
-//           height: "68px",
-//           position: "relative",
-//           top:"80px",
-//           left: "84px",
-//           fontFamily: "Nunito Sans, sans-serif",
-//           fontWeight: 700,
-//           fontStyle: "Bold",
-//           fontSize: "50px",
-//           lineHeight: "100%",
-//           letterSpacing: "0%",
-//           color: "#000000",
-//           opacity: 1,
-//           margin: 0,
-//         }}
-//       >
-//         Who it’s For ?
-//       </h2>
-//     </section>
-//   );
-// };
+      {/* Heading */}
+      <h2 className="absolute top-[1787px] left-[44px] w-[321px] h-[68px] font-['Nunito_Sans'] font-bold text-[50px] text-black">
+        Who it’s For ?
+      </h2>
+
+      {/* Description */}
+      <p className="absolute top-[1868px] left-[44px] w-[381px] text-[18px] text-black/80 font-['Nunito_Sans']">
+        Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
+      </p>
+
+      {/* Quote Card */}
+      <div className="absolute top-[1972px] left-[44px] w-[410px] h-[113px] bg-[#F8F8F8]" />
+
+      {/* Quote */}
+      <p className="absolute top-[1991px] left-[59px] w-[331px] italic font-bold text-[16px]">
+        “ Wherever you are. Whoever you are. However you feel. ”
+      </p>
+
+      {/* Signature */}
+      <p className="absolute top-[2054px] left-[239px] text-[16px]">
+        – Mind A Lot is here for you!
+      </p>
+
+      {/* Working Professionals */}
+      <div className="absolute top-[2120px] left-[44px] w-[410px] h-[262px] rounded-[12px] overflow-hidden">
+        <Image src={w1} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/90" />
+        <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
+          Working Professionals
+        </div>
+      </div>
+
+      {/* Students */}
+      <div className="absolute top-[1787px] left-[476px] w-[410px] h-[594px] rounded-[12px] overflow-hidden">
+        <Image src={w2} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_72%,rgba(0,0,0,.6)_83%)]" />
+        <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
+          Students & Young Adults
+        </div>
+      </div>
+
+      {/* Others */}
+      <div className="absolute top-[1787px] left-[906px] w-[410px] h-[594px] rounded-[12px] overflow-hidden">
+        <Image src={w3} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_76%,rgba(0,0,0,.8)_100%)]" />
+        <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
+          Title Goes Here
+        </div>
+      </div>
+
+    </section>
+  );
+};
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -909,6 +944,7 @@ const MakeUs = () => {
     <>
       <HomeHero />
       <MakeUs/>
+      <Whowant/>
     </>
   );
 }
