@@ -239,10 +239,9 @@ const OfferSection = () => {
       }}
     >
     
-
   
     {/* Heading Layout */}
-    {/* Heading Layout */}
+   
 <div
   style={{
     width: "713px",
@@ -302,14 +301,6 @@ const OfferSection = () => {
     offer to universities?
   </h1>
 </div>
-
-
-
-
-
-
-
-
       {/* Cards Container - Mobile: Stacked, full width, with gap */}
       <div className="max-md:flex max-md:flex-col max-md:gap-6">
         {/* --- Card 1 --- */}
