@@ -21,7 +21,12 @@ import featureIcon5 from '../assets/home-page/features/video-circle.png';
 import featureIcon6 from '../assets/home-page/features/briefcase.png';
 import featureIcon7 from '../assets/home-page/features/ai-hospital.png';
 import featureIcon8 from '../assets/home-page/features/diagram.png';
-
+import largeLeftImage from '../assets/home-page/testemonial/Ellipse 47.png'; // 225x450px image
+import testimonialIcon from '../assets/home-page/testemonial/teste2.jpg'; // 50x50px circular icon
+import leftQuoteImage from '../assets/home-page/testemonial/Vector.png'; // 125x125px rotated image
+import rightQuoteImage from '../assets/home-page/testemonial/Vector.png'; // 125x125px rotated image
+import largeRightImage from '../assets/home-page/testemonial/face.png'; // 584x548px image
+import testimonialIcon2 from '../assets/home-page/testemonial/teste1.jpg';
 
 export default function Home() {
 
@@ -1057,9 +1062,6 @@ const Whowant = () => {
 };
 
 
-
-
-
 const Features = () => {
   return (
     // We adjust the min-height to accommodate the new lower elements (up to 3488px)
@@ -1362,200 +1364,245 @@ const Features = () => {
   );
 };
 
-// const Features = () => {
-//   return (
-//     // We adjust the min-height to accommodate the new lower elements (up to 3488px)
-//     <section className="relative w-full overflow-hidden mt-20"> 
+
+const Testimonials = () => {
+  return (
+    <section 
+      className="relative mx-auto w-full  h-[712px] bg-[#F6F2EB] opacity-100" 
+      style={{ 
+        marginTop: '102px',
+        overflow :"hidden"
+      }}
+    >
       
-//       {/* MAIN LAYOUT: w: 1249px; h: 559px; left: 96px (using margin-left) */}
+      {/* --- LARGE RIGHT IMAGE --- */}
+      <Image
+        src={largeRightImage}
+        alt="Testimonial Background Graphic"
+        className="absolute w-[468px] h-[548px] opacity-100"
+        style={{ top: '70px', left: '856px' }}
+      />
+
+
+      {/* --- MAIN LAYOUT (Container for all left/middle elements) --- */}
+      <div 
+        className="relative w-[1323px] h-[616px] opacity-100" 
+        style={{ top: '36px', left: '50px' }}
+      >
+        
+        {/* 1. HEADING: Testimonials */}
+        <div
+          className="absolute w-[274px] h-[61px] font-['Inter'] text-[50px] font-semibold text-[#5C4737]"
+          style={{ top: '25px', left: '30px', letterSpacing: '-0.06em' }}
+        >
+          Testimonials
+        </div>
+
+        {/* 2. LARGE LEFT IMAGE (225x450px) */}
+        <Image
+          src={largeLeftImage}
+          alt="Testimonial Background Left"
+          className="absolute w-[225.000015px] h-[450px] opacity-100"
+          style={{ top: '115px', left: '30px' }}
+        />
+
+        {/* 3. SMALL CIRCLE IMAGE 1 (50x50px) */}
+        <Image
+          src={testimonialIcon}
+          alt="Profile Icon 1"
+          className="absolute w-[50px] h-[50px] rounded-full opacity-100 border border-black"
+          style={{ top: '129px', left: '130px' }}
+        />
+        
+        {/* --- NEW ELEMENTS START HERE --- */}
+
+        {/* 8. SMALL CIRCLE IMAGE 2 (50x50px, -180 deg) */}
+        <Image
+          src={testimonialIcon2}
+          alt="Profile Icon 2"
+          className="absolute w-[50px] h-[50px] rounded-full opacity-100"
+          style={{ top: '501px', left: '130px', transform: 'rotate(-180deg)' }}
+        />
+
+        {/* 9. SMALL CIRCLE BORDER 2 (50x50px, border: 1px solid #00000040) */}
+        <div
+          className="absolute w-[50px] h-[50px] rounded-full"
+          style={{ 
+            top: '501px', 
+            left: '130px', 
+            border: '1px solid rgba(0, 0, 0, 0.25)', // #00000040
+            transform: 'rotate(-180deg)'
+          }}
+        />
+
+        {/* 10. SQUARE CONTAINER/BORDER (100x100px, border: 1px solid #00000080) */}
+        <div
+          className="absolute w-[100px] h-[100px]"
+          style={{ 
+            top: '290px', 
+            left: '205px', 
+            border: '1px solid rgba(0, 0, 0, 0.5)' // #00000080
+          }}
+        />
+
+        {/* --- EXISTING ELEMENTS (4-7) --- */}
+
+        {/* 4. QUOTE LEFT IMAGE LAYOUT */}
+        <div
+          className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
+          style={{ top: '133px', left: '292px', transform: 'rotate(-180deg)' }}
+        >
+            <Image
+              src={leftQuoteImage} 
+              alt="Quote Left Design" 
+              className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
+              style={{ top: '16.83px', left: '36.72px', transform: 'rotate(-180deg)' }}
+            />
+        </div>
+
+        {/* 5. QUOTE RIGHT IMAGE LAYOUT */}
+        <div
+          className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
+          style={{ top: '133px', left: '367px', transform: 'rotate(-180deg)' }}
+        >
+            <Image
+              src={rightQuoteImage} 
+              alt="Quote Right Design" 
+              className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
+              style={{ top: '16.83px', left: '36.72px', transform: 'rotate(-180deg)' }}
+            />
+        </div>
+
+        {/* 6. QUOTE TEXT */}
+        <div
+          className="absolute w-[458px] h-[70px] text-[#0D0D0D] font-['Inter'] text-[24px] font-medium"
+          style={{ top: '305px', left: '365px', lineHeight: '35px', letterSpacing: '-0.03em' }}
+        >
+          No one asked me for my name, and yet I’ve never felt more seen.
+        </div>
+
+        {/* 7. STUDENT INFO */}
+        <div
+          className="absolute w-[222px] h-[35px] text-[#6D6D6F] font-['Inter'] text-[24px] font-normal"
+          style={{ top: '415px', left: '601px', lineHeight: '35px', letterSpacing: '-0.03em' }}
+        >
+          — Student, Chennai
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+// const Testimonials = () => {
+//   return (
+//     <section 
+//       className="relative mx-auto w-full max-w-[1440px] h-[712px] bg-[#F6F2EB] opacity-100" 
+//       style={{ 
+//         marginTop: '102px'
+//       }}
+//     >
+      
+//       {/* --- LARGE RIGHT IMAGE --- */}
+//       <Image // Changed from <img>
+//         src={largeRightImage}
+//         alt="Testimonial Background Graphic"
+//         className="absolute w-[584px] h-[548px] opacity-100"
+//         style={{ top: '70px', left: '772px' }}
+//       />
+
+
+//       {/* --- MAIN LAYOUT (Container for all left/middle elements) --- */}
 //       <div 
-//         className="relative mx-auto w-[1249px] h-[559px]  opacity-100" 
-//         style={{ marginLeft: '96px' }}
+//         className="relative w-[1323px] h-[616px] opacity-100" 
+//         style={{ top: '36px', left: '84px' }}
 //       >
         
-//         {/* === HEADER BLOCK === */}
-//         <div className="w-full h-full relative"> 
-//           <div 
-//             className="absolute w-[407px] h-[61px] text-black font-['Inter'] text-[50px] font-semibold"
-//             style={{ top: '0', left: '24px' }}
-//           >
-//             Key features
-//           </div>
-//           <div 
-//             className="absolute w-[562px] h-[25px] text-black font-['Nunito_Sans'] text-[18px] font-medium"
-//             style={{ top: '81px', left: '24px' }}
-//           >
-//             Discover the essential features you need - all in one trusted platform.
-//           </div>
+//         {/* 1. HEADING: Testimonials */}
+//         <div
+//           className="absolute w-[274px] h-[61px] font-['Inter'] text-[50px] font-semibold text-[#5C4737]"
+//           style={{ top: '25px', left: '30px', letterSpacing: '-0.06em' }}
+//         >
+//           Testimonials
 //         </div>
 
-//         {/* === F1 LAYOUT (24/7 Live Chat) === */}
-//         <div 
-//           className="absolute w-[553px] h-[80px] flex items-center" 
-//           style={{ top: '144px', left: '0' }}
-//         >
-//           <div className="flex items-center justify-center p-[15px] h-full"> 
-//             <Image
-//               src={fi1} 
-//               alt="Feature Icon 1" 
-//               className="w-[50px] h-[50px] "
-//             />
-//           </div>
-//           <div 
-//             className="h-[33px] text-[#000000]  font-['Nunito_Sans'] text-[24px] font-medium flex items-center"
-//             style={{ width: '445px' ,position: 'absolute', left:'100px'}}
-//           >
-//             24/7 Live Chat With Human Counsellors
-//           </div>
-//         </div>
-        
-//         {/* === DIVIDER 1 (After F1) === */}
-//         <Image
-//           src={f1l} 
-//           alt="Divider Line 1" 
-//           className="absolute w-[605px] h-[2px] opacity-100"
-//           style={{ top: '243px', left: '15px' }}
+//         {/* 2. LARGE LEFT IMAGE (225x450px) */}
+//         <Image // Changed from <img>
+//           src={largeLeftImage}
+//           alt="Testimonial Background Left"
+//           className="absolute w-[225.000015px] h-[450px] opacity-100"
+//           style={{ top: '115px', left: '30px' }}
 //         />
 
-//         {/* === F2 LAYOUT (Goal Tracker) === 
-//             width: 502px; height: 80px; top: 3245px -> 258px; left: 96px -> 0px
-//         */}
-//         <div 
-//           className="absolute w-[502px] h-[80px] flex items-center" 
-//           style={{ top: '258px', left: '0' }}
-//         >
-//           {/* F2 IMAGE LAYOUT (80x80) */}
-//           <div className="flex items-center justify-center h-full w-[80px]"> 
-//             {/* F2 IMAGE (50x50, top: 15px, left: 15px relative to 80x80 container) */}
-//             <Image
-//               src={featureIcon2} 
-//               alt="Feature Icon 2" 
-//               className="w-[50px] h-[50px] "
-//               // style={{ padding: '15px 0 0 0' }} // Simulated top: 15px, left: 15px is handled by centered flex
-//             />
-//           </div>
-          
-//           {/* F2 TEXT LAYOUT (Goal Tracker)
-//               width: 407px; height: 35px; top: 3268px -> 281px; left: 191px -> 95px
-//               Typography: Nunito Sans, SemiBold (600), 24px, Black, line-height: 35px, letter-spacing: -3%
-//           */}
-//           <div 
-//             className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
-//             style={{ 
-//               width: '420px', 
-//               lineHeight: '35px', 
-//               letterSpacing: '-0.03em', // -3% letter spacing
-//               marginLeft: '15px' // Calculated margin for text alignment: 191 - (96 + 80) = 15px
-//             }}
-//           >
-//             Goal Tracker With Behavioural Nudges
-//           </div>
-//         </div>
-        
-//         {/* === DIVIDER 2 (After F2) === 
-//             width: 605px; height: 0px; top: 3340px -> 353px; left: 111px -> 15px
-//         */}
-//         <Image
-//           src={dividerImage2} 
-//           alt="Divider Line 2" 
-//           className="absolute w-[605px] h-[2px] opacity-100"
-//           style={{ top: '353px', left: '15px' }}
+//         {/* 3. SMALL CIRCLE IMAGE (50x50px) */}
+//         <Image // Changed from <img>
+//           src={testimonialIcon}
+//           alt="Profile Icon"
+//           className="absolute w-[50px] h-[50px] rounded-full opacity-100 border border-black"
+//           style={{ top: '129px', left: '130px' }}
 //         />
 
-//         {/* === F3 - Mood Guidance (Elements added directly to Main Layout) === 
-//             The structure here is slightly different, the image and text are not explicitly grouped in an F3 layout, 
-//             but placed directly into the main container near each other. We will group them for clean code.
-//         */}
-//         <div 
-//             className="absolute w-[500px] h-[80px] flex items-center" // Grouping for cleanliness
-//             style={{ top: '367px', left: '0' }} // Image starts at 3354px (367px relative)
+//         {/* 4. QUOTE LEFT IMAGE LAYOUT */}
+//         <div
+//           className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
+//           style={{ top: '133px', left: '292px', transform: 'rotate(-180deg)' }}
 //         >
-//           {/* F3 IMAGE LAYOUT (Mood Icon)
-//               width: 80px; height: 80px; top: 3354px -> 367px; left: 96px -> 0px
-//           */}
-//           <div className="flex items-center justify-center h-full w-[80px]"> 
-//             {/* F3 IMAGE (37.5x37.5, top: 4.17px, left: 4.17px relative to 80x80 container) */}
-//             <Image
-//               src={featureIcon3} 
-//               alt="Feature Icon 3" 
-//               className="w-[37.5px] h-[37.5px] "
-//               // style={{ padding: '4.17px 0 0 0' }} // Simulated top: 4.17px, left: 4.17px is handled by centered flex
+//             <Image // Changed from <img>
+//               src={leftQuoteImage} 
+//               alt="Quote Left Design" 
+//               className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
+//               style={{ top: '16.83px', left: '36.72px', transform: 'rotate(-180deg)' }}
 //             />
-//           </div>
-          
-//           {/* F3 TEXT LAYOUT (Mood-Based Guidance)
-//               width: 236px; height: 35px; top: 3378px -> 391px; left: 191px -> 95px
-//           */}
-//           <div 
-//             className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
-//             style={{ 
-//               width: '245px', 
-//               lineHeight: '35px', 
-//               letterSpacing: '-0.03em',
-//               marginLeft: '15px' // Calculated margin: 191 - (96 + 80) = 15px
-//             }}
-//           >
-//             Mood-Based Guidance
-//           </div>
 //         </div>
 
-//         {/* === DIVIDER 3 (After F3) === 
-//             width: 605px; height: 0px; top: 3450px -> 463px; left: 111px -> 15px
-//         */}
-//         <Image 
-//           src={dividerImage3} 
-//           alt="Divider Line 3" 
-//           className="absolute w-[605px] h-[2px] opacity-100"
-//           style={{ top: '463px', left: '15px' }}
-//         />
-        
-//         {/* === F4 LAYOUT (Bite-Sized Self Assessments) === 
-//             Note: The user labeled this "f3 layout" but it follows the "Mood-Based Guidance" (F3) section. 
-//             I will label it F4 for clarity in sequence.
-//             width: 396px; height: 80px; top: 3465px -> 478px; left: 96px -> 0px
-//         */}
-//         <div 
-//           className="absolute w-[396px] h-[80px] flex items-center" 
-//           style={{ top: '478px', left: '0' }}
+//         {/* 5. QUOTE RIGHT IMAGE LAYOUT */}
+//         <div
+//           className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
+//           style={{ top: '133px', left: '367px', transform: 'rotate(-180deg)' }}
 //         >
-//           {/* F4 IMAGE LAYOUT (80x80) */}
-//           <div className="flex items-center justify-center h-full w-[80px]"> 
-//             {/* F4 IMAGE (50x50, top: 17px, left: 15px relative to 80x80 container) */}
-//             <Image
-//               src={featureIcon4} 
-//               alt="Feature Icon 4" 
-//               className="w-[50px] h-[50px] "
-//               // style={{ padding: '17px 0 0 0' }} // Simulated top: 17px, left: 15px is handled by centered flex
+//             <Image // Changed from <img>
+//               src={rightQuoteImage} 
+//               alt="Quote Right Design" 
+//               className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
+//               style={{ top: '16.83px', left: '36.72px', transform: 'rotate(-180deg)' }}
 //             />
-//           </div>
-
-//           {/* F4 TEXT LAYOUT (Bite-Sized Self Assessments)
-//               width: 301px; height: 35px; top: 3488px -> 501px; left: 191px -> 95px
-//           */}
-//           <div 
-//             className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
-//             style={{ 
-//               width: '301px', 
-//               lineHeight: '35px', 
-//               letterSpacing: '-0.03em',
-//               marginLeft: '15px' // Calculated margin: 191 - (96 + 80) = 15px
-//             }}
-//           >
-//             Bite-Sized Self Assessments
-//           </div>
 //         </div>
-        
+
+//         {/* 6. QUOTE TEXT */}
+//         <div
+//           className="absolute w-[458px] h-[70px] text-[#0D0D0D] font-['Inter'] text-[24px] font-medium"
+//           style={{ top: '305px', left: '365px', lineHeight: '35px', letterSpacing: '-0.03em' }}
+//         >
+//           No one asked me for my name, and yet I’ve never felt more seen.
+//         </div>
+
+//         {/* 7. STUDENT INFO */}
+//         <div
+//           className="absolute w-[222px] h-[35px] text-[#6D6D6F] font-['Inter'] text-[24px] font-normal"
+//           style={{ top: '415px', left: '601px', lineHeight: '35px', letterSpacing: '-0.03em' }}
+//         >
+//           — Student, Chennai
+//         </div>
+
 //       </div>
 //     </section>
 //   );
 // };
 
-  return (
+
+
+
+
+
+
+
+return (
     <>
       <HomeHero />
       <MakeUs/>
       <Whowant/>
       <Features/>
+      <Testimonials/>
     </>
   );
 }
