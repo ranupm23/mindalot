@@ -10,6 +10,19 @@ import w3 from "../assets/home-page/deserves/w3.png";
 import w4 from "../assets/home-page/deserves/w4.png";
 import w5 from "../assets/home-page/deserves/w5.png";
 import w6 from "../assets/home-page/deserves/w6.png";
+import fi1 from "../assets/home-page/features/Frame.png";
+import f1l from "../assets/home-page/features/Line 15.png";
+import featureIcon2 from "../assets/home-page/features/gps.png"; // F2 Icon
+import dividerImage2 from "../assets/home-page/features/Line 15.png"; 
+import featureIcon3 from '../assets/home-page/features/search-normal.png'; // F3 Icon
+import dividerImage3 from '../assets/home-page/features/Line 15.png'; // Divider 3
+import featureIcon4 from '../assets/home-page/features/task.png'; // F4 Icon
+import featureIcon5 from '../assets/home-page/features/video-circle.png';
+import featureIcon6 from '../assets/home-page/features/briefcase.png';
+import featureIcon7 from '../assets/home-page/features/ai-hospital.png';
+import featureIcon8 from '../assets/home-page/features/diagram.png';
+
+
 export default function Home() {
 
 
@@ -1045,11 +1058,504 @@ const Whowant = () => {
 
 
 
+
+
+const Features = () => {
+  return (
+    // We adjust the min-height to accommodate the new lower elements (up to 3488px)
+    <section className="relative w-full overflow-hidden mt-20"> 
+      
+      {/* MAIN LAYOUT: w: 1249px; h: 559px; left: 96px (using margin-left) */}
+      <div 
+        className="relative mx-auto w-[1249px] h-[559px] opacity-100" 
+        style={{ marginLeft: '60px' }}
+      >
+        
+        {/* === HEADER BLOCK === */}
+        <div className="w-full h-full relative"> 
+          <div 
+            className="absolute w-[407px] h-[61px] text-black font-['Inter'] text-[50px] font-semibold"
+            style={{ top: '0', left: '24px' }}
+          >
+            Key features
+          </div>
+          <div 
+            className="absolute w-[562px] h-[25px] text-black font-['Nunito_Sans'] text-[18px] font-medium"
+            style={{ top: '81px', left: '24px' }}
+          >
+            Discover the essential features you need - all in one trusted platform.
+          </div>
+        </div>
+
+        {/* --- LEFT COLUMN (F1-F4) - Previous features start here --- */}
+        
+        {/* === F1 LAYOUT (24/7 Live Chat) === */}
+        <div 
+          className="absolute w-[553px] h-[80px] flex items-center" 
+          style={{ top: '144px', left: '0' }}
+        >
+          <div className="flex items-center justify-center p-[15px] h-full"> 
+            {/* Using a standard <img> tag instead of a placeholder <Image> component for cleaner vanilla React/Next.js compatibility */}
+            <Image
+              src={fi1} 
+              alt="Feature Icon 1" 
+              className="w-[50px] h-[50px] "
+            />
+          </div>
+          <div 
+            className="h-[33px] text-[#000000] font-['Nunito_Sans'] text-[24px] font-medium flex items-center"
+            style={{ width: '445px' ,position: 'absolute', left:'100px'}}
+          >
+            24/7 Live Chat With Human Counsellors
+          </div>
+        </div>
+        
+        {/* === DIVIDER 1 (After F1) === */}
+        <Image
+          src={f1l} 
+          alt="Divider Line 1" 
+          className="absolute w-[605px] h-[2px] opacity-100"
+          style={{ top: '243px', left: '15px' }}
+        />
+
+        {/* === F2 LAYOUT (Goal Tracker) === */}
+        <div 
+          className="absolute w-[502px] h-[80px] flex items-center" 
+          style={{ top: '258px', left: '0' }}
+        >
+          <div className="flex items-center justify-center h-full w-[80px]"> 
+            <Image
+              src={featureIcon2} 
+              alt="Feature Icon 2" 
+              className="w-[50px] h-[50px] "
+            />
+          </div>
+          <div 
+            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
+            style={{ 
+              width: '420px', 
+              lineHeight: '35px', 
+              letterSpacing: '-0.03em', 
+              marginLeft: '15px' 
+            }}
+          >
+            Goal Tracker With Behavioural Nudges
+          </div>
+        </div>
+        
+        {/* === DIVIDER 2 (After F2) === */}
+        <Image
+          src={dividerImage2} 
+          alt="Divider Line 2" 
+          className="absolute w-[605px] h-[2px] opacity-100"
+          style={{ top: '353px', left: '15px' }}
+        />
+
+        {/* === F3 - Mood Guidance === */}
+        <div 
+            className="absolute w-[500px] h-[80px] flex items-center" 
+            style={{ top: '367px', left: '0' }}
+        >
+          <div className="flex items-center justify-center h-full w-[80px]"> 
+            <Image
+              src={featureIcon3} 
+              alt="Feature Icon 3" 
+              className="w-[37.5px] h-[37.5px] "
+            />
+          </div>
+          <div 
+            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
+            style={{ 
+              width: '245px', 
+              lineHeight: '35px', 
+              letterSpacing: '-0.03em',
+              marginLeft: '15px'
+            }}
+          >
+            Mood-Based Guidance
+          </div>
+        </div>
+
+        {/* === DIVIDER 3 (After F3) === */}
+        <Image
+          src={dividerImage3} 
+          alt="Divider Line 3" 
+          className="absolute w-[605px] h-[2px] opacity-100"
+          style={{ top: '463px', left: '15px' }}
+        />
+        
+        {/* === F4 LAYOUT (Bite-Sized Self Assessments) === */}
+        <div 
+          className="absolute w-[396px] h-[80px] flex items-center" 
+          style={{ top: '478px', left: '0' }}
+        >
+          <div className="flex items-center justify-center h-full w-[80px]"> 
+            <Image
+              src={featureIcon4} 
+              alt="Feature Icon 4" 
+              className="w-[50px] h-[50px] "
+            />
+          </div>
+          <div 
+            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
+            style={{ 
+              width: '301px', 
+              lineHeight: '35px', 
+              letterSpacing: '-0.03em',
+              marginLeft: '15px'
+            }}
+          >
+            Bite-Sized Self Assessments
+          </div>
+        </div>
+        
+        {/* --- RIGHT COLUMN (F5-F8) - NEW FEATURES START HERE --- */}
+
+        {/* === F5 LAYOUT (Expert Videos, Podcasts, and Content Drops) === 
+            top: 3136px -> 149px; left: 721px -> 625px 
+        */}
+        <div 
+          className="absolute w-[554px] h-[80px] flex items-center" 
+          style={{ top: '149px', left: '625px' }}
+        >
+          <div className="flex items-center justify-center p-[15px] h-full"> 
+            {/* IMAGE: 50x50 */}
+            <Image
+              src={featureIcon5} 
+              alt="Feature Icon 5" 
+              className="w-[50px] h-[50px]"
+            />
+          </div>
+          <div 
+            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
+            style={{ 
+              width: '469px', 
+              lineHeight: '35px', 
+              letterSpacing: '-0.03em',
+              position: 'absolute', // Absolute to match the explicit left placement
+              left: '95px' // Calculated margin: 816 - 721 = 95px
+            }}
+          >
+            Expert Videos, Podcasts, and Content Drops
+          </div>
+        </div>
+        
+        {/* === DIVIDER 4 (After F5) === 
+            width: 605px; height: 0px; top: 3230px -> 243px; left: 736px -> 640px
+        */}
+        <Image
+          src={dividerImage2} 
+          alt="Divider Line 4" 
+          className="absolute w-[605px] h-[2px] opacity-100"
+          style={{ top: '243px', left: '640px' }}
+        />
+
+        {/* === F6 LAYOUT (Works Across Countries & Languages) === 
+            width: 489px; height: 80px; top: 3246px -> 259px; left: 721px -> 625px
+        */}
+        <div 
+          className="absolute w-[489px] h-[80px] flex items-center" 
+          style={{ top: '259px', left: '625px' }}
+        >
+          <div className="flex items-center justify-center p-[15px] h-full"> 
+            {/* IMAGE: 50x50 */}
+            <Image
+              src={featureIcon6} 
+              alt="Feature Icon 6" 
+              className="w-[50px] h-[50px]"
+            />
+          </div>
+          <div 
+            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
+            style={{ 
+              width: '404px', 
+              lineHeight: '35px', 
+              letterSpacing: '-0.03em',
+              position: 'absolute',
+              left: '95px' // Calculated margin: 816 - 721 = 95px
+            }}
+          >
+            Works Across Countries & Languages
+          </div>
+        </div>
+        
+        {/* === DIVIDER 5 (After F6) === 
+            width: 605px; height: 0px; top: 3340px -> 353px; left: 736px -> 640px
+        */}
+        <Image
+          src={dividerImage2} 
+          alt="Divider Line 5" 
+          className="absolute w-[605px] h-[2px] opacity-100"
+          style={{ top: '353px', left: '640px' }}
+        />
+        
+        {/* === F7 LAYOUT (Escalation To Partner Hospitals For Psychiatric Care) === 
+            width: 624px; height: 80px; top: 3356px -> 369px; left: 721px -> 625px
+        */}
+        <div 
+          className="absolute w-[624px] h-[80px] flex items-center" 
+          style={{ top: '369px', left: '625px' }}
+        >
+          <div className="flex items-center justify-center p-[15px] h-full"> 
+            {/* IMAGE: 50x50 */}
+            <Image
+              src={featureIcon7} 
+              alt="Feature Icon 7" 
+              className="w-[50px] h-[50px]"
+            />
+          </div>
+          <div 
+            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
+            style={{ 
+              width: '549px', 
+              lineHeight: '35px', 
+              letterSpacing: '-0.03em',
+              position: 'absolute',
+              left: '95px' // Calculated margin: 816 - 721 = 95px
+            }}
+          >
+            Escalation To Partner Hospitals For Psychiatric Care
+          </div>
+        </div>
+
+        {/* === DIVIDER 6 (After F7) === 
+            width: 605px; height: 0px; top: 3450px -> 463px; left: 736px -> 640px
+        */}
+        <Image
+          src={dividerImage2} 
+          alt="Divider Line 6" 
+          className="absolute w-[605px] h-[2px] opacity-100"
+          style={{ top: '463px', left: '640px' }}
+        />
+
+        {/* === F8 LAYOUT (100% Anonymity Guaranteed) === 
+            width: 410px; height: 80px; top: 3466px -> 479px; left: 721px -> 625px
+        */}
+        <div 
+          className="absolute w-[410px] h-[80px] flex items-center" 
+          style={{ top: '479px', left: '625px' }}
+        >
+          <div className="flex items-center justify-center p-[15px] h-full"> 
+            {/* IMAGE: 50x50 */}
+            <Image
+              src={featureIcon8} 
+              alt="Feature Icon 8" 
+              className="w-[50px] h-[50px]"
+            />
+          </div>
+          <div 
+            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
+            style={{ 
+              width: '315px', 
+              lineHeight: '35px', 
+              letterSpacing: '-0.03em',
+              position: 'absolute',
+              left: '95px' // Calculated margin: 816 - 721 = 95px
+            }}
+          >
+            100% Anonymity Guaranteed
+          </div>
+        </div>
+        
+      </div>
+    </section>
+  );
+};
+
+// const Features = () => {
+//   return (
+//     // We adjust the min-height to accommodate the new lower elements (up to 3488px)
+//     <section className="relative w-full overflow-hidden mt-20"> 
+      
+//       {/* MAIN LAYOUT: w: 1249px; h: 559px; left: 96px (using margin-left) */}
+//       <div 
+//         className="relative mx-auto w-[1249px] h-[559px]  opacity-100" 
+//         style={{ marginLeft: '96px' }}
+//       >
+        
+//         {/* === HEADER BLOCK === */}
+//         <div className="w-full h-full relative"> 
+//           <div 
+//             className="absolute w-[407px] h-[61px] text-black font-['Inter'] text-[50px] font-semibold"
+//             style={{ top: '0', left: '24px' }}
+//           >
+//             Key features
+//           </div>
+//           <div 
+//             className="absolute w-[562px] h-[25px] text-black font-['Nunito_Sans'] text-[18px] font-medium"
+//             style={{ top: '81px', left: '24px' }}
+//           >
+//             Discover the essential features you need - all in one trusted platform.
+//           </div>
+//         </div>
+
+//         {/* === F1 LAYOUT (24/7 Live Chat) === */}
+//         <div 
+//           className="absolute w-[553px] h-[80px] flex items-center" 
+//           style={{ top: '144px', left: '0' }}
+//         >
+//           <div className="flex items-center justify-center p-[15px] h-full"> 
+//             <Image
+//               src={fi1} 
+//               alt="Feature Icon 1" 
+//               className="w-[50px] h-[50px] "
+//             />
+//           </div>
+//           <div 
+//             className="h-[33px] text-[#000000]  font-['Nunito_Sans'] text-[24px] font-medium flex items-center"
+//             style={{ width: '445px' ,position: 'absolute', left:'100px'}}
+//           >
+//             24/7 Live Chat With Human Counsellors
+//           </div>
+//         </div>
+        
+//         {/* === DIVIDER 1 (After F1) === */}
+//         <Image
+//           src={f1l} 
+//           alt="Divider Line 1" 
+//           className="absolute w-[605px] h-[2px] opacity-100"
+//           style={{ top: '243px', left: '15px' }}
+//         />
+
+//         {/* === F2 LAYOUT (Goal Tracker) === 
+//             width: 502px; height: 80px; top: 3245px -> 258px; left: 96px -> 0px
+//         */}
+//         <div 
+//           className="absolute w-[502px] h-[80px] flex items-center" 
+//           style={{ top: '258px', left: '0' }}
+//         >
+//           {/* F2 IMAGE LAYOUT (80x80) */}
+//           <div className="flex items-center justify-center h-full w-[80px]"> 
+//             {/* F2 IMAGE (50x50, top: 15px, left: 15px relative to 80x80 container) */}
+//             <Image
+//               src={featureIcon2} 
+//               alt="Feature Icon 2" 
+//               className="w-[50px] h-[50px] "
+//               // style={{ padding: '15px 0 0 0' }} // Simulated top: 15px, left: 15px is handled by centered flex
+//             />
+//           </div>
+          
+//           {/* F2 TEXT LAYOUT (Goal Tracker)
+//               width: 407px; height: 35px; top: 3268px -> 281px; left: 191px -> 95px
+//               Typography: Nunito Sans, SemiBold (600), 24px, Black, line-height: 35px, letter-spacing: -3%
+//           */}
+//           <div 
+//             className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
+//             style={{ 
+//               width: '420px', 
+//               lineHeight: '35px', 
+//               letterSpacing: '-0.03em', // -3% letter spacing
+//               marginLeft: '15px' // Calculated margin for text alignment: 191 - (96 + 80) = 15px
+//             }}
+//           >
+//             Goal Tracker With Behavioural Nudges
+//           </div>
+//         </div>
+        
+//         {/* === DIVIDER 2 (After F2) === 
+//             width: 605px; height: 0px; top: 3340px -> 353px; left: 111px -> 15px
+//         */}
+//         <Image
+//           src={dividerImage2} 
+//           alt="Divider Line 2" 
+//           className="absolute w-[605px] h-[2px] opacity-100"
+//           style={{ top: '353px', left: '15px' }}
+//         />
+
+//         {/* === F3 - Mood Guidance (Elements added directly to Main Layout) === 
+//             The structure here is slightly different, the image and text are not explicitly grouped in an F3 layout, 
+//             but placed directly into the main container near each other. We will group them for clean code.
+//         */}
+//         <div 
+//             className="absolute w-[500px] h-[80px] flex items-center" // Grouping for cleanliness
+//             style={{ top: '367px', left: '0' }} // Image starts at 3354px (367px relative)
+//         >
+//           {/* F3 IMAGE LAYOUT (Mood Icon)
+//               width: 80px; height: 80px; top: 3354px -> 367px; left: 96px -> 0px
+//           */}
+//           <div className="flex items-center justify-center h-full w-[80px]"> 
+//             {/* F3 IMAGE (37.5x37.5, top: 4.17px, left: 4.17px relative to 80x80 container) */}
+//             <Image
+//               src={featureIcon3} 
+//               alt="Feature Icon 3" 
+//               className="w-[37.5px] h-[37.5px] "
+//               // style={{ padding: '4.17px 0 0 0' }} // Simulated top: 4.17px, left: 4.17px is handled by centered flex
+//             />
+//           </div>
+          
+//           {/* F3 TEXT LAYOUT (Mood-Based Guidance)
+//               width: 236px; height: 35px; top: 3378px -> 391px; left: 191px -> 95px
+//           */}
+//           <div 
+//             className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
+//             style={{ 
+//               width: '245px', 
+//               lineHeight: '35px', 
+//               letterSpacing: '-0.03em',
+//               marginLeft: '15px' // Calculated margin: 191 - (96 + 80) = 15px
+//             }}
+//           >
+//             Mood-Based Guidance
+//           </div>
+//         </div>
+
+//         {/* === DIVIDER 3 (After F3) === 
+//             width: 605px; height: 0px; top: 3450px -> 463px; left: 111px -> 15px
+//         */}
+//         <Image 
+//           src={dividerImage3} 
+//           alt="Divider Line 3" 
+//           className="absolute w-[605px] h-[2px] opacity-100"
+//           style={{ top: '463px', left: '15px' }}
+//         />
+        
+//         {/* === F4 LAYOUT (Bite-Sized Self Assessments) === 
+//             Note: The user labeled this "f3 layout" but it follows the "Mood-Based Guidance" (F3) section. 
+//             I will label it F4 for clarity in sequence.
+//             width: 396px; height: 80px; top: 3465px -> 478px; left: 96px -> 0px
+//         */}
+//         <div 
+//           className="absolute w-[396px] h-[80px] flex items-center" 
+//           style={{ top: '478px', left: '0' }}
+//         >
+//           {/* F4 IMAGE LAYOUT (80x80) */}
+//           <div className="flex items-center justify-center h-full w-[80px]"> 
+//             {/* F4 IMAGE (50x50, top: 17px, left: 15px relative to 80x80 container) */}
+//             <Image
+//               src={featureIcon4} 
+//               alt="Feature Icon 4" 
+//               className="w-[50px] h-[50px] "
+//               // style={{ padding: '17px 0 0 0' }} // Simulated top: 17px, left: 15px is handled by centered flex
+//             />
+//           </div>
+
+//           {/* F4 TEXT LAYOUT (Bite-Sized Self Assessments)
+//               width: 301px; height: 35px; top: 3488px -> 501px; left: 191px -> 95px
+//           */}
+//           <div 
+//             className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
+//             style={{ 
+//               width: '301px', 
+//               lineHeight: '35px', 
+//               letterSpacing: '-0.03em',
+//               marginLeft: '15px' // Calculated margin: 191 - (96 + 80) = 15px
+//             }}
+//           >
+//             Bite-Sized Self Assessments
+//           </div>
+//         </div>
+        
+//       </div>
+//     </section>
+//   );
+// };
+
   return (
     <>
       <HomeHero />
       <MakeUs/>
       <Whowant/>
+      <Features/>
     </>
   );
 }
