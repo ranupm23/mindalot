@@ -7,6 +7,9 @@ import line from "../assets/home-page/ourDiffrent/m1.png";
 import w1 from "../assets/home-page/deserves/w1.png";
 import w2 from "../assets/home-page/deserves/w2.png";
 import w3 from "../assets/home-page/deserves/w3.png";
+import w4 from "../assets/home-page/deserves/w4.png";
+import w5 from "../assets/home-page/deserves/w5.png";
+import w6 from "../assets/home-page/deserves/w6.png";
 export default function Home() {
 
 
@@ -307,7 +310,6 @@ const HomeHero = () => {
     </section>
   );
 };
-
 
 const MakeUs = () => {
   return (
@@ -862,10 +864,6 @@ const MakeUs = () => {
   );
 };
 
-
-
-
-
 const Whowant = () => {
   return (
     <section className="w-full h-[1169px] bg-[#F6F2EB] overflow-x-hidden">
@@ -916,27 +914,134 @@ const Whowant = () => {
         <Image src={w3} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_76%,rgba(0,0,0,.8)_100%)]" />
         <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
-          Title Goes Here
+          LGBTQ+ Community
         </div>
       </div>
+
+    {/* ===== Layout 1 – Older Adults ===== */}
+ <div className="absolute top-[2402px] left-[48px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
+
+  {/* Image */}
+  <Image
+    src={w4} // 🔁 Older Adults image
+    alt="Older Adults"
+    className="w-full h-full object-cover"
+  />
+
+  {/* Gradient */}
+  <div
+    className="absolute inset-0"
+    style={{
+      background:
+        "linear-gradient(180deg, rgba(0, 0, 0, 0) 74.16%, rgba(0, 0, 0, 0.7) 100%)",
+    }}
+  />
+
+  {/* Text */}
+  <div
+    className="
+      absolute
+      top-[339px]
+      left-[122px]
+      w-[181px]
+      h-[36px]
+      font-['Inter']
+      font-semibold
+      text-[30px]
+      leading-[100%]
+      tracking-[-3%]
+      text-white
+    "
+  >
+    Older Adults
+  </div>
+</div>
+
+
+{/* ===== Layout 2 – Neurodivergent Users ===== */}
+<div className="absolute top-[2402px] left-[480px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
+
+  {/* Image */}
+  <Image
+    src={w5} // 🔁 Neurodivergent Users image
+    alt="Neurodivergent Users"
+    className="w-full h-full object-cover"
+  />
+
+  {/* Gradient */}
+  <div
+    className="absolute inset-0"
+    style={{
+      background:
+        "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.88%, rgba(0, 0, 0, 0.8) 100%)",
+    }}
+  />
+
+  {/* Text */}
+  <div
+    className="
+      absolute
+      top-[339px]
+      left-[54px]
+      w-[322px]
+      h-[36px]
+      font-['Inter']
+      font-semibold
+      text-[30px]
+      leading-[100%]
+      tracking-[-3%]
+      text-white
+      text-center
+    "
+  >
+    Neurodivergent Users
+  </div>
+</div>
+
+
+{/* ===== Layout 3 – Anyone Needing Support ===== */}
+<div className="absolute top-[2402px] left-[910px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
+
+  {/* Image */}
+  <Image
+    src={w6} // 🔁 Anyone Needing Support image
+    alt="Anyone Needing Support"
+    className="w-full h-full object-cover"
+  />
+
+  {/* Gradient */}
+  <div
+    className="absolute inset-0"
+    style={{
+      background:
+        "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.51%, rgba(0, 0, 0, 0.8) 100%)",
+    }}
+  />
+
+  {/* Text */}
+  <div
+    className="
+      absolute
+      top-[339px]
+      left-[32px]
+      w-[366px]
+      h-[36px]
+      font-['Inter']
+      font-semibold
+      text-[30px]
+      leading-[100%]
+      tracking-[-3%]
+      text-white
+      text-center
+    "
+  >
+    Anyone Needing Support
+  </div>
+</div>
 
     </section>
   );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
