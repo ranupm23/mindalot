@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Link from "next/link";
 import arrow from "../assets/arrow.svg";
 import Homebg from "../assets/home-page/hero/rock.png";
-
+import line from "../assets/home-page/ourDiffrent/m1.png";
 export default function Home() {
 
 
@@ -147,8 +147,8 @@ const HomeHero = () => {
           leading-none
           tracking-[0.06em]
           text-center
-          bg-[#F6F2EB]
-          text-[#1C1C1B]
+          text-[#F6F2EB]
+          
         "
       >
         LOT
@@ -158,7 +158,7 @@ const HomeHero = () => {
       <div
         className="
           absolute
-          w-[270px]
+          w-[280px]
           h-[19px]
           top-[697px]
           left-[587px]
@@ -306,9 +306,609 @@ const HomeHero = () => {
 };
 
 
+const MakeUs = () => {
+  return (
+    <section
+      className="w-full"
+      style={{
+        opacity: 1,
+      }}
+    >
+      {/* Heading Layout – body-based positioning */}
+      <h2
+        style={{
+          width: "610px",
+          height: "68px",
+          position: "absolute",
+          top: "915px",
+          left: "86px",
+          fontFamily: "Nunito Sans, sans-serif",
+          fontWeight: 700,
+          fontStyle: "Bold",
+          fontSize: "50px",
+          lineHeight: "100%",
+          letterSpacing: "0%",
+          color: "#000000",
+          opacity: 1,
+          margin: 0,
+        }}
+      >
+        What makes us different ?
+      </h2>
+
+      {/* First Card */}
+      <div
+        style={{
+          width: "341px",
+          height: "244px",
+          position: "absolute",
+          top: "1033px",
+          left: "86px",
+          opacity: 1,
+          background: "transparent",
+        }}
+      >
+        {/* Number */}
+        <div
+          style={{
+            width: "55px",
+            height: "61px",
+            position: "absolute",
+            top: "0px",
+            left: "5px",
+            fontFamily: "Inter, sans-serif",
+            fontWeight: 600,
+            fontStyle: "Semi Bold",
+            fontSize: "50px",
+            lineHeight: "100%",
+            letterSpacing: "-6%",
+            color: "#5B4A3E",
+            opacity: 1,
+          }}
+        >
+          01
+        </div>
+
+        {/* Image */}
+        <Image
+          src={line} // replace with your image path
+          alt="card image"
+          style={{
+            width: "96px",
+            height: "18px",
+            position: "absolute",
+            top: "61px",
+            left: "0px",
+            opacity: 1,
+          }}
+        />
+      </div>
+
+      {/* First Card Text */}
+      <div
+        style={{
+          width: "270px",
+          height: "29px",
+          position: "absolute",
+          top: "1126px",
+          left: "91px",
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 600,
+          fontStyle: "Semi Bold",
+          fontSize: "24px",
+          lineHeight: "100%",
+          letterSpacing: "-3%",
+          color: "#5C4737",
+          opacity: 1,
+        }}
+      >
+        Instant Human Support
+      </div>
+      <div
+        style={{
+          width: "336px",
+          height: "100px",
+          position: "absolute",
+          top: "1177px",
+          left: "91px",
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 400,
+          fontStyle: "Regular",
+          fontSize: "18px",
+          lineHeight: "25px",
+          letterSpacing: "-2%",
+          color: "#6D6D6F",
+          opacity: 1,
+        }}
+      >
+        Start chatting the moment you feel overwhelmed. No forms. No queues. No matching wait. A real counsellor responds in seconds.
+      </div>
+
+      {/* Second Card */}
+      <div
+        style={{
+          width: "326px",
+          height: "244px",
+          position: "absolute",
+          top: "1033px",
+          left: "506px",
+          opacity: 1,
+          background: "transparent",
+        }}
+      >
+        {/* Number */}
+        <div
+          style={{
+            width: "62px",
+            height: "61px",
+            position: "absolute",
+            top: "0px",
+            left: "5px",
+            fontFamily: "Inter, sans-serif",
+            fontWeight: 600,
+            fontStyle: "Semi Bold",
+            fontSize: "50px",
+            lineHeight: "100%",
+            letterSpacing: "-6%",
+            color: "#5B4A3E",
+            opacity: 1,
+          }}
+        >
+          02
+        </div>
+
+        {/* Image */}
+        <Image
+          src={line} // replace with your second image path
+          alt="card image 2"
+          style={{
+            width: "96px",
+            height: "18px",
+            position: "absolute",
+            top: "64px",
+            left: "0px",
+            opacity: 1,
+          }}
+        />
+      </div>
+
+      {/* Second Card Text */}
+      <div
+        style={{
+          width: "250px",
+          height: "29px",
+          position: "absolute",
+          top: "1126px",
+          left: "506px",
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 600,
+          fontStyle: "Semi Bold",
+          fontSize: "24px",
+          lineHeight: "100%",
+          letterSpacing: "-3%",
+          color: "#5C4737",
+          opacity: 1,
+        }}
+      >
+        100% Anonymous
+      </div>
+      <div
+        style={{
+          width: "321px",
+          height: "100px",
+          position: "absolute",
+          top: "1177px",
+          left: "506px",
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 400,
+          fontStyle: "Regular",
+          fontSize: "18px",
+          lineHeight: "25px",
+          letterSpacing: "-2%",
+          color: "#6D6D6F",
+          opacity: 1,
+        }}
+      >
+        You can choose a nickname. Your real identity stays private.. Even our counsellors won’t know who you are. Feel safe, share freely.
+      </div>
+
+      {/* Third Card */}
+<div
+  style={{
+    width: "255px",
+    height: "219px",
+    position: "absolute",
+    top: "1033px",
+    left: "926px",
+    opacity: 1,
+    background: "transparent",
+  }}
+>
+  {/* Number */}
+  <div
+    style={{
+      width: "63px",
+      height: "61px",
+      position: "absolute",
+      top: "0px",
+      left: "0px",
+      fontFamily: "Inter, sans-serif",
+      fontWeight: 600,
+      fontStyle: "Semi Bold",
+      fontSize: "50px",
+      lineHeight: "100%",
+      letterSpacing: "-6%",
+      color: "#5B4A3E",
+      opacity: 1,
+    }}
+  >
+    03
+  </div>
+
+  {/* Image */}
+  <Image
+    src={line} // replace with your image
+    alt="card image 3"
+    style={{
+      width: "96px",
+      height: "18px",
+      position: "absolute",
+      top: "64px",
+      left: "0px",
+      opacity: 1,
+    }}
+  />
+</div>
+
+{/* Third Card Title */}
+<div
+  style={{
+    width: "190px",
+    height: "29px",
+    position: "absolute",
+    top: "1126px",
+    left: "926px",
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 600,
+    fontStyle: "Semi Bold",
+    fontSize: "24px",
+    lineHeight: "100%",
+    letterSpacing: "-3%",
+    color: "#5C4737",
+    opacity: 1,
+  }}
+>
+  Flexible Access
+</div>
+
+{/* Third Card Description */}
+<div
+  style={{
+    width: "255px",
+    height: "75px",
+    position: "absolute",
+    top: "1177px",
+    left: "926px",
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 400,
+    fontStyle: "Regular",
+    fontSize: "18px",
+    lineHeight: "25px",
+    letterSpacing: "-2%",
+    color: "#6D6D6F",
+    opacity: 1,
+  }}
+>
+  Want to choose your own counsellor? Prefer video or voice? You can book that.
+</div>
+
+
+{/* Card 04 */}
+<div
+  style={{
+    width: "323px",
+    height: "244px",
+    position: "absolute",
+    top: "1377px",
+    left: "86px",
+    opacity: 1,
+    background: "transparent",
+  }}
+>
+  {/* Number */}
+  <div
+    style={{
+      width: "64px",
+      height: "61px",
+      position: "absolute",
+      top: "0px",
+      left: "0px",
+      fontFamily: "Inter, sans-serif",
+      fontWeight: 600,
+      fontSize: "50px",
+      lineHeight: "100%",
+      letterSpacing: "-6%",
+      color: "#5B4A3E",
+    }}
+  >
+    04
+  </div>
+
+  {/* Image */}
+  <Image
+    src={line}
+    alt="card image 04"
+    style={{
+      width: "96px",
+      height: "18px",
+      position: "absolute",
+      top: "64px",
+      left: "0px",
+    }}
+  />
+</div>
+
+{/* Card 04 Title */}
+<div
+  style={{
+    width: "240px",
+    height: "29px",
+    position: "absolute",
+    top: "1470px",
+    left: "86px",
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 600,
+    fontSize: "24px",
+    lineHeight: "100%",
+    letterSpacing: "-3%",
+    color: "#5C4737",
+  }}
+>
+  Goal-Based Nudges
+</div>
+
+{/* Card 04 Description */}
+<div
+  style={{
+    width: "323px",
+    height: "100px",
+    position: "absolute",
+    top: "1521px",
+    left: "86px",
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 400,
+    fontSize: "18px",
+    lineHeight: "25px",
+    letterSpacing: "-2%",
+    color: "#6D6D6F",
+  }}
+>
+  Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time.
+</div>
+
+
+
+{/* Card 05 */}
+<div
+  style={{
+    width: "321px",
+    height: "244px",
+    position: "absolute",
+    top: "1377px",
+    left: "506px",
+    opacity: 1,
+    background: "transparent",
+  }}
+>
+  {/* Number */}
+  <div
+    style={{
+      width: "62px",
+      height: "61px",
+      position: "absolute",
+      top: "0px",
+      left: "0px",
+      fontFamily: "Inter, sans-serif",
+      fontWeight: 600,
+      fontSize: "50px",
+      lineHeight: "100%",
+      letterSpacing: "-6%",
+      color: "#5B4A3E",
+    }}
+  >
+    05
+  </div>
+
+  {/* Image */}
+  <Image
+    src={line}
+    alt="card image 05"
+    style={{
+      width: "96px",
+      height: "18px",
+      position: "absolute",
+      top: "64px",
+      left: "0px",
+    }}
+  />
+</div>
+
+{/* Card 05 Title */}
+<div
+  style={{
+    width: "163px",
+    height: "29px",
+    position: "absolute",
+    top: "1470px",
+    left: "506px",
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 600,
+    fontSize: "24px",
+    lineHeight: "100%",
+    letterSpacing: "-3%",
+    color: "#5C4737",
+  }}
+>
+  Mood Tracker
+</div>
+
+{/* Card 05 Description */}
+<div
+  style={{
+    width: "321px",
+    height: "100px",
+    position: "absolute",
+    top: "1521px",
+    left: "506px",
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 400,
+    fontSize: "18px",
+    lineHeight: "25px",
+    letterSpacing: "-2%",
+    color: "#6D6D6F",
+  }}
+>
+  Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn’t need to hurt you again.
+</div>
+
+
+
+{/* Card 06 */}
+<div
+  style={{
+    width: "330px",
+    height: "269px",
+    position: "absolute",
+    top: "1377px",
+    left: "926px",
+    opacity: 1,
+    background: "transparent",
+  }}
+>
+  {/* Number */}
+  <div
+    style={{
+      width: "63px",
+      height: "61px",
+      position: "absolute",
+      top: "0px",
+      left: "0px",
+      fontFamily: "Inter, sans-serif",
+      fontWeight: 600,
+      fontSize: "50px",
+      lineHeight: "100%",
+      letterSpacing: "-6%",
+      color: "#5B4A3E",
+    }}
+  >
+    06
+  </div>
+
+  {/* Image */}
+  <Image
+    src={line}
+    alt="card image 06"
+    style={{
+      width: "96px",
+      height: "18px",
+      position: "absolute",
+      top: "64px",
+      left: "0px",
+    }}
+  />
+</div>
+
+{/* Card 06 Title */}
+<div
+  style={{
+    width: "370px",
+    height: "29px",
+    position: "absolute",
+    top: "1470px",
+    left: "926px",
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 600,
+    fontSize: "24px",
+    lineHeight: "100%",
+    letterSpacing: "-3%",
+    color: "#5C4737",
+  }}
+>
+  Self-Discovery Tools & Library
+</div>
+
+{/* Card 06 Description */}
+<div
+  style={{
+    width: "329px",
+    height: "125px",
+    position: "absolute",
+    top: "1521px",
+    left: "926px",
+    fontFamily: "Inter, sans-serif",
+    fontWeight: 400,
+    fontSize: "18px",
+    lineHeight: "25px",
+    letterSpacing: "-2%",
+    color: "#6D6D6F",
+  }}
+>
+  Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling.
+</div>
+    </section>
+  );
+};
+
+
+
+
+
+
+// const Whowant = () => {
+//   return (
+//     <section
+//       className="w-full relative"
+//       style={{
+//         width: "100%",
+//         height: "1169px",
+//         position: "absolute",
+//         background: "#F6F2EB",
+//         opacity: 1,
+//       }}
+//     >
+//       {/* Heading Layout */}
+//       <h2
+//         style={{
+//           width: "321px",
+//           height: "68px",
+//           position: "relative",
+//           top:"80px",
+//           left: "84px",
+//           fontFamily: "Nunito Sans, sans-serif",
+//           fontWeight: 700,
+//           fontStyle: "Bold",
+//           fontSize: "50px",
+//           lineHeight: "100%",
+//           letterSpacing: "0%",
+//           color: "#000000",
+//           opacity: 1,
+//           margin: 0,
+//         }}
+//       >
+//         Who it’s For ?
+//       </h2>
+//     </section>
+//   );
+// };
+
+
+
+
+
   return (
     <>
       <HomeHero />
+      <MakeUs/>
     </>
   );
 }
