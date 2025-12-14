@@ -27,6 +27,9 @@ import leftQuoteImage from '../assets/home-page/testemonial/Vector.png'; // 125x
 import rightQuoteImage from '../assets/home-page/testemonial/Vector.png'; // 125x125px rotated image
 import largeRightImage from '../assets/home-page/testemonial/face.png'; // 584x548px image
 import testimonialIcon2 from '../assets/home-page/testemonial/teste1.jpg';
+import testimonialImageLarge from '../assets/home-page/testemonial/Ellipse 52.png'; // 160x160 image
+import testimonialImageSmall from '../assets/home-page/testemonial/Ellipse 51.png'; // 100
+import testimonialImageCircle from '../assets/home-page/testemonial/teste3.jpg'; 
 
 export default function Home() {
 
@@ -1368,7 +1371,7 @@ const Features = () => {
 const Testimonials = () => {
   return (
     <section 
-      className="relative mx-auto w-full  h-[712px] bg-[#F6F2EB] opacity-100" 
+      className="relative mx-auto w-full h-[712px] bg-[#F6F2EB] opacity-100" 
       style={{ 
         marginTop: '102px',
         overflow :"hidden"
@@ -1379,8 +1382,8 @@ const Testimonials = () => {
       <Image
         src={largeRightImage}
         alt="Testimonial Background Graphic"
-        className="absolute w-[468px] h-[548px] opacity-100"
-        style={{ top: '70px', left: '856px' }}
+        className="absolute w-[390px] h-[548px] opacity-100"
+        style={{ top: '70px', left: '884px' }}
       />
 
 
@@ -1414,8 +1417,6 @@ const Testimonials = () => {
           style={{ top: '129px', left: '130px' }}
         />
         
-        {/* --- NEW ELEMENTS START HERE --- */}
-
         {/* 8. SMALL CIRCLE IMAGE 2 (50x50px, -180 deg) */}
         <Image
           src={testimonialIcon2}
@@ -1430,7 +1431,7 @@ const Testimonials = () => {
           style={{ 
             top: '501px', 
             left: '130px', 
-            border: '1px solid rgba(0, 0, 0, 0.25)', // #00000040
+            border: '1px solid rgba(0, 0, 0, 0.25)',
             transform: 'rotate(-180deg)'
           }}
         />
@@ -1441,12 +1442,37 @@ const Testimonials = () => {
           style={{ 
             top: '290px', 
             left: '205px', 
-            border: '1px solid rgba(0, 0, 0, 0.5)' // #00000080
+            
           }}
         />
+        
+        {/* 11. NEW IMAGE (160x160px) */}
+      
+        
+        {/* 13. NEW IMAGE (130x130px) */}
+        <Image
+          src={testimonialImageLarge}
+          alt="Medium decorative element (130x130)"
+          className="absolute w-[130px] h-[130px] opacity-100"
+          style={{ top: '275px', left: '190px' }}
+        />
+        
+        {/* 12. NEW IMAGE (100x100px) */}
+        <Image
+          src={testimonialImageSmall}
+          alt="Small decorative element (100x100)"
+          className="absolute w-[100px] h-[100px] opacity-100"
+          style={{ top: '290px', left: '205px' }}
+        />
 
-        {/* --- EXISTING ELEMENTS (4-7) --- */}
-
+        {/* 14. NEW IMAGE (80x80px Circle) - ADDED */}
+        <Image
+          src={testimonialImageCircle}
+          alt="Circular decorative element (80x80)"
+          className="absolute w-[80px] h-[80px] opacity-100 rounded-full"
+          style={{ top: '300px', left: '215px' }}
+        />
+        
         {/* 4. QUOTE LEFT IMAGE LAYOUT */}
         <div
           className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
@@ -1494,28 +1520,31 @@ const Testimonials = () => {
   );
 };
 
+
+
 // const Testimonials = () => {
 //   return (
 //     <section 
-//       className="relative mx-auto w-full max-w-[1440px] h-[712px] bg-[#F6F2EB] opacity-100" 
+//       className="relative mx-auto w-full  h-[712px] bg-[#F6F2EB] opacity-100" 
 //       style={{ 
-//         marginTop: '102px'
+//         marginTop: '102px',
+//         overflow :"hidden"
 //       }}
 //     >
       
 //       {/* --- LARGE RIGHT IMAGE --- */}
-//       <Image // Changed from <img>
+//       <Image
 //         src={largeRightImage}
 //         alt="Testimonial Background Graphic"
-//         className="absolute w-[584px] h-[548px] opacity-100"
-//         style={{ top: '70px', left: '772px' }}
+//         className="absolute w-[390px] h-[548px] opacity-100"
+//         style={{ top: '70px', left: '884px' }}
 //       />
 
 
 //       {/* --- MAIN LAYOUT (Container for all left/middle elements) --- */}
 //       <div 
 //         className="relative w-[1323px] h-[616px] opacity-100" 
-//         style={{ top: '36px', left: '84px' }}
+//         style={{ top: '36px', left: '50px' }}
 //       >
         
 //         {/* 1. HEADING: Testimonials */}
@@ -1527,27 +1556,60 @@ const Testimonials = () => {
 //         </div>
 
 //         {/* 2. LARGE LEFT IMAGE (225x450px) */}
-//         <Image // Changed from <img>
+//         <Image
 //           src={largeLeftImage}
 //           alt="Testimonial Background Left"
 //           className="absolute w-[225.000015px] h-[450px] opacity-100"
 //           style={{ top: '115px', left: '30px' }}
 //         />
 
-//         {/* 3. SMALL CIRCLE IMAGE (50x50px) */}
-//         <Image // Changed from <img>
+//         {/* 3. SMALL CIRCLE IMAGE 1 (50x50px) */}
+//         <Image
 //           src={testimonialIcon}
-//           alt="Profile Icon"
+//           alt="Profile Icon 1"
 //           className="absolute w-[50px] h-[50px] rounded-full opacity-100 border border-black"
 //           style={{ top: '129px', left: '130px' }}
 //         />
+        
+//         {/* --- NEW ELEMENTS START HERE --- */}
+
+//         {/* 8. SMALL CIRCLE IMAGE 2 (50x50px, -180 deg) */}
+//         <Image
+//           src={testimonialIcon2}
+//           alt="Profile Icon 2"
+//           className="absolute w-[50px] h-[50px] rounded-full opacity-100"
+//           style={{ top: '501px', left: '130px', transform: 'rotate(-180deg)' }}
+//         />
+
+//         {/* 9. SMALL CIRCLE BORDER 2 (50x50px, border: 1px solid #00000040) */}
+//         <div
+//           className="absolute w-[50px] h-[50px] rounded-full"
+//           style={{ 
+//             top: '501px', 
+//             left: '130px', 
+//             border: '1px solid rgba(0, 0, 0, 0.25)', // #00000040
+//             transform: 'rotate(-180deg)'
+//           }}
+//         />
+
+//         {/* 10. SQUARE CONTAINER/BORDER (100x100px, border: 1px solid #00000080) */}
+//         <div
+//           className="absolute w-[100px] h-[100px]"
+//           style={{ 
+//             top: '290px', 
+//             left: '205px', 
+//             border: '1px solid rgba(0, 0, 0, 0.5)' // #00000080
+//           }}
+//         />
+
+//         {/* --- EXISTING ELEMENTS (4-7) --- */}
 
 //         {/* 4. QUOTE LEFT IMAGE LAYOUT */}
 //         <div
 //           className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
 //           style={{ top: '133px', left: '292px', transform: 'rotate(-180deg)' }}
 //         >
-//             <Image // Changed from <img>
+//             <Image
 //               src={leftQuoteImage} 
 //               alt="Quote Left Design" 
 //               className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
@@ -1560,7 +1622,7 @@ const Testimonials = () => {
 //           className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
 //           style={{ top: '133px', left: '367px', transform: 'rotate(-180deg)' }}
 //         >
-//             <Image // Changed from <img>
+//             <Image
 //               src={rightQuoteImage} 
 //               alt="Quote Right Design" 
 //               className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
