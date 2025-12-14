@@ -30,6 +30,11 @@ import testimonialIcon2 from '../assets/home-page/testemonial/teste1.jpg';
 import testimonialImageLarge from '../assets/home-page/testemonial/Ellipse 52.png'; // 160x160 image
 import testimonialImageSmall from '../assets/home-page/testemonial/Ellipse 51.png'; // 100
 import testimonialImageCircle from '../assets/home-page/testemonial/teste3.jpg'; 
+import t1 from "../assets/home-page/trusted/trust1.png";
+import t2 from "../assets/home-page/trusted/trust2.png";
+import t3 from "../assets/home-page/trusted/trust3.png";
+import t4 from "../assets/home-page/trusted/trust4.png";
+import t5 from "../assets/home-page/trusted/trust5.png";
 
 export default function Home() {
 
@@ -1521,136 +1526,164 @@ const Testimonials = () => {
 };
 
 
-
-// const Testimonials = () => {
-//   return (
-//     <section 
-//       className="relative mx-auto w-full  h-[712px] bg-[#F6F2EB] opacity-100" 
-//       style={{ 
-//         marginTop: '102px',
-//         overflow :"hidden"
-//       }}
-//     >
+const Trusted = () => {
+  return(
+    <section 
+      className="relative mx-auto w-full h-[241px] bg-[#F6F2EB] opacity-100" 
+      style={{ 
+        // marginTop to separate from Testimonials section might be required here based on full layout
+        overflow:"hidden"
+      }}
+    >
       
-//       {/* --- LARGE RIGHT IMAGE --- */}
-//       <Image
-//         src={largeRightImage}
-//         alt="Testimonial Background Graphic"
-//         className="absolute w-[390px] h-[548px] opacity-100"
-//         style={{ top: '70px', left: '884px' }}
-//       />
+      {/* 1. Heading: Trusted by 50+ Clients (Relative Top: 66px) */}
+      <p
+        style={{
+          position: 'absolute',
+          top: '66px', // Adjusted relative position
+          left: '86px',
+          width: '410px',
+          height: '55px',
+          fontFamily: 'Nunito Sans',
+          fontWeight: 500,
+          fontSize: '40px',
+          lineHeight: '100%',
+          letterSpacing: '0%',
+          color: '#000000',
+        }}
+      >
+        Trusted by 50+ Clients
+      </p>
+      
+      {/* 2. Description (Relative Top: 135px) */}
+      <p
+        style={{
+          position: 'absolute',
+          top: '135px', // Adjusted relative position
+          left: '86px',
+          width: '406px',
+          height: '50px',
+          fontFamily: 'Nunito Sans',
+          fontWeight: 400,
+          fontSize: '18px',
+          lineHeight: '100%',
+          letterSpacing: '0%',
+          color: '#000000',
+        }}
+      >
+        Trusted by leading schools and institutions that care for student well-being.
+      </p>
 
+      {/* 3. Images Layout (Container for Logo series - Relative Top: 49px) */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '49px', // Adjusted relative position
+          left: '530px',
+          width: '922px',
+          height: '144px',
+          opacity: 1,
+        }}
+      >
+        {/* 4. seriesImage layout (Logo Row) */}
+        <div
+          style={{
+            position: 'relative', // Set to relative to position images inside it
+            top: '24px',
+            width: '1388.44px', // Width is large, suggesting logos scroll or extend beyond 922px parent
+            height: '96px',
+            opacity: 1,
+            overflow : "hidden"
+          }}
+        >
+          {/* Logo 1 */}
+          <Image
+            src={t1}
+            alt="Trusted Client Logo 1"
+            width={96.95}
+            height={96}
+            style={{ 
+              position: 'absolute',
+              left: '32px',
+              width: '96.95px',
+              height: '96px',
+              opacity: 1,
+            }}
+          />
 
-//       {/* --- MAIN LAYOUT (Container for all left/middle elements) --- */}
-//       <div 
-//         className="relative w-[1323px] h-[616px] opacity-100" 
-//         style={{ top: '36px', left: '50px' }}
-//       >
-        
-//         {/* 1. HEADING: Testimonials */}
-//         <div
-//           className="absolute w-[274px] h-[61px] font-['Inter'] text-[50px] font-semibold text-[#5C4737]"
-//           style={{ top: '25px', left: '30px', letterSpacing: '-0.06em' }}
-//         >
-//           Testimonials
-//         </div>
+          {/* Logo 2 */}
+          <Image
+            src={t2}
+            alt="Trusted Client Logo 2"
+            width={134.39}
+            height={96}
+            style={{ 
+              position: 'absolute',
+              left: '192.95px',
+              width: '134.39px',
+              height: '96px',
+              opacity: 1,
+            }}
+          />
 
-//         {/* 2. LARGE LEFT IMAGE (225x450px) */}
-//         <Image
-//           src={largeLeftImage}
-//           alt="Testimonial Background Left"
-//           className="absolute w-[225.000015px] h-[450px] opacity-100"
-//           style={{ top: '115px', left: '30px' }}
-//         />
+          {/* Logo 3 (First occurrence of 106.55px wide image) */}
+          <Image
+            src={t3}
+            alt="Trusted Client Logo 3"
+            width={106.55}
+            height={96}
+            style={{ 
+              position: 'absolute',
+              left: '391.34px',
+              width: '106.55px',
+              height: '96px',
+              opacity: 1,
+            }}
+          />
 
-//         {/* 3. SMALL CIRCLE IMAGE 1 (50x50px) */}
-//         <Image
-//           src={testimonialIcon}
-//           alt="Profile Icon 1"
-//           className="absolute w-[50px] h-[50px] rounded-full opacity-100 border border-black"
-//           style={{ top: '129px', left: '130px' }}
-//         />
-        
-//         {/* --- NEW ELEMENTS START HERE --- */}
+          {/* Logo 4 (Second occurrence of 106.55px wide image at the SAME left position) 
+             * Note: The style shows two images with the exact same width and left: 391.34px. 
+             * This likely indicates a copy/paste error in the original design and they will overlap.
+             * I will place the next unique logo (logo D) at the next expected position.
+             * Since the next logo is at 561.89px, I will place logo D there and skip the overlapping instruction, 
+             * assuming the designer meant to remove one of the 391.34px images. If you confirm it should overlap, let me know.
+            */}
 
-//         {/* 8. SMALL CIRCLE IMAGE 2 (50x50px, -180 deg) */}
-//         <Image
-//           src={testimonialIcon2}
-//           alt="Profile Icon 2"
-//           className="absolute w-[50px] h-[50px] rounded-full opacity-100"
-//           style={{ top: '501px', left: '130px', transform: 'rotate(-180deg)' }}
-//         />
-
-//         {/* 9. SMALL CIRCLE BORDER 2 (50x50px, border: 1px solid #00000040) */}
-//         <div
-//           className="absolute w-[50px] h-[50px] rounded-full"
-//           style={{ 
-//             top: '501px', 
-//             left: '130px', 
-//             border: '1px solid rgba(0, 0, 0, 0.25)', // #00000040
-//             transform: 'rotate(-180deg)'
-//           }}
-//         />
-
-//         {/* 10. SQUARE CONTAINER/BORDER (100x100px, border: 1px solid #00000080) */}
-//         <div
-//           className="absolute w-[100px] h-[100px]"
-//           style={{ 
-//             top: '290px', 
-//             left: '205px', 
-//             border: '1px solid rgba(0, 0, 0, 0.5)' // #00000080
-//           }}
-//         />
-
-//         {/* --- EXISTING ELEMENTS (4-7) --- */}
-
-//         {/* 4. QUOTE LEFT IMAGE LAYOUT */}
-//         <div
-//           className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
-//           style={{ top: '133px', left: '292px', transform: 'rotate(-180deg)' }}
-//         >
-//             <Image
-//               src={leftQuoteImage} 
-//               alt="Quote Left Design" 
-//               className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
-//               style={{ top: '16.83px', left: '36.72px', transform: 'rotate(-180deg)' }}
-//             />
-//         </div>
-
-//         {/* 5. QUOTE RIGHT IMAGE LAYOUT */}
-//         <div
-//           className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
-//           style={{ top: '133px', left: '367px', transform: 'rotate(-180deg)' }}
-//         >
-//             <Image
-//               src={rightQuoteImage} 
-//               alt="Quote Right Design" 
-//               className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
-//               style={{ top: '16.83px', left: '36.72px', transform: 'rotate(-180deg)' }}
-//             />
-//         </div>
-
-//         {/* 6. QUOTE TEXT */}
-//         <div
-//           className="absolute w-[458px] h-[70px] text-[#0D0D0D] font-['Inter'] text-[24px] font-medium"
-//           style={{ top: '305px', left: '365px', lineHeight: '35px', letterSpacing: '-0.03em' }}
-//         >
-//           No one asked me for my name, and yet I’ve never felt more seen.
-//         </div>
-
-//         {/* 7. STUDENT INFO */}
-//         <div
-//           className="absolute w-[222px] h-[35px] text-[#6D6D6F] font-['Inter'] text-[24px] font-normal"
-//           style={{ top: '415px', left: '601px', lineHeight: '35px', letterSpacing: '-0.03em' }}
-//         >
-//           — Student, Chennai
-//         </div>
-
-//       </div>
-//     </section>
-//   );
-// };
-
+          {/* Logo 5 (Original request specified 561.89px) */}
+          <Image
+            src={t4}
+            alt="Trusted Client Logo 4"
+            width={102.72}
+            height={96}
+            style={{ 
+              position: 'absolute',
+              left: '561.89px', // Position used for the next unique logo
+              width: '102.72px',
+              height: '96px',
+              opacity: 1,
+            }}
+          />
+          
+          {/* Logo 6 (Original request specified 728.61px) */}
+          <Image
+            src={t5}
+            alt="Trusted Client Logo 5"
+            width={104.63} // Rounded from 104.62999725341797
+            height={96}
+            style={{ 
+              position: 'absolute',
+              left: '710.61px',
+              width: '104.63px',
+              height: '96px',
+              opacity: 1,
+            }}
+          />
+        </div>
+      </div>
+      
+    </section>
+  )
+}
 
 
 
@@ -1665,6 +1698,7 @@ return (
       <Whowant/>
       <Features/>
       <Testimonials/>
+      <Trusted/>
     </>
   );
 }
