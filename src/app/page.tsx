@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Footer from "../components/Footer";
 import Link from "next/link";
@@ -35,6 +36,26 @@ import t2 from "../assets/home-page/trusted/trust2.png";
 import t3 from "../assets/home-page/trusted/trust3.png";
 import t4 from "../assets/home-page/trusted/trust4.png";
 import t5 from "../assets/home-page/trusted/trust5.png";
+import newarrow from '../assets/home-page/Footer/ffoarrow.png'; 
+import  rocksImage from "../assets/home-page/Footer/fo1.png";
+import blackarrow from '../assets/home-page/Footer/black arr.png';
+import CTAButton from "@/components/CTAButton";
+import { Footprints } from "lucide-react";
+import { useState } from 'react';
+
+
+// Placeholder assets - **You must define these imports in your file**
+// You'll need to update these paths in your actual file
+
+import headerLogo from "@/assets/header-assets/headerLogo.png";
+import footerBgLogo from "@/assets/footer-assets/footer-background-logo.png";
+
+// Icon Imports
+import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io";
+
+
 
 export default function Home() {
 
@@ -42,1650 +63,1723 @@ export default function Home() {
 const HomeHero = () => {
   return (
     <section
-      className="relative w-full h-[864px] overflow-hidden"
+      className="
+        relative 
+        w-full 
+        overflow-hidden
+        
+        /* MOBILE DEFAULTS (Flex Column) */
+        flex flex-col items-center justify-center
+        min-h-screen
+        bg-cover bg-center
+        
+        /* DESKTOP (Restoring your exact layout) */
+        lg:block
+        lg:h-[864px]
+        lg:bg-no-repeat
+        lg:bg-[length:1440px_864px]
+        lg:bg-[position:0px_0px]
+      "
+      // We pass the URL here, but control position/size in className above
       style={{
         backgroundImage: `url('${Homebg.src}')`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "1440px 864px",
-        backgroundPosition: "0px 0px",
       }}
     >
       {/* GRADIENT OVERLAY */}
       <div
-        className="absolute top-0 left-0 w-[720px] h-full z-10 backdrop-blur-[60px]"
+        className="
+          absolute top-0 left-0 z-10 backdrop-blur-[60px]
+          
+          /* Mobile */
+          w-full h-full
+
+          /* Desktop Original */
+          lg:w-[720px] 
+        "
         style={{
           background:
             "linear-gradient(134.5deg, rgba(91,74,62,0.7) 2.41%, rgba(117,88,64,0.7) 73.14%, rgba(0,0,0,0.595) 100%)",
         }}
       />
 
-      {/* MIND — IMAGE CUTOUT */}
-      <div
-        className="
-          absolute
-          w-[566px]
-          h-[242px]
-          top-[158px]
-          left-[154px]
-          z-20
-          font-inter
-          font-semibold
-          text-[200px]
-          leading-none
-          tracking-[0.06em]
-          text-center
-          text-transparent
-          bg-clip-text
-          [-webkit-background-clip:text]
-        "
-        style={{
-          backgroundImage: `url('${Homebg.src}')`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "1440px 864px",
-          backgroundPosition: "-154px -158px",
-        }}
-      >
-        MIND
-      </div>
+      {/* --- CONTENT CONTAINER (Mobile padding) --- */}
+      {/* On Desktop (lg), this div essentially becomes invisible/static to let children absolute position themselves */}
+      <div className="relative z-20 flex flex-col items-center w-full lg:block lg:w-full lg:h-full py-10 lg:p-0 gap-6 lg:gap-0">
 
-      {/* SUPPORTING TEXT */}
-      <div
-        className="
-          absolute
-          w-[387px]
-          h-[58px]
-          top-[512px]
-          left-[160px]
-          z-20
-          font-inter
-          font-normal
-          text-[24px]
-          leading-[100%]
-          tracking-[-0.06em]
-          text-[#FDE2CD]
-        "
-      >
-        You don’t have to say who you are to
-        <br />
-        start feeling better
-      </div>
+        {/* MIND — IMAGE CUTOUT */}
+        <div
+          className="
+            /* Mobile */
+            relative
+            w-auto
+            h-auto
+            text-[120px]
+            text-transparent
+            bg-clip-text
+            [-webkit-background-clip:text]
+            /* On mobile we use solid color, no bg-clip to avoid broken visuals */
 
-      {/* A — IMAGE CUTOUT */}
-      <div
-        className="
-          absolute
-          w-[145px]
-          h-[242px]
-          top-[400px]
-          left-[575px]
-          z-20
-          font-inter
-          font-semibold
-          text-[200px]
-          leading-none
-          tracking-[0.06em]
-          text-center
-          text-transparent
-          bg-clip-text
-          [-webkit-background-clip:text]
-        "
-        style={{
-          backgroundImage: `url('${Homebg.src}')`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "1440px 864px",
-          backgroundPosition: "-575px -400px",
-        }}
-      >
-        A
-      </div>
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[566px]
+            lg:h-[242px]
+            lg:top-[158px]
+            lg:left-[154px]
+            font-inter
+            font-semibold
+            lg:text-[200px]
+            leading-none
+            tracking-[0.06em]
+            text-center
+            
+            /* Desktop Clip Styles */
+            lg:text-transparent
+            lg:bg-clip-text
+            lg:[-webkit-background-clip:text]
+            lg:bg-no-repeat
+            lg:bg-[length:1440px_864px]
+            lg:bg-[position:-154px_-158px]
+          "
+          style={{
+             // Only apply background image logic on desktop via classes above, 
+             // but we need the URL available for the clip to work on desktop.
+             // We use a conditional style or just pass it and let mobile ignore the clip.
+             backgroundImage: `url('${Homebg.src}')`,
+          }}
+        >
+          MIND
+        </div>
 
-      {/* RIGHT DESCRIPTION TEXT */}
-      <div
-        className="
-          absolute
-          w-[373px]
-          h-[75px]
-          top-[279px]
-          left-[783px]
-          z-20
-          font-inter
-          font-normal
-          text-[16px]
-          leading-[25px]
-          tracking-[-0.03em]
-          text-right
-          text-[#1C1C1BCC]
-        "
-      >
-        Mind A Lot is an anonymous, app-based counselling platform that connects
-        you instantly to a real, trained professional
-      </div>
+        {/* SUPPORTING TEXT */}
+        <div
+          className="
+            /* Mobile */
+            relative
+            w-full px-6
+            h-auto
+            text-[18px]
+            text-center
 
-      {/* LOT — SOLID BACKGROUND */}
-      <div
-        className="
-          absolute
-          w-[413px]
-          h-[242px]
-          top-[400px]
-          left-[750px]
-          z-20
-          flex
-          items-center
-          justify-center
-          font-inter
-          font-semibold
-          text-[200px]
-          leading-none
-          tracking-[0.06em]
-          text-center
-          text-[#F6F2EB]
-          
-        "
-      >
-        LOT
-      </div>
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[497px]
+            lg:h-[58px]
+            lg:top-[512px]
+            lg:left-[150px]
+            font-inter
+            font-normal
+            lg:text-[24px]
+            leading-[100%]
+            tracking-[-0.06em]
+            text-[#FDE2CD]
+            lg:text-left
+          "
+        >
+          You don’t have to say who you are to
+          <br />
+          start feeling better
+        </div>
 
-      {/* BOTTOM TAGLINE */}
-      <div
-        className="
-          absolute
-          w-[280px]
-          h-[19px]
-          top-[697px]
-          left-[587px]
-          z-20
-          font-inter
-          font-bold
-          text-[16px]
-          leading-[100%]
-          tracking-[-0.03em]
-          text-[#F6F2EB]
-          text-center
-        "
-      >
-        Your safe space is just one tap away!
-      </div>
+        {/* A — IMAGE CUTOUT */}
+        <div
+          className="
+            /* Mobile */
+            relative
+            w-auto
+            h-auto
+            text-[120px]
+            text-transparent
+            bg-clip-text
+            [-webkit-background-clip:text]
 
-      {/* CTA BUTTONS CONTAINER */}
-      <div
-        className="
-          absolute
-          w-[467px]
-          h-[60px]
-          top-[772px]
-          left-[490px]
-          z-20
-          flex
-          gap-[20px]
-        "
-      >
-        {/* BUTTON 1 — OUTLINE */}
-        <button
-  className="
-    relative
-    w-[212px]
-    h-[60px]
-    rounded-[30px]
-    border-2
-    border-[#F6F2EB]
-    bg-transparent
-  "
->
-  {/* BUTTON TEXT */}
-  <span
-    className="
-      absolute
-      w-[110px]
-      h-[22px]
-      top-[19px]
-      left-[20px]
-      font-['Nunito Sans']
-      font-medium
-      text-[16px]
-      leading-[100%]
-      tracking-[-0.03em]
-      text-[#F6F2EB]
-    "
-  >
-    Start chat now
-  </span>
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[145px]
+            lg:h-[242px]
+            lg:top-[400px]
+            lg:left-[575px]
+            font-inter
+            font-semibold
+            lg:text-[200px]
+            leading-none
+            tracking-[0.06em]
+            text-center
+            
+            /* Desktop Clip Styles */
+            lg:text-transparent
+            lg:bg-clip-text
+            lg:[-webkit-background-clip:text]
+            lg:bg-no-repeat
+            lg:bg-[length:1440px_864px]
+            lg:bg-[position:-575px_-400px]
+          "
+          style={{
+             backgroundImage: `url('${Homebg.src}')`,
+          }}
+        >
+          A
+        </div>
 
-  {/* CIRCLE */}
-  <div
-    className="
-      absolute
-      w-[50px]
-      h-[50px]
-      top-[3px]
-      left-[155px]
-      rounded-full
-      border
-      border-[#F6F2EB]
-      bg-[#F6F2EB]
-      flex
-      items-center
-      justify-center
-    "
-  >
-    {/* ARROW IMAGE */}
-    <Image
-      src= {arrow}  // 🔁 replace with your arrow image path
-      alt="arrow"
-      className="w-[16px] h-[16px]"
-    />
-  </div>
-</button>
+        {/* RIGHT DESCRIPTION TEXT */}
+        <div
+          className="
+            /* Mobile */
+            relative
+            w-full px-6
+            h-auto
+            text-center
+            text-[#F6F2EB]
+            mt-4
 
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[373px]
+            lg:h-[75px]
+            lg:top-[260px]
+            lg:left-[783px]
+            font-inter
+            font-normal
+            text-[16px]
+            leading-[25px]
+            tracking-[-0.03em]
+            lg:text-right
+            lg:text-[#1C1C1BCC]
+            lg:mt-0
+          "
+        >
+          Mind A Lot is an anonymous, app-based counselling platform that connects
+          you instantly to a real, trained professional
+        </div>
 
-        {/* BUTTON 2 — FILLED */}
-        <button
-  className="
-    relative
-    w-[235px]
-    h-[60px]
-    rounded-[30px]
-    bg-[#F6F2EB]
-  "
->
-  {/* BUTTON TEXT */}
-  <span
-    className="
-      absolute
-      w-[159px]
-      h-[25px]
-      top-[20px]
-      left-[20px]
+        {/* LOT — SOLID BACKGROUND */}
+        <div
+          className="
+            /* Mobile */
+            relative
+            w-auto
+            h-auto
+            text-[120px]
 
-      font-['Nunito Sans']
-      font-medium
-      text-[18px]
-      leading-[100%]
-      tracking-[0]
-      text-[#5B4A3E]
-    "
-  >
-    Download the app
-  </span>
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[413px]
+            lg:h-[242px]
+            lg:top-[380px]
+            lg:left-[750px]
+            flex
+            items-center
+            justify-center
+            font-inter
+            font-semibold
+            lg:text-[200px]
+            leading-none
+            tracking-[0.06em]
+            text-center
+            text-[#F6F2EB]
+          "
+        >
+          LOT
+        </div>
 
-  {/* CIRCLE */}
-  <div
-    className="
-      absolute
-      w-[50px]
-      h-[50px]
-      top-[5px]
-      left-[180px]
-      rounded-full
-      bg-[#FFFFFF]
-      flex
-      items-center
-      justify-center
-    "
-  >
-    {/* ARROW IMAGE */}
-    <Image
-      src= {arrow} // 🔁 replace with your arrow image path
-      alt="arrow"
-      className="w-[16px] h-[16px]"
-    />
-  </div>
-</button>
+        {/* BOTTOM TAGLINE */}
+        <div
+          className="
+            /* Mobile */
+            relative
+            w-full
+            h-auto
+            mt-4
 
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[280px]
+            lg:h-[19px]
+            lg:top-[697px]
+            lg:left-[587px]
+            font-inter
+            font-bold
+            text-[16px]
+            leading-[100%]
+            tracking-[-0.03em]
+            text-[#F6F2EB]
+            text-center
+            lg:mt-0
+          "
+        >
+          Your safe space is just one tap away!
+        </div>
+
+        {/* CTA BUTTONS CONTAINER */}
+        <div
+          className="
+            /* Mobile */
+            relative
+            w-full
+            h-auto
+            flex
+            flex-col
+            items-center
+            gap-[20px]
+            mt-6
+            mb-10
+
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[467px]
+            lg:h-[60px]
+            lg:top-[772px]
+            lg:left-[490px]
+            lg:flex-row
+            lg:mt-0
+            lg:mb-0
+          "
+        >
+          {/* BUTTON 1 — OUTLINE */}
+          <button
+            className="
+              group
+              relative
+              w-[280px] lg:w-[212px] /* Wider on mobile for easier touch */
+              h-[60px]
+              rounded-[30px]
+              border-2
+              border-[#F6F2EB]
+              bg-transparent
+              transition-all
+              duration-300
+              hover:bg-[#5C4737]
+              hover:border-transparent
+            "
+          >
+            {/* BUTTON TEXT */}
+            <span
+              className="
+                absolute
+                w-[110px]
+                h-[22px]
+                top-[19px]
+                left-[40px] lg:left-[20px]
+                font-['Nunito Sans']
+                font-medium
+                text-[16px]
+                leading-[100%]
+                tracking-[-0.03em]
+                text-[#F6F2EB]
+              "
+            >
+              Start chat now
+            </span>
+
+            {/* CIRCLE */}
+            <div
+              className="
+                absolute
+                w-[50px]
+                h-[50px]
+                top-[3px]
+                right-[3px] lg:right-auto lg:left-[155px]
+                rounded-full
+                bg-[#F6F2EB]
+                flex
+                items-center
+                justify-center
+              "
+            >
+              {/* ARROW IMAGE */}
+              <Image
+                src={arrow}
+                alt="arrow"
+                className="
+                  w-[16px]
+                  h-[16px]
+                  transform
+                  transition-transform
+                  duration-300
+                  group-hover:rotate-45
+                "
+              />
+            </div>
+          </button>
+
+          {/* BUTTON 2 — FILLED */}
+          <button
+            className="
+              group
+              relative
+              w-[280px] lg:w-[235px]
+              h-[60px]
+              rounded-[30px]
+              bg-[#F6F2EB]
+              transition-all
+              duration-300
+              hover:bg-[#5C4737]
+            "
+          >
+            {/* BUTTON TEXT */}
+            <span
+              className="
+                absolute
+                w-[159px]
+                h-[25px]
+                top-[20px]
+                left-[30px] lg:left-[20px]
+                font-['Nunito Sans']
+                font-medium
+                text-[18px]
+                leading-[100%]
+                tracking-[0]
+                text-[#5B4A3E]
+                transition-colors
+                duration-300
+                group-hover:text-white
+              "
+            >
+              Download the app
+            </span>
+
+            {/* CIRCLE */}
+            <div
+              className="
+                absolute
+                w-[50px]
+                h-[50px]
+                top-[5px]
+                right-[5px] lg:right-auto lg:left-[180px]
+                rounded-full
+                bg-[#FFFFFF]
+                flex
+                items-center
+                justify-center
+              "
+            >
+              {/* ARROW IMAGE */}
+              <Image
+                src={arrow}
+                alt="arrow"
+                className="
+                  w-[16px]
+                  h-[16px]
+                  transform
+                  transition-transform
+                  duration-300
+                  group-hover:rotate-45
+                "
+              />
+            </div>
+          </button>
+        </div>
       </div>
     </section>
   );
 };
 
+
 const MakeUs = () => {
   return (
-    <section
-      className="w-full h-[850px]"
-      style={{
-        opacity: 1,
-      }}
-    >
-      {/* Heading Layout – body-based positioning */}
+    // Section now uses fluid height/spacing instead of hardcoded h-[850px]
+    <section className="w-full py-16 px-4 sm:px-6 lg:px-8">
+      {/* Heading Layout - Centered and responsive margin */}
       <h2
-        style={{
-          width: "610px",
-          height: "68px",
-          position: "absolute",
-          top: "915px",
-          left: "86px",
-          fontFamily: "Nunito Sans, sans-serif",
-          fontWeight: 700,
-          fontStyle: "Bold",
-          fontSize: "50px",
-          lineHeight: "100%",
-          letterSpacing: "0%",
-          color: "#000000",
-          opacity: 1,
-          margin: 0,
-        }}
+        className="
+          text-3xl sm:text-4xl lg:text-5xl font-bold text-black text-left 
+          mx-auto mb-12 max-w-lg md:max-w-3xl lg:max-w-4xl 
+          font-[Nunito Sans, sans-serif] leading-tight
+        "
       >
         What makes us different ?
       </h2>
 
-      {/* First Card */}
-      <div
-        style={{
-          width: "341px",
-          height: "244px",
-          position: "absolute",
-          top: "1033px",
-          left: "86px",
-          opacity: 1,
-          background: "transparent",
-        }}
-      >
-        {/* Number */}
-        <div
-          style={{
-            width: "55px",
-            height: "61px",
-            position: "absolute",
-            top: "0px",
-            left: "5px",
-            fontFamily: "Inter, sans-serif",
-            fontWeight: 600,
-            fontStyle: "Semi Bold",
-            fontSize: "50px",
-            lineHeight: "100%",
-            letterSpacing: "-6%",
-            color: "#5B4A3E",
-            opacity: 1,
-          }}
-        >
-          01
+      {/* Responsive Grid Container for Cards */}
+      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+        
+        {/* Card 01 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              01
+            </div>
+            {/* Image (Assuming 'line' is defined and the Image component works) */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            Instant Human Support
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            Start chatting the moment you feel overwhelmed. No forms. No queues. No matching wait. A real counsellor responds in seconds.
+          </div>
+        </div>
+        
+        {/* Card 02 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              02
+            </div>
+            {/* Image */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            100% Anonymous
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            You can choose a nickname. Your real identity stays private.. Even our counsellors won’t know who you are. Feel safe, share freely.
+          </div>
         </div>
 
-        {/* Image */}
-        <Image
-          src={line} // replace with your image path
-          alt="card image"
-          style={{
-            width: "96px",
-            height: "18px",
-            position: "absolute",
-            top: "61px",
-            left: "0px",
-            opacity: 1,
-          }}
-        />
-      </div>
+        {/* Card 03 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              03
+            </div>
+            {/* Image */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
+          </div>
 
-      {/* First Card Text */}
-      <div
-        style={{
-          width: "270px",
-          height: "29px",
-          position: "absolute",
-          top: "1126px",
-          left: "91px",
-          fontFamily: "Inter, sans-serif",
-          fontWeight: 600,
-          fontStyle: "Semi Bold",
-          fontSize: "24px",
-          lineHeight: "100%",
-          letterSpacing: "-3%",
-          color: "#5C4737",
-          opacity: 1,
-        }}
-      >
-        Instant Human Support
-      </div>
-      <div
-        style={{
-          width: "336px",
-          height: "100px",
-          position: "absolute",
-          top: "1177px",
-          left: "91px",
-          fontFamily: "Inter, sans-serif",
-          fontWeight: 400,
-          fontStyle: "Regular",
-          fontSize: "18px",
-          lineHeight: "25px",
-          letterSpacing: "-2%",
-          color: "#6D6D6F",
-          opacity: 1,
-        }}
-      >
-        Start chatting the moment you feel overwhelmed. No forms. No queues. No matching wait. A real counsellor responds in seconds.
-      </div>
-
-      {/* Second Card */}
-      <div
-        style={{
-          width: "326px",
-          height: "244px",
-          position: "absolute",
-          top: "1033px",
-          left: "506px",
-          opacity: 1,
-          background: "transparent",
-        }}
-      >
-        {/* Number */}
-        <div
-          style={{
-            width: "62px",
-            height: "61px",
-            position: "absolute",
-            top: "0px",
-            left: "5px",
-            fontFamily: "Inter, sans-serif",
-            fontWeight: 600,
-            fontStyle: "Semi Bold",
-            fontSize: "50px",
-            lineHeight: "100%",
-            letterSpacing: "-6%",
-            color: "#5B4A3E",
-            opacity: 1,
-          }}
-        >
-          02
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            Flexible Access
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            Want to choose your own counsellor? Prefer video or voice? You can book that.
+          </div>
         </div>
 
-        {/* Image */}
-        <Image
-          src={line} // replace with your second image path
-          alt="card image 2"
-          style={{
-            width: "96px",
-            height: "18px",
-            position: "absolute",
-            top: "64px",
-            left: "0px",
-            opacity: 1,
-          }}
-        />
+        {/* Card 04 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              04
+            </div>
+            {/* Image */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            Goal-Based Nudges
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time.
+          </div>
+        </div>
+
+        {/* Card 05 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              05
+            </div>
+            {/* Image */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            Mood Tracker
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn’t need to hurt you again.
+          </div>
+        </div>
+
+        {/* Card 06 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              06
+            </div>
+            {/* Image */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            Self-Discovery Tools & Library
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling.
+          </div>
+        </div>
+
       </div>
-
-      {/* Second Card Text */}
-      <div
-        style={{
-          width: "250px",
-          height: "29px",
-          position: "absolute",
-          top: "1126px",
-          left: "506px",
-          fontFamily: "Inter, sans-serif",
-          fontWeight: 600,
-          fontStyle: "Semi Bold",
-          fontSize: "24px",
-          lineHeight: "100%",
-          letterSpacing: "-3%",
-          color: "#5C4737",
-          opacity: 1,
-        }}
-      >
-        100% Anonymous
-      </div>
-      <div
-        style={{
-          width: "321px",
-          height: "100px",
-          position: "absolute",
-          top: "1177px",
-          left: "506px",
-          fontFamily: "Inter, sans-serif",
-          fontWeight: 400,
-          fontStyle: "Regular",
-          fontSize: "18px",
-          lineHeight: "25px",
-          letterSpacing: "-2%",
-          color: "#6D6D6F",
-          opacity: 1,
-        }}
-      >
-        You can choose a nickname. Your real identity stays private.. Even our counsellors won’t know who you are. Feel safe, share freely.
-      </div>
-
-      {/* Third Card */}
-<div
-  style={{
-    width: "255px",
-    height: "219px",
-    position: "absolute",
-    top: "1033px",
-    left: "926px",
-    opacity: 1,
-    background: "transparent",
-  }}
->
-  {/* Number */}
-  <div
-    style={{
-      width: "63px",
-      height: "61px",
-      position: "absolute",
-      top: "0px",
-      left: "0px",
-      fontFamily: "Inter, sans-serif",
-      fontWeight: 600,
-      fontStyle: "Semi Bold",
-      fontSize: "50px",
-      lineHeight: "100%",
-      letterSpacing: "-6%",
-      color: "#5B4A3E",
-      opacity: 1,
-    }}
-  >
-    03
-  </div>
-
-  {/* Image */}
-  <Image
-    src={line} // replace with your image
-    alt="card image 3"
-    style={{
-      width: "96px",
-      height: "18px",
-      position: "absolute",
-      top: "64px",
-      left: "0px",
-      opacity: 1,
-    }}
-  />
-</div>
-
-{/* Third Card Title */}
-<div
-  style={{
-    width: "190px",
-    height: "29px",
-    position: "absolute",
-    top: "1126px",
-    left: "926px",
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 600,
-    fontStyle: "Semi Bold",
-    fontSize: "24px",
-    lineHeight: "100%",
-    letterSpacing: "-3%",
-    color: "#5C4737",
-    opacity: 1,
-  }}
->
-  Flexible Access
-</div>
-
-{/* Third Card Description */}
-<div
-  style={{
-    width: "255px",
-    height: "75px",
-    position: "absolute",
-    top: "1177px",
-    left: "926px",
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 400,
-    fontStyle: "Regular",
-    fontSize: "18px",
-    lineHeight: "25px",
-    letterSpacing: "-2%",
-    color: "#6D6D6F",
-    opacity: 1,
-  }}
->
-  Want to choose your own counsellor? Prefer video or voice? You can book that.
-</div>
-
-
-{/* Card 04 */}
-<div
-  style={{
-    width: "323px",
-    height: "244px",
-    position: "absolute",
-    top: "1377px",
-    left: "86px",
-    opacity: 1,
-    background: "transparent",
-  }}
->
-  {/* Number */}
-  <div
-    style={{
-      width: "64px",
-      height: "61px",
-      position: "absolute",
-      top: "0px",
-      left: "0px",
-      fontFamily: "Inter, sans-serif",
-      fontWeight: 600,
-      fontSize: "50px",
-      lineHeight: "100%",
-      letterSpacing: "-6%",
-      color: "#5B4A3E",
-    }}
-  >
-    04
-  </div>
-
-  {/* Image */}
-  <Image
-    src={line}
-    alt="card image 04"
-    style={{
-      width: "96px",
-      height: "18px",
-      position: "absolute",
-      top: "64px",
-      left: "0px",
-    }}
-  />
-</div>
-
-{/* Card 04 Title */}
-<div
-  style={{
-    width: "240px",
-    height: "29px",
-    position: "absolute",
-    top: "1470px",
-    left: "86px",
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 600,
-    fontSize: "24px",
-    lineHeight: "100%",
-    letterSpacing: "-3%",
-    color: "#5C4737",
-  }}
->
-  Goal-Based Nudges
-</div>
-
-{/* Card 04 Description */}
-<div
-  style={{
-    width: "323px",
-    height: "100px",
-    position: "absolute",
-    top: "1521px",
-    left: "86px",
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 400,
-    fontSize: "18px",
-    lineHeight: "25px",
-    letterSpacing: "-2%",
-    color: "#6D6D6F",
-  }}
->
-  Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time.
-</div>
-
-
-
-{/* Card 05 */}
-<div
-  style={{
-    width: "321px",
-    height: "244px",
-    position: "absolute",
-    top: "1377px",
-    left: "506px",
-    opacity: 1,
-    background: "transparent",
-  }}
->
-  {/* Number */}
-  <div
-    style={{
-      width: "62px",
-      height: "61px",
-      position: "absolute",
-      top: "0px",
-      left: "0px",
-      fontFamily: "Inter, sans-serif",
-      fontWeight: 600,
-      fontSize: "50px",
-      lineHeight: "100%",
-      letterSpacing: "-6%",
-      color: "#5B4A3E",
-    }}
-  >
-    05
-  </div>
-
-  {/* Image */}
-  <Image
-    src={line}
-    alt="card image 05"
-    style={{
-      width: "96px",
-      height: "18px",
-      position: "absolute",
-      top: "64px",
-      left: "0px",
-    }}
-  />
-</div>
-
-{/* Card 05 Title */}
-<div
-  style={{
-    width: "163px",
-    height: "29px",
-    position: "absolute",
-    top: "1470px",
-    left: "506px",
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 600,
-    fontSize: "24px",
-    lineHeight: "100%",
-    letterSpacing: "-3%",
-    color: "#5C4737",
-  }}
->
-  Mood Tracker
-</div>
-
-{/* Card 05 Description */}
-<div
-  style={{
-    width: "321px",
-    height: "100px",
-    position: "absolute",
-    top: "1521px",
-    left: "506px",
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 400,
-    fontSize: "18px",
-    lineHeight: "25px",
-    letterSpacing: "-2%",
-    color: "#6D6D6F",
-  }}
->
-  Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn’t need to hurt you again.
-</div>
-
-
-
-{/* Card 06 */}
-<div
-  style={{
-    width: "330px",
-    height: "269px",
-    position: "absolute",
-    top: "1377px",
-    left: "926px",
-    opacity: 1,
-    background: "transparent",
-  }}
->
-  {/* Number */}
-  <div
-    style={{
-      width: "63px",
-      height: "61px",
-      position: "absolute",
-      top: "0px",
-      left: "0px",
-      fontFamily: "Inter, sans-serif",
-      fontWeight: 600,
-      fontSize: "50px",
-      lineHeight: "100%",
-      letterSpacing: "-6%",
-      color: "#5B4A3E",
-    }}
-  >
-    06
-  </div>
-
-  {/* Image */}
-  <Image
-    src={line}
-    alt="card image 06"
-    style={{
-      width: "96px",
-      height: "18px",
-      position: "absolute",
-      top: "64px",
-      left: "0px",
-    }}
-  />
-</div>
-
-{/* Card 06 Title */}
-<div
-  style={{
-    width: "370px",
-    height: "29px",
-    position: "absolute",
-    top: "1470px",
-    left: "926px",
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 600,
-    fontSize: "24px",
-    lineHeight: "100%",
-    letterSpacing: "-3%",
-    color: "#5C4737",
-  }}
->
-  Self-Discovery Tools & Library
-</div>
-
-{/* Card 06 Description */}
-<div
-  style={{
-    width: "329px",
-    height: "125px",
-    position: "absolute",
-    top: "1521px",
-    left: "926px",
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 400,
-    fontSize: "18px",
-    lineHeight: "25px",
-    letterSpacing: "-2%",
-    color: "#6D6D6F",
-  }}
->
-  Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling.
-</div>
     </section>
   );
 };
+
+
 
 const Whowant = () => {
   return (
-    <section className="w-full h-[1169px] bg-[#F6F2EB] overflow-x-hidden">
+    // Section uses flexible padding on small screens, and the original fixed height on large screens (lg)
+    <section className="w-full bg-[#F6F2EB] py-10 sm:py-16 px-4 sm:px-6 lg:h-[1169px] lg:p-0 relative">
 
-      {/* Heading */}
-      <h2 className="absolute top-[1787px] left-[44px] w-[321px] h-[68px] font-['Nunito_Sans'] font-bold text-[50px] text-black">
-        Who it’s For ?
-      </h2>
+      {/* ------------------------------------------- */}
+      {/* 1. DESKTOP-ONLY LAYOUT (lg:block) - Keeps original absolute positioning */}
+      {/* ------------------------------------------- */}
+      <div className="hidden lg:block w-full h-full relative">
+        {/* All original absolute elements are placed here, but their `top` values must be relative to the section's top (1787px - 1787px = 0px).
+            Since the original code used extreme `top` values, I'm adjusting them to be relative to the start of this section.
+            I will use the original delta between elements: (1787px - original_top) for the new relative top.
+            
+            Original: top-[1787px] -> New: top-0
+            Original: top-[1868px] -> New: top-[81px] (1868 - 1787)
+            Original: top-[1972px] -> New: top-[185px] (1972 - 1787)
+            ... and so on.
+            
+            However, to simplify, I will assume the original top value of 1787px was the intended top offset of the *whole component* from the top of the document. 
+            I'll use a `top` offset inside a `relative` container to maintain the exact look.
+        */}
+        <div className="w-full h-full absolute top-[1787px]"> 
+          {/* This wrapper is an attempt to preserve the original component's position relative to the document body if that was necessary. 
+              A cleaner approach is to use the first element's 'top' as the reference point (top-0) inside the `lg:h-[1169px] relative` section.
+              Let's use the cleaner, relative-to-section approach: */}
+        </div>
+        
+        {/* Heading */}
+        <h2 className="absolute top-0 left-[44px] w-[321px] h-[68px] font-['Nunito_Sans'] font-bold text-[50px] text-black">
+          Who it’s For ?
+        </h2>
 
-      {/* Description */}
-      <p className="absolute top-[1868px] left-[44px] w-[381px] text-[18px] text-black/80 font-['Nunito_Sans']">
-        Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
-      </p>
+        {/* Description */}
+        <p className="absolute top-[81px] left-[44px] w-[381px] text-[18px] text-black/80 font-['Nunito_Sans']">
+          Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
+        </p>
 
-      {/* Quote Card */}
-      <div className="absolute top-[1972px] left-[44px] w-[410px] h-[113px] bg-[#F8F8F8]" />
+        {/* Quote Card */}
+        <div className="absolute top-[185px] left-[44px] w-[410px] h-[113px] bg-[#F8F8F8]" />
 
-      {/* Quote */}
-      <p className="absolute top-[1991px] left-[59px] w-[331px] italic font-bold text-[16px]">
-        “ Wherever you are. Whoever you are. However you feel. ”
-      </p>
+        {/* Quote */}
+        <p className="absolute top-[204px] left-[59px] w-[331px] italic font-bold text-[16px]">
+          “ Wherever you are. Whoever you are. However you feel. ”
+        </p>
 
-      {/* Signature */}
-      <p className="absolute top-[2054px] left-[239px] text-[16px]">
-        – Mind A Lot is here for you!
-      </p>
+        {/* Signature */}
+        <p className="absolute top-[267px] left-[239px] text-[16px]">
+          – Mind A Lot is here for you!
+        </p>
 
-      {/* Working Professionals */}
-      <div className="absolute top-[2120px] left-[44px] w-[410px] h-[262px] rounded-[12px] overflow-hidden">
-        <Image src={w1} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/90" />
-        <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
-          Working Professionals
+        {/* Working Professionals (Original top: 2120px -> New top: 333px) */}
+        <div className="absolute top-[333px] left-[44px] w-[410px] h-[262px] rounded-[12px] overflow-hidden">
+          <Image src={w1} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/90" />
+          <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
+            Working Professionals
+          </div>
+        </div>
+
+        {/* Students (Original top: 1787px -> New top: 0px) */}
+        <div className="absolute top-0 left-[476px] w-[410px] h-[594px] rounded-[12px] overflow-hidden">
+          <Image src={w2} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_72%,rgba(0,0,0,.6)_83%)]" />
+          <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
+            Students & Young Adults
+          </div>
+        </div>
+
+        {/* Others (Original top: 1787px -> New top: 0px) */}
+        <div className="absolute top-0 left-[906px] w-[410px] h-[594px] rounded-[12px] overflow-hidden">
+          <Image src={w3} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_76%,rgba(0,0,0,.8)_100%)]" />
+          <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
+            LGBTQ+ Community
+          </div>
+        </div>
+
+        {/* Older Adults (Original top: 2402px -> New top: 615px) */}
+        <div className="absolute top-[615px] left-[48px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
+          <Image src={w4} alt="Older Adults" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 74.16%, rgba(0, 0, 0, 0.7) 100%)" }} />
+          <div className="absolute top-[339px] left-[122px] w-[181px] h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white">
+            Older Adults
+          </div>
+        </div>
+
+        {/* Neurodivergent Users (Original top: 2402px -> New top: 615px) */}
+        <div className="absolute top-[615px] left-[480px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
+          <Image src={w5} alt="Neurodivergent Users" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.88%, rgba(0, 0, 0, 0.8) 100%)" }} />
+          <div className="absolute top-[339px] left-[54px] w-[322px] h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white text-center">
+            Neurodivergent Users
+          </div>
+        </div>
+
+        {/* Anyone Needing Support (Original top: 2402px -> New top: 615px) */}
+        <div className="absolute top-[615px] left-[910px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
+          <Image src={w6} alt="Anyone Needing Support" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.51%, rgba(0, 0, 0, 0.8) 100%)" }} />
+          <div className="absolute top-[339px] left-[32px] w-[366px] h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white text-center">
+            Anyone Needing Support
+          </div>
         </div>
       </div>
+      
+      
+      {/* ------------------------------------------- */}
+      {/* 2. MOBILE/TABLET LAYOUT (lg:hidden) - Fully responsive and stackable */}
+      {/* ------------------------------------------- */}
+      <div className="lg:hidden max-w-7xl mx-auto">
+        
+        {/* Header Content Group */}
+        <div className="mb-12">
+          {/* Heading */}
+          <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4 font-['Nunito_Sans']">
+            Who it’s For ?
+          </h2>
 
-      {/* Students */}
-      <div className="absolute top-[1787px] left-[476px] w-[410px] h-[594px] rounded-[12px] overflow-hidden">
-        <Image src={w2} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_72%,rgba(0,0,0,.6)_83%)]" />
-        <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
-          Students & Young Adults
+          {/* Description */}
+          <p className="text-base sm:text-lg text-black/80 max-w-lg mb-8 font-['Nunito_Sans']">
+            Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
+          </p>
+
+          {/* Quote Card */}
+          <div className="p-4 bg-[#F8F8F8] max-w-md rounded-md">
+            {/* Quote */}
+            <p className="italic font-bold text-base mb-2">
+              “ Wherever you are. Whoever you are. However you feel. ”
+            </p>
+            {/* Signature */}
+            <p className="text-base text-right">
+              – Mind A Lot is here for you!
+            </p>
+          </div>
+        </div>
+
+        {/* Responsive Grid for Image Cards */}
+        {/* Stacks on mobile, 2 columns on tablet (sm) */}
+        <div className="grid gap-6 sm:grid-cols-2">
+
+          {/* Card: Students & Young Adults (w2) */}
+          <Card imageSrc={w2} altText="Students" title="Students & Young Adults" />
+
+          {/* Card: LGBTQ+ Community (w3) */}
+          <Card imageSrc={w3} altText="LGBTQ+ Community" title="LGBTQ+ Community" />
+          
+          {/* Card: Working Professionals (w1) */}
+          <Card imageSrc={w1} altText="Working Professionals" title="Working Professionals" />
+          
+          {/* Card: Older Adults (w4) */}
+          <Card imageSrc={w4} altText="Older Adults" title="Older Adults" />
+
+          {/* Card: Neurodivergent Users (w5) */}
+          <Card imageSrc={w5} altText="Neurodivergent Users" title="Neurodivergent Users" />
+          
+          {/* Card: Anyone Needing Support (w6) */}
+          <Card imageSrc={w6} altText="Anyone Needing Support" title="Anyone Needing Support" />
         </div>
       </div>
-
-      {/* Others */}
-      <div className="absolute top-[1787px] left-[906px] w-[410px] h-[594px] rounded-[12px] overflow-hidden">
-        <Image src={w3} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_76%,rgba(0,0,0,.8)_100%)]" />
-        <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
-          LGBTQ+ Community
-        </div>
-      </div>
-
-    {/* ===== Layout 1 – Older Adults ===== */}
- <div className="absolute top-[2402px] left-[48px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
-
-  {/* Image */}
-  <Image
-    src={w4} // 🔁 Older Adults image
-    alt="Older Adults"
-    className="w-full h-full object-cover"
-  />
-
-  {/* Gradient */}
-  <div
-    className="absolute inset-0"
-    style={{
-      background:
-        "linear-gradient(180deg, rgba(0, 0, 0, 0) 74.16%, rgba(0, 0, 0, 0.7) 100%)",
-    }}
-  />
-
-  {/* Text */}
-  <div
-    className="
-      absolute
-      top-[339px]
-      left-[122px]
-      w-[181px]
-      h-[36px]
-      font-['Inter']
-      font-semibold
-      text-[30px]
-      leading-[100%]
-      tracking-[-3%]
-      text-white
-    "
-  >
-    Older Adults
-  </div>
-</div>
-
-
-{/* ===== Layout 2 – Neurodivergent Users ===== */}
-<div className="absolute top-[2402px] left-[480px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
-
-  {/* Image */}
-  <Image
-    src={w5} // 🔁 Neurodivergent Users image
-    alt="Neurodivergent Users"
-    className="w-full h-full object-cover"
-  />
-
-  {/* Gradient */}
-  <div
-    className="absolute inset-0"
-    style={{
-      background:
-        "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.88%, rgba(0, 0, 0, 0.8) 100%)",
-    }}
-  />
-
-  {/* Text */}
-  <div
-    className="
-      absolute
-      top-[339px]
-      left-[54px]
-      w-[322px]
-      h-[36px]
-      font-['Inter']
-      font-semibold
-      text-[30px]
-      leading-[100%]
-      tracking-[-3%]
-      text-white
-      text-center
-    "
-  >
-    Neurodivergent Users
-  </div>
-</div>
-
-
-{/* ===== Layout 3 – Anyone Needing Support ===== */}
-<div className="absolute top-[2402px] left-[910px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
-
-  {/* Image */}
-  <Image
-    src={w6} // 🔁 Anyone Needing Support image
-    alt="Anyone Needing Support"
-    className="w-full h-full object-cover"
-  />
-
-  {/* Gradient */}
-  <div
-    className="absolute inset-0"
-    style={{
-      background:
-        "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.51%, rgba(0, 0, 0, 0.8) 100%)",
-    }}
-  />
-
-  {/* Text */}
-  <div
-    className="
-      absolute
-      top-[339px]
-      left-[32px]
-      w-[366px]
-      h-[36px]
-      font-['Inter']
-      font-semibold
-      text-[30px]
-      leading-[100%]
-      tracking-[-3%]
-      text-white
-      text-center
-    "
-  >
-    Anyone Needing Support
-  </div>
-</div>
-
     </section>
   );
 };
 
+// Extracted Card Component for responsive layout
+const Card = ({ imageSrc, altText, title }) => (
+  <div className="relative w-full overflow-hidden rounded-[12px] shadow-lg aspect-[4/3] sm:aspect-auto sm:h-[300px]">
+    <Image 
+      src={imageSrc} 
+      alt={altText} 
+      fill 
+      className="object-cover" 
+      sizes="(max-width: 640px) 100vw, 50vw"
+    />
+    
+    {/* Gradient Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/10" />
+
+    {/* Text */}
+    <div className="absolute bottom-5 left-5 text-white text-xl sm:text-2xl font-semibold font-['Inter'] leading-tight">
+      {title}
+    </div>
+  </div>
+);
+
+
+
+
+
+// Extracted reusable Feature Component
+const FeatureItem = ({ iconSrc, altText, title, isLast = false }) => (
+  <>
+    <div className="flex items-center w-full min-h-[80px] py-4">
+      {/* Icon Area */}
+      <div className="flex items-center justify-center w-[80px] h-[80px] shrink-0">
+        <Image
+          src={iconSrc}
+          alt={altText}
+          className="w-[50px] h-[50px]"
+        />
+      </div>
+      {/* Title Area */}
+      <div className="flex-grow ml-4">
+        <div className="text-black font-['Nunito_Sans'] text-lg sm:text-xl md:text-2xl font-semibold leading-tight tracking-[-0.03em]">
+          {title}
+        </div>
+      </div>
+    </div>
+    {/* Divider Line - Hidden if 'isLast' or on large screens (as it's used within a grid column) */}
+    {!isLast && (
+      <div className="w-full h-px bg-gray-300 mx-auto" />
+    )}
+  </>
+);
 
 const Features = () => {
+  // Assuming these image sources (fi1, f1l, featureIcon2, etc.) are imported
+  // and need to be passed down to the FeatureItem component.
   return (
-    // We adjust the min-height to accommodate the new lower elements (up to 3488px)
-    <section className="relative w-full overflow-hidden mt-20"> 
+    <section className="relative w-full overflow-hidden mt-10 sm:mt-20 px-4 sm:px-6 lg:px-8">
       
-      {/* MAIN LAYOUT: w: 1249px; h: 559px; left: 96px (using margin-left) */}
-      <div 
-        className="relative mx-auto w-[1249px] h-[559px] opacity-100" 
-        style={{ marginLeft: '60px' }}
-      >
+      <div className="max-w-7xl mx-auto">
         
         {/* === HEADER BLOCK === */}
-        <div className="w-full h-full relative"> 
-          <div 
-            className="absolute w-[407px] h-[61px] text-black font-['Inter'] text-[50px] font-semibold"
-            style={{ top: '0', left: '24px' }}
-          >
+        <div className="mb-12 sm:mb-16">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-black font-['Inter'] mb-4">
             Key features
-          </div>
-          <div 
-            className="absolute w-[562px] h-[25px] text-black font-['Nunito_Sans'] text-[18px] font-medium"
-            style={{ top: '81px', left: '24px' }}
-          >
+          </h2>
+          <p className="text-base sm:text-lg text-black font-medium font-['Nunito_Sans'] max-w-xl">
             Discover the essential features you need - all in one trusted platform.
-          </div>
+          </p>
         </div>
 
-        {/* --- LEFT COLUMN (F1-F4) - Previous features start here --- */}
-        
-        {/* === F1 LAYOUT (24/7 Live Chat) === */}
-        <div 
-          className="absolute w-[553px] h-[80px] flex items-center" 
-          style={{ top: '144px', left: '0' }}
-        >
-          <div className="flex items-center justify-center p-[15px] h-full"> 
-            {/* Using a standard <img> tag instead of a placeholder <Image> component for cleaner vanilla React/Next.js compatibility */}
-            <Image
-              src={fi1} 
-              alt="Feature Icon 1" 
-              className="w-[50px] h-[50px] "
+        {/* === MAIN FEATURES GRID (F1-F8) === */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6">
+          
+          {/* --- LEFT COLUMN (F1-F4) --- */}
+          <div className="space-y-0">
+            <FeatureItem
+              iconSrc={fi1}
+              altText="24/7 Chat Icon"
+              title="24/7 Live Chat With Human Counsellors"
+            />
+            <FeatureItem
+              iconSrc={featureIcon2}
+              altText="Goal Tracker Icon"
+              title="Goal Tracker With Behavioural Nudges"
+            />
+            <FeatureItem
+              iconSrc={featureIcon3}
+              altText="Mood Guidance Icon"
+              title="Mood-Based Guidance"
+            />
+            <FeatureItem
+              iconSrc={featureIcon4}
+              altText="Assessments Icon"
+              title="Bite-Sized Self Assessments"
+              isLast={true} // Last item in the column, no divider needed
             />
           </div>
-          <div 
-            className="h-[33px] text-[#000000] font-['Nunito_Sans'] text-[24px] font-medium flex items-center"
-            style={{ width: '445px' ,position: 'absolute', left:'100px'}}
-          >
-            24/7 Live Chat With Human Counsellors
+          
+          {/* --- RIGHT COLUMN (F5-F8) --- */}
+          <div className="space-y-0 lg:mt-0"> {/* Ensure it aligns correctly on desktop */}
+            <FeatureItem
+              iconSrc={featureIcon5}
+              altText="Content Icon"
+              title="Expert Videos, Podcasts, and Content Drops"
+            />
+            <FeatureItem
+              iconSrc={featureIcon6}
+              altText="Language Icon"
+              title="Works Across Countries & Languages"
+            />
+            <FeatureItem
+              iconSrc={featureIcon7}
+              altText="Hospital Icon"
+              title="Escalation To Partner Hospitals For Psychiatric Care"
+            />
+            <FeatureItem
+              iconSrc={featureIcon8}
+              altText="Anonymity Icon"
+              title="100% Anonymity Guaranteed"
+              isLast={true} // Last item in the column, no divider needed
+            />
           </div>
-        </div>
-        
-        {/* === DIVIDER 1 (After F1) === */}
-        <Image
-          src={f1l} 
-          alt="Divider Line 1" 
-          className="absolute w-[605px] h-[2px] opacity-100"
-          style={{ top: '243px', left: '15px' }}
-        />
 
-        {/* === F2 LAYOUT (Goal Tracker) === */}
-        <div 
-          className="absolute w-[502px] h-[80px] flex items-center" 
-          style={{ top: '258px', left: '0' }}
-        >
-          <div className="flex items-center justify-center h-full w-[80px]"> 
-            <Image
-              src={featureIcon2} 
-              alt="Feature Icon 2" 
-              className="w-[50px] h-[50px] "
-            />
-          </div>
-          <div 
-            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
-            style={{ 
-              width: '420px', 
-              lineHeight: '35px', 
-              letterSpacing: '-0.03em', 
-              marginLeft: '15px' 
-            }}
-          >
-            Goal Tracker With Behavioural Nudges
-          </div>
         </div>
-        
-        {/* === DIVIDER 2 (After F2) === */}
-        <Image
-          src={dividerImage2} 
-          alt="Divider Line 2" 
-          className="absolute w-[605px] h-[2px] opacity-100"
-          style={{ top: '353px', left: '15px' }}
-        />
-
-        {/* === F3 - Mood Guidance === */}
-        <div 
-            className="absolute w-[500px] h-[80px] flex items-center" 
-            style={{ top: '367px', left: '0' }}
-        >
-          <div className="flex items-center justify-center h-full w-[80px]"> 
-            <Image
-              src={featureIcon3} 
-              alt="Feature Icon 3" 
-              className="w-[37.5px] h-[37.5px] "
-            />
-          </div>
-          <div 
-            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
-            style={{ 
-              width: '245px', 
-              lineHeight: '35px', 
-              letterSpacing: '-0.03em',
-              marginLeft: '15px'
-            }}
-          >
-            Mood-Based Guidance
-          </div>
-        </div>
-
-        {/* === DIVIDER 3 (After F3) === */}
-        <Image
-          src={dividerImage3} 
-          alt="Divider Line 3" 
-          className="absolute w-[605px] h-[2px] opacity-100"
-          style={{ top: '463px', left: '15px' }}
-        />
-        
-        {/* === F4 LAYOUT (Bite-Sized Self Assessments) === */}
-        <div 
-          className="absolute w-[396px] h-[80px] flex items-center" 
-          style={{ top: '478px', left: '0' }}
-        >
-          <div className="flex items-center justify-center h-full w-[80px]"> 
-            <Image
-              src={featureIcon4} 
-              alt="Feature Icon 4" 
-              className="w-[50px] h-[50px] "
-            />
-          </div>
-          <div 
-            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
-            style={{ 
-              width: '301px', 
-              lineHeight: '35px', 
-              letterSpacing: '-0.03em',
-              marginLeft: '15px'
-            }}
-          >
-            Bite-Sized Self Assessments
-          </div>
-        </div>
-        
-        {/* --- RIGHT COLUMN (F5-F8) - NEW FEATURES START HERE --- */}
-
-        {/* === F5 LAYOUT (Expert Videos, Podcasts, and Content Drops) === 
-            top: 3136px -> 149px; left: 721px -> 625px 
-        */}
-        <div 
-          className="absolute w-[554px] h-[80px] flex items-center" 
-          style={{ top: '149px', left: '625px' }}
-        >
-          <div className="flex items-center justify-center p-[15px] h-full"> 
-            {/* IMAGE: 50x50 */}
-            <Image
-              src={featureIcon5} 
-              alt="Feature Icon 5" 
-              className="w-[50px] h-[50px]"
-            />
-          </div>
-          <div 
-            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
-            style={{ 
-              width: '469px', 
-              lineHeight: '35px', 
-              letterSpacing: '-0.03em',
-              position: 'absolute', // Absolute to match the explicit left placement
-              left: '95px' // Calculated margin: 816 - 721 = 95px
-            }}
-          >
-            Expert Videos, Podcasts, and Content Drops
-          </div>
-        </div>
-        
-        {/* === DIVIDER 4 (After F5) === 
-            width: 605px; height: 0px; top: 3230px -> 243px; left: 736px -> 640px
-        */}
-        <Image
-          src={dividerImage2} 
-          alt="Divider Line 4" 
-          className="absolute w-[605px] h-[2px] opacity-100"
-          style={{ top: '243px', left: '640px' }}
-        />
-
-        {/* === F6 LAYOUT (Works Across Countries & Languages) === 
-            width: 489px; height: 80px; top: 3246px -> 259px; left: 721px -> 625px
-        */}
-        <div 
-          className="absolute w-[489px] h-[80px] flex items-center" 
-          style={{ top: '259px', left: '625px' }}
-        >
-          <div className="flex items-center justify-center p-[15px] h-full"> 
-            {/* IMAGE: 50x50 */}
-            <Image
-              src={featureIcon6} 
-              alt="Feature Icon 6" 
-              className="w-[50px] h-[50px]"
-            />
-          </div>
-          <div 
-            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
-            style={{ 
-              width: '404px', 
-              lineHeight: '35px', 
-              letterSpacing: '-0.03em',
-              position: 'absolute',
-              left: '95px' // Calculated margin: 816 - 721 = 95px
-            }}
-          >
-            Works Across Countries & Languages
-          </div>
-        </div>
-        
-        {/* === DIVIDER 5 (After F6) === 
-            width: 605px; height: 0px; top: 3340px -> 353px; left: 736px -> 640px
-        */}
-        <Image
-          src={dividerImage2} 
-          alt="Divider Line 5" 
-          className="absolute w-[605px] h-[2px] opacity-100"
-          style={{ top: '353px', left: '640px' }}
-        />
-        
-        {/* === F7 LAYOUT (Escalation To Partner Hospitals For Psychiatric Care) === 
-            width: 624px; height: 80px; top: 3356px -> 369px; left: 721px -> 625px
-        */}
-        <div 
-          className="absolute w-[624px] h-[80px] flex items-center" 
-          style={{ top: '369px', left: '625px' }}
-        >
-          <div className="flex items-center justify-center p-[15px] h-full"> 
-            {/* IMAGE: 50x50 */}
-            <Image
-              src={featureIcon7} 
-              alt="Feature Icon 7" 
-              className="w-[50px] h-[50px]"
-            />
-          </div>
-          <div 
-            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
-            style={{ 
-              width: '549px', 
-              lineHeight: '35px', 
-              letterSpacing: '-0.03em',
-              position: 'absolute',
-              left: '95px' // Calculated margin: 816 - 721 = 95px
-            }}
-          >
-            Escalation To Partner Hospitals For Psychiatric Care
-          </div>
-        </div>
-
-        {/* === DIVIDER 6 (After F7) === 
-            width: 605px; height: 0px; top: 3450px -> 463px; left: 736px -> 640px
-        */}
-        <Image
-          src={dividerImage2} 
-          alt="Divider Line 6" 
-          className="absolute w-[605px] h-[2px] opacity-100"
-          style={{ top: '463px', left: '640px' }}
-        />
-
-        {/* === F8 LAYOUT (100% Anonymity Guaranteed) === 
-            width: 410px; height: 80px; top: 3466px -> 479px; left: 721px -> 625px
-        */}
-        <div 
-          className="absolute w-[410px] h-[80px] flex items-center" 
-          style={{ top: '479px', left: '625px' }}
-        >
-          <div className="flex items-center justify-center p-[15px] h-full"> 
-            {/* IMAGE: 50x50 */}
-            <Image
-              src={featureIcon8} 
-              alt="Feature Icon 8" 
-              className="w-[50px] h-[50px]"
-            />
-          </div>
-          <div 
-            className="h-[35px] text-black font-['Nunito_Sans'] text-[24px] font-semibold flex items-center"
-            style={{ 
-              width: '315px', 
-              lineHeight: '35px', 
-              letterSpacing: '-0.03em',
-              position: 'absolute',
-              left: '95px' // Calculated margin: 816 - 721 = 95px
-            }}
-          >
-            100% Anonymity Guaranteed
-          </div>
-        </div>
-        
       </div>
     </section>
   );
 };
+
+
 
 
 const Testimonials = () => {
   return (
+    // Section uses flexible padding/height on small screens, and the original fixed height/margin on large screens (lg)
     <section 
-      className="relative mx-auto w-full h-[712px] bg-[#F6F2EB] opacity-100" 
-      style={{ 
-        marginTop: '102px',
-        overflow :"hidden"
-      }}
+      className="relative w-full bg-[#F6F2EB] py-16 sm:py-24 lg:pt-[102px] lg:h-[712px] overflow-hidden" 
     >
       
-      {/* --- LARGE RIGHT IMAGE --- */}
-      <Image
-        src={largeRightImage}
-        alt="Testimonial Background Graphic"
-        className="absolute w-[390px] h-[548px] opacity-100"
-        style={{ top: '70px', left: '884px' }}
-      />
-
-
-      {/* --- MAIN LAYOUT (Container for all left/middle elements) --- */}
-      <div 
-        className="relative w-[1323px] h-[616px] opacity-100" 
-        style={{ top: '36px', left: '50px' }}
-      >
+      {/* ------------------------------------------- */}
+      {/* 1. DESKTOP-ONLY LAYOUT (lg:block) - Keeps original absolute positioning */}
+      {/* ------------------------------------------- */}
+      <div className="hidden lg:block w-full h-full relative">
         
-        {/* 1. HEADING: Testimonials */}
-        <div
-          className="absolute w-[274px] h-[61px] font-['Inter'] text-[50px] font-semibold text-[#5C4737]"
-          style={{ top: '25px', left: '30px', letterSpacing: '-0.06em' }}
+        {/* --- LARGE RIGHT IMAGE --- */}
+        <Image
+          src={largeRightImage}
+          alt="Testimonial Background Graphic"
+          className="absolute w-[390px] h-[548px] opacity-100"
+          style={{ top: '70px', left: '884px' }}
+        />
+
+        {/* --- MAIN LAYOUT (Container for all left/middle elements) --- */}
+        {/* Adjusted top: 36px and left: 50px offset to be relative to the section start */}
+        <div 
+          className="relative w-[1323px] h-[616px] opacity-100" 
+          style={{ marginTop: '36px', marginLeft: '50px' }}
         >
-          Testimonials
-        </div>
+          
+          {/* All absolute elements inside the desktop container are maintained with their relative offsets */}
+          
+          {/* 1. HEADING: Testimonials (top: 25px, left: 30px) */}
+          <div
+            className="absolute w-[274px] h-[61px] font-['Inter'] text-[50px] font-semibold text-[#5C4737]"
+            style={{ top: '25px', left: '30px', letterSpacing: '-0.06em' }}
+          >
+            Testimonials
+          </div>
 
-        {/* 2. LARGE LEFT IMAGE (225x450px) */}
-        <Image
-          src={largeLeftImage}
-          alt="Testimonial Background Left"
-          className="absolute w-[225.000015px] h-[450px] opacity-100"
-          style={{ top: '115px', left: '30px' }}
-        />
+          {/* 2. LARGE LEFT IMAGE (225x450px) (top: 115px, left: 30px) */}
+          <Image
+            src={largeLeftImage}
+            alt="Testimonial Background Left"
+            className="absolute w-[225.000015px] h-[450px] opacity-100"
+            style={{ top: '115px', left: '30px' }}
+          />
 
-        {/* 3. SMALL CIRCLE IMAGE 1 (50x50px) */}
-        <Image
-          src={testimonialIcon}
-          alt="Profile Icon 1"
-          className="absolute w-[50px] h-[50px] rounded-full opacity-100 border border-black"
-          style={{ top: '129px', left: '130px' }}
-        />
-        
-        {/* 8. SMALL CIRCLE IMAGE 2 (50x50px, -180 deg) */}
-        <Image
-          src={testimonialIcon2}
-          alt="Profile Icon 2"
-          className="absolute w-[50px] h-[50px] rounded-full opacity-100"
-          style={{ top: '501px', left: '130px', transform: 'rotate(-180deg)' }}
-        />
+          {/* 3. SMALL CIRCLE IMAGE 1 (50x50px) (top: 129px, left: 130px) */}
+          <Image
+            src={testimonialIcon}
+            alt="Profile Icon 1"
+            className="absolute w-[50px] h-[50px] rounded-full opacity-100 border border-black"
+            style={{ top: '129px', left: '130px' }}
+          />
+          
+          {/* 8. SMALL CIRCLE IMAGE 2 (50x50px, -180 deg) (top: 501px, left: 130px) */}
+          <Image
+            src={testimonialIcon2}
+            alt="Profile Icon 2"
+            className="absolute w-[50px] h-[50px] rounded-full opacity-100"
+            style={{ top: '501px', left: '130px', transform: 'rotate(-180deg)' }}
+          />
 
-        {/* 9. SMALL CIRCLE BORDER 2 (50x50px, border: 1px solid #00000040) */}
-        <div
-          className="absolute w-[50px] h-[50px] rounded-full"
-          style={{ 
-            top: '501px', 
-            left: '130px', 
-            border: '1px solid rgba(0, 0, 0, 0.25)',
-            transform: 'rotate(-180deg)'
-          }}
-        />
+          {/* 9. SMALL CIRCLE BORDER 2 (50x50px) (top: 501px, left: 130px) */}
+          <div
+            className="absolute w-[50px] h-[50px] rounded-full"
+            style={{ 
+              top: '501px', 
+              left: '130px', 
+              border: '1px solid rgba(0, 0, 0, 0.25)',
+              transform: 'rotate(-180deg)'
+            }}
+          />
 
-        {/* 10. SQUARE CONTAINER/BORDER (100x100px, border: 1px solid #00000080) */}
-        <div
-          className="absolute w-[100px] h-[100px]"
-          style={{ 
-            top: '290px', 
-            left: '205px', 
-            
-          }}
-        />
-        
-        {/* 11. NEW IMAGE (160x160px) */}
-      
-        
-        {/* 13. NEW IMAGE (130x130px) */}
-        <Image
-          src={testimonialImageLarge}
-          alt="Medium decorative element (130x130)"
-          className="absolute w-[130px] h-[130px] opacity-100"
-          style={{ top: '275px', left: '190px' }}
-        />
-        
-        {/* 12. NEW IMAGE (100x100px) */}
-        <Image
-          src={testimonialImageSmall}
-          alt="Small decorative element (100x100)"
-          className="absolute w-[100px] h-[100px] opacity-100"
-          style={{ top: '290px', left: '205px' }}
-        />
+          {/* 10. SQUARE CONTAINER/BORDER (100x100px) (top: 290px, left: 205px) */}
+          <div
+            className="absolute w-[100px] h-[100px]"
+            style={{ top: '290px', left: '205px' }}
+          />
+          
+          {/* 13. NEW IMAGE (130x130px) (top: 275px, left: 190px) */}
+          <Image
+            src={testimonialImageLarge}
+            alt="Medium decorative element (130x130)"
+            className="absolute w-[130px] h-[130px] opacity-100"
+            style={{ top: '275px', left: '190px' }}
+          />
+          
+          {/* 12. NEW IMAGE (100x100px) (top: 290px, left: 205px) */}
+          <Image
+            src={testimonialImageSmall}
+            alt="Small decorative element (100x100)"
+            className="absolute w-[100px] h-[100px] opacity-100"
+            style={{ top: '290px', left: '205px' }}
+          />
 
-        {/* 14. NEW IMAGE (80x80px Circle) - ADDED */}
-        <Image
-          src={testimonialImageCircle}
-          alt="Circular decorative element (80x80)"
-          className="absolute w-[80px] h-[80px] opacity-100 rounded-full"
-          style={{ top: '300px', left: '215px' }}
-        />
-        
-        {/* 4. QUOTE LEFT IMAGE LAYOUT */}
-        <div
-          className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
-          style={{ top: '133px', left: '292px', transform: 'rotate(-180deg)' }}
-        >
+          {/* 14. NEW IMAGE (80x80px Circle) - ADDED (top: 300px, left: 215px) */}
+          <Image
+            src={testimonialImageCircle}
+            alt="Circular decorative element (80x80)"
+            className="absolute w-[80px] h-[80px] opacity-100 rounded-full"
+            style={{ top: '300px', left: '215px' }}
+          />
+          
+          {/* 4. QUOTE LEFT IMAGE LAYOUT (top: 133px, left: 292px) */}
+          <div
+            className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
+            style={{ top: '133px', left: '292px', transform: 'rotate(-180deg)' }}
+          >
             <Image
               src={leftQuoteImage} 
               alt="Quote Left Design" 
               className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
               style={{ top: '16.83px', left: '36.72px', transform: 'rotate(-180deg)' }}
             />
-        </div>
+          </div>
 
-        {/* 5. QUOTE RIGHT IMAGE LAYOUT */}
-        <div
-          className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
-          style={{ top: '133px', left: '367px', transform: 'rotate(-180deg)' }}
-        >
+          {/* 5. QUOTE RIGHT IMAGE LAYOUT (top: 133px, left: 367px) */}
+          <div
+            className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
+            style={{ top: '133px', left: '367px', transform: 'rotate(-180deg)' }}
+          >
             <Image
               src={rightQuoteImage} 
               alt="Quote Right Design" 
               className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
               style={{ top: '16.83px', left: '36.72px', transform: 'rotate(-180deg)' }}
             />
+          </div>
+
+          {/* 6. QUOTE TEXT (top: 305px, left: 365px) */}
+          <div
+            className="absolute w-[458px] h-[70px] text-[#0D0D0D] font-['Inter'] text-[24px] font-medium"
+            style={{ top: '305px', left: '365px', lineHeight: '35px', letterSpacing: '-0.03em' }}
+          >
+            No one asked me for my name, and yet I’ve never felt more seen.
+          </div>
+
+          {/* 7. STUDENT INFO (top: 415px, left: 601px) */}
+          <div
+            className="absolute w-[222px] h-[35px] text-[#6D6D6F] font-['Inter'] text-[24px] font-normal"
+            style={{ top: '415px', left: '601px', lineHeight: '35px', letterSpacing: '-0.03em' }}
+          >
+            — Student, Chennai
+          </div>
+
+        </div>
+      </div>
+      
+      
+      {/* ------------------------------------------- */}
+      {/* 2. MOBILE/TABLET LAYOUT (lg:hidden) - Fully responsive and stackable */}
+      {/* ------------------------------------------- */}
+      <div className="lg:hidden max-w-xl mx-auto px-4 sm:px-6">
+        
+        {/* 1. HEADING: Testimonials */}
+        <h2 className="text-4xl sm:text-5xl font-semibold text-[#5C4737] font-['Inter'] mb-10">
+          Testimonials
+        </h2>
+
+        {/* 2. QUOTE CARD/BLOCK */}
+        <div className="relative p-6 sm:p-8 bg-white/60 rounded-xl shadow-lg border border-gray-100">
+            
+            {/* Quote Icon (Simplified/Centered) */}
+            <Image
+                src={rightQuoteImage} // Using one of the original quote images as a simple icon
+                alt="Quote Icon"
+                className="w-12 h-auto text-[#5C4737] mb-4 rotate-180" 
+            />
+            
+            {/* QUOTE TEXT */}
+            <p className="text-[#0D0D0D] font-['Inter'] text-lg sm:text-xl font-medium leading-relaxed mb-4">
+                No one asked me for my name, and yet I’ve never felt more seen.
+            </p>
+            
+            {/* STUDENT INFO */}
+            <p className="text-right text-[#6D6D6F] font-['Inter'] text-base sm:text-lg font-normal">
+                — Student, Chennai
+            </p>
+            
+            {/* Optional: Simple decorative element integrated into the mobile card */}
+            <div className="absolute top-0 right-0 p-2 opacity-50">
+                <Image
+                    src={testimonialIcon}
+                    alt="Decorative Icon"
+                    className="w-8 h-8 rounded-full"
+                />
+            </div>
         </div>
 
-        {/* 6. QUOTE TEXT */}
-        <div
-          className="absolute w-[458px] h-[70px] text-[#0D0D0D] font-['Inter'] text-[24px] font-medium"
-          style={{ top: '305px', left: '365px', lineHeight: '35px', letterSpacing: '-0.03em' }}
+        {/* Optional: Add a decorative element below the quote on tablet screens */}
+        <div className="hidden sm:block mt-8 text-center">
+            <Image
+                src={largeLeftImage} // Using the large image as a background element
+                alt="Decorative Pattern"
+                className="w-40 h-auto opacity-30 mx-auto"
+            />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const animationStyles = `
+@keyframes scroll-left-to-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% / 2)); /* Translate by half the total width (since content is duplicated) */
+  }
+}
+`;
+
+// Helper component for the scrolling logo row
+const LogoCarousel = ({ logos }) => {
+  // Duplicate the logos array to create the seamless infinite scroll effect
+  const duplicatedLogos = [...logos, ...logos];
+
+  return (
+    // Apply the custom animation class
+    <div className="flex w-full overflow-hidden whitespace-nowrap group">
+      <style jsx global>{animationStyles}</style>
+
+      {/* The main scrolling strip container (contains duplicated logos) */}
+      <div 
+        className="flex animate-scroll-ltr w-fit" // w-fit ensures the flex container respects the total content width
+        style={{ animation: 'scroll-left-to-right 20s linear infinite' }}
+      >
+        {duplicatedLogos.map((logo, index) => (
+          <div key={index} className="flex items-center justify-center h-24 sm:h-32 mx-6 sm:mx-10 shrink-0">
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={logo.width}
+              height={logo.height}
+              className="max-h-full w-auto object-contain opacity-70 hover:opacity-100 transition duration-300"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+
+const Trusted = () => {
+  // Define logo data for the carousel
+  const logos = [
+    { src: t1, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+    { src: t2, alt: "Trusted Client Logo 2", width: 135, height: 96 },
+    { src: t3, alt: "Trusted Client Logo 3", width: 107, height: 96 },
+    { src: t4, alt: "Trusted Client Logo 4", width: 103, height: 96 },
+    { src: t5, alt: "Trusted Client Logo 5", width: 105, height: 96 },
+    // Add more logos if needed to fill the space
+  ];
+
+  return (
+    // Responsive section height and padding
+    <section 
+      className="relative w-full bg-[#F6F2EB] py-12 sm:py-16 lg:h-[280px] overflow-hidden " 
+    >
+      
+      {/* ------------------------------------------- */}
+      {/* 1. DESKTOP-ONLY LAYOUT (lg:block) - Keeps original absolute positioning */}
+      {/* ------------------------------------------- */}
+      <div className="hidden lg:block w-full h-full relative">
+        
+        {/* 1. Heading: Trusted by 50+ Clients (top: 66px, left: 86px) */}
+        <p
+          className="absolute font-['Nunito_Sans'] font-medium text-[40px] leading-none text-black w-[410px] h-[55px]"
+          style={{ top: '66px', left: '86px' }}
         >
-          No one asked me for my name, and yet I’ve never felt more seen.
-        </div>
-
-        {/* 7. STUDENT INFO */}
-        <div
-          className="absolute w-[222px] h-[35px] text-[#6D6D6F] font-['Inter'] text-[24px] font-normal"
-          style={{ top: '415px', left: '601px', lineHeight: '35px', letterSpacing: '-0.03em' }}
+          Trusted by 50+ Clients
+        </p>
+        
+        {/* 2. Description (top: 135px, left: 86px) */}
+        <p
+          className="absolute font-['Nunito_Sans'] font-normal text-[18px] leading-none text-black w-[406px] h-[50px]"
+          style={{ top: '135px', left: '86px' }}
         >
-          — Student, Chennai
+          Trusted by leading schools and institutions that care for student well-being.
+        </p>
+
+        {/* 3. Images Layout (Container for Logo series - top: 49px, left: 530px) */}
+        {/* Using the LogoCarousel here, restricted by the original absolute container */}
+        <div
+          className="absolute w-[922px] h-[144px] overflow-hidden"
+          style={{ top: '49px', left: '530px' }}
+        >
+          <LogoCarousel logos={logos} />
+        </div>
+        
+        {/* NOTE: If you needed the original hard-coded absolute image positions for desktop, 
+                 they would replace the LogoCarousel call above. However, using the Carousel 
+                 here maintains the requested animation on desktop too. */}
+      </div>
+      
+      
+      {/* ------------------------------------------- */}
+      {/* 2. MOBILE/TABLET LAYOUT (lg:hidden) - Fully responsive and stackable */}
+      {/* ------------------------------------------- */}
+      <div className="lg:hidden max-w-7xl mx-auto px-4 sm:px-6">
+        
+        {/* Header Content (Stacked) */}
+        <div className="mb-8">
+          {/* 1. Heading: Trusted by 50+ Clients */}
+          <h2 className="font-['Nunito_Sans'] font-medium text-3xl sm:text-4xl text-black mb-3">
+            Trusted by 50+ Clients
+          </h2>
+          
+          {/* 2. Description */}
+          <p className="font-['Nunito_Sans'] font-normal text-base sm:text-lg text-black max-w-md">
+            Trusted by leading schools and institutions that care for student well-being.
+          </p>
         </div>
 
+        {/* 3. Images Layout (Animated Logo Carousel) */}
+        <div className="mt-8">
+          <LogoCarousel logos={logos} />
+        </div>
       </div>
     </section>
   );
 };
 
 
-const Trusted = () => {
-  return(
-    <section 
-      className="relative mx-auto w-full h-[241px] bg-[#F6F2EB] opacity-100" 
-      style={{ 
-        // marginTop to separate from Testimonials section might be required here based on full layout
-        overflow:"hidden"
+
+
+
+
+
+const LastSection = () => {
+  const Footer = (
+    <main
+      className="relative top-[400px] w-full text-[#5B4A3E] pb-5"
+      style={{
+        background:
+          "linear-gradient(125.54deg, #5B4B3E -12.44%, #F6F1EB -2.52%, #E8DED4 19.98%, #ABA093 80.72%, #8A8077 101.75%)",
       }}
     >
-      
-      {/* 1. Heading: Trusted by 50+ Clients (Relative Top: 66px) */}
-      <p
-        style={{
-          position: 'absolute',
-          top: '66px', // Adjusted relative position
-          left: '86px',
-          width: '410px',
-          height: '55px',
-          fontFamily: 'Nunito Sans',
-          fontWeight: 500,
-          fontSize: '40px',
-          lineHeight: '100%',
-          letterSpacing: '0%',
-          color: '#000000',
-        }}
-      >
-        Trusted by 50+ Clients
-      </p>
-      
-      {/* 2. Description (Relative Top: 135px) */}
-      <p
-        style={{
-          position: 'absolute',
-          top: '135px', // Adjusted relative position
-          left: '86px',
-          width: '406px',
-          height: '50px',
-          fontFamily: 'Nunito Sans',
-          fontWeight: 400,
-          fontSize: '18px',
-          lineHeight: '100%',
-          letterSpacing: '0%',
-          color: '#000000',
-        }}
-      >
-        Trusted by leading schools and institutions that care for student well-being.
-      </p>
-
-      {/* 3. Images Layout (Container for Logo series - Relative Top: 49px) */}
+      {/* Overlay Image */}
       <div
+        className="absolute right-0 pointer-events-none z-0"
         style={{
-          position: 'absolute',
-          top: '49px', // Adjusted relative position
-          left: '530px',
-          width: '922px',
-          height: '144px',
-          opacity: 1,
+          top: "50px",
+          bottom: "-20px",
+          width: "auto",
+          maxHeight: "calc(100% - 70px)",
         }}
       >
-        {/* 4. seriesImage layout (Logo Row) */}
-        <div
-          style={{
-            position: 'relative', // Set to relative to position images inside it
-            top: '24px',
-            width: '1388.44px', // Width is large, suggesting logos scroll or extend beyond 922px parent
-            height: '96px',
-            opacity: 1,
-            overflow : "hidden"
-          }}
-        >
-          {/* Logo 1 */}
-          <Image
-            src={t1}
-            alt="Trusted Client Logo 1"
-            width={96.95}
-            height={96}
-            style={{ 
-              position: 'absolute',
-              left: '32px',
-              width: '96.95px',
-              height: '96px',
-              opacity: 1,
-            }}
-          />
+        <Image
+          src={footerBgLogo}
+          alt="footer overlay logo"
+          width={500}
+          height={500}
+          style={{ height: "100%", width: "auto", objectFit: "contain", opacity: 0.1 }}
+          priority
+        />
+      </div>
 
-          {/* Logo 2 */}
-          <Image
-            src={t2}
-            alt="Trusted Client Logo 2"
-            width={134.39}
-            height={96}
-            style={{ 
-              position: 'absolute',
-              left: '192.95px',
-              width: '134.39px',
-              height: '96px',
-              opacity: 1,
-            }}
-          />
+      <div className="relative z-10 mx-auto max-w-[1350px] px-8 md:px-12 lg:px-16 xl:px-20 pt-[200px] pb-[120px]">
+        <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-24">
+          <div className="max-w-[360px]">
+            <Image src={headerLogo} alt="Mind Alot logo" width={150} height={40} />
+            <p className="mt-6 text-[15px] leading-relaxed">
+              Anonymous support that listens, nudges, and grows with you. When your mind feels too much, we’re just a tap away.
+            </p>
 
-          {/* Logo 3 (First occurrence of 106.55px wide image) */}
-          <Image
-            src={t3}
-            alt="Trusted Client Logo 3"
-            width={106.55}
-            height={96}
-            style={{ 
-              position: 'absolute',
-              left: '391.34px',
-              width: '106.55px',
-              height: '96px',
-              opacity: 1,
-            }}
-          />
+            <div className="mt-10 flex flex-wrap items-center gap-10">
+              <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B]">
+                <span className="text-[28px] leading-none">•</span> Terms & Conditions
+              </Link>
+              <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B]">
+                <span className="text-[28px] leading-none">•</span> Privacy Policy
+              </Link>
+            </div>
+          </div>
 
-          {/* Logo 4 (Second occurrence of 106.55px wide image at the SAME left position) 
-             * Note: The style shows two images with the exact same width and left: 391.34px. 
-             * This likely indicates a copy/paste error in the original design and they will overlap.
-             * I will place the next unique logo (logo D) at the next expected position.
-             * Since the next logo is at 561.89px, I will place logo D there and skip the overlapping instruction, 
-             * assuming the designer meant to remove one of the 391.34px images. If you confirm it should overlap, let me know.
-            */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <ul className="flex flex-col gap-3 text-[15px]">
+              <li>
+                <Link href="/features" className="hover:text-[#8C7A6B]">
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-[#8C7A6B]">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/resource" className="hover:text-[#8C7A6B]">
+                  Resources
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-          {/* Logo 5 (Original request specified 561.89px) */}
-          <Image
-            src={t4}
-            alt="Trusted Client Logo 4"
-            width={102.72}
-            height={96}
-            style={{ 
-              position: 'absolute',
-              left: '561.89px', // Position used for the next unique logo
-              width: '102.72px',
-              height: '96px',
-              opacity: 1,
-            }}
-          />
-          
-          {/* Logo 6 (Original request specified 728.61px) */}
-          <Image
-            src={t5}
-            alt="Trusted Client Logo 5"
-            width={104.63} // Rounded from 104.62999725341797
-            height={96}
-            style={{ 
-              position: 'absolute',
-              left: '710.61px',
-              width: '104.63px',
-              height: '96px',
-              opacity: 1,
-            }}
-          />
+          <div className="max-w-[320px]">
+            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <div className="flex flex-col gap-4 text-[15px]">
+              <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
+                <Mail size={18} stroke="#5B4A3E" />{" "}
+                <a href="mailto:support@mindalot.com">support@mindalot.com</a>
+              </div>
+              <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
+                <Phone size={18} stroke="#5B4A3E" /> +91-96062-58596
+              </div>
+              <div className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight">
+                <MapPin size={18} stroke="#5B4A3E" />
+                #122K, 1st block, 14th cross, 19th 'B' Main,<br />
+                Rajajinagar, Bengaluru – 560010
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Follow us on</h3>
+            <div className="flex items-center gap-5">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                <Instagram stroke="#5B4A3E" size={26} className="hover:opacity-70" />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                <FaLinkedin color="#5B4A3E" size={26} className="hover:opacity-70" />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                <IoLogoYoutube color="#5B4A3E" size={30} className="hover:opacity-70" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      
+    </main>
+  );
+
+  return (
+    <section className="relative mx-auto w-full min-h-[1000px] bg-white">
+      {/* CTA Wrapper */}
+   {/* CTA Wrapper */}
+<div
+  className="
+    absolute 
+    top-[156px] md:top-[156px] 
+    left-0 right-0 mx-auto 
+    z-40
+
+    w-[1250px] md:w-[1250px]
+    max-w-[95%] md:max-w-none
+
+    h-auto md:h-[360px]
+
+    px-4 md:px-0
+    py-10 md:py-0
+
+    rounded-[20px] md:rounded-[30px]
+  "
+  style={{
+    border: "10px solid #FFFFFF",
+    backgroundColor: "#BFBFBD",
+    opacity: 1,
+    overflow: "hidden",
+  }}
+>
+        {/* Background image container - must not capture pointer events */}
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <Image
+            src={rocksImage}
+            alt="CTA Background"
+            fill
+            className="object-cover"
+            style={{
+              border: "10px solid",
+              borderImageSource:
+                "linear-gradient(94.54deg, #9C7A64 0.44%, #624D37 19.66%, #D8D0CA 73.19%, #94897F 100%)",
+              borderImageSlice: 1,
+            }}
+            priority
+          />
+        </div>
+
+        <div className="relative z-20 flex h-full flex-col items-center justify-center pt-[30px]">
+    <p
+  className="
+    text-center font-semibold 
+    text-[28px] sm:text-[36px] md:text-[50px]
+    leading-[38px] sm:leading-[52px] md:leading-[70px]
+    max-w-full md:w-[863px]
+    px-2 md:px-0
+  "
+  style={{
+    fontFamily: "var(--font-inter-sans)",
+    letterSpacing: "-0.06em",
+    color: "#F6F2EB",
+    margin: "0 0 10px 0",
+  }}
+>
+  Take the first step toward feeling better.
+</p>
+
+
+         <p
+  className="
+    text-center font-normal
+    text-[15px] sm:text-[17px] md:text-[20px]
+    leading-[24px] sm:leading-[28px] md:leading-[35px]
+    max-w-full md:w-[684px]
+    px-3 md:px-0
+  "
+  style={{
+    fontFamily: "var(--font-inter-sans)",
+    letterSpacing: "-0.03em",
+    color: "#FFFFFF",
+    margin: "0 0 40px 0",
+  }}
+>
+  Start talking. Stay anonymous. Feel lighter. Because your mind matters a lot.
+</p>
+
+
+          {/* Buttons */}
+          <div
+            className="
+              z-30
+              flex flex-col md:flex-row 
+              gap-6 
+              mt-4 
+              w-full 
+              px-4 md:px-0 
+              justify-center 
+              items-center 
+              max-w-[700px] 
+              mx-auto
+            "
+          >
+            {/* Button 1 */}
+            <a
+              href="mailto:hello@mindalot.com"
+              className="
+                group relative 
+                flex items-center justify-center md:justify-start
+                w-full max-w-[212px] md:w-[212px] h-[60px] 
+                rounded-[30px] 
+                border-2 border-[#F6F2EB] 
+                bg-transparent no-underline overflow-hidden 
+                transition-all duration-300 
+                hover:border-0 hover:bg-[#5C4737]
+              "
+            >
+              <span
+                className="
+                  absolute top-[21px] left-[24px] 
+                  font-inter font-medium 
+                  text-[16px] leading-none 
+                  text-[#F6F2EB] 
+                  whitespace-nowrap 
+                  transition-colors duration-200
+                  max-md:relative max-md:top-auto max-md:left-auto max-md:text-center
+                "
+                style={{ letterSpacing: "-0.03em" }}
+              >
+                Talk To Our Team
+              </span>
+
+              <div
+                className="
+                  absolute top-[3px] left-[155px] 
+                  w-[50px] h-[50px] 
+                  rounded-full 
+                  flex items-center justify-center 
+                  bg-[#5B4A3E] 
+                  transition-all duration-300 
+                  group-hover:bg-white 
+                  group-hover:rotate-45 
+                  max-md:right-2
+                "
+              >
+                <Image
+                  src={newarrow}
+                  alt="arrow"
+                  width={18}
+                  height={18}
+                  className="block group-hover:hidden w-[18px] h-[18px]"
+                />
+                <Image
+                  src={blackarrow}
+                  alt="arrow"
+                  width={18}
+                  height={18}
+                  className="hidden group-hover:block w-[18px] h-[18px] transition-all"
+                />
+              </div>
+            </a>
+
+            {/* Button 2 */}
+            <a
+              href="https://discord.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                group relative 
+                flex items-center justify-center md:justify-start
+                w-full max-w-[212px] md:w-[212px] h-[60px] 
+                rounded-[30px] 
+                border-2 border-[#F6F2EB] 
+                bg-transparent no-underline overflow-hidden 
+                transition-all duration-300 
+                hover:border-0 hover:bg-[#5C4737]
+              "
+            >
+              <span
+                className="
+                  absolute top-[21px] left-[24px] 
+                  font-inter font-medium 
+                  text-[16px] leading-none 
+                  text-[#F6F2EB] 
+                  whitespace-nowrap 
+                  transition-colors duration-200
+                  max-md:relative max-md:top-auto max-md:left-auto max-md:text-center
+                "
+                style={{ letterSpacing: "-0.03em" }}
+              >
+                Partner With Us
+              </span>
+
+              <div
+                className="
+                  absolute top-[3px] left-[155px] 
+                  w-[50px] h-[50px] 
+                  rounded-full 
+                  flex items-center justify-center 
+                  bg-[#5B4A3E] 
+                  transition-all duration-300 
+                  group-hover:bg-white 
+                  group-hover:rotate-45 
+                  max-md:right-2
+                "
+              >
+                <Image
+                  src={newarrow}
+                  alt="arrow"
+                  width={18}
+                  height={18}
+                  className="block group-hover:hidden w-[18px] h-[18px]"
+                />
+                <Image
+                  src={blackarrow}
+                  alt="arrow"
+                  width={18}
+                  height={18}
+                  className="hidden group-hover:block w-[18px] h-[18px] transition-all"
+                />
+              </div>
+            </a>
+
+            {/* Button 3 */}
+            <a
+              href="https://play.google.com/store/games"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                group relative 
+                flex items-center justify-center md:justify-start
+                w-full max-w-[212px] md:w-[212px] h-[60px] 
+                rounded-[30px] 
+                border-2 border-[#F6F2EB] 
+                bg-transparent no-underline overflow-hidden 
+                transition-all duration-300 
+                hover:border-0 hover:bg-[#5C4737]
+              "
+            >
+              <span
+                className="
+                  absolute top-[21px] left-[24px] 
+                  font-inter font-medium 
+                  text-[16px] leading-none 
+                  text-[#F6F2EB] 
+                  whitespace-nowrap 
+                  transition-colors duration-200
+                  max-md:relative max-md:top-auto max-md:left-auto max-md:text-center
+                "
+                style={{ letterSpacing: "-0.03em" }}
+              >
+                Download App
+              </span>
+
+              <div
+                className="
+                  absolute top-[3px] left-[155px] 
+                  w-[50px] h-[50px] 
+                  rounded-full 
+                  flex items-center justify-center 
+                  bg-[#5B4A3E] 
+                  transition-all duration-300 
+                  group-hover:bg-white 
+                  group-hover:rotate-45 
+                  max-md:right-2
+                "
+              >
+                <Image
+                  src={newarrow}
+                  alt="arrow"
+                  width={18}
+                  height={18}
+                  className="block group-hover:hidden w-[18px] h-[18px]"
+                />
+                <Image
+                  src={blackarrow}
+                  alt="arrow"
+                  width={18}
+                  height={18}
+                  className="hidden group-hover:block w-[18px] h-[18px] transition-all"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      {Footer}
     </section>
-  )
-}
-
-
+  );
+};
 
 
 
@@ -1699,6 +1793,7 @@ return (
       <Features/>
       <Testimonials/>
       <Trusted/>
+      <LastSection/>
     </>
   );
 }
