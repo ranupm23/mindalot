@@ -226,10 +226,6 @@ const HeroSection = () => {
   );
 };
 
-
-
-
-
 // ========== OFFER SECTION =========
 const OfferSection = () => {
   return (
@@ -243,11 +239,10 @@ const OfferSection = () => {
       }}
     >
     
-
   
-      {/* Heading Layout */}
-      <div
-  // Desktop styles for absolute positioning
+    {/* Heading Layout */}
+   
+<div
   style={{
     width: "713px",
     height: "68px",
@@ -256,39 +251,49 @@ const OfferSection = () => {
     left: "84px",
     opacity: 1,
   }}
-  // Mobile styles: relative positioning, full width, padding, margin-bottom
-  className="max-md:relative max-md:w-full max-md:px-4 max-md:top-auto max-md:left-auto max-md:mb-8 max-md:!static"
+  className="
+    max-md:!relative 
+    max-md:!w-full 
+    max-md:!h-auto
+    max-md:!px-4 
+    max-md:!top-auto 
+    max-md:!left-0
+    max-md:!mb-6 
+    max-md:!static
+    max-md:overflow-visible
+  "
 >
   <h1
     className="
       font-nunito font-bold 
-      text-[50px] leading-[100%] 
-      break-words 
-      max-md:!text-[32px] max-md:leading-[120%] 
-      max-sm:!text-[28px] max-[420px]:!text-[24px]
+      text-[50px] leading-[100%]
+      break-words
+
+      max-lg:text-[42px]
+      max-md:text-[32px]
+      max-sm:text-[26px]
+      max-[430px]:text-[22px]
+      max-[360px]:text-[20px]
+      max-[320px]:text-[18px]
     "
     style={{
       fontFamily: "Nunito Sans",
       fontWeight: 700,
-      fontSize: "50px", // Desktop stays the same
-      lineHeight: "100%",
-      letterSpacing: "0%",
       margin: 0,
     }}
   >
     What{" "}
     <span
       className="
-        max-md:!text-[32px] 
-        max-sm:!text-[28px] 
-        max-[420px]:!text-[24px]
+        max-md:text-[32px]
+        max-sm:text-[26px]
+        max-[430px]:text-[22px]
+        max-[360px]:text-[20px]
+        max-[320px]:text-[18px]
       "
       style={{
         fontFamily: "Nunito Sans",
         fontWeight: 700,
-        fontSize: "50px", // Desktop font
-        lineHeight: "100%",
-        letterSpacing: "0%",
       }}
     >
       we
@@ -296,12 +301,6 @@ const OfferSection = () => {
     offer to universities?
   </h1>
 </div>
-
-
-
-
-
-
       {/* Cards Container - Mobile: Stacked, full width, with gap */}
       <div className="max-md:flex max-md:flex-col max-md:gap-6">
         {/* --- Card 1 --- */}

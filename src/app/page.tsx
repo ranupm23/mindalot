@@ -1,2999 +1,1872 @@
+"use client"
 import Image from "next/image";
 import Footer from "../components/Footer";
+import {StaticImageData} from "next/image"
 import Link from "next/link";
 import arrow from "../assets/arrow.svg";
+import Homebg from "../assets/home-page/hero/rock.png";
+import line from "../assets/home-page/ourDiffrent/m1.png";
+import w1 from "../assets/home-page/deserves/w1.png";
+import w2 from "../assets/home-page/deserves/w2.png";
+import w3 from "../assets/home-page/deserves/w3.png";
+import w4 from "../assets/home-page/deserves/w4.png";
+import w5 from "../assets/home-page/deserves/w5.png";
+import w6 from "../assets/home-page/deserves/w6.png";
+import fi1 from "../assets/home-page/features/Frame.png";
+
+import f1l from "../assets/home-page/features/Line 15.png";
+import featureIcon2 from "../assets/home-page/features/gps.png"; // F2 Icon
+import dividerImage2 from "../assets/home-page/features/Line 15.png"; 
+import featureIcon3 from '../assets/home-page/features/search-normal.png'; // F3 Icon
+import dividerImage3 from '../assets/home-page/features/Line 15.png'; // Divider 3
+import featureIcon4 from '../assets/home-page/features/task.png'; // F4 Icon
+import featureIcon5 from '../assets/home-page/features/video-circle.png';
+import featureIcon6 from '../assets/home-page/features/briefcase.png';
+import featureIcon7 from '../assets/home-page/features/ai-hospital.png';
+import featureIcon8 from '../assets/home-page/features/diagram.png';
+import largeLeftImage from '../assets/home-page/testemonial/Ellipse 47.png'; // 225x450px image
+import testimonialIcon from '../assets/home-page/testemonial/teste2.jpg'; // 50x50px circular icon
+import leftQuoteImage from '../assets/home-page/testemonial/Vector.png'; // 125x125px rotated image
+import rightQuoteImage from '../assets/home-page/testemonial/Vector.png'; // 125x125px rotated image
+import largeRightImage from '../assets/home-page/testemonial/face.png'; // 584x548px image
+import testimonialIcon2 from '../assets/home-page/testemonial/teste1.jpg';
+import testimonialImageLarge from '../assets/home-page/testemonial/Ellipse 52.png'; // 160x160 image
+import testimonialImageSmall from '../assets/home-page/testemonial/Ellipse 51.png'; // 100
+import testimonialImageCircle from '../assets/home-page/testemonial/teste3.jpg'; 
+import t1 from "../assets/home-page/trusted/trust1.png";
+import t2 from "../assets/home-page/trusted/trust2.png";
+import t3 from "../assets/home-page/trusted/trust3.png";
+import t4 from "../assets/home-page/trusted/trust4.png";
+import t5 from "../assets/home-page/trusted/trust5.png";
+import newarrow from '../assets/home-page/Footer/ffoarrow.png'; 
+import  rocksImage from "../assets/home-page/Footer/fo1.png";
+import blackarrow from '../assets/home-page/Footer/black arr.png';
+import CTAButton from "@/components/CTAButton";
+import { Footprints } from "lucide-react";
+import { useState } from 'react';
+
+
+// Placeholder assets - **You must define these imports in your file**
+// You'll need to update these paths in your actual file
+
+import headerLogo from "@/assets/header-assets/headerLogo.png";
+import footerBgLogo from "@/assets/footer-assets/footer-background-logo.png";
+
+// Icon Imports
+import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io";
+
+
 
 export default function Home() {
+
+
+const HomeHero = () => {
   return (
-    <main style={{ backgroundColor: '#FDFDFD', overflow: 'hidden' }}>
+    <section
+      className="
+        relative 
+        w-full 
+        overflow-hidden
+        
+        /* MOBILE DEFAULTS (Flex Column) */
+        flex flex-col items-center justify-center
+        min-h-screen
+        bg-cover bg-center
+        
+        /* DESKTOP (Restoring your exact layout) */
+        lg:block
+        lg:h-[864px]
+        lg:bg-no-repeat
+        lg:bg-[length:1440px_864px]
+        lg:bg-[position:0px_0px]
+      "
+      // We pass the URL here, but control position/size in className above
+      style={{
+        backgroundImage: `url('${Homebg.src}')`,
+      }}
+    >
+      {/* GRADIENT OVERLAY */}
       <div
+        className="
+          absolute top-0 left-0 z-10 backdrop-blur-[60px]
+          
+          /* Mobile */
+          w-full h-full
+
+          /* Desktop Original */
+          lg:w-[720px] 
+        "
         style={{
-          width: '100%',
-          maxWidth: '1440px',
-          height: '5567px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          position: 'relative',
-          backgroundColor: '#FDFDFD',
-          paddingRight: '20px',
-          paddingLeft: '20px',
-          boxSizing: 'border-box',
+          background:
+            "linear-gradient(134.5deg, rgba(91,74,62,0.7) 2.41%, rgba(117,88,64,0.7) 73.14%, rgba(0,0,0,0.595) 100%)",
         }}
-      >
+      />
+
+      {/* --- CONTENT CONTAINER (Mobile padding) --- */}
+      {/* On Desktop (lg), this div essentially becomes invisible/static to let children absolute position themselves */}
+      <div className="relative z-20 flex flex-col items-center w-full lg:block lg:w-full lg:h-full py-10 lg:p-0 gap-6 lg:gap-0">
+
+        {/* MIND — IMAGE CUTOUT */}
         <div
+          className="
+            /* Mobile */
+            relative
+            w-auto
+            h-auto
+            text-[120px]
+            text-transparent
+            bg-clip-text
+            [-webkit-background-clip:text]
+            /* On mobile we use solid color, no bg-clip to avoid broken visuals */
+
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[566px]
+            lg:h-[242px]
+            lg:top-[158px]
+            lg:left-[154px]
+            font-inter
+            font-semibold
+            lg:text-[200px]
+            leading-none
+            tracking-[0.06em]
+            text-center
+            
+            /* Desktop Clip Styles */
+            lg:text-transparent
+            lg:bg-clip-text
+            lg:[-webkit-background-clip:text]
+            lg:bg-no-repeat
+            lg:bg-[length:1440px_864px]
+            lg:bg-[position:-154px_-158px]
+          "
           style={{
-            position: 'absolute',
-            top: '121px',
-            left: '816px',
-            width: '538px',
-            height: '500px',
-            borderRadius: '20px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-            zIndex: 1,
+             // Only apply background image logic on desktop via classes above, 
+             // but we need the URL available for the clip to work on desktop.
+             // We use a conditional style or just pass it and let mobile ignore the clip.
+             backgroundImage: `url('${Homebg.src}')`,
           }}
         >
-          <Image
-            src="/images/hero-woman-yoga.jpg"
-            alt="Hero Woman"
-            width={538}
-            height={500}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-            }}
-          />
+          MIND
         </div>
 
-        {/* Rectangle with Background and Noise */}
+        {/* SUPPORTING TEXT */}
         <div
-          style={{
-            position: 'absolute',
-            top: '225px',
-            left: '675px',
-            width: '254px',
-            height: '202px',
-            borderRadius: '10px',
-            backgroundColor: '#BE9B8433',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            zIndex: 99,
-            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.15)',
-          }}
+          className="
+            /* Mobile */
+            relative
+            w-full px-6
+            h-auto
+            text-[18px]
+            text-center
+
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[497px]
+            lg:h-[58px]
+            lg:top-[512px]
+            lg:left-[150px]
+            font-inter
+            font-normal
+            lg:text-[24px]
+            leading-[100%]
+            tracking-[-0.06em]
+            text-[#FDE2CD]
+            lg:text-left
+          "
         >
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              borderRadius: '10px',
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.35'/%3E%3C/svg%3E")`,
-              backgroundSize: '0.5px 0.5px',
-              mixBlendMode: 'multiply',
-              pointerEvents: 'none',
-            }}
-          />
+          You don’t have to say who you are to
+          <br />
+          start feeling better
         </div>
 
-        {/* Headline Text */}
-        <h1
-          style={{
-            position: 'absolute',
-            top: '144px',
-            left: '66px',
-            width: '695px',
-            height: '240px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '60px',
-            lineHeight: '80px',
-            letterSpacing: '-6%',
-            color: '#5C4737',
-          }}
-        >
-          You Don't Have to Say Who You Are to<br />Start Feeling Better
-        </h1>
-
-        {/* Line below headline */}
+        {/* A — IMAGE CUTOUT */}
         <div
-          style={{
-            position: 'absolute',
-            top: '383px',
-            left: '90px',
-            width: '502px',
-            height: '1px',
-            borderTop: '3px solid #000000',
-          }}
-        />
+          className="
+            /* Mobile */
+            relative
+            w-auto
+            h-auto
+            text-[120px]
+            text-transparent
+            bg-clip-text
+            [-webkit-background-clip:text]
 
-        {/* Description Text */}
-        <p
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[145px]
+            lg:h-[242px]
+            lg:top-[400px]
+            lg:left-[575px]
+            font-inter
+            font-semibold
+            lg:text-[200px]
+            leading-none
+            tracking-[0.06em]
+            text-center
+            
+            /* Desktop Clip Styles */
+            lg:text-transparent
+            lg:bg-clip-text
+            lg:[-webkit-background-clip:text]
+            lg:bg-no-repeat
+            lg:bg-[length:1440px_864px]
+            lg:bg-[position:-575px_-400px]
+          "
           style={{
-            position: 'absolute',
-            top: '408px',
-            left: '66px',
-            width: '444px',
-            height: '70px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '18px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#0D0D0D',
-          }}
-        >
-          No bookings, No waiting, No judgement. Just real help, right when you need it.
-        </p>
-
-        {/* Start Chat Now Button (links to Discord) */}
-        <a
-          href="https://discord.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-btn group"
-          style={{
-            position: 'absolute',
-            top: '498px',
-            left: '66px',
-            width: '212px',
-            height: '60px',
-            backgroundColor: '#967B6A',
-            borderRadius: '30px',
-            border: 'none',
-            cursor: 'pointer',
-            paddingLeft: '24px',
-            paddingRight: '24px',
-            display: 'block',
-            textDecoration: 'none',
+             backgroundImage: `url('${Homebg.src}')`,
           }}
         >
-          <span
-            style={{
-              position: 'absolute',
-              top: '21px',
-              left: '24px',
-              width: '112px',
-              height: '19px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '100%',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              display: 'flex',
-              alignItems: 'center',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Start Chat Now
-          </span>
+          A
+        </div>
 
-          {/* Circle */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '5px',
-              left: '157px',
-              width: '50px',
-              height: '50px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {/* Arrow Image */}
-            <Image
-              src={arrow}
-              alt="arrow"
-              width={18}
-              height={18}
-              className='m-auto group-hover:rotate-45 transition-all'
-            />
-          </div>
-        </a>
+        {/* RIGHT DESCRIPTION TEXT */}
+        <div
+          className="
+            /* Mobile */
+            relative
+            w-full px-6
+            h-auto
+            text-center
+            text-[#F6F2EB]
+            mt-4
 
-        {/* Download the App Button (links to Play Store) */}
-        <a
-          href="https://play.google.com/store/games"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-btn group"
-          style={{
-            position: 'absolute',
-            top: '498px',
-            left: '298px',
-            width: '235px',
-            height: '60px',
-            backgroundColor: '#967B6A',
-            borderRadius: '30px',
-            border: 'none',
-            cursor: 'pointer',
-            display: 'block',
-            textDecoration: 'none',
-          }}
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[373px]
+            lg:h-[75px]
+            lg:top-[260px]
+            lg:left-[783px]
+            font-inter
+            font-normal
+            text-[16px]
+            leading-[25px]
+            tracking-[-0.03em]
+            lg:text-right
+            lg:text-[#1C1C1BCC]
+            lg:mt-0
+          "
         >
-          <span
-            style={{
-              position: 'absolute',
-              top: '21px',
-              left: '24px',
-              width: '134px',
-              height: '19px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '100%',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              display: 'flex',
-              alignItems: 'center',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Download the App
-          </span>
+          Mind A Lot is an anonymous, app-based counselling platform that connects
+          you instantly to a real, trained professional
+        </div>
 
-          {/* Circle */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '5px',
-              left: '180px',
-              width: '50px',
-              height: '50px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {/* Arrow Image */}
-            <Image
-              src={arrow}
-              alt="arrow"
-              width={18}
-              height={18}
-              className='m-auto group-hover:rotate-45 transition-all'
-            />
-          </div>
-        </a>
+        {/* LOT — SOLID BACKGROUND */}
+        <div
+          className="
+            /* Mobile */
+            relative
+            w-auto
+            h-auto
+            text-[120px]
 
-        {/* Your safe space text */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '578px',
-            left: '66px',
-            width: '265px',
-            height: '19px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '16px',
-            lineHeight: '100%',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            whiteSpace: 'nowrap',
-          }}
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[413px]
+            lg:h-[242px]
+            lg:top-[380px]
+            lg:left-[750px]
+            flex
+            items-center
+            justify-center
+            font-inter
+            font-semibold
+            lg:text-[200px]
+            leading-none
+            tracking-[0.06em]
+            text-center
+            text-[#F6F2EB]
+          "
+        >
+          LOT
+        </div>
+
+        {/* BOTTOM TAGLINE */}
+        <div
+          className="
+            /* Mobile */
+            relative
+            w-full
+            h-auto
+            mt-4
+
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[280px]
+            lg:h-[19px]
+            lg:top-[697px]
+            lg:left-[587px]
+            font-inter
+            font-bold
+            text-[16px]
+            leading-[100%]
+            tracking-[-0.03em]
+            text-[#F6F2EB]
+            text-center
+            lg:mt-0
+          "
         >
           Your safe space is just one tap away!
-        </p>
-        
-        {/* MIND A LOT Text */}
+        </div>
+
+        {/* CTA BUTTONS CONTAINER */}
         <div
-          style={{
-            position: 'absolute',
-            top: '641px',
-            left: '65px',
-            width: '1270px',
-            height: '242px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          className="
+            /* Mobile */
+            relative
+            w-full
+            h-auto
+            flex
+            flex-col
+            items-center
+            gap-[20px]
+            mt-6
+            mb-10
+
+            /* Desktop Original */
+            lg:absolute
+            lg:w-[467px]
+            lg:h-[60px]
+            lg:top-[772px]
+            lg:left-[490px]
+            lg:flex-row
+            lg:mt-0
+            lg:mb-0
+          "
         >
-          <span
-            style={{
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 600,
-              fontSize: '200px',
-              lineHeight: '100%',
-              letterSpacing: '0.06em',
-              textAlign: 'center',
-              color: '#967B6A',
-              whiteSpace: 'nowrap',
-            }}
+          {/* BUTTON 1 — OUTLINE */}
+          <button
+            className="
+              group
+              relative
+              w-[280px] lg:w-[212px] /* Wider on mobile for easier touch */
+              h-[60px]
+              rounded-[30px]
+              border-2
+              border-[#F6F2EB]
+              bg-transparent
+              transition-all
+              duration-300
+              hover:bg-[#5C4737]
+              hover:border-transparent
+            "
           >
-            MIND A LOT
-          </span>
-          </div>
+            {/* BUTTON TEXT */}
+            <span
+              className="
+                absolute
+                w-[110px]
+                h-[22px]
+                top-[19px]
+                left-[40px] lg:left-[20px]
+                font-['Nunito Sans']
+                font-medium
+                text-[16px]
+                leading-[100%]
+                tracking-[-0.03em]
+                text-[#F6F2EB]
+              "
+            >
+              Start chat now
+            </span>
+
+            {/* CIRCLE */}
+            <div
+              className="
+                absolute
+                w-[50px]
+                h-[50px]
+                top-[3px]
+                right-[3px] lg:right-auto lg:left-[155px]
+                rounded-full
+                bg-[#F6F2EB]
+                flex
+                items-center
+                justify-center
+              "
+            >
+              {/* ARROW IMAGE */}
+              <Image
+                src={arrow}
+                alt="arrow"
+                className="
+                  w-[16px]
+                  h-[16px]
+                  transform
+                  transition-transform
+                  duration-300
+                  group-hover:rotate-45
+                "
+              />
+            </div>
+          </button>
+
+          {/* BUTTON 2 — FILLED */}
+          <button
+            className="
+              group
+              relative
+              w-[280px] lg:w-[235px]
+              h-[60px]
+              rounded-[30px]
+              bg-[#F6F2EB]
+              transition-all
+              duration-300
+              hover:bg-[#5C4737]
+            "
+          >
+            {/* BUTTON TEXT */}
+            <span
+              className="
+                absolute
+                w-[159px]
+                h-[25px]
+                top-[20px]
+                left-[30px] lg:left-[20px]
+                font-['Nunito Sans']
+                font-medium
+                text-[18px]
+                leading-[100%]
+                tracking-[0]
+                text-[#5B4A3E]
+                transition-colors
+                duration-300
+                group-hover:text-white
+              "
+            >
+              Download the app
+            </span>
+
+            {/* CIRCLE */}
+            <div
+              className="
+                absolute
+                w-[50px]
+                h-[50px]
+                top-[5px]
+                right-[5px] lg:right-auto lg:left-[180px]
+                rounded-full
+                bg-[#FFFFFF]
+                flex
+                items-center
+                justify-center
+              "
+            >
+              {/* ARROW IMAGE */}
+              <Image
+                src={arrow}
+                alt="arrow"
+                className="
+                  w-[16px]
+                  h-[16px]
+                  transform
+                  transition-transform
+                  duration-300
+                  group-hover:rotate-45
+                "
+              />
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+const MakeUs = () => {
+  return (
+    // Section now uses fluid height/spacing instead of hardcoded h-[850px]
+    <section className="w-full py-16 px-4 sm:px-6 lg:px-8">
+      {/* Heading Layout - Centered and responsive margin */}
+      <h2
+        className="
+          text-3xl sm:text-4xl lg:text-5xl font-bold text-black text-left 
+          mx-auto mb-12 max-w-lg md:max-w-3xl lg:max-w-4xl 
+          font-[Nunito Sans, sans-serif] leading-tight
+        "
+      >
+        What makes us different ?
+      </h2>
+
+      {/* Responsive Grid Container for Cards */}
+      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
         
-        {/* Left Image */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '899px',
-            left: '66px',
-            width: '464px',
-            height: '214px',
-            borderRadius: '20px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-          }}
-        >
-          <Image
-            src="/images/left.jpg"
-            alt="Left Image"
-            width={464}
-            height={214}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-            }}
-          />
+        {/* Card 01 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              01
+            </div>
+            {/* Image (Assuming 'line' is defined and the Image component works) */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            Instant Human Support
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            Start chatting the moment you feel overwhelmed. No forms. No queues. No matching wait. A real counsellor responds in seconds.
+          </div>
         </div>
         
-        {/* Rectangle between images */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '899px',
-            left: '550px',
-            width: '300px',
-            height: '214px',
-            borderRadius: '10px',
-            border: '1px solid #000000',
-            backgroundColor: '#BE9B8433',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Text: Nearly 1 in 7 people worldwide experience a mental stress */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '919px',
-            left: '570px',
-            width: '260px',
-            height: '105px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '24px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          &quot;Nearly 1 in 7 people worldwide experience a mental stress&quot;
-        </p>
-        
-        {/* Text: World Health Organization */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1074px',
-            left: '600px',
-            width: '201px',
-            height: '19px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '16px',
-            lineHeight: '100%',
-            letterSpacing: '-3%',
-            color: '#755840',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          - World Health Organization
-        </p>
-        
-        {/* Arrow 1 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '273px',
-            left: '859.77px',
-            width: '35.00000014290124px',
-            height: '0px',
-            borderTop: '2px solid #755840',
-            opacity: 1,
-            transform: 'rotate(-119.5deg)',
-            transformOrigin: 'left center',
-            zIndex: 21,
-          }}
-        />
-        
-        {/* Text: Mind A Lot is an anonymous... */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '311px',
-            left: '691px',
-            width: '204px',
-            height: '100px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 400,
-            fontSize: '14px',
-            lineHeight: '25px',
-            letterSpacing: '-0.03em',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            zIndex: 21,
-          }}
-        >
-          Mind A Lot is an anonymous, app-based counselling platform that connects you instantly to a real, trained professional
-        </p>
-        
-        {/* Star 1 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '566px',
-            left: '1094px',
-            width: '30px',
-            height: '30px',
-            borderRadius: '1px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            zIndex: 21,
-          }}
-        >
-          <Image
-            src="/icons/Star 1.png"
-            alt="Star"
-            width={30}
-            height={30}
-            style={{
-              objectFit: 'contain',
-            }}
-          />
-              </div>
-        
-        {/* Rectangle 28 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '561px',
-            left: '1087px',
-            width: '247px',
-            height: '40px',
-            borderRadius: '20px',
-            backgroundColor: '#BE9B8433',
-            backdropFilter: 'blur(25px)',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            zIndex: 20,
-          }}
-        />
-        
-        {/* Text: Rediscover Your Inner Peace */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '572px',
-            left: '1134px',
-            width: '179px',
-            height: '17px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 400,
-            fontSize: '14px',
-            lineHeight: '100%',
-            letterSpacing: '-0.03em',
-            color: '#FFFFFF',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            zIndex: 21,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Rediscover Your Inner Peace
-        </p>
-        
-        {/* Right Image */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '899px',
-            left: '870px',
-            width: '464px',
-            height: '214px',
-            borderRadius: '20px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-          }}
-        >
-          <Image
-            src="/images/right.jpg"
-            alt="Right Image"
-            width={464}
-            height={214}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-            }}
-          />
+        {/* Card 02 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              02
+            </div>
+            {/* Image */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
           </div>
+
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            100% Anonymous
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            You can choose a nickname. Your real identity stays private.. Even our counsellors won’t know who you are. Feel safe, share freely.
+          </div>
+        </div>
+
+        {/* Card 03 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              03
+            </div>
+            {/* Image */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            Flexible Access
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            Want to choose your own counsellor? Prefer video or voice? You can book that.
+          </div>
+        </div>
+
+        {/* Card 04 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              04
+            </div>
+            {/* Image */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            Goal-Based Nudges
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time.
+          </div>
+        </div>
+
+        {/* Card 05 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              05
+            </div>
+            {/* Image */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            Mood Tracker
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn’t need to hurt you again.
+          </div>
+        </div>
+
+        {/* Card 06 */}
+        <div className="flex flex-col space-y-4">
+          <div className="relative">
+            {/* Number */}
+            <div
+              className="
+                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
+                font-['Inter, sans-serif']
+              "
+            >
+              06
+            </div>
+            {/* Image */}
+            <Image
+              src={line}
+              alt="line"
+              className="
+                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
+                hover:w-[140px]
+              "
+            />
+          </div>
+
+          {/* Title */}
+          <div
+            className="
+              text-xl sm:text-2xl font-semibold text-[#5C4737] 
+              font-['Inter, sans-serif'] mt-6
+            "
+          >
+            Self-Discovery Tools & Library
+          </div>
+          
+          {/* Description */}
+          <div
+            className="
+              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
+              font-['Inter, sans-serif']
+            "
+          >
+            Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling.
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+
+
+const Whowant = () => {
+  interface CardProps {
+  imageSrc: string | StaticImageData;
+  altText: string;
+  title: string;
+}
+
+  const Card = ({ imageSrc, altText, title }: CardProps) => (
+  <div className="relative w-full overflow-hidden rounded-[12px] shadow-lg aspect-[4/3] sm:aspect-auto sm:h-[300px]">
+    <Image 
+      src={imageSrc} 
+      alt={altText} 
+      fill 
+      className="object-cover" 
+      sizes="(max-width: 640px) 100vw, 50vw"
+    />
+    
+    {/* Gradient Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/10" />
+    {/* Text */}
+    <div className="absolute bottom-5 left-5 text-white text-xl sm:text-2xl font-semibold font-['Inter'] leading-tight">
+      {title}
+    </div>
+  </div>
+);
+  return (
+    // Section uses flexible padding on small screens, and the original fixed height on large screens (lg)
+    <section className="w-full bg-[#F6F2EB] py-10 sm:py-16 px-4 sm:px-6 lg:h-[1169px] lg:p-0 relative">
+
+      {/* ------------------------------------------- */}
+      {/* 1. DESKTOP-ONLY LAYOUT (lg:block) - Keeps original absolute positioning */}
+      {/* ------------------------------------------- */}
+      <div className="hidden lg:block w-full h-full relative">
+        {/* All original absolute elements are placed here, but their `top` values must be relative to the section's top (1787px - 1787px = 0px).
+            Since the original code used extreme `top` values, I'm adjusting them to be relative to the start of this section.
+            I will use the original delta between elements: (1787px - original_top) for the new relative top.
+            
+            Original: top-[1787px] -> New: top-0
+            Original: top-[1868px] -> New: top-[81px] (1868 - 1787)
+            Original: top-[1972px] -> New: top-[185px] (1972 - 1787)
+            ... and so on.
+            
+            However, to simplify, I will assume the original top value of 1787px was the intended top offset of the *whole component* from the top of the document. 
+            I'll use a `top` offset inside a `relative` container to maintain the exact look.
+        */}
+        <div className="w-full h-full absolute top-[1787px]"> 
+          {/* This wrapper is an attempt to preserve the original component's position relative to the document body if that was necessary. 
+              A cleaner approach is to use the first element's 'top' as the reference point (top-0) inside the `lg:h-[1169px] relative` section.
+              Let's use the cleaner, relative-to-section approach: */}
+        </div>
         
-        {/* What Makes Us Different ? */}
-        <h2
-          style={{
-            position: 'absolute',
-            top: '1208px',
-            left: '66px',
-            width: '570px',
-            height: '61px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '50px',
-            lineHeight: '100%',
-            letterSpacing: '-6%',
-            color: '#5C4737',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          What Makes Us Different ?
+        {/* Heading */}
+        <h2 className="absolute top-0 left-[44px] w-[321px] h-[68px] font-['Nunito_Sans'] font-bold text-[50px] text-black">
+          Who it’s For ?
+        </h2>
+
+        {/* Description */}
+        <p className="absolute top-[81px] left-[44px] w-[381px] text-[18px] text-black/80 font-['Nunito_Sans']">
+          Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
+        </p>
+
+        {/* Quote Card */}
+        <div className="absolute top-[185px] left-[44px] w-[410px] h-[113px] bg-[#F8F8F8]" />
+
+        {/* Quote */}
+        <p className="absolute top-[204px] left-[59px] w-[331px] italic font-bold text-[16px]">
+          “ Wherever you are. Whoever you are. However you feel. ”
+        </p>
+
+        {/* Signature */}
+        <p className="absolute top-[267px] left-[239px] text-[16px]">
+          – Mind A Lot is here for you!
+        </p>
+
+        {/* Working Professionals (Original top: 2120px -> New top: 333px) */}
+        <div className="absolute top-[333px] left-[44px] w-[410px] h-[262px] rounded-[12px] overflow-hidden">
+          <Image src={w1} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/90" />
+          <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
+            Working Professionals
+          </div>
+        </div>
+
+        {/* Students (Original top: 1787px -> New top: 0px) */}
+        <div className="absolute top-0 left-[476px] w-[410px] h-[594px] rounded-[12px] overflow-hidden">
+          <Image src={w2} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_72%,rgba(0,0,0,.6)_83%)]" />
+          <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
+            Students & Young Adults
+          </div>
+        </div>
+
+        {/* Others (Original top: 1787px -> New top: 0px) */}
+        <div className="absolute top-0 left-[906px] w-[410px] h-[594px] rounded-[12px] overflow-hidden">
+          <Image src={w3} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_76%,rgba(0,0,0,.8)_100%)]" />
+          <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
+            LGBTQ+ Community
+          </div>
+        </div>
+
+        {/* Older Adults (Original top: 2402px -> New top: 615px) */}
+        <div className="absolute top-[615px] left-[48px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
+          <Image src={w4} alt="Older Adults" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 74.16%, rgba(0, 0, 0, 0.7) 100%)" }} />
+          <div className="absolute top-[339px] left-[122px] w-[181px] h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white">
+            Older Adults
+          </div>
+        </div>
+
+        {/* Neurodivergent Users (Original top: 2402px -> New top: 615px) */}
+        <div className="absolute top-[615px] left-[480px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
+          <Image src={w5} alt="Neurodivergent Users" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.88%, rgba(0, 0, 0, 0.8) 100%)" }} />
+          <div className="absolute top-[339px] left-[54px] w-[322px] h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white text-center">
+            Neurodivergent Users
+          </div>
+        </div>
+
+        {/* Anyone Needing Support (Original top: 2402px -> New top: 615px) */}
+        <div className="absolute top-[615px] left-[910px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
+          <Image src={w6} alt="Anyone Needing Support" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.51%, rgba(0, 0, 0, 0.8) 100%)" }} />
+          <div className="absolute top-[339px] left-[32px] w-[366px] h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white text-center">
+            Anyone Needing Support
+          </div>
+        </div>
+      </div>
+      
+      
+      {/* ------------------------------------------- */}
+      {/* 2. MOBILE/TABLET LAYOUT (lg:hidden) - Fully responsive and stackable */}
+      {/* ------------------------------------------- */}
+      <div className="lg:hidden max-w-7xl mx-auto">
+        
+        {/* Header Content Group */}
+        <div className="mb-12">
+          {/* Heading */}
+          <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4 font-['Nunito_Sans']">
+            Who it’s For ?
           </h2>
-        
-        {/* 01 Text */}
-        <span
-          style={{
-            position: 'absolute',
-            top: '1319px',
-            left: '66px',
-            width: '53px',
-            height: '61px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '50px',
-            lineHeight: '100%',
-            color: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'inline-block',
-          }}
-        >
-          01
-        </span>
-        
-        {/* Line below 01 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '1392px',
-            left: '66px',
-            width: '410px',
-            height: '0px',
-            borderTop: '2px solid #000000D9',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Instant Human Support */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1412px',
-            left: '66px',
-            width: '256px',
-            height: '29px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '100%',
-            letterSpacing: '-3%',
-            color: '#5C4737',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Instant Human Support
-        </p>
-        
-        {/* Description below 01 */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1453px',
-            left: '66px',
-            width: '410px',
-            height: '75px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '14px',
-            lineHeight: '25px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          Start chatting the moment you feel overwhelmed. No forms, No queues, No matching wait. A real counsellor responds in seconds.
-        </p>
-        
-        {/* 02 Text */}
-        <span
-          style={{
-            position: 'absolute',
-            top: '1319px',
-            left: '496px',
-            width: '60px',
-            height: '61px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '50px',
-            lineHeight: '100%',
-            color: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'inline-block',
-          }}
-        >
-          02
-        </span>
-        
-        {/* Line below 02 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '1392px',
-            left: '496px',
-            width: '410px',
-            height: '0px',
-            borderTop: '2px solid #000000D9',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* 100% Anonymous */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1412px',
-            left: '496px',
-            width: '256px',
-            height: '29px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '100%',
-            letterSpacing: '-3%',
-            color: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          100% Anonymous
-        </p>
-        
-        {/* Description below 02 */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1453px',
-            left: '496px',
-            width: '403px',
-            height: '75px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '14px',
-            lineHeight: '25px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          You can choose a nickname. Your real identity stays private. Even your counsellors won't know who you are. Feel safe, share freely.
-        </p>
-        
-        {/* 03 Text */}
-        <span
-          style={{
-            position: 'absolute',
-            top: '1319px',
-            left: '926px',
-            width: '62px',
-            height: '61px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '50px',
-            lineHeight: '100%',
-            color: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'inline-block',
-          }}
-        >
-          03
-        </span>
-        
-        {/* Line below 03 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '1392px',
-            left: '926px',
-            width: '410px',
-            height: '0px',
-            borderTop: '2px solid #000000D9',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Flexible Access */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1412px',
-            left: '926px',
-            width: '256px',
-            height: '29px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '100%',
-            letterSpacing: '-3%',
-            color: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          Flexible Access
-        </p>
-        
-        {/* Description below 03 */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1453px',
-            left: '926px',
-            width: '410px',
-            height: '75px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '14px',
-            lineHeight: '25px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          Want to choose your own counsellor? Prefer video or voice? You can book that — all on your terms. Connect in the way that feels most comfortable for you.
-        </p>
-        
-        {/* 04 Text */}
-        <span
-          style={{
-            position: 'absolute',
-            top: '1578px',
-            left: '66px',
-            width: '62px',
-            height: '61px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '50px',
-            lineHeight: '100%',
-            color: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'inline-block',
-          }}
-        >
-          04
-        </span>
-        
-        {/* Line below 04 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '1651px',
-            left: '66px',
-            width: '410px',
-            height: '0px',
-            borderTop: '2px solid #000000D9',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Goal-Based Nudges */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1671px',
-            left: '66px',
-            width: '256px',
-            height: '29px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '100%',
-            letterSpacing: '-3%',
-            color: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          Goal-Based Nudges
-        </p>
-        
-        {/* Description below 04 */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1712px',
-            left: '66px',
-            width: '410px',
-            height: '75px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '14px',
-            lineHeight: '25px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time.
-        </p>
-        
-        {/* 05 Text */}
-        <span
-          style={{
-            position: 'absolute',
-            top: '1578px',
-            left: '496px',
-            width: '61px',
-            height: '61px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '50px',
-            lineHeight: '100%',
-            color: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'inline-block',
-          }}
-        >
-          05
-        </span>
-        
-        {/* Line below 05 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '1651px',
-            left: '496px',
-            width: '410px',
-            height: '0px',
-            borderTop: '2px solid #000000D9',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Mood Tracker */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1671px',
-            left: '496px',
-            width: '256px',
-            height: '29px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '100%',
-            letterSpacing: '-3%',
-            color: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          Mood Tracker
-        </p>
-        
-        {/* Description below 05 */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1712px',
-            left: '496px',
-            width: '410px',
-            height: '75px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '14px',
-            lineHeight: '25px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn't need to hurt you again.
-        </p>
-        
-        {/* 06 Text */}
-        <span
-          style={{
-            position: 'absolute',
-            top: '1578px',
-            left: '926px',
-            width: '62px',
-            height: '61px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '50px',
-            lineHeight: '100%',
-            color: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'inline-block',
-          }}
-        >
-          06
-        </span>
-        
-        {/* Line below 06 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '1651px',
-            left: '926px',
-            width: '410px',
-            height: '0px',
-            borderTop: '2px solid #000000D9',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Self-Discovery & Growth Tools */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1671px',
-            left: '926px',
-            width: '256px',
-            height: '29px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '100%',
-            letterSpacing: '-3%',
-            color: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Self-Discovery & Growth Tools
-        </p>
-        
-        {/* Description below 06 */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1712px',
-            left: '926px',
-            width: '410px',
-            height: '100px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '14px',
-            lineHeight: '25px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          Quick self-assessments, expert-curated videos, podcasts and real-life stories — all designed to help you understand your patterns, habits, stressors, and emotional needs, whenever you need clarity or a companion.
-        </p>
-        
-        {/* Who it's For ? */}
-        <h2
-          style={{
-            position: 'absolute',
-            top: '1912px',
-            left: '559px',
-            width: '283px',
-            height: '61px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '50px',
-            lineHeight: '100%',
-            letterSpacing: '-6%',
-            color: '#5C4737',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Who it's For ?
-          </h2>
-        
-        {/* Description: Mind A Lot is for everyone... */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '1993px',
-            left: '496px',
-            width: '408px',
-            height: '70px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '18px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            textAlign: 'center',
-            color: '#0D0D0D',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
+
+          {/* Description */}
+          <p className="text-base sm:text-lg text-black/80 max-w-lg mb-8 font-['Nunito_Sans']">
             Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
           </p>
-        
-        {/* Rectangle */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '2083px',
-            left: '496px',
-            width: '410px',
-            height: '113px',
-            backgroundColor: '#BE9B8433',
-            borderRadius: '10px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Text inside rectangle: Wherever you are. Whoever you are. However you feel. */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '2095px',
-            left: '511px',
-            width: '327px',
-            height: '60px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '16px',
-            lineHeight: '30px',
-            letterSpacing: '0%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          Wherever you are. Whoever you are. However you feel.
-        </p>
-        
-        {/* - Mind A Lot is here for you! */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '2165px',
-            left: '676px',
-            width: '214px',
-            height: '19px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '16px',
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            color: '#755840',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
-        >
-          - Mind A Lot is here for you!
-        </p>
-        
-        {/* Ellipse */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '2083px',
-            left: '856px',
-            width: '50px',
-            height: '49.89px',
-            borderRadius: '50%',
-            border: '2px solid #755840',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Arrow 1 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '2100px',
-            left: '873px',
-            width: '23.999999589257495px',
-            height: '0px',
-            borderTop: '2px solid #755840',
-            opacity: 1,
-            transform: 'rotate(-135deg)',
-            transformOrigin: 'center',
-          }}
-        />
-        
-        {/* Frame 1 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '1912px',
-            left: '66px',
-            width: '410px',
-            height: '594px',
-            borderRadius: '10px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-          }}
-        >
-          {/* Frame 1 Image */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '-123px',
-              left: '-42px',
-              width: '494.9px',
-              height: '717px',
-              borderRadius: '10px',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              overflow: 'hidden',
-            }}
-          >
-            <Image
-              src="/images/students-young-adults.jpg"
-              alt="Students & Young Adults"
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
-            />
-              </div>
-          
-          {/* Students & Young Adults Title */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '476px',
-              left: '20px',
-              width: '340px',
-              height: '36px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 600,
-              fontSize: '30px',
-              lineHeight: '100%',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Students & Young Adults
-          </p>
-          
-          {/* Frame 1 Description */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '524px',
-              left: '20px',
-              width: '370px',
-              height: '50px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '14px',
-              lineHeight: '25px',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-            }}
-          >
-            Facing exam stress, peer pressure, identity struggles, loneliness
-          </p>
+
+          {/* Quote Card */}
+          <div className="p-4 bg-[#F8F8F8] max-w-md rounded-md">
+            {/* Quote */}
+            <p className="italic font-bold text-base mb-2">
+              “ Wherever you are. Whoever you are. However you feel. ”
+            </p>
+            {/* Signature */}
+            <p className="text-base text-right">
+              – Mind A Lot is here for you!
+            </p>
           </div>
+        </div>
+
+        {/* Responsive Grid for Image Cards */}
+        {/* Stacks on mobile, 2 columns on tablet (sm) */}
+        <div className="grid gap-6 sm:grid-cols-2">
+
+          {/* Card: Students & Young Adults (w2) */}
+          <Card imageSrc={w2} altText="Students" title="Students & Young Adults" />
+
+          {/* Card: LGBTQ+ Community (w3) */}
+          <Card imageSrc={w3} altText="LGBTQ+ Community" title="LGBTQ+ Community" />
+          
+          {/* Card: Working Professionals (w1) */}
+          <Card imageSrc={w1} altText="Working Professionals" title="Working Professionals" />
+          
+          {/* Card: Older Adults (w4) */}
+          <Card imageSrc={w4} altText="Older Adults" title="Older Adults" />
+
+          {/* Card: Neurodivergent Users (w5) */}
+          <Card imageSrc={w5} altText="Neurodivergent Users" title="Neurodivergent Users" />
+          
+          {/* Card: Anyone Needing Support (w6) */}
+          <Card imageSrc={w6} altText="Anyone Needing Support" title="Anyone Needing Support" />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Extracted Card Component for responsive layout
+// interface CardProps {
+//   imageSrc: string;
+//   altText: string;
+//   title: string;
+// }
+
+// const Card = ({ imageSrc, altText, title }: CardProps) => (
+//   <div className="relative w-full overflow-hidden rounded-[12px] shadow-lg aspect-[4/3] sm:aspect-auto sm:h-[300px]">
+//     <Image 
+//       src={imageSrc} 
+//       alt={altText} 
+//       fill 
+//       className="object-cover" 
+//       sizes="(max-width: 640px) 100vw, 50vw"
+//     />
+    
+//     {/* Gradient Overlay */}
+//     <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/10" />
+
+//     {/* Text */}
+//     <div className="absolute bottom-5 left-5 text-white text-xl sm:text-2xl font-semibold font-['Inter'] leading-tight">
+//       {title}
+//     </div>
+//   </div>
+// );
+
+
+interface FeatureItemProps {
+  iconSrc: string | StaticImageData;
+  altText: string;
+  title: string;
+  isLast?: boolean;  // Optional, since it has a default value
+}
+
+// Extracted reusable Feature Component
+// Extracted reusable Feature Component
+const FeatureItem = ({ iconSrc, altText, title, isLast = false }: FeatureItemProps) => (
+  <>
+    <div className="flex items-center w-full min-h-[80px] py-4">
+      {/* Icon Area */}
+      <div className="flex items-center justify-center w-[80px] h-[80px] shrink-0">
+        <Image
+          src={iconSrc}
+          alt={altText}
+          className="w-[50px] h-[50px]"
+        />
+      </div>
+      {/* Title Area */}
+      <div className="flex-grow ml-4">
+        <div className="text-black font-['Nunito_Sans'] text-lg sm:text-xl md:text-2xl font-semibold leading-tight tracking-[-0.03em]">
+          {title}
+        </div>
+      </div>
+    </div>
+    {/* Divider Line - Hidden if 'isLast' or on large screens (as it's used within a grid column) */}
+    {!isLast && (
+      <div className="w-full h-px bg-gray-300 mx-auto" />
+    )}
+  </>
+);
+
+const Features = () => {
+  // Assuming these image sources (fi1, f1l, featureIcon2, etc.) are imported
+  // and need to be passed down to the FeatureItem component.
+  return (
+    <section className="relative w-full overflow-hidden mt-10 sm:mt-20 px-4 sm:px-6 lg:px-8">
+      
+      <div className="max-w-7xl mx-auto">
         
-        {/* Frame 2 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '1912px',
-            left: '926px',
-            width: '410px',
-            height: '594px',
-            borderRadius: '10px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-          }}
-        >
-          {/* Frame 2 Image */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '0px',
-              left: '0px',
-              width: '410px',
-              height: '594px',
-              borderRadius: '10px',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              overflow: 'hidden',
-            }}
-          >
-            <Image
-              src="/images/lgbtq-community.jpg"
-              alt="LGBTQ+ Community"
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
+        {/* === HEADER BLOCK === */}
+        <div className="mb-12 sm:mb-16">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-black font-['Inter'] mb-4">
+            Key features
+          </h2>
+          <p className="text-base sm:text-lg text-black font-medium font-['Nunito_Sans'] max-w-xl">
+            Discover the essential features you need - all in one trusted platform.
+          </p>
+        </div>
+
+        {/* === MAIN FEATURES GRID (F1-F8) === */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6">
+          
+          {/* --- LEFT COLUMN (F1-F4) --- */}
+          <div className="space-y-0">
+            <FeatureItem
+              iconSrc={fi1}
+              altText="24/7 Chat Icon"
+              title="24/7 Live Chat With Human Counsellors"
             />
-        </div>
-          
-          {/* LGBTQ+ Community Title */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '501px',
-              left: '20px',
-              width: '283px',
-              height: '36px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 600,
-              fontSize: '30px',
-              lineHeight: '100%',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            LGBTQ+ Community
-          </p>
-          
-          {/* Frame 2 Description */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '549px',
-              left: '20px',
-              width: '370px',
-              height: '25px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '14px',
-              lineHeight: '25px',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-            }}
-          >
-            Safe, affirming space to talk about anything
-          </p>
-        </div>
-        
-        {/* Frame 3 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '2527px',
-            left: '66px',
-            width: '410px',
-            height: '416px',
-            borderRadius: '10px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-          }}
-        >
-          {/* Frame 3 Image */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '0px',
-              left: '0px',
-              width: '410px',
-              height: '416px',
-              borderRadius: '10px',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              overflow: 'hidden',
-            }}
-          >
-            <Image
-              src="/images/older-adults.jpg"
-              alt="Older Adults"
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
+            <FeatureItem
+              iconSrc={featureIcon2}
+              altText="Goal Tracker Icon"
+              title="Goal Tracker With Behavioural Nudges"
             />
-        </div>
-          
-          {/* Older Adults Title */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '311px',
-              left: '20px',
-              width: '307px',
-              height: '36px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 600,
-              fontSize: '30px',
-              lineHeight: '100%',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Older Adults
-          </p>
-          
-          {/* Frame 3 Description */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '359px',
-              left: '20px',
-              width: '369px',
-              height: '50px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '14px',
-              lineHeight: '25px',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-            }}
-          >
-            Loss, loneliness, transitions, or simply needing someone to talk
-          </p>
-          </div>
-        
-        {/* Frame 4 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '2527px',
-            left: '926px',
-            width: '410px',
-            height: '416px',
-            borderRadius: '10px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-          }}
-        >
-          {/* Frame 4 Image */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '0px',
-              left: '0px',
-              width: '410px',
-              height: '416px',
-              borderRadius: '10px',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              overflow: 'hidden',
-            }}
-          >
-            <Image
-              src="/images/anyone-needing-support.jpg"
-              alt="Anyone Needing Support"
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
+            <FeatureItem
+              iconSrc={featureIcon3}
+              altText="Mood Guidance Icon"
+              title="Mood-Based Guidance"
             />
-        </div>
-          
-          {/* Anyone Needing Support Title */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '311px',
-              left: '20px',
-              width: '307px',
-              height: '36px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 600,
-              fontSize: '30px',
-              lineHeight: '100%',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Anyone Needing Support
-          </p>
-          
-          {/* Frame 4 Description */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '359px',
-              left: '20px',
-              width: '369px',
-              height: '50px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '14px',
-              lineHeight: '25px',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-            }}
-          >
-            When friends or family aren't enough, or too much stress suffers you
-          </p>
-        </div>
-        
-        {/* Frame 5 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '2216px',
-            left: '496px',
-            width: '410px',
-            height: '404px',
-            borderRadius: '10px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-          }}
-        >
-          {/* Frame 5 Image */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '0px',
-              left: '0px',
-              width: '410px',
-              height: '404px',
-              borderRadius: '10px',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              overflow: 'hidden',
-            }}
-          >
-            <Image
-              src="/images/working-professionals.jpg"
-              alt="Working Professionals"
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
+            <FeatureItem
+              iconSrc={featureIcon4}
+              altText="Assessments Icon"
+              title="Bite-Sized Self Assessments"
+              isLast={true} // Last item in the column, no divider needed
             />
           </div>
           
-          {/* Working Professionals Title */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '311px',
-              left: '20px',
-              width: '307px',
-              height: '36px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 600,
-              fontSize: '30px',
-              lineHeight: '100%',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Working Professionals
-          </p>
-          
-          {/* Frame 5 Description */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '359px',
-              left: '10px',
-              width: '369px',
-              height: '25px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '14px',
-              lineHeight: '25px',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Burnout, overthinking, career decisions, relationship stress
-          </p>
-          </div>
-        
-        {/* Frame 6 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '2640px',
-            left: '496px',
-            width: '410px',
-            height: '303px',
-            borderRadius: '10px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-          }}
-        >
-          {/* Frame 6 Image */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '0px',
-              left: '0px',
-              width: '410px',
-              height: '303px',
-              borderRadius: '10px',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              overflow: 'hidden',
-            }}
-          >
-            <Image
-              src="/images/neurodivergent-users.jpg"
-              alt="Neurodivergent Users"
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
+          {/* --- RIGHT COLUMN (F5-F8) --- */}
+          <div className="space-y-0 lg:mt-0"> {/* Ensure it aligns correctly on desktop */}
+            <FeatureItem
+              iconSrc={featureIcon5}
+              altText="Content Icon"
+              title="Expert Videos, Podcasts, and Content Drops"
             />
+            <FeatureItem
+              iconSrc={featureIcon6}
+              altText="Language Icon"
+              title="Works Across Countries & Languages"
+            />
+            <FeatureItem
+              iconSrc={featureIcon7}
+              altText="Hospital Icon"
+              title="Escalation To Partner Hospitals For Psychiatric Care"
+            />
+            <FeatureItem
+              iconSrc={featureIcon8}
+              altText="Anonymity Icon"
+              title="100% Anonymity Guaranteed"
+              isLast={true} // Last item in the column, no divider needed
+            />
+          </div>
+
         </div>
+      </div>
+    </section>
+  );
+};
+
+
+
+
+const Testimonials = () => {
+  return (
+    // Section uses flexible padding/height on small screens, and the original fixed height/margin on large screens (lg)
+    <section 
+      className="relative w-full bg-[#F6F2EB] py-16 sm:py-24 lg:pt-[102px] lg:h-[712px] overflow-hidden" 
+    >
+      
+      {/* ------------------------------------------- */}
+      {/* 1. DESKTOP-ONLY LAYOUT (lg:block) - Keeps original absolute positioning */}
+      {/* ------------------------------------------- */}
+      <div className="hidden lg:block w-full h-full relative">
+        
+        {/* --- LARGE RIGHT IMAGE --- */}
+        <Image
+          src={largeRightImage}
+          alt="Testimonial Background Graphic"
+          className="absolute w-[390px] h-[548px] opacity-100"
+          style={{ top: '70px', left: '884px' }}
+        />
+
+        {/* --- MAIN LAYOUT (Container for all left/middle elements) --- */}
+        {/* Adjusted top: 36px and left: 50px offset to be relative to the section start */}
+        <div 
+          className="relative w-[1323px] h-[616px] opacity-100" 
+          style={{ marginTop: '36px', marginLeft: '50px' }}
+        >
           
-          {/* Neurodivergent Users Title */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '200px',
-              left: '20px',
-              width: '307px',
-              height: '36px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 600,
-              fontSize: '30px',
-              lineHeight: '100%',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Neurodivergent Users
-          </p>
+          {/* All absolute elements inside the desktop container are maintained with their relative offsets */}
           
-          {/* Frame 6 Description */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '248px',
-              left: '20px',
-              width: '369px',
-              height: '50px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '14px',
-              lineHeight: '25px',
-              letterSpacing: '-3%',
-              color: '#FFFFFF',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-            }}
-          >
-            ADHD, emotional regulation, social fatigue, planning struggles
-          </p>
-        </div>
-        
-        {/* Key Features Heading */}
-        <p
-          id="features"
-          style={{
-            position: 'absolute',
-            top: '3078px',
-            left: '86px',
-            width: '407px',
-            height: '61px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '50px',
-            lineHeight: '100%',
-            letterSpacing: '-6%',
-            color: '#5C4737',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            scrollMarginTop: '100px',
-          }}
-        >
-          Key features
-        </p>
-        
-        {/* Key Features Description */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '3159px',
-            left: '86px',
-            width: '556px',
-            height: '35px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '18px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#0D0D0D',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Discover the essential features you need - all in one trusted platform.
-        </p>
-        
-        {/* 24/7 Icon */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3241px',
-            left: '86px',
-            width: '50px',
-            height: '50px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Image
-            src="/icons/Frame.svg"
-            alt="24/7 Icon"
-            width={50}
-            height={50}
-            style={{
-              filter: 'brightness(0) saturate(100%) invert(68%) sepia(10%) saturate(600%) hue-rotate(15deg) brightness(110%) contrast(90%)',
-            }}
-          />
-        </div>
-        
-        {/* Feature 1 Title */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '3249px',
-            left: '166px',
-            width: '442px',
-            height: '35px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          24/7 Live Chat With Human Counsellors
-        </p>
-        
-        {/* Line below 24/7 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3321px',
-            left: '86px',
-            width: '605px',
-            height: '0px',
-            borderTop: '1px solid #969694',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Feature 2 Icon */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3241px',
-            left: '701px',
-            width: '50px',
-            height: '50px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Image
-            src="/icons/video-circle.svg"
-            alt="Video Icon"
-            width={50}
-            height={50}
-            style={{
-              filter: 'brightness(0) saturate(100%) invert(68%) sepia(10%) saturate(600%) hue-rotate(15deg) brightness(110%) contrast(90%)',
-            }}
-          />
-        </div>
-        
-        {/* Feature 2 Title */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '3249px',
-            left: '791px',
-            width: '491px',
-            height: '35px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Expert Videos, Podcasts, and Content Drops
-        </p>
-        
-        {/* Line below Feature 2 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3321px',
-            left: '701px',
-            width: '605px',
-            height: '0px',
-            borderTop: '1px solid #969694',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Feature 3 Icon */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3351px',
-            left: '86px',
-            width: '50px',
-            height: '50px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Image
-            src="/icons/diagram.svg"
-            alt="Anonymity Icon"
-            width={50}
-            height={50}
-            style={{
-              filter: 'brightness(0) saturate(100%) invert(68%) sepia(10%) saturate(600%) hue-rotate(15deg) brightness(110%) contrast(90%)',
-            }}
-          />
-        </div>
-        
-        {/* Feature 3 Title */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '3359px',
-            left: '166px',
-            width: '326px',
-            height: '35px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          100% Anonymity Guaranteed
-        </p>
-        
-        {/* Line below Feature 3 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3431px',
-            left: '86px',
-            width: '605px',
-            height: '0px',
-            borderTop: '1px solid #969694',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Feature 4 Icon */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3351px',
-            left: '701px',
-            width: '50px',
-            height: '50px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Image
-            src="/icons/briefcase.svg"
-            alt="Location Icon"
-            width={50}
-            height={50}
-            style={{
-              filter: 'brightness(0) saturate(100%) invert(68%) sepia(10%) saturate(600%) hue-rotate(15deg) brightness(110%) contrast(90%)',
-            }}
-          />
-        </div>
-        
-        {/* Feature 4 Title */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '3359px',
-            left: '791px',
-            width: '418px',
-            height: '35px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Works Across Countries & Languages
-        </p>
-        
-        {/* Line below Feature 4 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3431px',
-            left: '701px',
-            width: '605px',
-            height: '0px',
-            borderTop: '1px solid #969694',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Feature 5 Icon */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3461px',
-            left: '86px',
-            width: '50px',
-            height: '50px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Image
-            src="/icons/search-normal.svg"
-            alt="Mood Icon"
-            width={50}
-            height={50}
-            style={{
-              filter: 'brightness(0) saturate(100%) invert(68%) sepia(10%) saturate(600%) hue-rotate(15deg) brightness(110%) contrast(90%)',
-            }}
-          />
-        </div>
-        
-        {/* Feature 5 Title */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '3469px',
-            left: '166px',
-            width: '253px',
-            height: '35px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Mood-Based Guidance
-        </p>
-        
-        {/* Line below Feature 5 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3541px',
-            left: '86px',
-            width: '605px',
-            height: '0px',
-            borderTop: '1px solid #969694',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Feature 6 Icon */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3461px',
-            left: '701px',
-            width: '50px',
-            height: '50px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Image
-            src="/icons/ai-hospital.svg"
-            alt="Hospital Icon"
-            width={50}
-            height={50}
-            style={{
-              filter: 'brightness(0) saturate(100%) invert(68%) sepia(10%) saturate(600%) hue-rotate(15deg) brightness(110%) contrast(90%)',
-            }}
-          />
-        </div>
-        
-        {/* Feature 6 Title */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '3469px',
-            left: '791px',
-            width: '565px',
-            height: '35px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Escalation To Partner Hospitals For Psychiatric Care
-        </p>
-        
-        {/* Line below Feature 6 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3541px',
-            left: '701px',
-            width: '605px',
-            height: '0px',
-            borderTop: '1px solid #969694',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Feature 7 Icon */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3571px',
-            left: '86px',
-            width: '50px',
-            height: '50px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Image
-            src="/icons/task.svg"
-            alt="Assessment Icon"
-            width={50}
-            height={50}
-            style={{
-              filter: 'brightness(0) saturate(100%) invert(68%) sepia(10%) saturate(600%) hue-rotate(15deg) brightness(110%) contrast(90%)',
-            }}
-          />
-        </div>
-        
-        {/* Feature 7 Title */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '3579px',
-            left: '166px',
-            width: '322px',
-            height: '35px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Bite-Sized Self Assessments
-        </p>
-        
-        {/* Line below Feature 7 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3651px',
-            left: '86px',
-            width: '605px',
-            height: '0px',
-            borderTop: '1px solid #969694',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Feature 8 Icon */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3571px',
-            left: '701px',
-            width: '50px',
-            height: '50px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Image
-            src="/icons/diagram.svg"
-            alt="Goal Tracker Icon"
-            width={50}
-            height={50}
-            style={{
-              filter: 'brightness(0) saturate(100%) invert(68%) sepia(10%) saturate(600%) hue-rotate(15deg) brightness(110%) contrast(90%)',
-            }}
-          />
-        </div>
-        
-        {/* Feature 8 Title */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '3579px',
-            left: '791px',
-            width: '427px',
-            height: '35px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '24px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#6D6D6F',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Goal Tracker With Behavioural Nudges
-        </p>
-        
-        {/* Line below Feature 8 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3651px',
-            left: '701px',
-            width: '605px',
-            height: '0px',
-            borderTop: '1px solid #969694',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        />
-        
-        {/* Testimonials Container */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '3716px',
-            left: '56px',
-            width: '1323px',
-            height: '616px',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-          }}
-        >
-          {/* Testimonials Heading */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '25px',
-              left: '30px',
-              width: '274px',
-              height: '61px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 600,
-              fontSize: '50px',
-              lineHeight: '100%',
-              letterSpacing: '-6%',
-              color: '#5C4737',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-            }}
+          {/* 1. HEADING: Testimonials (top: 25px, left: 30px) */}
+          <div
+            className="absolute w-[274px] h-[61px] font-['Inter'] text-[50px] font-semibold text-[#5C4737]"
+            style={{ top: '25px', left: '30px', letterSpacing: '-0.06em' }}
           >
             Testimonials
-          </p>
+          </div>
+
+          {/* 2. LARGE LEFT IMAGE (225x450px) (top: 115px, left: 30px) */}
+          <Image
+            src={largeLeftImage}
+            alt="Testimonial Background Left"
+            className="absolute w-[225.000015px] h-[450px] opacity-100"
+            style={{ top: '115px', left: '30px' }}
+          />
+
+          {/* 3. SMALL CIRCLE IMAGE 1 (50x50px) (top: 129px, left: 130px) */}
+          <Image
+            src={testimonialIcon}
+            alt="Profile Icon 1"
+            className="absolute w-[50px] h-[50px] rounded-full opacity-100 border border-black"
+            style={{ top: '129px', left: '130px' }}
+          />
           
-          {/* Quote Text */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '305px',
-              left: '365px',
-              width: '458px',
-              height: '70px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '24px',
-              lineHeight: '35px',
-              letterSpacing: '-3%',
-              color: '#0D0D0D',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
+          {/* 8. SMALL CIRCLE IMAGE 2 (50x50px, -180 deg) (top: 501px, left: 130px) */}
+          <Image
+            src={testimonialIcon2}
+            alt="Profile Icon 2"
+            className="absolute w-[50px] h-[50px] rounded-full opacity-100"
+            style={{ top: '501px', left: '130px', transform: 'rotate(-180deg)' }}
+          />
+
+          {/* 9. SMALL CIRCLE BORDER 2 (50x50px) (top: 501px, left: 130px) */}
+          <div
+            className="absolute w-[50px] h-[50px] rounded-full"
+            style={{ 
+              top: '501px', 
+              left: '130px', 
+              border: '1px solid rgba(0, 0, 0, 0.25)',
+              transform: 'rotate(-180deg)'
             }}
+          />
+
+          {/* 10. SQUARE CONTAINER/BORDER (100x100px) (top: 290px, left: 205px) */}
+          <div
+            className="absolute w-[100px] h-[100px]"
+            style={{ top: '290px', left: '205px' }}
+          />
+          
+          {/* 13. NEW IMAGE (130x130px) (top: 275px, left: 190px) */}
+          <Image
+            src={testimonialImageLarge}
+            alt="Medium decorative element (130x130)"
+            className="absolute w-[130px] h-[130px] opacity-100"
+            style={{ top: '275px', left: '190px' }}
+          />
+          
+          {/* 12. NEW IMAGE (100x100px) (top: 290px, left: 205px) */}
+          <Image
+            src={testimonialImageSmall}
+            alt="Small decorative element (100x100)"
+            className="absolute w-[100px] h-[100px] opacity-100"
+            style={{ top: '290px', left: '205px' }}
+          />
+
+          {/* 14. NEW IMAGE (80x80px Circle) - ADDED (top: 300px, left: 215px) */}
+          <Image
+            src={testimonialImageCircle}
+            alt="Circular decorative element (80x80)"
+            className="absolute w-[80px] h-[80px] opacity-100 rounded-full"
+            style={{ top: '300px', left: '215px' }}
+          />
+          
+          {/* 4. QUOTE LEFT IMAGE LAYOUT (top: 133px, left: 292px) */}
+          <div
+            className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
+            style={{ top: '133px', left: '292px', transform: 'rotate(-180deg)' }}
           >
-            No one asked me for my name, and yet I've never felt more seen.
-          </p>
-          
-          {/* Attribution */}
-          <p
-            style={{
-              position: 'absolute',
-              top: '415px',
-              left: '601px',
-              width: '222px',
-              height: '35px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 400,
-              fontSize: '24px',
-              lineHeight: '35px',
-              letterSpacing: '-3%',
-              color: '#6D6D6F',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              margin: 0,
-              whiteSpace: 'nowrap',
-            }}
+            <Image
+              src={leftQuoteImage} 
+              alt="Quote Left Design" 
+              className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
+              style={{ top: '16.83px', left: '36.72px', transform: 'rotate(-180deg)' }}
+            />
+          </div>
+
+          {/* 5. QUOTE RIGHT IMAGE LAYOUT (top: 133px, left: 367px) */}
+          <div
+            className="absolute w-[125px] h-[125px] opacity-100 flex items-center justify-center"
+            style={{ top: '133px', left: '367px', transform: 'rotate(-180deg)' }}
+          >
+            <Image
+              src={rightQuoteImage} 
+              alt="Quote Right Design" 
+              className="absolute w-[51.822921px] h-[93.4375px] opacity-100"
+              style={{ top: '16.83px', left: '36.72px', transform: 'rotate(-180deg)' }}
+            />
+          </div>
+
+          {/* 6. QUOTE TEXT (top: 305px, left: 365px) */}
+          <div
+            className="absolute w-[458px] h-[70px] text-[#0D0D0D] font-['Inter'] text-[24px] font-medium"
+            style={{ top: '305px', left: '365px', lineHeight: '35px', letterSpacing: '-0.03em' }}
+          >
+            No one asked me for my name, and yet I’ve never felt more seen.
+          </div>
+
+          {/* 7. STUDENT INFO (top: 415px, left: 601px) */}
+          <div
+            className="absolute w-[222px] h-[35px] text-[#6D6D6F] font-['Inter'] text-[24px] font-normal"
+            style={{ top: '415px', left: '601px', lineHeight: '35px', letterSpacing: '-0.03em' }}
           >
             — Student, Chennai
-          </p>
-          
-          {/* Ellipse 47 - Half ellipse visible on right, melting to left */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '115px',
-              left: '30px',
-              width: '225.00001525878906px',
-              height: '450px',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              padding: '2px',
-              background: 'linear-gradient(180.18deg, rgba(177, 177, 177, 0) -3.49%, #000000 47.99%, rgba(177, 177, 177, 0) 102.52%)',
-              borderRadius: '50%',
-              clipPath: 'inset(0 0 0 50%)',
-            }}
-          >
-            <div
-              style={{
-                width: '100%',
-                height: '100%',
-                backgroundColor: '#D9D9D9',
-                borderRadius: '50%',
-              }}
-            />
           </div>
-          
-          {/* Avatar 1 */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '129px',
-              left: '130px',
-              width: '50px',
-              height: '50px',
-              borderRadius: '25px',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              overflow: 'hidden',
-            }}
-          >
-            <Image
-              src="/avatars/avatar-1.png"
-              alt="Avatar 1"
-              width={50}
-              height={50}
-              style={{
-                objectFit: 'cover',
-              }}
-            />
-          </div>
-          
-          {/* Avatar 2 */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '300px',
-              left: '215px',
-              width: '80px',
-              height: '80px',
-              borderRadius: '40px',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              overflow: 'hidden',
-            }}
-          >
-            <Image
-              src="/avatars/avatar-2.png"
-              alt="Avatar 2"
-              width={80}
-              height={80}
-              style={{
-                objectFit: 'cover',
-              }}
-            />
-          </div>
-          
-          {/* Avatar 3 */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '501px',
-              left: '130px',
-              width: '50px',
-              height: '50px',
-              borderRadius: '25px',
-              opacity: 1,
-              transform: 'rotate(-180deg)',
-              overflow: 'hidden',
-            }}
-          >
-            <Image
-              src="/avatars/avatar-3.png"
-              alt="Avatar 3"
-              width={50}
-              height={50}
-              style={{
-                objectFit: 'cover',
-                transform: 'rotate(180deg)',
-              }}
-            />
-          </div>
-          
-          {/* Ellipse 51 */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '290px',
-              left: '205px',
-              width: '100px',
-              height: '100px',
-              borderRadius: '50%',
-              border: '1px solid #00000080',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-            }}
-          />
-          
-          {/* Ellipse 52 */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '275px',
-              left: '190px',
-              width: '130px',
-              height: '130px',
-              borderRadius: '50%',
-              border: '1px solid #00000040',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-            }}
-          />
-          
-          {/* Ellipse 53 */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '260px',
-              left: '175px',
-              width: '160px',
-              height: '160px',
-              borderRadius: '50%',
-              border: '1px solid #0000000D',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-            }}
-          />
-          
-          {/* Sunset Image */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '65px',
-              left: '867px',
-              width: '433px',
-              height: '520px',
-              borderRadius: '20px',
-              opacity: 1,
-              transform: 'rotate(0deg)',
-              overflow: 'hidden',
-            }}
-          >
-            <Image
-              src="/images/sunset.jpg"
-              alt="Sunset"
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
-            />
-          </div>
+
         </div>
+      </div>
+      
+      
+      {/* ------------------------------------------- */}
+      {/* 2. MOBILE/TABLET LAYOUT (lg:hidden) - Fully responsive and stackable */}
+      {/* ------------------------------------------- */}
+      <div className="lg:hidden max-w-xl mx-auto px-4 sm:px-6">
         
-        {/* Trusted by 50+ Clients Heading */}
+        {/* 1. HEADING: Testimonials */}
+        <h2 className="text-4xl sm:text-5xl font-semibold text-[#5C4737] font-['Inter'] mb-10">
+          Testimonials
+        </h2>
+
+        {/* 2. QUOTE CARD/BLOCK */}
+        <div className="relative p-6 sm:p-8 bg-white/60 rounded-xl shadow-lg border border-gray-100">
+            
+            {/* Quote Icon (Simplified/Centered) */}
+            <Image
+                src={rightQuoteImage} // Using one of the original quote images as a simple icon
+                alt="Quote Icon"
+                className="w-12 h-auto text-[#5C4737] mb-4 rotate-180" 
+            />
+            
+            {/* QUOTE TEXT */}
+            <p className="text-[#0D0D0D] font-['Inter'] text-lg sm:text-xl font-medium leading-relaxed mb-4">
+                No one asked me for my name, and yet I’ve never felt more seen.
+            </p>
+            
+            {/* STUDENT INFO */}
+            <p className="text-right text-[#6D6D6F] font-['Inter'] text-base sm:text-lg font-normal">
+                — Student, Chennai
+            </p>
+            
+            {/* Optional: Simple decorative element integrated into the mobile card */}
+            <div className="absolute top-0 right-0 p-2 opacity-50">
+                <Image
+                    src={testimonialIcon}
+                    alt="Decorative Icon"
+                    className="w-8 h-8 rounded-full"
+                />
+            </div>
+        </div>
+
+        {/* Optional: Add a decorative element below the quote on tablet screens */}
+        <div className="hidden sm:block mt-8 text-center">
+            <Image
+                src={largeLeftImage} // Using the large image as a background element
+                alt="Decorative Pattern"
+                className="w-40 h-auto opacity-30 mx-auto"
+            />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const animationStyles = `
+@keyframes scroll-left-to-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% / 2)); /* Translate by half the total width (since content is duplicated) */
+  }
+}
+`;
+
+
+interface Logo {
+  src: StaticImageData;
+  alt: string;
+  width: number;
+  height: number;
+}
+interface LogoCarouselProps {
+  logos: Logo[];
+}
+
+// Helper component for the scrolling logo row
+const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
+  // Duplicate the logos array to create the seamless infinite scroll effect
+  const duplicatedLogos = [...logos, ...logos];
+  return (
+    // Apply the custom animation class
+    <div className="flex w-full overflow-hidden whitespace-nowrap group">
+      <style jsx global>{animationStyles}</style>
+      {/* The main scrolling strip container (contains duplicated logos) */}
+      <div 
+        className="flex animate-scroll-ltr w-fit" // w-fit ensures the flex container respects the total content width
+        style={{ animation: 'scroll-left-to-right 20s linear infinite' }}
+      >
+        {duplicatedLogos.map((logo, index) => (
+          <div key={index} className="flex items-center justify-center h-24 sm:h-32 mx-6 sm:mx-10 shrink-0">
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={logo.width}
+              height={logo.height}
+              className="max-h-full w-auto object-contain opacity-70 hover:opacity-100 transition duration-300"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+
+
+const Trusted = () => {
+  // Define logo data for the carousel
+  const logos = [
+    { src: t1, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+    { src: t2, alt: "Trusted Client Logo 2", width: 135, height: 96 },
+    { src: t3, alt: "Trusted Client Logo 3", width: 107, height: 96 },
+    { src: t4, alt: "Trusted Client Logo 4", width: 103, height: 96 },
+    { src: t5, alt: "Trusted Client Logo 5", width: 105, height: 96 },
+    // Add more logos if needed to fill the space
+  ];
+
+  return (
+    // Responsive section height and padding
+    <section 
+      className="relative w-full bg-[#F6F2EB] py-12 sm:py-16 lg:h-[280px] overflow-hidden " 
+    >
+      
+      {/* ------------------------------------------- */}
+      {/* 1. DESKTOP-ONLY LAYOUT (lg:block) - Keeps original absolute positioning */}
+      {/* ------------------------------------------- */}
+      <div className="hidden lg:block w-full h-full relative">
+        
+        {/* 1. Heading: Trusted by 50+ Clients (top: 66px, left: 86px) */}
         <p
-          style={{
-            position: 'absolute',
-            top: '4359px',
-            left: '66px',
-            width: '399px',
-            height: '158px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '65px',
-            lineHeight: '100%',
-            letterSpacing: '-6%',
-            color: '#5C4737',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
+          className="absolute font-['Nunito_Sans'] font-medium text-[40px] leading-none text-black w-[410px] h-[55px]"
+          style={{ top: '66px', left: '86px' }}
         >
           Trusted by 50+ Clients
         </p>
         
-        {/* Trusted by Description */}
+        {/* 2. Description (top: 135px, left: 86px) */}
         <p
-          style={{
-            position: 'absolute',
-            top: '4517px',
-            left: '66px',
-            width: '406px',
-            height: '70px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 500,
-            fontSize: '18px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            color: '#0D0D0D',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-          }}
+          className="absolute font-['Nunito_Sans'] font-normal text-[18px] leading-none text-black w-[406px] h-[50px]"
+          style={{ top: '135px', left: '86px' }}
         >
-          Trusted by leading corporates and educational institutions that care for mental well-being.
+          Trusted by leading schools and institutions that care for student well-being.
         </p>
-        
-        {/* Ellipse 17 */}
+
+        {/* 3. Images Layout (Container for Logo series - top: 49px, left: 530px) */}
+        {/* Using the LogoCarousel here, restricted by the original absolute container */}
         <div
-          style={{
-            position: 'absolute',
-            top: '4459px',
-            left: '517px',
-            width: '120px',
-            height: '120px',
-            borderRadius: '50%',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#FFFFFF',
-          }}
+          className="absolute w-[922px] h-[144px] overflow-hidden"
+          style={{ top: '49px', left: '530px' }}
         >
-          <Image
-            src="/logos/hymamshu-jyothi-logo.jpg"
-            alt="Logo 1"
-            width={100}
-            height={100}
-            style={{
-              objectFit: 'contain',
-            }}
-          />
+          <LogoCarousel logos={logos} />
         </div>
         
-        {/* Ellipse 2 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '4459px',
-            left: '677px',
-            width: '120px',
-            height: '120px',
-            borderRadius: '50%',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#FFFFFF',
-          }}
-        >
-          <Image
-            src="/logos/mount-litera-logo.jpg"
-            alt="Logo 2"
-            width={100}
-            height={100}
-            style={{
-              objectFit: 'contain',
-            }}
-          />
-        </div>
+        {/* NOTE: If you needed the original hard-coded absolute image positions for desktop, 
+                 they would replace the LogoCarousel call above. However, using the Carousel 
+                 here maintains the requested animation on desktop too. */}
+      </div>
+      
+      
+      {/* ------------------------------------------- */}
+      {/* 2. MOBILE/TABLET LAYOUT (lg:hidden) - Fully responsive and stackable */}
+      {/* ------------------------------------------- */}
+      <div className="lg:hidden max-w-7xl mx-auto px-4 sm:px-6">
         
-        {/* Ellipse 3 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '4459px',
-            left: '837px',
-            width: '120px',
-            height: '120px',
-            borderRadius: '50%',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#FFFFFF',
-          }}
-        >
-          <Image
-            src="/logos/renuka-education-logo.png"
-            alt="Logo 3"
-            width={100}
-            height={100}
-            style={{
-              objectFit: 'contain',
-            }}
-          />
-        </div>
-        
-        {/* Ellipse 4 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '4459px',
-            left: '997px',
-            width: '120px',
-            height: '120px',
-            borderRadius: '50%',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#FFFFFF',
-          }}
-        >
-          <Image
-            src="/logos/sharadh-vidhyalaya-logo.jpg"
-            alt="Logo 4"
-            width={100}
-            height={100}
-            style={{
-              objectFit: 'contain',
-            }}
-          />
-        </div>
-        
-        {/* Ellipse 5 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '4459px',
-            left: '1157px',
-            width: '120px',
-            height: '120px',
-            borderRadius: '50%',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#FFFFFF',
-          }}
-        >
-          <Image
-            src="/logos/timpany-school-logo.jpg"
-            alt="Logo 5"
-            width={100}
-            height={100}
-            style={{
-              objectFit: 'contain',
-            }}
-          />
-        </div>
-        
-        {/* Ellipse 6 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '4459px',
-            left: '1317px',
-            width: '120px',
-            height: '120px',
-            borderRadius: '50%',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#FFFFFF',
-          }}
-        >
-          {/* Placeholder for 6th logo - can be added when available */}
-        </div>
-        
-        {/* Rectangle with Rocks Image */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '4757px',
-            left: '95px',
-            width: '1250px',
-            height: '360px',
-            borderRadius: '30px',
-            border: '10px solid #FFFFFF',
-            backgroundColor: '#BFBFBD',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            overflow: 'hidden',
-            zIndex: 10,
-          }}
-        >
-          <Image
-            src="/images/rocks.jpg"
-            alt="Rocks"
-            fill
-            style={{
-              objectFit: 'cover',
-              objectPosition: 'center center',
-              borderRadius: '20px',
-            }}
-          />
-        </div>
-        
-        {/* CTA Heading */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '4847px',
-            left: '289px',
-            width: '863px',
-            height: '70px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 600,
-            fontSize: '50px',
-            lineHeight: '70px',
-            letterSpacing: '-6%',
-            textAlign: 'center',
-            color: '#5C4737',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            whiteSpace: 'nowrap',
-            zIndex: 11,
-          }}
-        >
-          Take the first step toward feeling better.
-        </p>
-        
-        {/* CTA Description */}
-        <p
-          style={{
-            position: 'absolute',
-            top: '4927px',
-            left: '378px',
-            width: '684px',
-            height: '35px',
-            fontFamily: 'var(--font-inter-sans)',
-            fontWeight: 400,
-            fontSize: '20px',
-            lineHeight: '35px',
-            letterSpacing: '-3%',
-            textAlign: 'center',
-            color: '#FFFFFF',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            margin: 0,
-            padding: '10px 20px',
-            borderRadius: '4px',
-            whiteSpace: 'nowrap',
-            zIndex: 11,
-          }}
-        >
-          Start talking. Stay anonymous. Feel lighter. Because your mind matters a lot.
-        </p>
-        
-        {/* Rectangle 1 - Download App */}
-        {/* Download App Button */}
-        <a
-          href="https://play.google.com/store/games"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-btn group"
-          style={{ 
-            position: 'absolute',
-            top: '5012px',
-            left: '382px',
-            width: '212px',
-            height: '60px',
-            borderRadius: '30px',
-            backgroundColor: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            zIndex: 11,
-            display: 'block',
-            textDecoration: 'none',
-          }}
-        >
-          <span
-            style={{
-              position: 'absolute',
-              top: '21px',
-              left: '24px',
-              width: '107px',
-              height: '19px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '100%',
-              letterSpacing: '-0.03em',
-              color: '#FFFFFF',
-              opacity: 1,
-              display: 'flex',
-              alignItems: 'center',
-              whiteSpace: 'nowrap',
-            }}
-          >
-              Download App
-          </span>
+        {/* Header Content (Stacked) */}
+        <div className="mb-8">
+          {/* 1. Heading: Trusted by 50+ Clients */}
+          <h2 className="font-['Nunito_Sans'] font-medium text-3xl sm:text-4xl text-black mb-3">
+            Trusted by 50+ Clients
+          </h2>
           
-          {/* Circle */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '5px',
-              left: '157px',
-              width: '50px',
-              height: '50px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {/* Arrow Image */}
-            <Image
-              src={arrow}
-              alt="arrow"
-              width={18}
-              height={18}
-              className='m-auto group-hover:rotate-45 transition-all'
-            />
-          </div>
-        </a>
-        
-        {/* Rectangle 2 - Partner With Us (links to YouTube) */}
-        <a
-          href="https://discord.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-btn group"
-          style={{
-            position: 'absolute',
-            top: '5012px',
-            left: '614px',
-            width: '212px',
-            height: '60px',
-            borderRadius: '30px',
-            backgroundColor: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            zIndex: 11,
-            display: 'block',
-            textDecoration: 'none',
-          }}
-        >
-          <span
-            style={{
-              position: 'absolute',
-              top: '20px',
-              left: '24px',
-              width: '115px',
-              height: '19px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '100%',
-              letterSpacing: '-0.03em',
-              color: '#FFFFFF',
-              opacity: 1,
-              display: 'flex',
-              alignItems: 'center',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Partner With Us
-          </span>
-          
-          {/* Circle */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '5px',
-              left: '157px',
-              width: '50px',
-              height: '50px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {/* Arrow Image */}
-            <Image
-              src={arrow}
-              alt="arrow"
-              width={18}
-              height={18}
-              className='m-auto group-hover:rotate-45 transition-all'
-            />
-          </div>
-        </a>
-        
-        {/* Rectangle 3 - Talk To Our Team */}
-        <a
-          href="mailto:hello@mindalot.com"
-          className="cta-btn group"
-          style={{
-            position: 'absolute',
-            top: '5012px',
-            left: '846px',
-            width: '212px',
-            height: '60px',
-            borderRadius: '30px',
-            backgroundColor: '#967B6A',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            zIndex: 11,
-            display: 'block',
-            textDecoration: 'none',
-          }}
-        >
-          <span
-            style={{
-              position: 'absolute',
-              top: '21px',
-              left: '24px',
-              width: '126px',
-              height: '19px',
-              fontFamily: 'var(--font-inter-sans)',
-              fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '100%',
-              letterSpacing: '-0.03em',
-              color: '#FFFFFF',
-              opacity: 1,
-              display: 'flex',
-              alignItems: 'center',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Talk To Our Team
-          </span>
-          
-          {/* Circle */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '5px',
-              left: '157px',
-              width: '50px',
-              height: '50px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {/* Arrow Image */}
-            <Image
-              src={arrow}
-              alt="arrow"
-              width={18}
-              height={18}
-              className='m-auto group-hover:rotate-45 transition-all'
-            />
-          </div>
-        </a>
-        
-        {/* Footer Rectangle */}
+          {/* 2. Description */}
+          <p className="font-['Nunito_Sans'] font-normal text-base sm:text-lg text-black max-w-md">
+            Trusted by leading schools and institutions that care for student well-being.
+          </p>
+        </div>
+
+        {/* 3. Images Layout (Animated Logo Carousel) */}
+        <div className="mt-8">
+          <LogoCarousel logos={logos} />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+
+
+
+
+
+
+
+const LastSection = () => {
+  const Footer = (
+    <main
+      className="relative w-full text-[#5B4A3E] overflow-x-hidden"
+      style={{
+        background:
+          "linear-gradient(125.54deg, #5B4B3E -12.44%, #F6F1EB -2.52%, #E8DED4 19.98%, #ABA093 80.72%, #8A8077 101.75%)",
+      }}
+    >
+      {/* Overlay Image */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
+        style={{
+          top: "50px",
+          bottom: "-20px",
+          maxHeight: "calc(100% - 70px)",
+        }}
+      >
+        <Image
+          src={footerBgLogo}
+          alt="footer overlay logo"
+          width={500}
+          height={500}
+          style={{ height: "100%", width: "auto", objectFit: "contain", opacity: 0.1 }}
+          priority
+        />
+      </div>
+
+      {/* Footer Content Container */}
+      <div className="relative z-10 mx-auto max-w-[1350px] px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 pt-[150px] pb-[250px] sm:pt-[175px] sm:pb-[110px] md:pt-[200px] md:pb-[120px]">
         <div
-          style={{
-            position: 'absolute',
-            top: '5025px',
-            left: '0px',
-            width: '100%',
-            height: '542px',
-            backgroundColor: '#E4D6CD',
-            border: '1px solid #BFBFBD',
-            opacity: 1,
-            transform: 'rotate(0deg)',
-            zIndex: 1,
-          }}
+          className="
+            w-full
+            flex flex-col
+            lg:flex-row
+            justify-between
+            items-center
+            lg:items-start
+            gap-8 sm:gap-10 md:gap-12 lg:gap-24
+          "
         >
-          <br></br>
-          <br></br>
-        <Footer/>
+          {/* Column 1: Logo and About */}
+          <div className="max-w-[300px] sm:max-w-[340px] md:max-w-[360px] w-full text-center lg:text-left mx-auto">
+            <Image src={headerLogo} alt="Mind Alot logo" width={150} height={40} className="mx-auto lg:mx-0" /> 
+            <p className="mt-6 text-[14px] sm:text-[15px] leading-relaxed">
+              Anonymous support that listens, nudges, and grows with you. When your mind feels too much, we're just a tap away.
+            </p>
+
+            <div className="mt-6 sm:mt-8 md:mt-10 flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 md:gap-10">
+              <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B]">
+                <span className="text-[24px] sm:text-[28px] leading-none">•</span> Terms & Conditions
+              </Link>
+              <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B]">
+                <span className="text-[24px] sm:text-[28px] leading-none">•</span> Privacy Policy
+              </Link>
+            </div>
+          </div>
+
+          {/* Column 2: Company Links */}
+          <div className="text-center lg:text-left">
+            <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">
+              Company
+            </h3>
+            <ul className="flex flex-col gap-1.5 sm:gap-2 md:gap-3 text-[13px] sm:text-[14px] md:text-[15px]">
+              <li>
+                <Link href="/features" className="hover:text-[#8C7A6B]">
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-[#8C7A6B]">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/resource" className="hover:text-[#8C7A6B]">
+                  Resources
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Contact Info */}
+          <div className="max-w-[280px] sm:max-w-[300px] md:max-w-[320px] mx-auto w-full">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-center lg:text-left">
+              Contact
+            </h3>
+            <div className="flex flex-col gap-2.5 sm:gap-3 md:gap-4 text-[13px] sm:text-[14px] md:text-[15px] text-center lg:text-left items-center lg:items-start"> 
+              <div className="flex items-center gap-2.5 sm:gap-3 hover:text-[#8C7A6B]">
+                <Mail className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px]" stroke="#5B4A3E" />{" "}
+                <a href="mailto:support@mindalot.com">support@mindalot.com</a>
+              </div>
+              <div className="flex items-center gap-2.5 sm:gap-3 hover:text-[#8C7A6B]">
+                <Phone className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px]" stroke="#5B4A3E" /> +91-96062-58596
+              </div>
+              <div className="flex flex-col items-center lg:items-start gap-2.5 sm:gap-3 hover:text-[#8C7A6B] leading-tight">
+                <div className="flex items-start gap-2.5 sm:gap-3"> 
+                  <MapPin className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px]" stroke="#5B4A3E" />
+                  <span className="inline-block text-left text-[13px] sm:text-[14px]">
+                      #122K, 1st block, 14th cross, 19th 'B' Main,<br />
+                      Rajajinagar, Bengaluru – 560010
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 4: Social Links */}
+          <div className="text-center lg:text-left">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+              Follow us on
+            </h3>
+            <div className="flex items-center justify-center lg:justify-start gap-4 sm:gap-5">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                <Instagram stroke="#5B4A3E" className="w-[22px] h-[22px] sm:w-[26px] sm:h-[26px] hover:opacity-70" />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                <FaLinkedin color="#5B4A3E" className="w-[22px] h-[22px] sm:w-[26px] sm:h-[26px] hover:opacity-70" />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                <IoLogoYoutube color="#5B4A3E" className="w-[26px] h-[26px] sm:w-[30px] sm:h-[30px] hover:opacity-70" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </main>
   );
+
+  return (
+    <section className="relative mx-auto w-full min-h-[1200px] sm:min-h-[900px] md:min-h-[1000px] bg-white overflow-x-hidden overflow-y-hidden ">
+      {/* CTA Wrapper */}
+      <div
+        className="
+          absolute 
+          top-[100px] sm:top-[120px] md:top-[140px] lg:top-[156px] 
+          left-0 right-0 mx-auto 
+          z-40
+
+          w-full max-w-[95vw]
+          sm:w-[90vw] sm:max-w-[500px]
+          md:w-[80vw] md:max-w-[700px]
+          lg:w-[1250px] lg:max-w-none
+
+          h-auto md:h-[360px]
+
+          px-4 md:px-0
+          py-10 md:py-0
+
+          rounded-[20px] md:rounded-[30px]
+        "
+        style={{
+          border: "10px solid #FFFFFF",
+          backgroundColor: "#BFBFBD",
+          opacity: 1,
+          overflow: "hidden", 
+        }}
+      >
+        {/* Background image container */}
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <Image
+            src={rocksImage}
+            alt="CTA Background"
+            fill
+            className="object-cover"
+            style={{
+              border: "10px solid",
+              borderImageSource:
+                "linear-gradient(94.54deg, #9C7A64 0.44%, #624D37 19.66%, #D8D0CA 73.19%, #94897F 100%)",
+              borderImageSlice: 1,
+            }}
+            priority
+          />
+        </div>
+
+        <div className="relative z-20 flex h-full flex-col items-center justify-center pt-[30px]">
+          {/* Responsive Headlines */}
+          <p
+            className="
+              text-center font-semibold 
+              text-[24px] sm:text-[28px] md:text-[36px] lg:text-[50px]
+              leading-[32px] sm:leading-[38px] md:leading-[52px] lg:leading-[70px]
+              max-w-full md:w-[863px]
+              px-2 md:px-0
+            "
+            style={{
+              fontFamily: "var(--font-inter-sans)",
+              letterSpacing: "-0.06em",
+              color: "#F6F2EB",
+              margin: "0 0 10px 0",
+            }}
+          >
+            Take the first step toward feeling better.
+          </p>
+
+          <p
+            className="
+              text-center font-normal
+              text-[14px] sm:text-[15px] md:text-[17px] lg:text-[20px]
+              leading-[22px] sm:leading-[24px] md:leading-[28px] lg:leading-[35px]
+              max-w-full md:w-[684px]
+              px-3 md:px-0
+            "
+            style={{
+              fontFamily: "var(--font-inter-sans)",
+              letterSpacing: "-0.03em",
+              color: "#FFFFFF",
+              margin: "0 0 40px 0",
+            }}
+          >
+            Start talking. Stay anonymous. Feel lighter. Because your mind matters a lot.
+          </p>
+
+          {/* Responsive Buttons */}
+          <div
+            className="
+              z-30
+              flex flex-row flex-wrap
+              gap-4 sm:gap-6
+              mt-4 
+              w-full 
+              px-4 md:px-0 
+              justify-center 
+              items-center 
+              max-w-[600px] sm:max-w-[700px] 
+              mx-auto
+            "
+          >
+            {/* Button 1 */}
+            <a
+              href="mailto:hello@mindalot.com"
+              className="
+                group relative 
+                flex items-center justify-start
+                w-[212px] h-[54px] sm:h-[60px] 
+                rounded-[30px] 
+                border-2 border-[#F6F2EB] 
+                bg-transparent no-underline overflow-hidden 
+                transition-all duration-300 
+                hover:border-0 hover:bg-[#5C4737]
+              "
+            >
+              <span
+                className="
+                  absolute top-[18px] sm:top-[21px] left-[20px] sm:left-[24px] 
+                  font-inter font-medium 
+                  text-[15px] sm:text-[16px] leading-none 
+                  text-[#F6F2EB] 
+                  whitespace-nowrap 
+                  transition-colors duration-200
+                "
+                style={{ letterSpacing: "-0.03em" }}
+              >
+                Talk To Our Team
+              </span>
+
+              <div
+                className="
+                  absolute top-[2px] sm:top-[3px] right-[10px] 
+                  w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] 
+                  rounded-full 
+                  flex items-center justify-center 
+                  bg-[#5B4A3E] 
+                  transition-all duration-300 
+                  group-hover:bg-white 
+                  group-hover:rotate-45 
+                "
+              >
+                <Image
+                  src={newarrow}
+                  alt="arrow"
+                  width={16}
+                  height={16}
+                  className="block group-hover:hidden w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
+                />
+                <Image
+                  src={blackarrow}
+                  alt="arrow"
+                  width={16}
+                  height={16}
+                  className="hidden group-hover:block w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] transition-all"
+                />
+              </div>
+            </a>
+
+            {/* Button 2 */}
+            <a
+              href="https://discord.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                group relative 
+                flex items-center justify-start
+                w-[212px] h-[54px] sm:h-[60px] 
+                rounded-[30px] 
+                border-2 border-[#F6F2EB] 
+                bg-transparent no-underline overflow-hidden 
+                transition-all duration-300 
+                hover:border-0 hover:bg-[#5C4737]
+              "
+            >
+              <span
+                className="
+                  absolute top-[18px] sm:top-[21px] left-[20px] sm:left-[24px] 
+                  font-inter font-medium 
+                  text-[15px] sm:text-[16px] leading-none 
+                  text-[#F6F2EB] 
+                  whitespace-nowrap 
+                  transition-colors duration-200
+                "
+                style={{ letterSpacing: "-0.03em" }}
+              >
+                Partner With Us
+              </span>
+
+              <div
+                className="
+                  absolute top-[2px] sm:top-[3px] right-[10px] 
+                  w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] 
+                  rounded-full 
+                  flex items-center justify-center 
+                  bg-[#5B4A3E] 
+                  transition-all duration-300 
+                  group-hover:bg-white 
+                  group-hover:rotate-45 
+                "
+              >
+                <Image
+                  src={newarrow}
+                  alt="arrow"
+                  width={16}
+                  height={16}
+                  className="block group-hover:hidden w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
+                />
+                <Image
+                  src={blackarrow}
+                  alt="arrow"
+                  width={16}
+                  height={16}
+                  className="hidden group-hover:block w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] transition-all"
+                />
+              </div>
+            </a>
+
+            {/* Button 3 */}
+            <a
+              href="https://play.google.com/store/games"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                group relative 
+                flex items-center justify-start
+                w-[212px] h-[54px] sm:h-[60px] 
+                rounded-[30px] 
+                border-2 border-[#F6F2EB] 
+                bg-transparent no-underline overflow-hidden 
+                transition-all duration-300 
+                hover:border-0 hover:bg-[#5C4737]
+              "
+            >
+              <span
+                className="
+                  absolute top-[18px] sm:top-[21px] left-[20px] sm:left-[24px] 
+                  font-inter font-medium 
+                  text-[15px] sm:text-[16px] leading-none 
+                  text-[#F6F2EB] 
+                  whitespace-nowrap 
+                  transition-colors duration-200
+                "
+                style={{ letterSpacing: "-0.03em" }}
+              >
+                Download App
+              </span>
+
+              <div
+                className="
+                  absolute top-[2px] sm:top-[3px] right-[10px] 
+                  w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] 
+                  rounded-full 
+                  flex items-center justify-center 
+                  bg-[#5B4A3E] 
+                  transition-all duration-300 
+                  group-hover:bg-white 
+                  group-hover:rotate-45 
+                "
+              >
+                <Image
+                  src={newarrow}
+                  alt="arrow"
+                  width={16}
+                  height={16}
+                  className="block group-hover:hidden w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
+                />
+                <Image
+                  src={blackarrow}
+                  alt="arrow"
+                  width={16}
+                  height={16}
+                  className="hidden group-hover:block w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] transition-all"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="relative top-[430px] sm:top-[350px] md:top-[400px] pb-10">
+        {Footer}
+      </div>
+    </section>
+  );
+};
+
+
+
+
+
+
+
+
+return (
+    <>
+      <HomeHero />
+      <MakeUs/>
+      <Whowant/>
+      <Features/>
+      <Testimonials/>
+      <Trusted/>
+      <LastSection/>
+    </>
+  );
 }
+
