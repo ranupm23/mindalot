@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import Footer from "../components/Footer";
+import {StaticImageData} from "next/image"
 import Link from "next/link";
 import arrow from "../assets/arrow.svg";
 import Homebg from "../assets/home-page/hero/rock.png";
@@ -12,6 +13,7 @@ import w4 from "../assets/home-page/deserves/w4.png";
 import w5 from "../assets/home-page/deserves/w5.png";
 import w6 from "../assets/home-page/deserves/w6.png";
 import fi1 from "../assets/home-page/features/Frame.png";
+
 import f1l from "../assets/home-page/features/Line 15.png";
 import featureIcon2 from "../assets/home-page/features/gps.png"; // F2 Icon
 import dividerImage2 from "../assets/home-page/features/Line 15.png"; 
@@ -764,6 +766,30 @@ const MakeUs = () => {
 
 
 const Whowant = () => {
+  interface CardProps {
+  imageSrc: string | StaticImageData;
+  altText: string;
+  title: string;
+}
+
+  const Card = ({ imageSrc, altText, title }: CardProps) => (
+  <div className="relative w-full overflow-hidden rounded-[12px] shadow-lg aspect-[4/3] sm:aspect-auto sm:h-[300px]">
+    <Image 
+      src={imageSrc} 
+      alt={altText} 
+      fill 
+      className="object-cover" 
+      sizes="(max-width: 640px) 100vw, 50vw"
+    />
+    
+    {/* Gradient Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/10" />
+    {/* Text */}
+    <div className="absolute bottom-5 left-5 text-white text-xl sm:text-2xl font-semibold font-['Inter'] leading-tight">
+      {title}
+    </div>
+  </div>
+);
   return (
     // Section uses flexible padding on small screens, and the original fixed height on large screens (lg)
     <section className="w-full bg-[#F6F2EB] py-10 sm:py-16 px-4 sm:px-6 lg:h-[1169px] lg:p-0 relative">
@@ -927,32 +953,43 @@ const Whowant = () => {
 };
 
 // Extracted Card Component for responsive layout
-const Card = ({ imageSrc, altText, title }) => (
-  <div className="relative w-full overflow-hidden rounded-[12px] shadow-lg aspect-[4/3] sm:aspect-auto sm:h-[300px]">
-    <Image 
-      src={imageSrc} 
-      alt={altText} 
-      fill 
-      className="object-cover" 
-      sizes="(max-width: 640px) 100vw, 50vw"
-    />
+// interface CardProps {
+//   imageSrc: string;
+//   altText: string;
+//   title: string;
+// }
+
+// const Card = ({ imageSrc, altText, title }: CardProps) => (
+//   <div className="relative w-full overflow-hidden rounded-[12px] shadow-lg aspect-[4/3] sm:aspect-auto sm:h-[300px]">
+//     <Image 
+//       src={imageSrc} 
+//       alt={altText} 
+//       fill 
+//       className="object-cover" 
+//       sizes="(max-width: 640px) 100vw, 50vw"
+//     />
     
-    {/* Gradient Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/10" />
+//     {/* Gradient Overlay */}
+//     <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/10" />
 
-    {/* Text */}
-    <div className="absolute bottom-5 left-5 text-white text-xl sm:text-2xl font-semibold font-['Inter'] leading-tight">
-      {title}
-    </div>
-  </div>
-);
-
-
+//     {/* Text */}
+//     <div className="absolute bottom-5 left-5 text-white text-xl sm:text-2xl font-semibold font-['Inter'] leading-tight">
+//       {title}
+//     </div>
+//   </div>
+// );
 
 
+interface FeatureItemProps {
+  iconSrc: string | StaticImageData;
+  altText: string;
+  title: string;
+  isLast?: boolean;  // Optional, since it has a default value
+}
 
 // Extracted reusable Feature Component
-const FeatureItem = ({ iconSrc, altText, title, isLast = false }) => (
+// Extracted reusable Feature Component
+const FeatureItem = ({ iconSrc, altText, title, isLast = false }: FeatureItemProps) => (
   <>
     <div className="flex items-center w-full min-h-[80px] py-4">
       {/* Icon Area */}
@@ -1269,16 +1306,25 @@ const animationStyles = `
 }
 `;
 
+
+interface Logo {
+  src: StaticImageData;
+  alt: string;
+  width: number;
+  height: number;
+}
+interface LogoCarouselProps {
+  logos: Logo[];
+}
+
 // Helper component for the scrolling logo row
-const LogoCarousel = ({ logos }) => {
+const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
   // Duplicate the logos array to create the seamless infinite scroll effect
   const duplicatedLogos = [...logos, ...logos];
-
   return (
     // Apply the custom animation class
     <div className="flex w-full overflow-hidden whitespace-nowrap group">
       <style jsx global>{animationStyles}</style>
-
       {/* The main scrolling strip container (contains duplicated logos) */}
       <div 
         className="flex animate-scroll-ltr w-fit" // w-fit ensures the flex container respects the total content width
@@ -1299,6 +1345,7 @@ const LogoCarousel = ({ logos }) => {
     </div>
   );
 };
+
 
 
 const Trusted = () => {
