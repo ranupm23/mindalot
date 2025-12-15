@@ -1387,10 +1387,12 @@ const Trusted = () => {
 
 
 
+
+
 const LastSection = () => {
   const Footer = (
     <main
-      className="relative top-[400px] w-full text-[#5B4A3E] pb-5"
+      className="relative w-full text-[#5B4A3E] overflow-x-hidden"
       style={{
         background:
           "linear-gradient(125.54deg, #5B4B3E -12.44%, #F6F1EB -2.52%, #E8DED4 19.98%, #ABA093 80.72%, #8A8077 101.75%)",
@@ -1398,11 +1400,10 @@ const LastSection = () => {
     >
       {/* Overlay Image */}
       <div
-        className="absolute right-0 pointer-events-none z-0"
+        className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
         style={{
           top: "50px",
           bottom: "-20px",
-          width: "auto",
           maxHeight: "calc(100% - 70px)",
         }}
       >
@@ -1416,27 +1417,42 @@ const LastSection = () => {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1350px] px-8 md:px-12 lg:px-16 xl:px-20 pt-[200px] pb-[120px]">
-        <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-24">
-          <div className="max-w-[360px]">
-            <Image src={headerLogo} alt="Mind Alot logo" width={150} height={40} />
-            <p className="mt-6 text-[15px] leading-relaxed">
-              Anonymous support that listens, nudges, and grows with you. When your mind feels too much, we’re just a tap away.
+      {/* Footer Content Container */}
+      <div className="relative z-10 mx-auto max-w-[1350px] px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 pt-[150px] pb-[250px] sm:pt-[175px] sm:pb-[110px] md:pt-[200px] md:pb-[120px]">
+        <div
+          className="
+            w-full
+            flex flex-col
+            lg:flex-row
+            justify-between
+            items-center
+            lg:items-start
+            gap-8 sm:gap-10 md:gap-12 lg:gap-24
+          "
+        >
+          {/* Column 1: Logo and About */}
+          <div className="max-w-[300px] sm:max-w-[340px] md:max-w-[360px] w-full text-center lg:text-left mx-auto">
+            <Image src={headerLogo} alt="Mind Alot logo" width={150} height={40} className="mx-auto lg:mx-0" /> 
+            <p className="mt-6 text-[14px] sm:text-[15px] leading-relaxed">
+              Anonymous support that listens, nudges, and grows with you. When your mind feels too much, we're just a tap away.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-10">
+            <div className="mt-6 sm:mt-8 md:mt-10 flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 md:gap-10">
               <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B]">
-                <span className="text-[28px] leading-none">•</span> Terms & Conditions
+                <span className="text-[24px] sm:text-[28px] leading-none">•</span> Terms & Conditions
               </Link>
               <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B]">
-                <span className="text-[28px] leading-none">•</span> Privacy Policy
+                <span className="text-[24px] sm:text-[28px] leading-none">•</span> Privacy Policy
               </Link>
             </div>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="flex flex-col gap-3 text-[15px]">
+          {/* Column 2: Company Links */}
+          <div className="text-center lg:text-left">
+            <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">
+              Company
+            </h3>
+            <ul className="flex flex-col gap-1.5 sm:gap-2 md:gap-3 text-[13px] sm:text-[14px] md:text-[15px]">
               <li>
                 <Link href="/features" className="hover:text-[#8C7A6B]">
                   Features
@@ -1455,35 +1471,45 @@ const LastSection = () => {
             </ul>
           </div>
 
-          <div className="max-w-[320px]">
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <div className="flex flex-col gap-4 text-[15px]">
-              <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
-                <Mail size={18} stroke="#5B4A3E" />{" "}
+          {/* Column 3: Contact Info */}
+          <div className="max-w-[280px] sm:max-w-[300px] md:max-w-[320px] mx-auto w-full">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-center lg:text-left">
+              Contact
+            </h3>
+            <div className="flex flex-col gap-2.5 sm:gap-3 md:gap-4 text-[13px] sm:text-[14px] md:text-[15px] text-center lg:text-left items-center lg:items-start"> 
+              <div className="flex items-center gap-2.5 sm:gap-3 hover:text-[#8C7A6B]">
+                <Mail className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px]" stroke="#5B4A3E" />{" "}
                 <a href="mailto:support@mindalot.com">support@mindalot.com</a>
               </div>
-              <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
-                <Phone size={18} stroke="#5B4A3E" /> +91-96062-58596
+              <div className="flex items-center gap-2.5 sm:gap-3 hover:text-[#8C7A6B]">
+                <Phone className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px]" stroke="#5B4A3E" /> +91-96062-58596
               </div>
-              <div className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight">
-                <MapPin size={18} stroke="#5B4A3E" />
-                #122K, 1st block, 14th cross, 19th 'B' Main,<br />
-                Rajajinagar, Bengaluru – 560010
+              <div className="flex flex-col items-center lg:items-start gap-2.5 sm:gap-3 hover:text-[#8C7A6B] leading-tight">
+                <div className="flex items-start gap-2.5 sm:gap-3"> 
+                  <MapPin className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px]" stroke="#5B4A3E" />
+                  <span className="inline-block text-left text-[13px] sm:text-[14px]">
+                      #122K, 1st block, 14th cross, 19th 'B' Main,<br />
+                      Rajajinagar, Bengaluru – 560010
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Follow us on</h3>
-            <div className="flex items-center gap-5">
+          {/* Column 4: Social Links */}
+          <div className="text-center lg:text-left">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+              Follow us on
+            </h3>
+            <div className="flex items-center justify-center lg:justify-start gap-4 sm:gap-5">
               <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-                <Instagram stroke="#5B4A3E" size={26} className="hover:opacity-70" />
+                <Instagram stroke="#5B4A3E" className="w-[22px] h-[22px] sm:w-[26px] sm:h-[26px] hover:opacity-70" />
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-                <FaLinkedin color="#5B4A3E" size={26} className="hover:opacity-70" />
+                <FaLinkedin color="#5B4A3E" className="w-[22px] h-[22px] sm:w-[26px] sm:h-[26px] hover:opacity-70" />
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-                <IoLogoYoutube color="#5B4A3E" size={30} className="hover:opacity-70" />
+                <IoLogoYoutube color="#5B4A3E" className="w-[26px] h-[26px] sm:w-[30px] sm:h-[30px] hover:opacity-70" />
               </a>
             </div>
           </div>
@@ -1493,34 +1519,35 @@ const LastSection = () => {
   );
 
   return (
-    <section className="relative mx-auto w-full min-h-[1000px] bg-white">
+    <section className="relative mx-auto w-full min-h-[1200px] sm:min-h-[900px] md:min-h-[1000px] bg-white overflow-x-hidden overflow-y-hidden ">
       {/* CTA Wrapper */}
-   {/* CTA Wrapper */}
-<div
-  className="
-    absolute 
-    top-[156px] md:top-[156px] 
-    left-0 right-0 mx-auto 
-    z-40
+      <div
+        className="
+          absolute 
+          top-[100px] sm:top-[120px] md:top-[140px] lg:top-[156px] 
+          left-0 right-0 mx-auto 
+          z-40
 
-    w-[1250px] md:w-[1250px]
-    max-w-[95%] md:max-w-none
+          w-full max-w-[95vw]
+          sm:w-[90vw] sm:max-w-[500px]
+          md:w-[80vw] md:max-w-[700px]
+          lg:w-[1250px] lg:max-w-none
 
-    h-auto md:h-[360px]
+          h-auto md:h-[360px]
 
-    px-4 md:px-0
-    py-10 md:py-0
+          px-4 md:px-0
+          py-10 md:py-0
 
-    rounded-[20px] md:rounded-[30px]
-  "
-  style={{
-    border: "10px solid #FFFFFF",
-    backgroundColor: "#BFBFBD",
-    opacity: 1,
-    overflow: "hidden",
-  }}
->
-        {/* Background image container - must not capture pointer events */}
+          rounded-[20px] md:rounded-[30px]
+        "
+        style={{
+          border: "10px solid #FFFFFF",
+          backgroundColor: "#BFBFBD",
+          opacity: 1,
+          overflow: "hidden", 
+        }}
+      >
+        {/* Background image container */}
         <div className="absolute inset-0 -z-10 pointer-events-none">
           <Image
             src={rocksImage}
@@ -1538,56 +1565,55 @@ const LastSection = () => {
         </div>
 
         <div className="relative z-20 flex h-full flex-col items-center justify-center pt-[30px]">
-    <p
-  className="
-    text-center font-semibold 
-    text-[28px] sm:text-[36px] md:text-[50px]
-    leading-[38px] sm:leading-[52px] md:leading-[70px]
-    max-w-full md:w-[863px]
-    px-2 md:px-0
-  "
-  style={{
-    fontFamily: "var(--font-inter-sans)",
-    letterSpacing: "-0.06em",
-    color: "#F6F2EB",
-    margin: "0 0 10px 0",
-  }}
->
-  Take the first step toward feeling better.
-</p>
+          {/* Responsive Headlines */}
+          <p
+            className="
+              text-center font-semibold 
+              text-[24px] sm:text-[28px] md:text-[36px] lg:text-[50px]
+              leading-[32px] sm:leading-[38px] md:leading-[52px] lg:leading-[70px]
+              max-w-full md:w-[863px]
+              px-2 md:px-0
+            "
+            style={{
+              fontFamily: "var(--font-inter-sans)",
+              letterSpacing: "-0.06em",
+              color: "#F6F2EB",
+              margin: "0 0 10px 0",
+            }}
+          >
+            Take the first step toward feeling better.
+          </p>
 
+          <p
+            className="
+              text-center font-normal
+              text-[14px] sm:text-[15px] md:text-[17px] lg:text-[20px]
+              leading-[22px] sm:leading-[24px] md:leading-[28px] lg:leading-[35px]
+              max-w-full md:w-[684px]
+              px-3 md:px-0
+            "
+            style={{
+              fontFamily: "var(--font-inter-sans)",
+              letterSpacing: "-0.03em",
+              color: "#FFFFFF",
+              margin: "0 0 40px 0",
+            }}
+          >
+            Start talking. Stay anonymous. Feel lighter. Because your mind matters a lot.
+          </p>
 
-         <p
-  className="
-    text-center font-normal
-    text-[15px] sm:text-[17px] md:text-[20px]
-    leading-[24px] sm:leading-[28px] md:leading-[35px]
-    max-w-full md:w-[684px]
-    px-3 md:px-0
-  "
-  style={{
-    fontFamily: "var(--font-inter-sans)",
-    letterSpacing: "-0.03em",
-    color: "#FFFFFF",
-    margin: "0 0 40px 0",
-  }}
->
-  Start talking. Stay anonymous. Feel lighter. Because your mind matters a lot.
-</p>
-
-
-          {/* Buttons */}
+          {/* Responsive Buttons */}
           <div
             className="
               z-30
-              flex flex-col md:flex-row 
-              gap-6 
+              flex flex-row flex-wrap
+              gap-4 sm:gap-6
               mt-4 
               w-full 
               px-4 md:px-0 
               justify-center 
               items-center 
-              max-w-[700px] 
+              max-w-[600px] sm:max-w-[700px] 
               mx-auto
             "
           >
@@ -1596,8 +1622,8 @@ const LastSection = () => {
               href="mailto:hello@mindalot.com"
               className="
                 group relative 
-                flex items-center justify-center md:justify-start
-                w-full max-w-[212px] md:w-[212px] h-[60px] 
+                flex items-center justify-start
+                w-[212px] h-[54px] sm:h-[60px] 
                 rounded-[30px] 
                 border-2 border-[#F6F2EB] 
                 bg-transparent no-underline overflow-hidden 
@@ -1607,13 +1633,12 @@ const LastSection = () => {
             >
               <span
                 className="
-                  absolute top-[21px] left-[24px] 
+                  absolute top-[18px] sm:top-[21px] left-[20px] sm:left-[24px] 
                   font-inter font-medium 
-                  text-[16px] leading-none 
+                  text-[15px] sm:text-[16px] leading-none 
                   text-[#F6F2EB] 
                   whitespace-nowrap 
                   transition-colors duration-200
-                  max-md:relative max-md:top-auto max-md:left-auto max-md:text-center
                 "
                 style={{ letterSpacing: "-0.03em" }}
               >
@@ -1622,30 +1647,29 @@ const LastSection = () => {
 
               <div
                 className="
-                  absolute top-[3px] left-[155px] 
-                  w-[50px] h-[50px] 
+                  absolute top-[2px] sm:top-[3px] right-[10px] 
+                  w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] 
                   rounded-full 
                   flex items-center justify-center 
                   bg-[#5B4A3E] 
                   transition-all duration-300 
                   group-hover:bg-white 
                   group-hover:rotate-45 
-                  max-md:right-2
                 "
               >
                 <Image
                   src={newarrow}
                   alt="arrow"
-                  width={18}
-                  height={18}
-                  className="block group-hover:hidden w-[18px] h-[18px]"
+                  width={16}
+                  height={16}
+                  className="block group-hover:hidden w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
                 />
                 <Image
                   src={blackarrow}
                   alt="arrow"
-                  width={18}
-                  height={18}
-                  className="hidden group-hover:block w-[18px] h-[18px] transition-all"
+                  width={16}
+                  height={16}
+                  className="hidden group-hover:block w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] transition-all"
                 />
               </div>
             </a>
@@ -1657,8 +1681,8 @@ const LastSection = () => {
               rel="noopener noreferrer"
               className="
                 group relative 
-                flex items-center justify-center md:justify-start
-                w-full max-w-[212px] md:w-[212px] h-[60px] 
+                flex items-center justify-start
+                w-[212px] h-[54px] sm:h-[60px] 
                 rounded-[30px] 
                 border-2 border-[#F6F2EB] 
                 bg-transparent no-underline overflow-hidden 
@@ -1668,13 +1692,12 @@ const LastSection = () => {
             >
               <span
                 className="
-                  absolute top-[21px] left-[24px] 
+                  absolute top-[18px] sm:top-[21px] left-[20px] sm:left-[24px] 
                   font-inter font-medium 
-                  text-[16px] leading-none 
+                  text-[15px] sm:text-[16px] leading-none 
                   text-[#F6F2EB] 
                   whitespace-nowrap 
                   transition-colors duration-200
-                  max-md:relative max-md:top-auto max-md:left-auto max-md:text-center
                 "
                 style={{ letterSpacing: "-0.03em" }}
               >
@@ -1683,30 +1706,29 @@ const LastSection = () => {
 
               <div
                 className="
-                  absolute top-[3px] left-[155px] 
-                  w-[50px] h-[50px] 
+                  absolute top-[2px] sm:top-[3px] right-[10px] 
+                  w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] 
                   rounded-full 
                   flex items-center justify-center 
                   bg-[#5B4A3E] 
                   transition-all duration-300 
                   group-hover:bg-white 
                   group-hover:rotate-45 
-                  max-md:right-2
                 "
               >
                 <Image
                   src={newarrow}
                   alt="arrow"
-                  width={18}
-                  height={18}
-                  className="block group-hover:hidden w-[18px] h-[18px]"
+                  width={16}
+                  height={16}
+                  className="block group-hover:hidden w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
                 />
                 <Image
                   src={blackarrow}
                   alt="arrow"
-                  width={18}
-                  height={18}
-                  className="hidden group-hover:block w-[18px] h-[18px] transition-all"
+                  width={16}
+                  height={16}
+                  className="hidden group-hover:block w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] transition-all"
                 />
               </div>
             </a>
@@ -1718,8 +1740,8 @@ const LastSection = () => {
               rel="noopener noreferrer"
               className="
                 group relative 
-                flex items-center justify-center md:justify-start
-                w-full max-w-[212px] md:w-[212px] h-[60px] 
+                flex items-center justify-start
+                w-[212px] h-[54px] sm:h-[60px] 
                 rounded-[30px] 
                 border-2 border-[#F6F2EB] 
                 bg-transparent no-underline overflow-hidden 
@@ -1729,13 +1751,12 @@ const LastSection = () => {
             >
               <span
                 className="
-                  absolute top-[21px] left-[24px] 
+                  absolute top-[18px] sm:top-[21px] left-[20px] sm:left-[24px] 
                   font-inter font-medium 
-                  text-[16px] leading-none 
+                  text-[15px] sm:text-[16px] leading-none 
                   text-[#F6F2EB] 
                   whitespace-nowrap 
                   transition-colors duration-200
-                  max-md:relative max-md:top-auto max-md:left-auto max-md:text-center
                 "
                 style={{ letterSpacing: "-0.03em" }}
               >
@@ -1744,30 +1765,29 @@ const LastSection = () => {
 
               <div
                 className="
-                  absolute top-[3px] left-[155px] 
-                  w-[50px] h-[50px] 
+                  absolute top-[2px] sm:top-[3px] right-[10px] 
+                  w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] 
                   rounded-full 
                   flex items-center justify-center 
                   bg-[#5B4A3E] 
                   transition-all duration-300 
                   group-hover:bg-white 
                   group-hover:rotate-45 
-                  max-md:right-2
                 "
               >
                 <Image
                   src={newarrow}
                   alt="arrow"
-                  width={18}
-                  height={18}
-                  className="block group-hover:hidden w-[18px] h-[18px]"
+                  width={16}
+                  height={16}
+                  className="block group-hover:hidden w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
                 />
                 <Image
                   src={blackarrow}
                   alt="arrow"
-                  width={18}
-                  height={18}
-                  className="hidden group-hover:block w-[18px] h-[18px] transition-all"
+                  width={16}
+                  height={16}
+                  className="hidden group-hover:block w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] transition-all"
                 />
               </div>
             </a>
@@ -1776,10 +1796,15 @@ const LastSection = () => {
       </div>
 
       {/* Footer */}
-      {Footer}
+      <div className="relative top-[430px] sm:top-[350px] md:top-[400px] pb-10">
+        {Footer}
+      </div>
     </section>
   );
 };
+
+
+
 
 
 
