@@ -56,11 +56,12 @@ export default function Header() {
           })}
         </nav>
 
-        {/* JOIN NOW BUTTON for Large Screens */}
+       {/* JOIN NOW BUTTON for Large Screens */}
 <div className="hidden md:flex">
   <Link
     href="/join"
-    className="group relative overflow-hidden rounded-[30px] border border-[#755840] flex items-center justify-center text-center"
+    className="group relative overflow-hidden rounded-[30px] flex items-center justify-center text-center
+               border border-[#755840] hover:border-transparent transition-colors duration-300"
     style={{
       width: "174px",
       height: "47px",
@@ -73,12 +74,21 @@ export default function Header() {
       letterSpacing: "0%",
     }}
   >
-    <span className="absolute inset-0 bg-[#5B4A3E] scale-x-0 origin-center rounded-[30px] group-hover:scale-x-100 transition-transform duration-300 ease-out" />
+    {/* Hover background (hidden by default) */}
+    <span
+      className="absolute inset-0 bg-[#5B4A3E] rounded-[30px]
+                 opacity-0 scale-x-50
+                 group-hover:opacity-100 group-hover:scale-x-100
+                 origin-center transition-all duration-300 ease-out"
+    />
+
+    {/* Text */}
     <span className="relative z-10 group-hover:text-white transition-colors duration-300">
       Join now
     </span>
   </Link>
 </div>
+
 
         {/* Hamburger Menu for Small Screens */}
         <div className="md:hidden flex items-center gap-4">
