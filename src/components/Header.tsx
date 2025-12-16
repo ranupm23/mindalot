@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import Image from "next/image";
@@ -22,19 +20,28 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="w-full h-[90px] fixed top-0 left-0 z-50 flex items-center justify-center bg-transparent backdrop-blur-[6px]">
+    <header
+      className="
+        w-full h-[90px] fixed top-0 left-0 z-50
+        flex items-center justify-center
+        bg-transparent backdrop-blur-[3px]
+        text-[color:var(--header-text,#5B4A3E)]
+        transition-colors duration-300
+      "
+    >
       <div className="w-[1440px] h-[90px] flex items-center justify-between px-[75px]">
+        
         {/* LOGO */}
-       <Link href="/">
-  <Image
-    src={headerLogo}
-    alt="Logo"
-    width={112}
-    height={68}
-    className="opacity-100 cursor-pointer"
-    priority
-  />
-</Link>
+        <Link href="/">
+          <Image
+            src={headerLogo}
+            alt="Logo"
+            width={112}
+            height={68}
+            className="cursor-pointer"
+            priority
+          />
+        </Link>
 
         {/* MENU for Large Screens */}
         <nav className="hidden md:flex items-center gap-[40px]">
@@ -46,8 +53,8 @@ export default function Header() {
                 href={item.path}
                 className={`
                   font-inter text-[18px] whitespace-nowrap
-                  ${isActive ? "font-bold text-[#5B4A3E]" : "font-normal text-[#5B4A3E]"}
-                  transition-all duration-200
+                  ${isActive ? "font-bold" : "font-normal"}
+                  transition-colors duration-200
                 `}
               >
                 {item.name}
@@ -58,45 +65,49 @@ export default function Header() {
 
        {/* JOIN NOW BUTTON for Large Screens */}
 <div className="hidden md:flex">
-  <Link
-    href="/join"
-    className="group relative overflow-hidden rounded-[30px] flex items-center justify-center text-center
-               border border-[#755840] hover:border-transparent transition-colors duration-300"
-    style={{
-      width: "174px",
-      height: "47px",
-      background: "#FFFFFF",
-      color: "#755840",
-      fontFamily: "inter",
-      fontSize: "18px",
-      fontWeight: 500,
-      lineHeight: "100%",
-      letterSpacing: "0%",
-    }}
-  >
-    {/* Hover background (hidden by default) */}
-    <span
-      className="absolute inset-0 bg-[#5B4A3E] rounded-[30px]
-                 opacity-0 scale-x-50
-                 group-hover:opacity-100 group-hover:scale-x-100
-                 origin-center transition-all duration-300 ease-out"
-    />
 
-    {/* Text */}
-    <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-      Join now
-    </span>
-  </Link>
+<Link
+            href="/join"
+            className="
+              group relative overflow-hidden rounded-[30px]
+              flex items-center justify-center text-center
+              border border-current hover:border-transparent
+              transition-colors duration-300
+            "
+            style={{
+              width: "174px",
+              height: "47px",
+              background: "#FFFFFF",
+              fontFamily: "Inter",
+              fontSize: "18px",
+              fontWeight: 500,
+              lineHeight: "100%",
+            }}
+          >
+            {/* Hover background */}
+            <span
+              className="
+                absolute inset-0 bg-[#5B4A3E] rounded-[30px]
+                opacity-0 scale-x-50
+                group-hover:opacity-100 group-hover:scale-x-100
+                origin-center transition-all duration-300 ease-out
+              "
+            />
+
+            {/* Text */}
+            <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+              Join now
+            </span>
+          </Link>
 </div>
 
 
         {/* Hamburger Menu for Small Screens */}
         <div className="md:hidden flex items-center gap-4">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="focus:outline-none">
-            {/* Hamburger Icon */}
-            <div className="w-6 h-0.5 bg-[#5B4A3E] mb-1"></div>
-            <div className="w-6 h-0.5 bg-[#5B4A3E] mb-1"></div>
-            <div className="w-6 h-0.5 bg-[#5B4A3E]"></div>
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <div className="w-6 h-0.5 bg-current mb-1"></div>
+            <div className="w-6 h-0.5 bg-current mb-1"></div>
+            <div className="w-6 h-0.5 bg-current"></div>
           </button>
         </div>
       </div>
@@ -109,16 +120,18 @@ export default function Header() {
               key={item.path}
               href={item.path}
               onClick={() => setIsMenuOpen(false)}
-              className={`font-inter text-[16px] ${pathname === item.path ? "font-bold text-[#5B4A3E]" : "font-normal text-[#5B4A3E]"}`}
+              className={`font-inter text-[16px] ${
+                pathname === item.path ? "font-bold" : "font-normal"
+              } text-[#5B4A3E]`}
             >
               {item.name}
             </Link>
           ))}
 
-          {/* Join Now Button Centered */}
           <Link
             href="/join"
-            className="group relative overflow-hidden rounded-[30px] border border-[#755840] flex items-center justify-center mt-2"
+            className="group relative overflow-hidden rounded-[30px] border border-[#755840]
+                       flex items-center justify-center mt-2"
             style={{
               width: "160px",
               height: "45px",
@@ -130,7 +143,9 @@ export default function Header() {
             }}
           >
             <span className="absolute inset-0 bg-[#5B4A3E] scale-x-0 origin-center rounded-[30px] group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-            <span className="relative z-10 group-hover:text-white transition-colors duration-300">Join now</span>
+            <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+              Join now
+            </span>
           </Link>
         </div>
       )}
