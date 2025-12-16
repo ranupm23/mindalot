@@ -32,16 +32,17 @@ const Footer = () => {
       <div
         className="absolute right-0 pointer-events-none z-0"
         style={{
-          top: "50px",
+          top: "140px",
           bottom: "-20px",
           width: "auto",
-          maxHeight: "calc(100% - 70px)",
+          
+          maxHeight: "calc(100% - 40px)",
         }}
       >
         <Image
           src={footerBgLogo}
           alt="footer overlay logo"
-          style={{ height: "100%", width: "auto", objectFit: "contain", opacity: 1 }}
+          style={{ height: "80%", width: "auto", objectFit: "contain", opacity: 1 }}
         />
       </div>
 
