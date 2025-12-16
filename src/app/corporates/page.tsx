@@ -9,7 +9,7 @@ import graphic1 from "@/assets/corporate-assets/graphic1.svg";
 import cardGraphic from "@/assets/corporate-assets/card-circle-white/card-graphic.svg";
 import heroimage from "@/assets/corporate-assets/hero.png";
 import roundcircle from "@/assets/corporate-assets/round-circle.png";
-import cardExportCircle from "@/assets/corporate-assets/card-export-circle.svg";
+import cardExportCircle from "@/assets/contact-page/right-side-image.png";
 import cardSecurity from "@/assets/corporate-assets/card-security.svg";
 import groupClipPath1 from "@/assets/corporate-assets/group/group-clip-path1.png";
 import groupClipPath2 from "@/assets/corporate-assets/group/group-clip-path2.png";
@@ -205,7 +205,7 @@ export default function CorporatePage() {
         height={58}
         alt="Decorative Icon"
         className="opacity-70"
-        style={{ transform: 'rotate(160deg)' }}
+        style={{ transform: 'rotate(-10deg)' }}
       />
     </div>
     <p
