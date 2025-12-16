@@ -44,6 +44,7 @@ import blackarrow from '../assets/home-page/Footer/black arr.png';
 import CTAButton from "@/components/CTAButton";
 import { Footprints } from "lucide-react";
 import { useState } from 'react';
+import Header from '@/components/Header'
 
 
 // Placeholder assets - **You must define these imports in your file**
@@ -64,6 +65,7 @@ export default function Home() {
 
 const HomeHero = () => {
   return (
+   
     <section
       className="
         relative 
@@ -87,6 +89,7 @@ const HomeHero = () => {
         backgroundImage: `url('${Homebg.src}')`,
       }}
     >
+       
       {/* GRADIENT OVERLAY */}
       <div
         className="
@@ -103,6 +106,7 @@ const HomeHero = () => {
             "linear-gradient(134.5deg, rgba(91,74,62,0.7) 2.41%, rgba(117,88,64,0.7) 73.14%, rgba(0,0,0,0.595) 100%)",
         }}
       />
+        <Header textWhite={true} />
 
       {/* --- CONTENT CONTAINER (Mobile padding) --- */}
       {/* On Desktop (lg), this div essentially becomes invisible/static to let children absolute position themselves */}

@@ -15,20 +15,16 @@ const menuItems = [
   { name: "Contact", path: "/contact" },
 ];
 
-export default function Header() {
+export default function Header({ textWhite = false }) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Use a string of Tailwind classes
+  const linkTextClass = textWhite ? "text-[#F6F2EB]" : "text-[#5B4A3E]";
+
+
   return (
-    <header
-      className="
-        w-full h-[90px] fixed top-0 left-0 z-50
-        flex items-center justify-center
-        bg-transparent backdrop-blur-[3px]
-        text-[color:var(--header-text,#5B4A3E)]
-        transition-colors duration-300
-      "
-    >
+    <header className="w-full h-[90px] fixed top-0 left-0 z-50 flex items-center justify-center bg-transparent transition-colors duration-300">
       <div className="w-[1440px] h-[90px] flex items-center justify-between px-[75px]">
         
         {/* LOGO */}
@@ -51,11 +47,7 @@ export default function Header() {
               <Link
                 key={item.path}
                 href={item.path}
-                className={`
-                  font-inter text-[18px] whitespace-nowrap
-                  ${isActive ? "font-bold" : "font-normal"}
-                  transition-colors duration-200
-                `}
+                className={`${linkTextClass} font-inter text-[18px] whitespace-nowrap ${isActive ? "font-bold" : "font-normal"} transition-colors duration-200`}
               >
                 {item.name}
               </Link>
@@ -63,17 +55,11 @@ export default function Header() {
           })}
         </nav>
 
-       {/* JOIN NOW BUTTON for Large Screens */}
-<div className="hidden md:flex">
-
-<Link
+        {/* JOIN NOW BUTTON */}
+        <div className="hidden md:flex">
+          <Link
             href="/join"
-            className="
-              group relative overflow-hidden rounded-[30px]
-              flex items-center justify-center text-center
-              border border-current hover:border-transparent
-              transition-colors duration-300
-            "
+            className="group relative overflow-hidden rounded-[30px] flex items-center justify-center text-center border border-current transition-colors duration-300"
             style={{
               width: "174px",
               height: "47px",
@@ -84,25 +70,14 @@ export default function Header() {
               lineHeight: "100%",
             }}
           >
-            {/* Hover background */}
-            <span
-              className="
-                absolute inset-0 bg-[#5B4A3E] rounded-[30px]
-                opacity-0 scale-x-50
-                group-hover:opacity-100 group-hover:scale-x-100
-                origin-center transition-all duration-300 ease-out
-              "
-            />
-
-            {/* Text */}
+            <span className="absolute inset-0 bg-[#5B4A3E] rounded-[30px] opacity-0 scale-x-50 group-hover:opacity-100 group-hover:scale-x-100 origin-center transition-all duration-300 ease-out" />
             <span className="relative z-10 group-hover:text-white transition-colors duration-300">
               Join now
             </span>
           </Link>
-</div>
+        </div>
 
-
-        {/* Hamburger Menu for Small Screens */}
+        {/* Hamburger Menu */}
         <div className="md:hidden flex items-center gap-4">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div className="w-6 h-0.5 bg-current mb-1"></div>
@@ -120,9 +95,7 @@ export default function Header() {
               key={item.path}
               href={item.path}
               onClick={() => setIsMenuOpen(false)}
-              className={`font-inter text-[16px] ${
-                pathname === item.path ? "font-bold" : "font-normal"
-              } text-[#5B4A3E]`}
+              className={`font-inter text-[16px] ${pathname === item.path ? "font-bold" : "font-normal"} ${linkTextClass}`}
             >
               {item.name}
             </Link>
@@ -130,8 +103,7 @@ export default function Header() {
 
           <Link
             href="/join"
-            className="group relative overflow-hidden rounded-[30px] border border-[#755840]
-                       flex items-center justify-center mt-2"
+            className="group relative overflow-hidden rounded-[30px] border border-[#755840] flex items-center justify-center mt-2"
             style={{
               width: "160px",
               height: "45px",
