@@ -188,7 +188,7 @@ const HomeHero = () => {
             text-center tracking-[-0.02em]
             font-inter
             lg:absolute lg:mt-0 lg:w-[280px] lg:h-[19px]
-            lg:top-[697px] lg:left-[587px]
+            lg:top-[640px] lg:left-[587px]
           "
         >
           Your safe space is just one tap away!
@@ -200,28 +200,30 @@ const HomeHero = () => {
             relative flex flex-col items-center gap-[16px] mt-6 w-full
             lg:absolute lg:mt-0 lg:flex-row
             lg:w-[467px] lg:h-[60px]
-            lg:top-[772px] lg:left-[490px]
+            lg:top-[715px] lg:left-[490px]
           "
         >
-          {/* BUTTON 1 */}
-          <button className="group relative w-[280px] lg:w-[212px] h-[56px] lg:h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-transparent">
-            <span className="absolute w-[120px] h-[22px] top-[17px] lg:top-[17px] left-[40px] lg:left-[20px] font-inter font-medium text-[15px] lg:text-[16px] text-[#F6F2EB]">
-              Start chat now
-            </span>
-            <div className="absolute w-[46px] h-[46px] top-[3px] lg:top-[5px] right-[3px] lg:left-[159px] rounded-full bg-[#F6F2EB] flex items-center justify-center">
-              <Image src={arrow} alt="arrow" className="w-[14px] lg:w-[16px] h-[14px] lg:h-[16px] transform transition-transform duration-300 group-hover:rotate-45" />
-            </div>
-          </button>
+       {/* BUTTON 1 */}
+<button className="group relative w-[280px] lg:w-[212px] h-[56px] lg:h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-transparent">
+  <span className="absolute w-[120px] h-[22px] top-[17px] lg:top-[17px] left-[40px] lg:left-[20px] font-inter font-medium text-[15px] lg:text-[16px] text-[#F6F2EB]">
+    Start chat now
+  </span>
+  {/* Circle increased to 52px, top adjusted to 2px/4px to center vertically */}
+  <div className="absolute w-[50px] h-[50px] top-[1px] lg:top-[3px] right-[2px] lg:left-[155px] rounded-full bg-[#F6F2EB] flex items-center justify-center">
+    <Image src={arrow} alt="arrow" className="w-[18px] lg:w-[20px] h-[18px] lg:h-[20px] transform transition-transform duration-300 group-hover:rotate-45" />
+  </div>
+</button>
 
-          {/* BUTTON 2 */}
-          <button className="group relative w-[280px] lg:w-[235px] h-[56px] lg:h-[60px] rounded-[30px] bg-[#F6F2EB] transition-all duration-300 hover:bg-[#5C4737]">
-            <span className="absolute w-[159px] h-[25px] top-[18px] lg:top-[17px] left-[30px] lg:left-[20px] font-inter font-medium text-[16px] lg:text-[18px] text-[#5B4A3E] transition-colors duration-300 group-hover:text-white">
-              Download the app
-            </span>
-            <div className="absolute w-[46px] h-[46px] top-[3px] lg:top-[5px] right-[3px] lg:left-[180px] rounded-full bg-[#FFFFFF] flex items-center justify-center">
-              <Image src={arrow} alt="arrow" className="w-[14px] lg:w-[16px] h-[14px] lg:h-[16px] transform transition-transform duration-300 group-hover:rotate-45" />
-            </div>
-          </button>
+{/* BUTTON 2 */}
+<button className="group relative w-[280px] lg:w-[235px] h-[56px] lg:h-[60px] rounded-[30px] bg-[#F6F2EB] transition-all duration-300 hover:bg-[#5C4737]">
+  <span className="absolute w-[159px] h-[25px] top-[18px] lg:top-[17px] left-[30px] lg:left-[20px] font-inter font-medium text-[16px] lg:text-[18px] text-[#5B4A3E] transition-colors duration-300 group-hover:text-white">
+    Download the app
+  </span>
+  {/* Circle increased to 52px, top adjusted for 60px height button */}
+  <div className="absolute w-[50px] h-[50px] top-[1px] lg:top-[5px] right-[2px] lg:left-[180px] rounded-full bg-[#FFFFFF] flex items-center justify-center">
+    <Image src={arrow} alt="arrow" className="w-[18px] lg:w-[20px] h-[18px] lg:h-[20px] transform transition-transform duration-300 group-hover:rotate-45" />
+  </div>
+</button>
         </div>
 
       </div>
