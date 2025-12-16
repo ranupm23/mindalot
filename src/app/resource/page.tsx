@@ -26,6 +26,7 @@ import Footer from "@/components/Footer";
 const ResourcePage = () => {
     return (
         <div className="flex flex-col min-h-screen">
+          
             {/* MAIN CONTENT */}
             <div className='flex-1 container-page xl:pr-0 xl:pl-0 px-4 sm:px-6 md:px-8'>
                 <div className="pt-16 flex flex-col lg:flex-row lg:justify-between gap-9">
@@ -86,7 +87,7 @@ const OurResourcesSection = () => {
     return (
         <>
             <h2 className='text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[60px] text-[#5C4737] font-semibold -tracking-[6%] font-inter mt-15 md:mt-0'>Our Resources!</h2>
-            <div className='mt-5 sm:mt-[46px] grid lg:grid-cols-2 gap-x-5 gap-y-[15px] sm:gap-y-[30px] mb-20'>
+            <div className='mt-5 sm:mt-[46px] grid lg:grid-cols-2 gap-x-5 gap-y-[15px] sm:gap-y-[30px] mb-20 whitespace-nowrap'>
                 <ResourceCard btnLabel="Listen Audio" img={ourResource1} btnIcon={waveIcon} rotateIconOnHover={false} />
                 <ResourceCard btnLabel="Watch Video" img={ourResource2} btnIcon={brownPlayIcon} />
                 <ResourceCard btnLabel="Read more" img={ourResource3} btnIcon={arrrow} />
