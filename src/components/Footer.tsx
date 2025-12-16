@@ -76,7 +76,7 @@ const Footer = () => {
     {/* COMPANY SECTION */}
     <div className="flex flex-col justify-start mt-16">
       <h3 className="text-lg font-sans font-medium text-[20px]">Company</h3>
-      <ul className="flex flex-col gap-3 text-[15px] mt-2">
+      <ul className="flex flex-col gap-3 text-[16px] mt-2">
         <li><Link href="/features" className="hover:text-[#8C7A6B]">Features</Link></li>
         <li><Link href="/contact" className="hover:text-[#8C7A6B]">Contact Us</Link></li>
         <li><Link href="/resource" className="hover:text-[#8C7A6B]">Resources</Link></li>
@@ -86,7 +86,7 @@ const Footer = () => {
     {/* CONTACT SECTION */}
     <div className="flex flex-col justify-start mt-16 max-w-[320px]">
       <h3 className="text-lg  font-sans font-medium text-[20px]">Contact</h3>
-      <div className="flex flex-col gap-4 text-[15px] mt-2">
+      <div className="flex flex-col gap-4 text-[16px] mt-2">
         <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
           <Mail size={18} stroke="#5B4A3E" /> support@mindalot.com
         </div>
