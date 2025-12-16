@@ -55,27 +55,44 @@ export default function Header({ textWhite = false }) {
           })}
         </nav>
 
-        {/* JOIN NOW BUTTON */}
-        <div className="hidden md:flex">
-          <Link
-            href="/join"
-            className="group relative overflow-hidden rounded-[30px] flex items-center justify-center text-center border border-current transition-colors duration-300"
-            style={{
-              width: "174px",
-              height: "47px",
-              background: "#FFFFFF",
-              fontFamily: "Inter",
-              fontSize: "18px",
-              fontWeight: 500,
-              lineHeight: "100%",
-            }}
-          >
-            <span className="absolute inset-0 bg-[#5B4A3E] rounded-[30px] opacity-0 scale-x-50 group-hover:opacity-100 group-hover:scale-x-100 origin-center transition-all duration-300 ease-out" />
-            <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-              Join now
-            </span>
-          </Link>
-        </div>
+      {/* JOIN NOW BUTTON */}
+<div className="hidden md:flex">
+    <Link
+    href="/join"
+    className="
+      group relative overflow-hidden rounded-[30px]
+      flex items-center justify-center text-center
+      border border-[#5B4A3E]
+      group-hover:border-[#5B4A3E]
+      transition-colors duration-300
+    "
+    style={{
+      width: "174px",
+      height: "47px",
+      background: "#FFFFFF",
+      fontFamily: "Inter",
+      fontSize: "18px",
+      fontWeight: 500,
+      lineHeight: "100%",
+    }}
+  >
+    {/* Hover background */}
+    <span
+      className="
+        absolute inset-0 bg-[#5B4A3E] rounded-[30px]
+        opacity-0 scale-x-50
+        group-hover:opacity-100 group-hover:scale-x-155
+        origin-center transition-all duration-1000 ease-in-out
+      "
+    />
+
+    {/* Text */}
+    <span className="relative z-10 text-[#5B4A3E] group-hover:text-[#F6F2EB] transition-colors duration-1000 easy-in-out">
+      Join now
+    </span>
+  </Link>
+</div>
+
 
         {/* Hamburger Menu */}
         <div className="md:hidden flex items-center gap-4">
@@ -101,24 +118,41 @@ export default function Header({ textWhite = false }) {
             </Link>
           ))}
 
-          <Link
-            href="/join"
-            className="group relative overflow-hidden rounded-[30px] border border-[#755840] flex items-center justify-center mt-2"
-            style={{
-              width: "160px",
-              height: "45px",
-              background: "#FFFFFF",
-              color: "#755840",
-              fontFamily: "Inter",
-              fontSize: "16px",
-              fontWeight: 500,
-            }}
-          >
-            <span className="absolute inset-0 bg-[#5B4A3E] scale-x-0 origin-center rounded-[30px] group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-            <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-              Join now
-            </span>
-          </Link>
+         <Link
+    href="/join"
+    className="
+      group relative overflow-hidden rounded-[30px]
+      flex items-center justify-center text-center
+      border border-[#5B4A3E]
+      group-hover:border-[#5B4A3E]
+      transition-colors duration-300
+    "
+    style={{
+      width: "174px",
+      height: "47px",
+      background: "#FFFFFF",
+      fontFamily: "Inter",
+      fontSize: "18px",
+      fontWeight: 500,
+      lineHeight: "100%",
+    }}
+  >
+    {/* Hover background */}
+    <span
+      className="
+        absolute inset-0 bg-[#5B4A3E] rounded-[30px]
+        opacity-0 scale-x-50
+        group-hover:opacity-100 group-hover:scale-x-155
+        origin-center transition-all duration-1000 ease-in-out
+      "
+    />
+
+    {/* Text */}
+    <span className="relative z-10 text-[#5B4A3E] group-hover:text-[#F6F2EB] transition-colors duration-1000 easy-in-out">
+      Join now
+    </span>
+  </Link>
+
         </div>
       )}
     </header>
