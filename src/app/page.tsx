@@ -64,15 +64,15 @@ export default function Home() {
 const HomeHero = () => {
   return (
     <section
-      className="
-        relative 
-        w-full 
-        min-h-screen lg:h-[864px]
-        flex flex-col items-center justify-start lg:block
-        bg-cover bg-center lg:bg-no-repeat lg:bg-[length:1440px_864px]
-        mx-auto overflow-hidden
-        font-inter
-      "
+        className="
+    relative 
+    w-full 
+    min-h-fit lg:min-h-screen lg:h-[864px]
+    flex flex-col items-center justify-start lg:block
+    bg-cover bg-center lg:bg-no-repeat lg:bg-[length:full_864px]
+    mx-auto overflow-hidden
+    font-inter
+  "
       style={{ backgroundImage: `url('${Homebg.src}')` }}
     >
       {/* GRADIENT OVERLAY */}
@@ -92,7 +92,7 @@ const HomeHero = () => {
           {/* MIND */}
           <div
             className="
-              relative text-[70px] xs:text-[62px] sm:text-[80px]
+              relative text-[60px] xs:text-[62px] sm:text-[80px]
               font-semibold leading-none tracking-[0.02em]
               text-transparent bg-clip-text [-webkit-background-clip:text] bg-cover
               lg:absolute lg:text-[200px] lg:w-[566px] lg:h-[242px]
@@ -107,7 +107,7 @@ const HomeHero = () => {
           {/* A */}
           <div
             className="
-              relative text-[70px] xs:text-[62px] sm:text-[80px]
+              relative text-[60px] xs:text-[62px] sm:text-[80px]
               font-semibold leading-none tracking-[0.02em]
               text-transparent bg-clip-text [-webkit-background-clip:text] bg-cover
               lg:absolute lg:text-[200px] lg:w-[145px] lg:h-[242px]
@@ -122,7 +122,7 @@ const HomeHero = () => {
           {/* LOT */}
           <div
             className="
-              relative text-[70px] xs:text-[62px] sm:text-[80px]
+              relative text-[60px] xs:text-[62px] sm:text-[80px]
               font-semibold leading-none tracking-[0.02em] text-[#F6F2EB]
               lg:absolute lg:text-[200px] lg:w-[413px] lg:h-[242px]
               lg:top-[380px] lg:left-[750px] lg:tracking-[0.06em]
