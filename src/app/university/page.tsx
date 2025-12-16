@@ -19,6 +19,7 @@ import Regulator from "@/assets/universityPage/Regulatory.png";
 import arrow from "@/assets/arrow.svg";
 import whitea from "@/assets/universityPage/Arrow 1.png";
 import blacka from "@/assets/universityPage/black arr.png";
+import Header from "@/components/Header";
 export default function University() {
 
 // ========== HERO SECTION ==========
@@ -37,6 +38,7 @@ const HeroSection = () => {
     >
       {/* Background and Overlays */}
       <div className="absolute inset-0 w-full h-full">
+         <Header textWhite={true} />
         <Image src={hero1} alt="Hero background" fill className="object-cover opacity-100" priority />
       </div>
       <div className="absolute inset-0 w-full h-full z-[1]" style={{ background: '#00000099' }} />
