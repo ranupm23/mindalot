@@ -27,10 +27,41 @@ export default function CorporatePage() {
           {/* LEFT TEXT */}
           <div className="pt-[40px] text-center lg:text-left flex flex-col items-center lg:items-start">
             <div className="relative inline-block mb-[28px]">
-              <h1 className="text-[52px] font-semibold leading-[1.15] text-[#4b3729] tracking-[-0.02em]">
+              {/* <h1 className="text-[52px] font-semibold leading-[1.15] text-[#4b3729] tracking-[-0.02em]">
                 Real Mental Wellness,<br />
                 Not Just Another EAP.
-              </h1>
+              </h1> */}
+              {/* <h1
+  style={{
+    fontFamily: "Inter",
+    fontWeight: 600,
+    fontSize: "60px",
+    lineHeight: "64px",
+    letterSpacing: "-0.06em",
+    color: "#4b3729",
+    maxWidth: "520px",     // 🔑 LIMIT WIDTH
+    whiteSpace: "normal",
+  }}
+>
+  Real Mental Wellness,<br />
+  Not Just Another EAP.
+</h1> */}
+<h1
+  style={{
+    fontFamily: "Inter",
+    fontWeight: 600,
+    fontSize: "60px",
+    lineHeight: "64px",
+    letterSpacing: "-0.06em",
+    color: "#4b3729",
+    whiteSpace: "nowrap",   // 🚀 PREVENT AUTO WRAP
+  }}
+>
+  <span className="block">Real Mental Wellness,</span>
+  <span className="block">Not Just Another EAP.</span>
+</h1>
+
+
               {/* <div className="absolute left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 bottom-[-10px] w-[420px] h-[12px]">
                 <Image
                   src={graphic1}
@@ -211,7 +242,7 @@ export default function CorporatePage() {
     <p
       style={{
         fontFamily: 'Inter, sans-serif',
-        fontWeight: 600,
+        fontWeight: 400,
         fontStyle: 'normal',
         fontSize: '14px',
         lineHeight: '25px',
