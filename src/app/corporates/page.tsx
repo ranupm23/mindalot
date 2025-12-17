@@ -246,93 +246,88 @@ export default function CorporatePage() {
       </section>
 
       {/* OFFER SECTION */}
-      <section className="w-full bg-[#FDFDFD] py-16 sm:py-20 px-20">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3a2b20] text-left mb-10 sm:mb-14">
-            What we Offer to Organizations?
-          </h2>
+<section className="w-full bg-[#FDFDFD] py-16 sm:py-20 px-20">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3a2b20] text-left mb-10 sm:mb-14">
+      What we Offer to Organizations?
+    </h2>
 
-         {/* GRID */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-  {[
-    {
-      icon: groupClipPath1,
-      title: "Always-available, chat-first",
-      text: "Get instant support anytime, even during late nights and weekends.",
-    },
-    {
-      icon: cardExportCircle,
-      title: "No stigma or exposure",
-      text: "Employees stay completely anonymous; counsellors never see personal or identifying details.",
-    },
-    {
-      icon: groupClipPath3,
-      title: "Global support network",
-      text: "Wherever your workforce is located, our professionals are available to help.",
-    },
-    {
-      icon: groupClipPath2,
-      title: "Smart goal nudges",
-      text: "Gentle reminders and insights designed to reduce burnout, boost focus, and improve sleep and mindset.",
-    },
-    {
-      icon: cardSecurity,
-      title: "Insightful, privacy-first reports",
-      text: "HR teams receive usage trends and well-being analytics without revealing individual identities.",
-    },
-  ].map((card, i) => (
-    <div
-      key={i}
-      className="p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]"
-      style={{
-        width: "390px",
-        height: "275px",
-      }}
-    >
-      <div className="bg-[#F8F8F8] rounded-[15px] p-6 w-full h-full flex flex-col">
-        {/* <div className="sm:w-10 sm:h-10 mb-3 sm:mb-4">
-          <Image src={card.icon} width={75} height={75} alt={card.title} />
-        </div> */}
-        <div className="flex items-center justify-center mb-3 sm:mb-4 w-[75px] h-[75px]">
-  <Image
-    src={card.icon}
-    width={75}
-    height={75}
-    alt={card.title}
-    className="object-contain"
-  />
-</div>
+    {/* GRID */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+      {[
+        {
+          icon: groupClipPath1,
+          title: "Always-available, chat-first",
+          text: "Get instant support anytime, even during late nights and weekends.",
+        },
+        {
+          icon: cardExportCircle,
+          title: "No stigma or exposure",
+          text: "Employees stay completely anonymous; counsellors never see personal or identifying details.",
+        },
+        {
+          icon: groupClipPath3,
+          title: "Global support network",
+          text: "Wherever your workforce is located, our professionals are available to help.",
+        },
+        {
+          icon: groupClipPath2,
+          title: "Smart goal nudges",
+          text: "Gentle reminders and insights designed to reduce burnout, boost focus, and improve sleep and mindset.",
+        },
+        {
+          icon: cardSecurity,
+          title: "Insightful, privacy-first reports",
+          text: "HR teams receive usage trends and well-being analytics without revealing individual identities.",
+        },
+      ].map((card, i) => (
+        <div
+          key={i}
+          className="p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]"
+          style={{ width: "390px", height: "275px" }}
+        >
+          <div className="bg-[#F8F8F8] rounded-[15px] w-full h-full flex flex-col justify-between p-4">
+            
+            {/* ICON TOP LEFT */}
+            <div className="w-[75px] h-[75px]">
+              <Image
+                src={card.icon}
+                width={75}
+                height={75}
+                alt={card.title}
+                className="object-contain"
+              />
+            </div>
 
-        <h3 className="text-base sm:text-lg font-semibold text-[#3a2b20] mb-2">
-          {card.title}
-        </h3>
-        <p className="text-[#6d6d6f] text-sm leading-relaxed">{card.text}</p>
+            {/* TITLE AND TEXT BOTTOM */}
+            <div className="mt-auto">
+              <h3 className="text-base sm:text-lg font-semibold text-[#3a2b20] mb-2">
+                {card.title}
+              </h3>
+              <p className="text-[#6d6d6f] text-sm leading-relaxed">{card.text}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {/* DARK CARD */}
+      <div
+        className="relative p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]"
+        style={{ width: "390px", height: "275px" }}
+      >
+        <div className="relative bg-[#5c4737] text-white rounded-[15px] p-6 flex items-center justify-center text-center w-full h-full">
+          <div className="absolute top-3 right-3 flex flex-col gap-[6px]">
+            <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
+            <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
+          </div>
+          <p className="text-sm sm:text-base leading-relaxed">
+            Well-being at work isn't a benefit, it's a strength!
+          </p>
+        </div>
       </div>
-    </div>
-  ))}
-
-  {/* DARK CARD */}
-  <div
-    className="relative p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]"
-    style={{
-      width: "390px",
-      height: "275px",
-    }}
-  >
-    <div className="relative bg-[#5c4737] text-white rounded-[15px] p-6 flex items-center justify-center text-center w-full h-full">
-      <div className="absolute top-3 right-3 flex flex-col gap-[6px]">
-        <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
-        <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
-      </div>
-      <p className="text-sm sm:text-base leading-relaxed">
-        Well-being at work isn't a benefit, it's a strength!
-      </p>
     </div>
   </div>
-</div>
-
-        </div>
-      </section>
+</section>
 
       {/* FINAL CTA */}
       <section className="bg-[#FDFDFD] py-12 sm:py-20 px-6 text-center">
