@@ -313,7 +313,7 @@ export default function CorporatePage() {
     lineHeight: "100%",
     letterSpacing: "-0.03em", // -3% ≈ -0.03em
     color: "#3a2b20",
-    marginBottom: "8px",
+    marginBottom: "18px",
   }}
 >
   {card.title}
@@ -329,8 +329,7 @@ export default function CorporatePage() {
     lineHeight: "20px",
     letterSpacing: "-0.03em", // -3% ≈ -0.03em
     color: "#6d6d6f",
-     marginBottom: 0,
-    marginTop: "4px",
+     margin:"0",
     
   }}
 >
