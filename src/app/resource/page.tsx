@@ -260,26 +260,36 @@ const PodcastSection = () => {
       </button>
 
       {/* Avatars */}
-      <div className="absolute bottom-2.5 sm:bottom-[30px] right-2.5 sm:right-[30px] w-[60px] h-[30px] sm:w-[120px] sm:h-[60px] flex p-[3px] sm:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group">
-        <div className="relative">
-          <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white bg-purple-500">
-            <Image src={avatar1} alt="avatar-img" width={50} height={50} />
-          </div>
-          <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white translate-x-[60%] bg-gray-400">
-            <Image src={avatar2} alt="avatar-img" width={50} height={50} />
-          </div>
-          <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%]">
-            <Image
-              src={arrrow}
-              alt="arrow"
-              width={18}
-              height={18}
-              className="m-auto group-hover:rotate-45 w-2 h-2 sm:w-[18px] sm:h-[18px] transition-all filter brightness-0"
-            />
-          </div>
-        </div>
+      <div className="absolute bottom-2.5 sm:bottom-[30px] right-2.5 sm:right-[30px]">
+  <button
+    onClick={redirectToAppStore}
+    className="w-[60px] h-[30px] sm:w-[120px] sm:h-[60px] flex p-[3px] sm:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group transition-all hover:bg-[#BE9B84]"
+  >
+    <div className="relative w-full h-full">
+      {/* First Avatar */}
+      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white bg-purple-500 overflow-hidden">
+        <Image src={avatar1} alt="avatar-img" width={50} height={50} className="object-cover" />
+      </div>
+
+      {/* Second Avatar */}
+      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white translate-x-[60%] bg-gray-400 overflow-hidden">
+        <Image src={avatar2} alt="avatar-img" width={50} height={50} className="object-cover" />
+      </div>
+
+      {/* Arrow Circle */}
+      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%] transition-transform group-hover:rotate-45">
+        <Image
+          src={arrrow}
+          alt="arrow"
+          width={18}
+          height={18}
+          className="w-2 h-2 sm:w-[18px] sm:h-[18px]"
+        />
       </div>
     </div>
+  </button>
+</div>
+</div>
   );
 };
 
@@ -326,7 +336,106 @@ const PodcastSection = () => {
 // }
 
 
-   const AccessMoreResourceSection = () => {
+//    const AccessMoreResourceSection = () => {
+//   return (
+//     <div className="pb-20">
+//       <h2 className="text-[30px] lg:text-[40px] xl:text-[50px] text-[#5C4737] font-semibold text-center">
+//         Access More Resources
+//       </h2>
+
+//       <p className="text-sm md:text-base xl:text-lg font-medium mt-4 mb-[30px] text-center">
+//         Download the Mind A Lot app to access our complete library of mental health resources, tools, and professional content.
+//       </p>
+
+//       <div className="flex flex-col sm:flex-row justify-center gap-5 items-center relative mb-10">
+//         <div className="w-[250px] h-[250px] rounded-full absolute top-full left-1/2 bg-[#BE9B84] -translate-x-1/2 -translate-y-[15%] blur-[130px] -z-50"></div>
+
+//         {/* BUTTON 1 */}
+//         <a
+//           href="/resource"
+//           className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
+//           style={{
+//             fontFamily: "'Nunito Sans', sans-serif",
+//             fontWeight: 500,
+//             lineHeight: "100%",
+//             letterSpacing: "0%",
+//           }}
+//         >
+//           <span className="tracking-[-0.01em]">View all resources</span>
+
+//           {/* Circle with Arrow */}
+//           <div className="w-[46px] h-[46px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
+//             <svg
+//               xmlns="http://www.w3.org/2000/svg"
+//               width="20"
+//               height="12"
+//               viewBox="0 0 20 12"
+//               className="text-white transition-colors duration-300 -rotate-45 group-hover:text-[#5B4A3E]"
+//               fill="none"
+//             >
+//               <path d="M0 6h18M12 0l6 6-6 6" stroke="currentColor" strokeWidth="2" />
+//             </svg>
+//           </div>
+//         </a>
+
+//         {/* BUTTON 2 */}
+//         <a
+//           href="https://play.google.com/store"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//           className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
+//           style={{
+//             fontFamily: "'Nunito Sans', sans-serif",
+//             fontWeight: 500,
+//             lineHeight: "100%",
+//             letterSpacing: "0%",
+//           }}
+//         >
+//           <span className="tracking-[-0.01em]">Download free tools</span>
+
+//           {/* Circle with Arrow */}
+//           <div className="w-[46px] h-[46px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
+//             <svg
+//               xmlns="http://www.w3.org/2000/svg"
+//               width="20"
+//               height="12"
+//               viewBox="0 0 20 12"
+//               className="text-white transition-colors duration-300 -rotate-45 group-hover:text-[#5B4A3E]"
+//               fill="none"
+//             >
+//               <path d="M0 6h18M12 0l6 6-6 6" stroke="currentColor" strokeWidth="2" />
+//             </svg>
+//           </div>
+//         </a>
+//       </div>
+//     </div>
+//   );
+// };
+const AccessMoreResourceSection = () => {
+  const handleRedirect = () => {
+    if (typeof window === "undefined") return;
+
+    const userAgent = navigator.userAgent || navigator.vendor;
+
+    // iOS devices
+    if (/iPad|iPhone|iPod/.test(userAgent)) {
+      window.location.href =
+        "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+      return;
+    }
+
+    // Android devices
+    if (/android/i.test(userAgent)) {
+      window.location.href =
+        "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+      return;
+    }
+
+    // Desktop fallback
+    window.location.href =
+      "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+  };
+
   return (
     <div className="pb-20">
       <h2 className="text-[30px] lg:text-[40px] xl:text-[50px] text-[#5C4737] font-semibold text-center">
@@ -340,7 +449,7 @@ const PodcastSection = () => {
       <div className="flex flex-col sm:flex-row justify-center gap-5 items-center relative mb-10">
         <div className="w-[250px] h-[250px] rounded-full absolute top-full left-1/2 bg-[#BE9B84] -translate-x-1/2 -translate-y-[15%] blur-[130px] -z-50"></div>
 
-        {/* BUTTON 1 */}
+        {/* BUTTON 1 - View All Resources (stays same) */}
         <a
           href="/resource"
           className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
@@ -353,7 +462,6 @@ const PodcastSection = () => {
         >
           <span className="tracking-[-0.01em]">View all resources</span>
 
-          {/* Circle with Arrow */}
           <div className="w-[46px] h-[46px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -368,11 +476,9 @@ const PodcastSection = () => {
           </div>
         </a>
 
-        {/* BUTTON 2 */}
-        <a
-          href="https://play.google.com/store"
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* BUTTON 2 - Download Free Tools (redirects based on device) */}
+        <button
+          onClick={handleRedirect}
           className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
           style={{
             fontFamily: "'Nunito Sans', sans-serif",
@@ -383,7 +489,6 @@ const PodcastSection = () => {
         >
           <span className="tracking-[-0.01em]">Download free tools</span>
 
-          {/* Circle with Arrow */}
           <div className="w-[46px] h-[46px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -396,7 +501,7 @@ const PodcastSection = () => {
               <path d="M0 6h18M12 0l6 6-6 6" stroke="currentColor" strokeWidth="2" />
             </svg>
           </div>
-        </a>
+        </button>
       </div>
     </div>
   );
