@@ -234,290 +234,100 @@ const HomeHero = () => {
 
 const MakeUs = () => {
   return (
-    // Section now uses fluid height/spacing instead of hardcoded h-[850px]
-    <section className="w-full py-16 px-4 sm:px-6 lg:px-8">
-      {/* Heading Layout - Centered and responsive margin */}
-      <h2
-        className="
-          text-3xl sm:text-4xl lg:text-5xl font-bold text-black text-left 
-          mx-auto mb-12 max-w-lg md:max-w-3xl lg:max-w-4xl 
-          font-[Nunito Sans, sans-serif] leading-tight
-        "
-      >
-        What makes us different ?
-      </h2>
+   <section className="w-full overflow-x-hidden pt-12 pb-18 px-10 sm:px-14 lg:px-20">
 
-      {/* Responsive Grid Container for Cards */}
-      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+
+
+ <h2
+  className="
+    text-3xl sm:text-4xl lg:text-5xl font-bold
+    pl-[0px]
+    mb-12 max-w-4xl
+    font-['Nunito_Sans'] leading-tight
+  "
+>
+  What makes us different ?
+</h2>
+
+
+      {/* Cards Grid */}
+      <div className="
+  grid
+  gap-16
+  md:gap-20
+  lg:gap-24
+  md:grid-cols-2
+  lg:grid-cols-3
+  max-w-7xl
+  mx-auto
+">
+
         
-        {/* Card 01 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
+        {/* Card */}
+        {[ 
+          { no: "01", title: "Instant Human Support", desc: "Start chatting the moment you feel overwhelmed. No forms. No queues. No matching wait. A real counsellor responds in seconds." },
+          { no: "02", title: "100% Anonymous", desc: "You can choose a nickname. Your real identity stays private. Even our counsellors won’t know who you are. Feel safe, share freely." },
+          { no: "03", title: "Flexible Access", desc: "Want to choose your own counsellor? Prefer video or voice? You can book that." },
+          { no: "04", title: "Goal-Based Nudges", desc: "Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time." },
+          { no: "05", title: "Mood Tracker", desc: "Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn’t need to hurt you again." },
+          { no: "06", title: "Self-Discovery Tools & Library", desc: "Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling." }
+        ].map((item) => (
+          
+          <div key={item.no} className="flex flex-col space-y-2">
+            
+            <div className="relative">
+              {/* Number */}
+              <div
+                className="
+                  text-5xl font-semibold text-[#5B4A3E]
+                  leading-none tracking-tighter
+                  font-['Inter'] pl-1
+                "
+              >
+                {item.no}
+              </div>
+
+              {/* Line */}
+              <Image
+                src={line}
+                alt="line"
+                className="
+                  w-[96px] h-[18px] mt-2
+                  transition-[width] duration-300
+                  hover:w-[160px]
+                  ml-[-3px]
+                "
+              />
+            </div>
+
+            {/* Title */}
             <div
               className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
+                text-xl sm:text-2xl font-semibold text-[#5C4737]
+                font-['Inter'] mt-0 w-[450px]
               "
             >
-              01
+              {item.title}
             </div>
-            {/* Image (Assuming 'line' is defined and the Image component works) */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
-          </div>
 
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            Instant Human Support
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            Start chatting the moment you feel overwhelmed. No forms. No queues. No matching wait. A real counsellor responds in seconds.
-          </div>
-        </div>
-        
-        {/* Card 02 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
+            {/* Description */}
             <div
               className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
+                text-base sm:text-lg font-normal text-[#6D6D6F]
+                leading-relaxed font-['Inter']
+                mt-2
               "
             >
-              02
+              {item.desc}
             </div>
-            {/* Image */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
           </div>
 
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            100% Anonymous
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            You can choose a nickname. Your real identity stays private.. Even our counsellors won’t know who you are. Feel safe, share freely.
-          </div>
-        </div>
-
-        {/* Card 03 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
-            <div
-              className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
-              "
-            >
-              03
-            </div>
-            {/* Image */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
-          </div>
-
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            Flexible Access
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            Want to choose your own counsellor? Prefer video or voice? You can book that.
-          </div>
-        </div>
-
-        {/* Card 04 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
-            <div
-              className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
-              "
-            >
-              04
-            </div>
-            {/* Image */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
-          </div>
-
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            Goal-Based Nudges
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time.
-          </div>
-        </div>
-
-        {/* Card 05 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
-            <div
-              className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
-              "
-            >
-              05
-            </div>
-            {/* Image */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
-          </div>
-
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            Mood Tracker
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn’t need to hurt you again.
-          </div>
-        </div>
-
-        {/* Card 06 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
-            <div
-              className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
-              "
-            >
-              06
-            </div>
-            {/* Image */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
-          </div>
-
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            Self-Discovery Tools & Library
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling.
-          </div>
-        </div>
-
+        ))}
       </div>
     </section>
   );
 };
+
 
 
 
