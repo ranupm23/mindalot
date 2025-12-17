@@ -202,7 +202,7 @@ export default function ContactPage() {
 
             {/* REASON */}
             <div className="flex flex-col">
-              <label className="text-[14px] text-[#5B4A3E]">Reason</label>
+              <label className="text-[18px] text-[#5B4A3E]">Reason</label>
               <select
                 name="reason"
                 className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[18px] text-[#3E2723]"
@@ -215,7 +215,7 @@ export default function ContactPage() {
               </select>
             </div>
 
- <label className="flex items-start gap-3 text-[12px] text-[#5B4A3E] cursor-pointer">
+ <label className="flex items-start gap-3 text-[14px] text-[#5B4A3E] cursor-pointer">
   <input
     type="checkbox"
     checked={checkboxChecked}
@@ -223,7 +223,7 @@ export default function ContactPage() {
       // Always open popup when user clicks checkbox
       setShowPopup(true);
     }}
-    className="w-4 h-4 border border-[#5B4A3E] rounded-[3px] accent-[#967B6A] mt-[2px]"
+    className="w-5 h-5 border border-[#5B4A3E] rounded-[3px] accent-[#967B6A] mt-[2px]"
   />
   <span className="leading-relaxed">
     By clicking submit, you agree to{" "}
@@ -252,7 +252,7 @@ export default function ContactPage() {
                     <Image
                       src={arrow}
                       alt="Arrow"
-                      className="w-[20px] h-[12px] rotate-[-45deg] group-hover:rotate-0 transition-all"
+                      className="w-[24px] h-[12px] rotate-[-45deg] group-hover:rotate-0 transition-all"
                     />
                   </div>
                 )}
