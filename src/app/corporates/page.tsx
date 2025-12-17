@@ -211,7 +211,7 @@ export default function CorporatePage() {
     <p
       style={{
         fontFamily: 'Inter, sans-serif',
-        fontWeight: 400,
+        fontWeight: 600,
         fontStyle: 'normal',
         fontSize: '14px',
         lineHeight: '25px',
@@ -248,9 +248,23 @@ export default function CorporatePage() {
       {/* OFFER SECTION */}
 <section className="w-full bg-[#FDFDFD] py-16 sm:py-20 px-20">
   <div className="max-w-7xl mx-auto">
-    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3a2b20] text-left mb-10 sm:mb-14">
+    {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3a2b20] text-left mb-10 sm:mb-14">
       What we Offer to Organizations?
-    </h2>
+    </h2> */}
+<h2
+  style={{
+    fontFamily: "Inter",
+    fontWeight: 600,          // Semi Bold
+    fontStyle: "normal",
+    fontSize: "50px",
+    lineHeight: "100%",
+    letterSpacing: "-0.06em", // -6%
+    color: "#3a2b20",
+    marginBottom: "56px",     // same as mb-14
+  }}
+>
+  What we Offer to Organizations?
+</h2>
 
     {/* GRID */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
