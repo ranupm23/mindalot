@@ -405,20 +405,16 @@ export default function CorporatePage() {
           {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
             Let's Build a Healthier Workplace Together
           </h2> */}
-          <h2
-  style={{
-    fontFamily: "Inter",
-    fontWeight: 600,          // Semi Bold
-    fontSize: "50px",
-    lineHeight: "100%",
-    letterSpacing: "-0.06em", // -6%
-    textAlign: "center",
-    color: "#3a2b20",
-    whiteSpace: "nowrap",     // 🚀 PREVENT LINE BREAK
-  }}
+      <h2
+  className="text-[32px] sm:text-[40px] lg:text-[50px] 
+             leading-[36px] sm:leading-[44px] lg:leading-[50px] 
+             text-center lg:text-left 
+             whitespace-normal lg:whitespace-nowrap"
+  style={{ fontFamily: "Inter", fontWeight: 600, letterSpacing: "-0.06em", color: "#3a2b20" }}
 >
   Let's Build a Healthier Workplace Together
 </h2>
+
 
           {/* <p className="text-[#6d6d6f] text-sm sm:text-base max-w-2xl mx-auto">
             Partner with Mind A Lot to provide mental health support that your employees will
