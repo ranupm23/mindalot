@@ -460,10 +460,29 @@ export default function CorporatePage() {
   Let's Build a Healthier Workplace Together
 </h2>
 
-          <p className="text-[#6d6d6f] text-sm sm:text-base max-w-2xl mx-auto">
+          {/* <p className="text-[#6d6d6f] text-sm sm:text-base max-w-2xl mx-auto">
             Partner with Mind A Lot to provide mental health support that your employees will
             actually use.
-          </p>
+          </p> */}
+
+          <p
+  style={{
+    fontFamily: "Inter",
+    fontWeight: 400,           // Regular
+    fontSize: "18px",
+    lineHeight: "100%",
+    letterSpacing: "-0.03em",  // -3%
+    textAlign: "center",
+    color: "#6d6d6f",
+    maxWidth: "672px",         // same as max-w-2xl
+    marginLeft: "auto",
+    marginRight: "auto",
+  }}
+>
+  Partner with Mind A Lot to provide mental health support that your employees will
+  actually use.
+</p>
+
 
          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-[36px]">
   {/* CTA 1 */}
