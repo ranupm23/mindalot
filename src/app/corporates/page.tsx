@@ -442,9 +442,23 @@ export default function CorporatePage() {
       {/* FINAL CTA */}
       <section className="bg-[#FDFDFD] py-12 sm:py-20 px-6 text-center">
         <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
+          {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
             Let's Build a Healthier Workplace Together
-          </h2>
+          </h2> */}
+          <h2
+  style={{
+    fontFamily: "Inter",
+    fontWeight: 600,          // Semi Bold
+    fontSize: "50px",
+    lineHeight: "100%",
+    letterSpacing: "-0.06em", // -6%
+    textAlign: "center",
+    color: "#3a2b20",         // keep consistent heading color
+  }}
+>
+  Let's Build a Healthier Workplace Together
+</h2>
+
           <p className="text-[#6d6d6f] text-sm sm:text-base max-w-2xl mx-auto">
             Partner with Mind A Lot to provide mental health support that your employees will
             actually use.
