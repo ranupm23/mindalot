@@ -21,7 +21,7 @@ export default function CorporatePage() {
       
 
       {/* HERO SECTION */}
-      <section className="w-full bg-[#FDFDFD] pt-[100px] pb-[60px] px-6">
+      <section className="w-full bg-[#FDFDFD] pt-[100px] pb-[60px] px-20">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[80px] items-start">
           
           {/* LEFT TEXT */}
