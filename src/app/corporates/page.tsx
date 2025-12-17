@@ -252,64 +252,75 @@ export default function CorporatePage() {
             What we Offer to Organizations?
           </h2>
 
-          {/* GRID */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {[
-              {
-                icon: groupClipPath1,
-                title: "Always-available, chat-first",
-                text: "Get instant support anytime, even during late nights and weekends.",
-              },
-              {
-                icon: cardExportCircle,
-                title: "No stigma or exposure",
-                text: "Employees stay completely anonymous; counsellors never see personal or identifying details.",
-              },
-              {
-                icon: groupClipPath3,
-                title: "Global support network",
-                text: "Wherever your workforce is located, our professionals are available to help.",
-              },
-              {
-                icon: groupClipPath2,
-                title: "Smart goal nudges",
-                text: "Gentle reminders and insights designed to reduce burnout, boost focus, and improve sleep and mindset.",
-              },
-              {
-                icon: cardSecurity,
-                title: "Insightful, privacy-first reports",
-                text: "HR teams receive usage trends and well-being analytics without revealing individual identities.",
-              },
-            ].map((card, i) => (
-              <div
-                key={i}
-                className="p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]"
-              >
-                <div className="bg-[#FDFDFD] rounded-[15px] p-6 h-full">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 mb-3 sm:mb-4">
-                    <Image src={card.icon} width={40} height={40} alt={card.title} />
-                  </div>
-                  <h3 className="text-base sm:text-lg font-semibold text-[#3a2b20] mb-2">
-                    {card.title}
-                  </h3>
-                  <p className="text-[#6d6d6f] text-sm leading-relaxed">{card.text}</p>
-                </div>
-              </div>
-            ))}
+         {/* GRID */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+  {[
+    {
+      icon: groupClipPath1,
+      title: "Always-available, chat-first",
+      text: "Get instant support anytime, even during late nights and weekends.",
+    },
+    {
+      icon: cardExportCircle,
+      title: "No stigma or exposure",
+      text: "Employees stay completely anonymous; counsellors never see personal or identifying details.",
+    },
+    {
+      icon: groupClipPath3,
+      title: "Global support network",
+      text: "Wherever your workforce is located, our professionals are available to help.",
+    },
+    {
+      icon: groupClipPath2,
+      title: "Smart goal nudges",
+      text: "Gentle reminders and insights designed to reduce burnout, boost focus, and improve sleep and mindset.",
+    },
+    {
+      icon: cardSecurity,
+      title: "Insightful, privacy-first reports",
+      text: "HR teams receive usage trends and well-being analytics without revealing individual identities.",
+    },
+  ].map((card, i) => (
+    <div
+      key={i}
+      className="p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]"
+      style={{
+        width: "390px",
+        height: "275px",
+      }}
+    >
+      <div className="bg-[#FDFDFD] rounded-[15px] p-6 w-full h-full flex flex-col">
+        <div className="w-9 h-9 sm:w-10 sm:h-10 mb-3 sm:mb-4">
+          <Image src={card.icon} width={40} height={40} alt={card.title} />
+        </div>
+        <h3 className="text-base sm:text-lg font-semibold text-[#3a2b20] mb-2">
+          {card.title}
+        </h3>
+        <p className="text-[#6d6d6f] text-sm leading-relaxed">{card.text}</p>
+      </div>
+    </div>
+  ))}
 
-            {/* DARK CARD */}
-            <div className="relative p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]">
-              <div className="relative bg-[#5c4737] text-white rounded-[15px] p-6 flex items-center justify-center text-center h-full">
-                <div className="absolute top-3 right-3 flex flex-col gap-[6px]">
-                  <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
-                  <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
-                </div>
-                <p className="text-sm sm:text-base leading-relaxed">
-                  Well-being at work isn't a benefit, it's a strength!
-                </p>
-              </div>
-            </div>
-          </div>
+  {/* DARK CARD */}
+  <div
+    className="relative p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]"
+    style={{
+      width: "390px",
+      height: "275px",
+    }}
+  >
+    <div className="relative bg-[#5c4737] text-white rounded-[15px] p-6 flex items-center justify-center text-center w-full h-full">
+      <div className="absolute top-3 right-3 flex flex-col gap-[6px]">
+        <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
+        <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
+      </div>
+      <p className="text-sm sm:text-base leading-relaxed">
+        Well-being at work isn't a benefit, it's a strength!
+      </p>
+    </div>
+  </div>
+</div>
+
         </div>
       </section>
 
