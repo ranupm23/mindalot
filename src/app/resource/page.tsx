@@ -191,45 +191,139 @@ const ResourceCard = ({
 // }
 
 const PodcastSection = () => {
-    return (
-        <>
-            <div className='flex justify-between'>
-                <div className='flex'>
-                    <Image src={podcast1} alt="podcast" width={155} height={155} className='object-cover rounded-[20px] w-[60px] h-[60px] sm:w-20 sm:h-20 md:w-[100px] md:h-[100px] lg:w-[155px] lg:h-[155px]' />
-                    <div className='flex flex-col justify-center items-center font-inter ml-2 xl:ml-3'>
-                        <h3 className='text-[20px] md:text-[30px] lg:text-[40px] xl:text-[50px] tracking-[-3%] text-[#755840] mr-auto'>New Blog</h3>
-                        <p className='text-[10px] sm:text-xs md:text-base lg:text-lg xl:text-[24px] tracking-[-3%] font-semibold text-[#6D6D6F]'>Mind A Lot, Every Day</p>
-                    </div>
-                </div>
-                <div className='font-inter font-medium text-[30px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[100px] text-[#5C4737] tracking-[-3%] my-auto'>PODCAST</div>
-            </div>
-            <div className='w-full relative'>
-                <div className='flex gap-1 sm:gap-2.5 justify-between items-center absolute left-2.5 top-2.5 sm:left-[30px] sm:top-[30px] px-2 py-1 sm:px-4 sm:py-2.5 backdrop-blur-[10px] rounded-full font-medium text-xs sm:text-base shadow-md'>
-                    <Image src={playIcon} alt="play" width={20} height={20} className='w-2 h-2 sm:w-5 sm:h-5 my-auto filter brightness-0' />
-                    Start Listening
-                </div>
-                <Image src={podcast2} alt="podcast" width={1268} height={504} className='object-cover rounded-[20px] w-full mt-10 mb-20' />
-                <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[100px] h-[100px] sm:w-[180px] sm:h-[180px] xl:w-[225px] xl:h-[225px] border-2 border-white/25 rounded-full'></div>
-                <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[70px] h-[70px] sm:w-[130px] sm:h-[130px] xl:w-[175px] xl:h-[175px] border-2 border-white/50 rounded-full'></div>
-                <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-10 h-10 sm:w-20 sm:h-20 xl:w-[125px] xl:h-[125px] border-2 border-white rounded-full'></div>
-                <Image src={playIcon} alt="play" width={50} height={60} className='absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[calc(50%-1.5px)] xl:-translate-x-[calc(50%-5px)] z-20 w-[18px] h-[18px] sm:w-[25px] sm:h-[25px] xl:w-[50px] xl:h-[60px]' />
-                <div className='absolute bottom-2.5 sm:bottom-[30px] right-2.5 sm:right-[30px] w-[60px] h-[30px] sm:w-[120px] sm:h-[60px] flex p-[3px] sm:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group'>
-                    <div className='relative'>
-                        <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white bg-purple-500'>
-                            <Image src={avatar1} alt='avatar-img' width={50} height={50} />
-                        </div>
-                        <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white translate-x-[60%] bg-gray-400'>
-                            <Image src={avatar2} alt='avatar-img' width={50} height={50} />
-                        </div>
-                        <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%]'>
-                            <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 w-2 h-2 sm:w-[18px] sm:h-[18px] transition-all filter brightness-0' />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
+  const redirectToAppStore = () => {
+    if (typeof window === "undefined") return;
+
+    const userAgent = navigator.userAgent || navigator.vendor;
+
+    if (/iPad|iPhone|iPod/.test(userAgent)) {
+      window.open(
+        "https://apps.apple.com/in/app/zenit-edu/id6748683332",
+        "_blank"
+      );
+      return;
+    }
+
+    if (/android/i.test(userAgent)) {
+      window.open(
+        "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share",
+        "_blank"
+      );
+      return;
+    }
+
+    // fallback desktop link
+    window.open(
+      "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share",
+      "_blank"
+    );
+  };
+
+  return (
+    <div className="relative w-full">
+      {/* Start Listening Button */}
+      <button
+        onClick={redirectToAppStore}
+        className="flex gap-1 sm:gap-2.5 justify-between items-center absolute left-2.5 top-2.5 sm:left-[30px] sm:top-[30px] px-2 py-1 sm:px-4 sm:py-2.5 backdrop-blur-[10px] rounded-full font-medium text-xs sm:text-base shadow-md z-50 bg-white/30 hover:bg-[#BE9B84] transition-all"
+      >
+        <Image
+          src={playIcon}
+          alt="play"
+          width={20}
+          height={20}
+          className="w-2 h-2 sm:w-5 sm:h-5 my-auto filter brightness-0"
+        />
+        Start Listening
+      </button>
+
+      {/* Podcast Hero Image */}
+      <Image
+        src={podcast2}
+        alt="podcast"
+        width={1268}
+        height={504}
+        className="object-cover rounded-[20px] w-full mt-10 mb-20"
+      />
+
+      {/* Central Play Icon */}
+      <button
+        onClick={redirectToAppStore}
+        className="absolute left-1/2 top-1/2 -translate-1/2 z-20 w-[70px] h-[70px] sm:w-[130px] sm:h-[130px] xl:w-[175px] xl:h-[175px] rounded-full flex items-center justify-center bg-white/30 hover:bg-[#BE9B84] transition-all"
+      >
+        <Image
+          src={playIcon}
+          alt="play"
+          width={50}
+          height={50}
+          className="w-[50%] h-[50%] sm:w-[50%] sm:h-[50%] xl:w-[50%] xl:h-[50%]"
+        />
+      </button>
+
+      {/* Avatars */}
+      <div className="absolute bottom-2.5 sm:bottom-[30px] right-2.5 sm:right-[30px] w-[60px] h-[30px] sm:w-[120px] sm:h-[60px] flex p-[3px] sm:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group">
+        <div className="relative">
+          <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white bg-purple-500">
+            <Image src={avatar1} alt="avatar-img" width={50} height={50} />
+          </div>
+          <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white translate-x-[60%] bg-gray-400">
+            <Image src={avatar2} alt="avatar-img" width={50} height={50} />
+          </div>
+          <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%]">
+            <Image
+              src={arrrow}
+              alt="arrow"
+              width={18}
+              height={18}
+              className="m-auto group-hover:rotate-45 w-2 h-2 sm:w-[18px] sm:h-[18px] transition-all filter brightness-0"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+// const PodcastSection = () => {
+//     return (
+//         <>
+//             <div className='flex justify-between'>
+//                 <div className='flex'>
+//                     <Image src={podcast1} alt="podcast" width={155} height={155} className='object-cover rounded-[20px] w-[60px] h-[60px] sm:w-20 sm:h-20 md:w-[100px] md:h-[100px] lg:w-[155px] lg:h-[155px]' />
+//                     <div className='flex flex-col justify-center items-center font-inter ml-2 xl:ml-3'>
+//                         <h3 className='text-[20px] md:text-[30px] lg:text-[40px] xl:text-[50px] tracking-[-3%] text-[#755840] mr-auto'>New Blog</h3>
+//                         <p className='text-[10px] sm:text-xs md:text-base lg:text-lg xl:text-[24px] tracking-[-3%] font-semibold text-[#6D6D6F]'>Mind A Lot, Every Day</p>
+//                     </div>
+//                 </div>
+//                 <div className='font-inter font-medium text-[30px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[100px] text-[#5C4737] tracking-[-3%] my-auto'>PODCAST</div>
+//             </div>
+//             <div className='w-full relative'>
+//                 <div className='flex gap-1 sm:gap-2.5 justify-between items-center absolute left-2.5 top-2.5 sm:left-[30px] sm:top-[30px] px-2 py-1 sm:px-4 sm:py-2.5 backdrop-blur-[10px] rounded-full font-medium text-xs sm:text-base shadow-md'>
+//                     <Image src={playIcon} alt="play" width={20} height={20} className='w-2 h-2 sm:w-5 sm:h-5 my-auto filter brightness-0' />
+//                     Start Listening
+//                 </div>
+//                 <Image src={podcast2} alt="podcast" width={1268} height={504} className='object-cover rounded-[20px] w-full mt-10 mb-20' />
+//                 <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[100px] h-[100px] sm:w-[180px] sm:h-[180px] xl:w-[225px] xl:h-[225px] border-2 border-white/25 rounded-full'></div>
+//                 <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[70px] h-[70px] sm:w-[130px] sm:h-[130px] xl:w-[175px] xl:h-[175px] border-2 border-white/50 rounded-full'></div>
+//                 <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-10 h-10 sm:w-20 sm:h-20 xl:w-[125px] xl:h-[125px] border-2 border-white rounded-full'></div>
+//                 <Image src={playIcon} alt="play" width={50} height={60} className='absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[calc(50%-1.5px)] xl:-translate-x-[calc(50%-5px)] z-20 w-[18px] h-[18px] sm:w-[25px] sm:h-[25px] xl:w-[50px] xl:h-[60px]' />
+//                 <div className='absolute bottom-2.5 sm:bottom-[30px] right-2.5 sm:right-[30px] w-[60px] h-[30px] sm:w-[120px] sm:h-[60px] flex p-[3px] sm:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group'>
+//                     <div className='relative'>
+//                         <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white bg-purple-500'>
+//                             <Image src={avatar1} alt='avatar-img' width={50} height={50} />
+//                         </div>
+//                         <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white translate-x-[60%] bg-gray-400'>
+//                             <Image src={avatar2} alt='avatar-img' width={50} height={50} />
+//                         </div>
+//                         <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%]'>
+//                             <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 w-2 h-2 sm:w-[18px] sm:h-[18px] transition-all filter brightness-0' />
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </>
+//     )
+// }
 
 
    const AccessMoreResourceSection = () => {
