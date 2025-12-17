@@ -192,7 +192,7 @@ const HomeHero = () => {
             text-center tracking-[-0.02em]
             font-inter
             lg:absolute lg:mt-0 lg:w-[280px] lg:h-[19px]
-            lg:top-[697px] lg:left-[587px]
+            lg:top-[640px] lg:left-[587px]
           "
         >
           Your safe space is just one tap away!
@@ -204,28 +204,30 @@ const HomeHero = () => {
             relative flex flex-col items-center gap-[16px] mt-6 w-full
             lg:absolute lg:mt-0 lg:flex-row
             lg:w-[467px] lg:h-[60px]
-            lg:top-[772px] lg:left-[490px]
+            lg:top-[715px] lg:left-[490px]
           "
         >
-          {/* BUTTON 1 */}
-          <button className="group relative w-[280px] lg:w-[212px] h-[56px] lg:h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-transparent">
-            <span className="absolute w-[120px] h-[22px] top-[17px] lg:top-[17px] left-[40px] lg:left-[20px] font-inter font-medium text-[15px] lg:text-[16px] text-[#F6F2EB]">
-              Start chat now
-            </span>
-            <div className="absolute w-[46px] h-[46px] top-[3px] lg:top-[5px] right-[3px] lg:left-[159px] rounded-full bg-[#F6F2EB] flex items-center justify-center">
-              <Image src={arrow} alt="arrow" className="w-[14px] lg:w-[16px] h-[14px] lg:h-[16px] transform transition-transform duration-300 group-hover:rotate-45" />
-            </div>
-          </button>
+       {/* BUTTON 1 */}
+<button className="group relative w-[280px] lg:w-[212px] h-[56px] lg:h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-transparent">
+  <span className="absolute w-[120px] h-[22px] top-[17px] lg:top-[17px] left-[40px] lg:left-[20px] font-inter font-medium text-[15px] lg:text-[16px] text-[#F6F2EB]">
+    Start chat now
+  </span>
+  {/* Circle increased to 52px, top adjusted to 2px/4px to center vertically */}
+  <div className="absolute w-[50px] h-[50px] top-[1px] lg:top-[3px] right-[2px] lg:left-[155px] rounded-full bg-[#F6F2EB] flex items-center justify-center">
+    <Image src={arrow} alt="arrow" className="w-[18px] lg:w-[20px] h-[18px] lg:h-[20px] transform transition-transform duration-300 group-hover:rotate-45" />
+  </div>
+</button>
 
-          {/* BUTTON 2 */}
-          <button className="group relative w-[280px] lg:w-[235px] h-[56px] lg:h-[60px] rounded-[30px] bg-[#F6F2EB] transition-all duration-300 hover:bg-[#5C4737]">
-            <span className="absolute w-[159px] h-[25px] top-[18px] lg:top-[17px] left-[30px] lg:left-[20px] font-inter font-medium text-[16px] lg:text-[18px] text-[#5B4A3E] transition-colors duration-300 group-hover:text-white">
-              Download the app
-            </span>
-            <div className="absolute w-[46px] h-[46px] top-[3px] lg:top-[5px] right-[3px] lg:left-[180px] rounded-full bg-[#FFFFFF] flex items-center justify-center">
-              <Image src={arrow} alt="arrow" className="w-[14px] lg:w-[16px] h-[14px] lg:h-[16px] transform transition-transform duration-300 group-hover:rotate-45" />
-            </div>
-          </button>
+{/* BUTTON 2 */}
+<button className="group relative w-[280px] lg:w-[235px] h-[56px] lg:h-[60px] rounded-[30px] bg-[#F6F2EB] transition-all duration-300 hover:bg-[#5C4737]">
+  <span className="absolute w-[159px] h-[25px] top-[18px] lg:top-[17px] left-[30px] lg:left-[20px] font-inter font-medium text-[16px] lg:text-[18px] text-[#5B4A3E] transition-colors duration-300 group-hover:text-white">
+    Download the app
+  </span>
+  {/* Circle increased to 52px, top adjusted for 60px height button */}
+  <div className="absolute w-[50px] h-[50px] top-[1px] lg:top-[5px] right-[2px] lg:left-[180px] rounded-full bg-[#FFFFFF] flex items-center justify-center">
+    <Image src={arrow} alt="arrow" className="w-[18px] lg:w-[20px] h-[18px] lg:h-[20px] transform transition-transform duration-300 group-hover:rotate-45" />
+  </div>
+</button>
         </div>
 
       </div>
@@ -236,290 +238,95 @@ const HomeHero = () => {
 
 const MakeUs = () => {
   return (
-    // Section now uses fluid height/spacing instead of hardcoded h-[850px]
-    <section className="w-full py-16 px-4 sm:px-6 lg:px-8">
-      {/* Heading Layout - Centered and responsive margin */}
+    <section className="w-full overflow-x-hidden pt-12 pb-18 px-10 sm:px-14 lg:px-20">
       <h2
         className="
-          text-3xl sm:text-4xl lg:text-5xl font-bold text-black text-left 
-          mx-auto mb-12 max-w-lg md:max-w-3xl lg:max-w-4xl 
-          font-[Nunito Sans, sans-serif] leading-tight
+          text-3xl sm:text-4xl lg:text-5xl font-bold
+          pl-[0px]
+          mb-12 max-w-4xl
+          font-['Nunito_Sans'] leading-tight
         "
       >
         What makes us different ?
       </h2>
 
-      {/* Responsive Grid Container for Cards */}
-      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      {/* Cards Grid */}
+      <div className="
+        grid
+        gap-16
+        md:gap-20
+        lg:gap-24
+        md:grid-cols-2
+        lg:grid-cols-3
+        max-w-7xl
+        mx-auto
+        px-4 sm:px-6 md:px-8 lg:px-0
+      ">
         
-        {/* Card 01 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
+        {/* Card */}
+        {[ 
+          { no: "01", title: "Instant Human Support", desc: "Start chatting the moment you feel overwhelmed. No forms. No queues. No matching wait. A real counsellor responds in seconds." },
+          { no: "02", title: "100% Anonymous", desc: "You can choose a nickname. Your real identity stays private. Even our counsellors won’t know who you are. Feel safe, share freely." },
+          { no: "03", title: "Flexible Access", desc: "Want to choose your own counsellor? Prefer video or voice? You can book that." },
+          { no: "04", title: "Goal-Based Nudges", desc: "Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time." },
+          { no: "05", title: "Mood Tracker", desc: "Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn’t need to hurt you again." },
+          { no: "06", title: "Self-Discovery Tools & Library", desc: "Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling." }
+        ].map((item) => (
+          
+          <div key={item.no} className="flex flex-col space-y-2">
+            
+            <div className="relative">
+              {/* Number */}
+              <div
+                className="
+                  text-5xl font-semibold text-[#5B4A3E]
+                  leading-none tracking-tighter
+                  font-['Inter'] pl-1
+                "
+              >
+                {item.no}
+              </div>
+
+              {/* Line */}
+              <Image
+                src={line}
+                alt="line"
+                className="
+                  w-[96px] h-[18px] mt-1
+                  transition-[width] duration-300
+                  hover:w-[160px]
+                  ml-[-3px]
+                "
+              />
+            </div>
+
+            {/* Title - Fixed width removed for responsiveness */}
             <div
               className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
+                text-xl sm:text-2xl font-semibold text-[#5C4737]
+                font-['Inter'] mt-0 w-[440px] max-w-md
               "
             >
-              01
+              {item.title}
             </div>
-            {/* Image (Assuming 'line' is defined and the Image component works) */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
-          </div>
 
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            Instant Human Support
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            Start chatting the moment you feel overwhelmed. No forms. No queues. No matching wait. A real counsellor responds in seconds.
-          </div>
-        </div>
-        
-        {/* Card 02 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
+            {/* Description - Responsive text and width */}
             <div
               className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
+                text-base sm:text-lg font-normal text-[#6D6D6F]
+                leading-relaxed font-['Inter']
+                mt-2 w-full
               "
             >
-              02
+              {item.desc}
             </div>
-            {/* Image */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
           </div>
-
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            100% Anonymous
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            You can choose a nickname. Your real identity stays private.. Even our counsellors won’t know who you are. Feel safe, share freely.
-          </div>
-        </div>
-
-        {/* Card 03 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
-            <div
-              className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
-              "
-            >
-              03
-            </div>
-            {/* Image */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
-          </div>
-
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            Flexible Access
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            Want to choose your own counsellor? Prefer video or voice? You can book that.
-          </div>
-        </div>
-
-        {/* Card 04 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
-            <div
-              className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
-              "
-            >
-              04
-            </div>
-            {/* Image */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
-          </div>
-
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            Goal-Based Nudges
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time.
-          </div>
-        </div>
-
-        {/* Card 05 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
-            <div
-              className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
-              "
-            >
-              05
-            </div>
-            {/* Image */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
-          </div>
-
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            Mood Tracker
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn’t need to hurt you again.
-          </div>
-        </div>
-
-        {/* Card 06 */}
-        <div className="flex flex-col space-y-4">
-          <div className="relative">
-            {/* Number */}
-            <div
-              className="
-                text-5xl font-semibold text-[#5B4A3E] leading-none tracking-tighter
-                font-['Inter, sans-serif']
-              "
-            >
-              06
-            </div>
-            {/* Image */}
-            <Image
-              src={line}
-              alt="line"
-              className="
-                w-[96px] h-[18px] opacity-100 transition-[width] duration-300 mt-2
-                hover:w-[140px]
-              "
-            />
-          </div>
-
-          {/* Title */}
-          <div
-            className="
-              text-xl sm:text-2xl font-semibold text-[#5C4737] 
-              font-['Inter, sans-serif'] mt-6
-            "
-          >
-            Self-Discovery Tools & Library
-          </div>
-          
-          {/* Description */}
-          <div
-            className="
-              text-base sm:text-lg font-normal text-[#6D6D6F] leading-relaxed 
-              font-['Inter, sans-serif']
-            "
-          >
-            Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling.
-          </div>
-        </div>
-
+        ))}
       </div>
     </section>
   );
 };
+
 
 
 
