@@ -234,34 +234,30 @@ const HomeHero = () => {
 
 const MakeUs = () => {
   return (
-   <section className="w-full overflow-x-hidden pt-12 pb-18 px-10 sm:px-14 lg:px-20">
-
-
-
- <h2
-  className="
-    text-3xl sm:text-4xl lg:text-5xl font-bold
-    pl-[0px]
-    mb-12 max-w-4xl
-    font-['Nunito_Sans'] leading-tight
-  "
->
-  What makes us different ?
-</h2>
-
+    <section className="w-full overflow-x-hidden pt-12 pb-18 px-10 sm:px-14 lg:px-20">
+      <h2
+        className="
+          text-3xl sm:text-4xl lg:text-5xl font-bold
+          pl-[0px]
+          mb-12 max-w-4xl
+          font-['Nunito_Sans'] leading-tight
+        "
+      >
+        What makes us different ?
+      </h2>
 
       {/* Cards Grid */}
       <div className="
-  grid
-  gap-16
-  md:gap-20
-  lg:gap-24
-  md:grid-cols-2
-  lg:grid-cols-3
-  max-w-7xl
-  mx-auto
-">
-
+        grid
+        gap-16
+        md:gap-20
+        lg:gap-24
+        md:grid-cols-2
+        lg:grid-cols-3
+        max-w-7xl
+        mx-auto
+        px-4 sm:px-6 md:px-8 lg:px-0
+      ">
         
         {/* Card */}
         {[ 
@@ -292,7 +288,7 @@ const MakeUs = () => {
                 src={line}
                 alt="line"
                 className="
-                  w-[96px] h-[18px] mt-2
+                  w-[96px] h-[18px] mt-1
                   transition-[width] duration-300
                   hover:w-[160px]
                   ml-[-3px]
@@ -300,28 +296,27 @@ const MakeUs = () => {
               />
             </div>
 
-            {/* Title */}
+            {/* Title - Fixed width removed for responsiveness */}
             <div
               className="
                 text-xl sm:text-2xl font-semibold text-[#5C4737]
-                font-['Inter'] mt-0 w-[450px]
+                font-['Inter'] mt-0 w-[440px] max-w-md
               "
             >
               {item.title}
             </div>
 
-            {/* Description */}
+            {/* Description - Responsive text and width */}
             <div
               className="
                 text-base sm:text-lg font-normal text-[#6D6D6F]
                 leading-relaxed font-['Inter']
-                mt-2
+                mt-2 w-full
               "
             >
               {item.desc}
             </div>
           </div>
-
         ))}
       </div>
     </section>
