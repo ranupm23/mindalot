@@ -453,7 +453,8 @@ export default function CorporatePage() {
     lineHeight: "100%",
     letterSpacing: "-0.06em", // -6%
     textAlign: "center",
-    color: "#3a2b20",         // keep consistent heading color
+    color: "#3a2b20",
+    whiteSpace: "nowrap",     // 🚀 PREVENT LINE BREAK
   }}
 >
   Let's Build a Healthier Workplace Together
