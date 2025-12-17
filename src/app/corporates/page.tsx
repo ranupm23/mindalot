@@ -421,19 +421,13 @@ export default function CorporatePage() {
             actually use.
           </p> */}
 
-          <p
-  style={{
-    fontFamily: "Inter",
-    fontWeight: 400,           // Regular
-    fontSize: "18px",
-    lineHeight: "100%",
-    letterSpacing: "-0.03em",  // -3%
-    textAlign: "center",
-    color: "#6d6d6f",
-    whiteSpace: "nowrap",      // 🚀 PREVENT LINE BREAK
-    marginLeft: "auto",
-    marginRight: "auto",
-  }}
+<p
+  className="text-[16px] sm:text-[18px] 
+             leading-[24px] sm:leading-[28px] 
+             text-center 
+             whitespace-normal lg:whitespace-nowrap 
+             mx-auto"
+  style={{ fontFamily: "Inter", fontWeight: 400, letterSpacing: "-0.03em", color: "#6d6d6f" }}
 >
   Partner with Mind A Lot to provide mental health support that your employees will actually use.
 </p>
