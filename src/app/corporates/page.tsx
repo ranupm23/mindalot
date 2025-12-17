@@ -246,7 +246,7 @@ export default function CorporatePage() {
       </section>
 
       {/* OFFER SECTION */}
-      <section className="w-full bg-[#FDFDFD] py-16 sm:py-20 px-6">
+      <section className="w-full bg-[#FDFDFD] py-16 sm:py-20 px-20">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3a2b20] text-left mb-10 sm:mb-14">
             What we Offer to Organizations?
