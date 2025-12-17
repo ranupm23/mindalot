@@ -289,7 +289,7 @@ export default function CorporatePage() {
         height: "275px",
       }}
     >
-      <div className="bg-[#FDFDFD] rounded-[15px] p-6 w-full h-full flex flex-col">
+      <div className="bg-[#F8F8F8] rounded-[15px] p-6 w-full h-full flex flex-col">
         <div className="w-9 h-9 sm:w-10 sm:h-10 mb-3 sm:mb-4">
           <Image src={card.icon} width={40} height={40} alt={card.title} />
         </div>
