@@ -71,14 +71,48 @@ export default function CorporatePage() {
               </div> */}
             </div>
 
-            <div className="mt-[34px]">
+            {/* <div className="mt-[34px]">
               <p className="text-[#1e1e1e] text-[15px] leading-[1.65] max-w-[460px] font-normal">
                 Mind A Lot is built for the modern workforce: instant, anonymous, and effective. Because people don't wait for office hours to break down.
               </p>
               <p className="text-[#8a8a8a] text-[15px] leading-[1.65] max-w-[440px] font-normal">
                 Let's discuss how Mind A Lot can fit your organization's wellness strategy in just 15 minutes.
               </p>
-            </div>
+            </div> */}
+
+            <div className="mt-[34px]">
+  <p
+    style={{
+      fontFamily: "Inter",
+      fontWeight: 400,          // Regular
+      fontSize: "18px",
+      lineHeight: "100%",
+      letterSpacing: "-0.03em", // -3%
+      color: "#1e1e1e",
+      maxWidth: "460px",
+    }}
+  >
+    Mind A Lot is built for the modern workforce: instant, anonymous, and effective.
+    Because people don't wait for office hours to break down.
+  </p>
+
+  <p
+    style={{
+      fontFamily: "Inter",
+      fontWeight: 400,          // Regular
+      fontSize: "18px",
+      lineHeight: "100%",
+      letterSpacing: "-0.03em", // -3%
+      color: "#8a8a8a",
+      maxWidth: "440px",
+      marginTop: "12px",        // 👈 spacing between paragraphs
+    }}
+  >
+    Let's discuss how Mind A Lot can fit your organization's wellness strategy
+    in just 15 minutes.
+  </p>
+</div>
+
 {/* CTA BUTTON */}
 <div className="mt-[46px] flex justify-center lg:justify-start">
   <Link
