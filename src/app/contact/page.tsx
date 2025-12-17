@@ -150,7 +150,7 @@ export default function ContactPage() {
                 name="first_name"
                 required
                 placeholder="Enter your first name here"
-                className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[18px]"
+                className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[18px]  focus:outline-none "
               />
             </div>
 
