@@ -290,9 +290,19 @@ export default function CorporatePage() {
       }}
     >
       <div className="bg-[#F8F8F8] rounded-[15px] p-6 w-full h-full flex flex-col">
-        <div className="w-9 h-9 sm:w-10 sm:h-10 mb-3 sm:mb-4">
-          <Image src={card.icon} width={40} height={40} alt={card.title} />
-        </div>
+        {/* <div className="sm:w-10 sm:h-10 mb-3 sm:mb-4">
+          <Image src={card.icon} width={75} height={75} alt={card.title} />
+        </div> */}
+        <div className="flex items-center justify-center mb-3 sm:mb-4 w-[75px] h-[75px]">
+  <Image
+    src={card.icon}
+    width={75}
+    height={75}
+    alt={card.title}
+    className="object-contain"
+  />
+</div>
+
         <h3 className="text-base sm:text-lg font-semibold text-[#3a2b20] mb-2">
           {card.title}
         </h3>
