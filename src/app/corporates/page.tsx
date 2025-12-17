@@ -329,7 +329,9 @@ export default function CorporatePage() {
     lineHeight: "20px",
     letterSpacing: "-0.03em", // -3% ≈ -0.03em
     color: "#6d6d6f",
-    margin: 0,
+     marginBottom: 0,
+    marginTop: "4px",
+    
   }}
 >
   {card.text}
