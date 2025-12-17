@@ -277,7 +277,7 @@ export default function ContactPage() {
       </section>
 
       {/* CONTACT BOXES */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-6 mt-16 text-center pb-24">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-6 mt-36 text-center pb-24">
         <h2 className="text-[#3E2723] mb-8 text-[24px] font-semibold">
           For institutions, business queries, or partnerships—reach out:
         </h2>
