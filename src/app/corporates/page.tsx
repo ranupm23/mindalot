@@ -344,14 +344,14 @@ export default function CorporatePage() {
       {/* DARK CARD */}
       <div
         className="relative p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]"
-        style={{ width: "390px", height: "275px" }}
+        style={{ width: "390px", height: "275px", }}
       >
         <div className="relative bg-[#5c4737] text-white rounded-[15px] p-6 flex items-center justify-center text-center w-full h-full">
           <div className="absolute top-3 right-3 flex flex-col gap-[6px]">
             <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
             <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
           </div>
-          <p className="text-sm sm:text-base leading-relaxed">
+          <p className="text-sm sm:text-base leading-relaxed px-20">
             Well-being at work isn't a benefit, it's a strength!
           </p>
         </div>
