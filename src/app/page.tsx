@@ -62,45 +62,25 @@ import { IoLogoYoutube } from "react-icons/io";
 
 export default function Home() {
 
-
 const HomeHero = () => {
   return (
    
     <section
-      className="
-        relative 
-        w-full 
-        overflow-hidden
-        
-        /* MOBILE DEFAULTS (Flex Column) */
-        flex flex-col items-center justify-center
-        min-h-screen
-        bg-cover bg-center
-        
-        /* DESKTOP (Restoring your exact layout) */
-        lg:block
-        lg:h-[864px]
-        lg:bg-no-repeat
-        lg:bg-[length:1440px_864px]
-        lg:bg-[position:0px_0px]
-      "
-      // We pass the URL here, but control position/size in className above
-      style={{
-        backgroundImage: `url('${Homebg.src}')`,
-      }}
+        className="
+    relative 
+    w-full 
+    min-h-fit lg:min-h-screen lg:h-[864px]
+    flex flex-col items-center justify-start lg:block
+    bg-cover bg-center lg:bg-no-repeat lg:bg-[length:full_864px]
+    mx-auto overflow-hidden
+    font-inter
+  "
+      style={{ backgroundImage: `url('${Homebg.src}')` }}
     >
        
       {/* GRADIENT OVERLAY */}
       <div
-        className="
-          absolute top-0 left-0 z-10 backdrop-blur-[60px]
-          
-          /* Mobile */
-          w-full h-full
-
-          /* Desktop Original */
-          lg:w-[720px] 
-        "
+        className="absolute top-0 left-0 z-10 backdrop-blur-[40px] lg:backdrop-blur-[60px] w-full h-full lg:w-[720px]"
         style={{
           background:
             "linear-gradient(134.5deg, rgba(91,74,62,0.7) 2.41%, rgba(117,88,64,0.7) 73.14%, rgba(0,0,0,0.595) 100%)",
@@ -108,372 +88,146 @@ const HomeHero = () => {
       />
         <Header textWhite={true} />
 
-      {/* --- CONTENT CONTAINER (Mobile padding) --- */}
-      {/* On Desktop (lg), this div essentially becomes invisible/static to let children absolute position themselves */}
-      <div className="relative z-20 flex flex-col items-center w-full lg:block lg:w-full lg:h-full py-10 lg:p-0 gap-6 lg:gap-0">
+      {/* CONTENT WRAPPER */}
+      <div className="relative z-20 flex flex-col items-center w-full px-5 pt-32 pb-12 lg:p-0 lg:block lg:h-full font-inter">
+        
+        {/* --- 1. TITLE GROUP: MIND A LOT --- */}
+        <div className="flex flex-row items-baseline justify-center gap-1.5 sm:gap-3 lg:contents whitespace-nowrap">
+          {/* MIND */}
+          <div
+            className="
+              relative text-[60px] xs:text-[62px] sm:text-[80px]
+              font-semibold leading-none tracking-[0.02em]
+              text-transparent bg-clip-text [-webkit-background-clip:text] bg-cover
+              lg:absolute lg:text-[200px] lg:w-[566px] lg:h-[242px]
+              lg:top-[158px] lg:left-[145px] lg:tracking-[0.06em]
+              lg:bg-no-repeat lg:bg-[length:1440px_864px] lg:bg-[position:-154px_-158px]
+            "
+            style={{ backgroundImage: `url('${Homebg.src}')` }}
+          >
+            MIND
+          </div>
 
-        {/* MIND — IMAGE CUTOUT */}
-        <div
-          className="
-            /* Mobile */
-            relative
-            w-auto
-            h-auto
-            text-[120px]
-            text-transparent
-            bg-clip-text
-            [-webkit-background-clip:text]
-            /* On mobile we use solid color, no bg-clip to avoid broken visuals */
+          {/* A */}
+          <div
+            className="
+              relative text-[60px] xs:text-[62px] sm:text-[80px]
+              font-semibold leading-none tracking-[0.02em]
+              text-transparent bg-clip-text [-webkit-background-clip:text] bg-cover
+              lg:absolute lg:text-[200px] lg:w-[145px] lg:h-[242px]
+              lg:top-[400px] lg:left-[575px] lg:tracking-[0.06em]
+              lg:bg-no-repeat lg:bg-[length:1440px_864px] lg:bg-[position:-575px_-400px]
+            "
+            style={{ backgroundImage: `url('${Homebg.src}')` }}
+          >
+            A
+          </div>
 
-            /* Desktop Original */
-            lg:absolute
-            lg:w-[566px]
-            lg:h-[242px]
-            lg:top-[158px]
-            lg:left-[154px]
-            font-inter
-            font-semibold
-            lg:text-[200px]
-            leading-none
-            tracking-[0.06em]
-            text-center
-            
-            /* Desktop Clip Styles */
-            lg:text-transparent
-            lg:bg-clip-text
-            lg:[-webkit-background-clip:text]
-            lg:bg-no-repeat
-            lg:bg-[length:1440px_864px]
-            lg:bg-[position:-154px_-158px]
-          "
-          style={{
-             // Only apply background image logic on desktop via classes above, 
-             // but we need the URL available for the clip to work on desktop.
-             // We use a conditional style or just pass it and let mobile ignore the clip.
-             backgroundImage: `url('${Homebg.src}')`,
-          }}
-        >
-          MIND
+          {/* LOT */}
+          <div
+            className="
+              relative text-[60px] xs:text-[62px] sm:text-[80px]
+              font-semibold leading-none tracking-[0.02em] text-[#F6F2EB]
+              lg:absolute lg:text-[200px] lg:w-[413px] lg:h-[242px]
+              lg:top-[380px] lg:left-[750px] lg:tracking-[0.06em]
+              lg:flex lg:items-center lg:justify-center
+            "
+          >
+            LOT
+          </div>
         </div>
 
-        {/* SUPPORTING TEXT */}
+        {/* --- 2. SUBTEXT --- */}
         <div
           className="
-            /* Mobile */
-            relative
-            w-full px-6
-            h-auto
-            text-[18px]
-            text-center
-
-            /* Desktop Original */
-            lg:absolute
-            lg:w-[497px]
-            lg:h-[58px]
-            lg:top-[512px]
-            lg:left-[150px]
-            font-inter
-            font-normal
-            lg:text-[24px]
-            leading-[100%]
-            tracking-[-0.06em]
-            text-[#FDE2CD]
-            lg:text-left
+            relative mt-8 text-center text-[#FDE2CD]
+            text-[16px] sm:text-[20px]
+            font-normal leading-[1.3] tracking-[-0.04em]
+            font-inter max-w-[280px] sm:max-w-none
+            lg:absolute lg:mt-0 lg:w-[497px] lg:h-[58px]
+            lg:top-[510px] lg:left-[150px]
+            lg:text-left lg:text-[24px]
           "
         >
-          You don’t have to say who you are to
-          <br />
-          start feeling better
+          You don’t have to say who you are to <br className="hidden lg:block" /> start feeling better
         </div>
 
-        {/* A — IMAGE CUTOUT */}
+        {/* --- 3. DESCRIPTION TEXT --- */}
         <div
           className="
-            /* Mobile */
-            relative
-            w-auto
-            h-auto
-            text-[120px]
-            text-transparent
-            bg-clip-text
-            [-webkit-background-clip:text]
-
-            /* Desktop Original */
-            lg:absolute
-            lg:w-[145px]
-            lg:h-[242px]
-            lg:top-[400px]
-            lg:left-[575px]
+            relative mt-4 px-4
+            max-w-[420px] mx-auto
             font-inter
-            font-semibold
-            lg:text-[200px]
-            leading-none
-            tracking-[0.06em]
+            text-[14px] sm:text-[16px]
+            leading-[1.5]
+            text-[#F6F2EB]/90
             text-center
-            
-            /* Desktop Clip Styles */
-            lg:text-transparent
-            lg:bg-clip-text
-            lg:[-webkit-background-clip:text]
-            lg:bg-no-repeat
-            lg:bg-[length:1440px_864px]
-            lg:bg-[position:-575px_-400px]
-          "
-          style={{
-             backgroundImage: `url('${Homebg.src}')`,
-          }}
-        >
-          A
-        </div>
 
-        {/* RIGHT DESCRIPTION TEXT */}
-        <div
-          className="
-            /* Mobile */
-            relative
-            w-full px-6
-            h-auto
-            text-center
-            text-[#F6F2EB]
-            mt-4
-
-            /* Desktop Original */
-            lg:absolute
-            lg:w-[373px]
-            lg:h-[75px]
-            lg:top-[260px]
-            lg:left-[783px]
-            font-inter
-            font-normal
-            text-[16px]
-            leading-[25px]
-            tracking-[-0.03em]
+            lg:absolute lg:px-0 lg:mx-0
+            lg:w-[420px]
+            lg:top-[240px] lg:left-[740px]
             lg:text-right
             lg:text-[#1C1C1BCC]
-            lg:mt-0
           "
         >
-          Mind A Lot is an anonymous, app-based counselling platform that connects
-          you instantly to a real, trained professional
+          <span className="block lg:hidden">
+            Mind A Lot is an anonymous, app-based counselling platform that connects
+            you instantly to a real, trained professional
+          </span>
+
+          <span className="hidden lg:block">
+            Mind A Lot is an anonymous, app-based&nbsp;counselling
+            <br />
+            platform that connects you instantly to a real,
+            <br />
+            trained professional
+          </span>
         </div>
 
-        {/* LOT — SOLID BACKGROUND */}
+        {/* --- 4. BOTTOM TAGLINE --- */}
         <div
           className="
-            /* Mobile */
-            relative
-            w-auto
-            h-auto
-            text-[120px]
-
-            /* Desktop Original */
-            lg:absolute
-            lg:w-[413px]
-            lg:h-[242px]
-            lg:top-[380px]
-            lg:left-[750px]
-            flex
-            items-center
-            justify-center
+            relative mt-12 text-[#F6F2EB] font-bold
+            text-[15px] sm:text-[16px]
+            text-center tracking-[-0.02em]
             font-inter
-            font-semibold
-            lg:text-[200px]
-            leading-none
-            tracking-[0.06em]
-            text-center
-            text-[#F6F2EB]
-          "
-        >
-          LOT
-        </div>
-
-        {/* BOTTOM TAGLINE */}
-        <div
-          className="
-            /* Mobile */
-            relative
-            w-full
-            h-auto
-            mt-4
-
-            /* Desktop Original */
-            lg:absolute
-            lg:w-[280px]
-            lg:h-[19px]
-            lg:top-[697px]
-            lg:left-[587px]
-            font-inter
-            font-bold
-            text-[16px]
-            leading-[100%]
-            tracking-[-0.03em]
-            text-[#F6F2EB]
-            text-center
-            lg:mt-0
+            lg:absolute lg:mt-0 lg:w-[280px] lg:h-[19px]
+            lg:top-[697px] lg:left-[587px]
           "
         >
           Your safe space is just one tap away!
         </div>
 
-        {/* CTA BUTTONS CONTAINER */}
+        {/* --- 5. CTA BUTTONS --- */}
         <div
           className="
-            /* Mobile */
-            relative
-            w-full
-            h-auto
-            flex
-            flex-col
-            items-center
-            gap-[20px]
-            mt-6
-            mb-10
-
-            /* Desktop Original */
-            lg:absolute
-            lg:w-[467px]
-            lg:h-[60px]
-            lg:top-[772px]
-            lg:left-[490px]
-            lg:flex-row
-            lg:mt-0
-            lg:mb-0
+            relative flex flex-col items-center gap-[16px] mt-6 w-full
+            lg:absolute lg:mt-0 lg:flex-row
+            lg:w-[467px] lg:h-[60px]
+            lg:top-[772px] lg:left-[490px]
           "
         >
-          {/* BUTTON 1 — OUTLINE */}
-          <button
-            className="
-              group
-              relative
-              w-[280px] lg:w-[212px] /* Wider on mobile for easier touch */
-              h-[60px]
-              rounded-[30px]
-              border-2
-              border-[#F6F2EB]
-              bg-transparent
-              transition-all
-              duration-300
-              hover:bg-[#5C4737]
-              hover:border-transparent
-            "
-          >
-            {/* BUTTON TEXT */}
-            <span
-              className="
-                absolute
-                w-[110px]
-                h-[22px]
-                top-[19px]
-                left-[40px] lg:left-[20px]
-                font-['Nunito Sans']
-                font-medium
-                text-[16px]
-                leading-[100%]
-                tracking-[-0.03em]
-                text-[#F6F2EB]
-              "
-            >
+          {/* BUTTON 1 */}
+          <button className="group relative w-[280px] lg:w-[212px] h-[56px] lg:h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-transparent">
+            <span className="absolute w-[120px] h-[22px] top-[17px] lg:top-[17px] left-[40px] lg:left-[20px] font-inter font-medium text-[15px] lg:text-[16px] text-[#F6F2EB]">
               Start chat now
             </span>
-
-            {/* CIRCLE */}
-            <div
-              className="
-                absolute
-                w-[50px]
-                h-[50px]
-                top-[3px]
-                right-[3px] lg:right-auto lg:left-[155px]
-                rounded-full
-                bg-[#F6F2EB]
-                flex
-                items-center
-                justify-center
-              "
-            >
-              {/* ARROW IMAGE */}
-              <Image
-                src={arrow}
-                alt="arrow"
-                className="
-                  w-[16px]
-                  h-[16px]
-                  transform
-                  transition-transform
-                  duration-300
-                  group-hover:rotate-45
-                "
-              />
+            <div className="absolute w-[46px] h-[46px] top-[3px] lg:top-[5px] right-[3px] lg:left-[159px] rounded-full bg-[#F6F2EB] flex items-center justify-center">
+              <Image src={arrow} alt="arrow" className="w-[14px] lg:w-[16px] h-[14px] lg:h-[16px] transform transition-transform duration-300 group-hover:rotate-45" />
             </div>
           </button>
 
-          {/* BUTTON 2 — FILLED */}
-          <button
-            className="
-              group
-              relative
-              w-[280px] lg:w-[235px]
-              h-[60px]
-              rounded-[30px]
-              bg-[#F6F2EB]
-              transition-all
-              duration-300
-              hover:bg-[#5C4737]
-            "
-          >
-            {/* BUTTON TEXT */}
-            <span
-              className="
-                absolute
-                w-[159px]
-                h-[25px]
-                top-[20px]
-                left-[30px] lg:left-[20px]
-                font-['Nunito Sans']
-                font-medium
-                text-[18px]
-                leading-[100%]
-                tracking-[0]
-                text-[#5B4A3E]
-                transition-colors
-                duration-300
-                group-hover:text-white
-              "
-            >
+          {/* BUTTON 2 */}
+          <button className="group relative w-[280px] lg:w-[235px] h-[56px] lg:h-[60px] rounded-[30px] bg-[#F6F2EB] transition-all duration-300 hover:bg-[#5C4737]">
+            <span className="absolute w-[159px] h-[25px] top-[18px] lg:top-[17px] left-[30px] lg:left-[20px] font-inter font-medium text-[16px] lg:text-[18px] text-[#5B4A3E] transition-colors duration-300 group-hover:text-white">
               Download the app
             </span>
-
-            {/* CIRCLE */}
-            <div
-              className="
-                absolute
-                w-[50px]
-                h-[50px]
-                top-[5px]
-                right-[5px] lg:right-auto lg:left-[180px]
-                rounded-full
-                bg-[#FFFFFF]
-                flex
-                items-center
-                justify-center
-              "
-            >
-              {/* ARROW IMAGE */}
-              <Image
-                src={arrow}
-                alt="arrow"
-                className="
-                  w-[16px]
-                  h-[16px]
-                  transform
-                  transition-transform
-                  duration-300
-                  group-hover:rotate-45
-                "
-              />
+            <div className="absolute w-[46px] h-[46px] top-[3px] lg:top-[5px] right-[3px] lg:left-[180px] rounded-full bg-[#FFFFFF] flex items-center justify-center">
+              <Image src={arrow} alt="arrow" className="w-[14px] lg:w-[16px] h-[14px] lg:h-[16px] transform transition-transform duration-300 group-hover:rotate-45" />
             </div>
           </button>
         </div>
+
       </div>
     </section>
   );
