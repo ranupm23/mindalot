@@ -40,7 +40,7 @@ export default function CorporatePage() {
               </div> */}
             </div>
 
-            <div className="mt-[44px]">
+            <div className="mt-[34px]">
               <p className="text-[#1e1e1e] text-[15px] leading-[1.65] max-w-[460px] font-normal">
                 Mind A Lot is built for the modern workforce: instant, anonymous, and effective. Because people don't wait for office hours to break down.
               </p>
@@ -49,7 +49,7 @@ export default function CorporatePage() {
               </p>
             </div>
 {/* CTA BUTTON */}
-<div className="mt-[36px] flex justify-center lg:justify-start">
+<div className="mt-[46px] flex justify-center lg:justify-start">
   <Link
     href="/"
     className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
