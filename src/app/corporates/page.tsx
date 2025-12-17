@@ -474,13 +474,12 @@ export default function CorporatePage() {
     letterSpacing: "-0.03em",  // -3%
     textAlign: "center",
     color: "#6d6d6f",
-    maxWidth: "672px",         // same as max-w-2xl
+    whiteSpace: "nowrap",      // 🚀 PREVENT LINE BREAK
     marginLeft: "auto",
     marginRight: "auto",
   }}
 >
-  Partner with Mind A Lot to provide mental health support that your employees will
-  actually use.
+  Partner with Mind A Lot to provide mental health support that your employees will actually use.
 </p>
 
 
