@@ -14,6 +14,7 @@ import cardSecurity from "@/assets/corporate-assets/card-security.svg";
 import groupClipPath1 from "@/assets/corporate-assets/group/group-clip-path1.png";
 import groupClipPath2 from "@/assets/corporate-assets/group/group-clip-path2.png";
 import groupClipPath3 from "@/assets/corporate-assets/group/group-clip-path3.png";
+import cardcirclegrpup from "@/assets/corporate-assets/card-export-circle.svg";
 
 export default function CorporatePage() {
   return (
@@ -340,7 +341,7 @@ export default function CorporatePage() {
           text: "Get instant support anytime, even during late nights and weekends.",
         },
         {
-          icon: cardExportCircle,
+          icon: cardcirclegrpup,
           title: "No stigma or exposure",
           text: "Employees stay completely anonymous; counsellors never see personal or identifying details.",
         },
