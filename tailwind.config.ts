@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         // This links the 'font-inter' class to the Inter font you imported
-        inter: ['Inter', 'sans-serif'],
+        inter: ['Inter', 'Nunito Sans', 'sans-serif'],
       },
     },
   },
