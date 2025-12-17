@@ -498,7 +498,7 @@ export default function CorporatePage() {
     <span className="tracking-[-0.01em]">Book a 15-Min Call</span>
 
     {/* Circle with arrow */}
-    <div className="w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center transition-transform duration-300">
+    <div className="w-[46px] h-[46px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-transform duration-300">
       <Image
         src={cardGraphic}
         alt="Arrow"
