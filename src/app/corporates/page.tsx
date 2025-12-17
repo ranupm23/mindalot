@@ -436,7 +436,7 @@ export default function CorporatePage() {
          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-[36px]">
   {/* CTA 1 */}
   <Link
-  href="/"
+  href="https://docs.google.com/forms/d/YOUR_FORM_ID/viewform"
   className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#ffffff] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
   style={{
     fontFamily: "'Nunito Sans', sans-serif",
