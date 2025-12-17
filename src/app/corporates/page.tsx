@@ -319,7 +319,22 @@ export default function CorporatePage() {
   {card.title}
 </h3>
 
-              <p className="text-[#6d6d6f] text-sm leading-relaxed">{card.text}</p>
+              {/* <p className="text-[#6d6d6f] text-sm leading-relaxed">{card.text}</p> */}
+              <p
+  style={{
+    fontFamily: "Inter",
+    fontWeight: 500,
+    fontStyle: "normal", // Medium is covered by fontWeight 500
+    fontSize: "14px",
+    lineHeight: "20px",
+    letterSpacing: "-0.03em", // -3% ≈ -0.03em
+    color: "#6d6d6f",
+    margin: 0,
+  }}
+>
+  {card.text}
+</p>
+
             </div>
           </div>
         </div>
