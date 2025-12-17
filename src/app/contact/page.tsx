@@ -144,42 +144,42 @@ export default function ContactPage() {
             
             {/* FIRST NAME */}
             <div className="flex flex-col">
-              <label className="text-[14px] text-[#5B4A3E]">First name</label>
+              <label className="text-[18px] text-[#5B4A3E]">First name</label>
               <input
                 type="text"
                 name="first_name"
                 required
                 placeholder="Enter your first name here"
-                className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[14px]"
+                className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[18px]"
               />
             </div>
 
             {/* LAST NAME */}
             <div className="flex flex-col">
-              <label className="text-[14px] text-[#5B4A3E]">Last name</label>
+              <label className="text-[18px] text-[#5B4A3E]">Last name</label>
               <input
                 type="text"
                 name="last_name"
                 placeholder="Enter your last name here"
-                className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[14px]"
+                className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[18px]"
               />
             </div>
 
             {/* PHONE */}
             <div className="flex flex-col">
-              <label className="text-[14px] text-[#5B4A3E]">Phone number</label>
+              <label className="text-[18px] text-[#5B4A3E]">Phone number</label>
               <input
                 type="tel"
                 name="phone"
                 placeholder="Enter your phone number"
-                className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[14px]"
+                className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[18px]"
               />
             </div>
 
             {/* EMAIL */}
 <div className="flex flex-col">
   <div className="flex items-center justify-between">
-    <label className="text-[14px] text-[#5B4A3E]">Email</label>
+    <label className="text-[18px] text-[#5B4A3E]">Email</label>
 
     {/* Forgot password link */}
     <a
@@ -195,7 +195,7 @@ export default function ContactPage() {
     name="email"
     required
     placeholder="Enter your email"
-    className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[14px] placeholder:text-[#9E9086] focus:outline-none"
+    className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[18px] placeholder:text-[#9E9086] focus:outline-none"
   />
 </div>
 
@@ -205,7 +205,7 @@ export default function ContactPage() {
               <label className="text-[14px] text-[#5B4A3E]">Reason</label>
               <select
                 name="reason"
-                className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[14px] text-[#3E2723]"
+                className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[18px] text-[#3E2723]"
               >
                 <option>Select your reason</option>
                 <option>Product enquiry</option>
@@ -244,11 +244,11 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="relative group flex items-center w-full sm:w-[200px] h-[50px] text-white text-[16px] font-medium pl-6 pr-2 py-2 rounded-[40px] border border-[#967B6A] bg-[#967B6A] hover:bg-[#A78870] hover:text-black"
+                className="relative group flex items-center w-full sm:w-[200px] h-[60px] text-white text-[16px] font-medium pl-6 pr-2 py-2 rounded-[40px] border border-[#967B6A] bg-[#967B6A] hover:bg-[#A78870] hover:text-black"
               >
                 {loading ? "Sending..." : "Book A Demo"}
                 {!loading && (
-                  <div className="absolute right-[3px] top-1/2 -translate-y-1/2 w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center">
+                  <div className="absolute right-[3px] top-1/2 -translate-y-1/2 w-[50px] h-[50px] bg-white rounded-full flex items-center justify-center">
                     <Image
                       src={arrow}
                       alt="Arrow"
