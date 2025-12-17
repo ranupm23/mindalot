@@ -48,19 +48,16 @@ export default function CorporatePage() {
   Not Just Another EAP.
 </h1> */}
 <h1
-  style={{
-    fontFamily: "Inter",
-    fontWeight: 600,
-    fontSize: "60px",
-    lineHeight: "64px",
-    letterSpacing: "-0.06em",
-    color: "#4b3729",
-    whiteSpace: "nowrap",   // 🚀 PREVENT AUTO WRAP
-  }}
+  className="font-semibold text-[#4b3729] tracking-[-0.06em] text-center lg:text-left 
+             text-[32px] sm:text-[48px] lg:text-[60px] 
+             leading-[36px] sm:leading-[52px] lg:leading-[64px] 
+             whitespace-normal lg:whitespace-nowrap"
+  style={{ fontFamily: "Inter", fontWeight: 600 }}
 >
   <span className="block">Real Mental Wellness,</span>
   <span className="block">Not Just Another EAP.</span>
 </h1>
+
 
 
               {/* <div className="absolute left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 bottom-[-10px] w-[420px] h-[12px]">
@@ -311,29 +308,18 @@ export default function CorporatePage() {
         </div>
       </section>
 
-      {/* OFFER SECTION */}
-<section className="w-full bg-[#FDFDFD] py-16 sm:py-20 px-20">
+     {/* OFFER SECTION */}
+<section className="w-full bg-[#FDFDFD] py-16 sm:py-20 px-6 sm:px-20">
   <div className="max-w-7xl mx-auto">
-    {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3a2b20] text-left mb-10 sm:mb-14">
+    <h2
+      className="text-[32px] sm:text-[50px] font-semibold text-[#3a2b20] mb-10 sm:mb-14 text-center sm:text-left"
+      style={{ fontFamily: "Inter" }}
+    >
       What we Offer to Organizations?
-    </h2> */}
-<h2
-  style={{
-    fontFamily: "Inter",
-    fontWeight: 600,          // Semi Bold
-    fontStyle: "normal",
-    fontSize: "50px",
-    lineHeight: "100%",
-    letterSpacing: "-0.06em", // -6%
-    color: "#3a2b20",
-    marginBottom: "56px",     // same as mb-14
-  }}
->
-  What we Offer to Organizations?
-</h2>
+    </h2>
 
     {/* GRID */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 justify-center">
       {[
         {
           icon: groupClipPath1,
@@ -363,13 +349,11 @@ export default function CorporatePage() {
       ].map((card, i) => (
         <div
           key={i}
-          className="p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]"
-          style={{ width: "390px", height: "275px" }}
+          className="p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)] w-full sm:w-[390px] h-auto sm:h-[275px] mx-auto"
         >
           <div className="bg-[#F8F8F8] rounded-[15px] w-full h-full flex flex-col justify-between p-4">
-            
             {/* ICON TOP LEFT */}
-            <div className="w-[75px] h-[75px]">
+            <div className="w-[75px] h-[75px] mx-auto sm:mx-0">
               <Image
                 src={card.icon}
                 width={75}
@@ -380,58 +364,32 @@ export default function CorporatePage() {
             </div>
 
             {/* TITLE AND TEXT BOTTOM */}
-            <div className="mt-auto">
-              {/* <h3 className="text-base sm:text-lg font-semibold text-[#3a2b20] mb-2">
-                {card.title}
-              </h3> */}
+            <div className="mt-4 sm:mt-auto text-center sm:text-left">
               <h3
-  style={{
-    fontFamily: "Inter",
-    fontWeight: 600,
-    fontStyle: "normal", // Semi Bold is handled by fontWeight 600
-    fontSize: "24px",
-    lineHeight: "100%",
-    letterSpacing: "-0.03em", // -3% ≈ -0.03em
-    color: "#3a2b20",
-    marginBottom: "18px",
-  }}
->
-  {card.title}
-</h3>
-
-              {/* <p className="text-[#6d6d6f] text-sm leading-relaxed">{card.text}</p> */}
+                className="text-[20px] sm:text-[24px] font-semibold text-[#3a2b20] mb-2"
+                style={{ fontFamily: "Inter" }}
+              >
+                {card.title}
+              </h3>
               <p
-  style={{
-    fontFamily: "Inter",
-    fontWeight: 500,
-    fontStyle: "normal", // Medium is covered by fontWeight 500
-    fontSize: "14px",
-    lineHeight: "20px",
-    letterSpacing: "-0.03em", // -3% ≈ -0.03em
-    color: "#6d6d6f",
-     margin:"0",
-    
-  }}
->
-  {card.text}
-</p>
-
+                className="text-[14px] sm:text-[14px] text-[#6d6d6f] leading-5 sm:leading-5"
+                style={{ fontFamily: "Inter" }}
+              >
+                {card.text}
+              </p>
             </div>
           </div>
         </div>
       ))}
 
       {/* DARK CARD */}
-      <div
-        className="relative p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)]"
-        style={{ width: "390px", height: "275px", }}
-      >
+      <div className="relative p-[1.5px] rounded-[16px] bg-[linear-gradient(135deg,#d8cfc7_0%,rgba(216,207,199,0)_100%)] w-full sm:w-[390px] h-auto sm:h-[275px] mx-auto">
         <div className="relative bg-[#5c4737] text-white rounded-[15px] p-6 flex items-center justify-center text-center w-full h-full">
           <div className="absolute top-3 right-3 flex flex-col gap-[6px]">
             <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
             <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
           </div>
-          <p className="text-sm sm:text-base leading-relaxed px-20">
+          <p className="text-[14px] sm:text-sm leading-relaxed px-6 sm:px-20">
             Well-being at work isn't a benefit, it's a strength!
           </p>
         </div>
@@ -439,6 +397,7 @@ export default function CorporatePage() {
     </div>
   </div>
 </section>
+
 
       {/* FINAL CTA */}
       <section className="bg-[#FDFDFD] py-12 sm:py-20 px-6 text-center">
