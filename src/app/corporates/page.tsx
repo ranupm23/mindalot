@@ -301,9 +301,24 @@ export default function CorporatePage() {
 
             {/* TITLE AND TEXT BOTTOM */}
             <div className="mt-auto">
-              <h3 className="text-base sm:text-lg font-semibold text-[#3a2b20] mb-2">
+              {/* <h3 className="text-base sm:text-lg font-semibold text-[#3a2b20] mb-2">
                 {card.title}
-              </h3>
+              </h3> */}
+              <h3
+  style={{
+    fontFamily: "Inter",
+    fontWeight: 600,
+    fontStyle: "normal", // Semi Bold is handled by fontWeight 600
+    fontSize: "24px",
+    lineHeight: "100%",
+    letterSpacing: "-0.03em", // -3% ≈ -0.03em
+    color: "#3a2b20",
+    marginBottom: "8px",
+  }}
+>
+  {card.title}
+</h3>
+
               <p className="text-[#6d6d6f] text-sm leading-relaxed">{card.text}</p>
             </div>
           </div>
