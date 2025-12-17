@@ -524,28 +524,45 @@ export default function CorporatePage() {
   </div>
 </Link>
 
-  {/* CTA 2 */}
-  <Link
-    href="/"
-    className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
-    style={{
-      fontFamily: "'Nunito Sans', sans-serif",
-      fontWeight: 500,
-      lineHeight: "100%",
-      letterSpacing: "0%",
-    }}
-  >
-    <span className="tracking-[-0.01em]">Request Corporate Deck</span>
+ {/* CTA 2 */}
+<Link
+  href="/"
+  className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
+  style={{
+    fontFamily: "'Nunito Sans', sans-serif",
+    fontWeight: 500,
+    lineHeight: "100%",
+    letterSpacing: "0%",
+  }}
+>
+  <span className="tracking-[-0.01em]">Request Corporate Deck</span>
 
-    {/* Circle with arrow */}
-    <div className="w-[46px] h-[46px] bg-white rounded-full flex items-center justify-center transition-transform duration-300">
-      <Image
-        src={cardGraphic}
-        alt="Arrow"
-        className="w-[20px] h-[12px] rotate-[-45deg] transition-transform duration-300 ease-in-out group-hover:rotate-0"
-      />
-    </div>
-  </Link>
+  {/* Circle with arrow */}
+  <div
+    className="
+      w-[46px] h-[46px]
+      bg-[#5B4A3E]
+      rounded-full
+      flex items-center justify-center
+      transition-colors duration-300
+      group-hover:bg-white
+    "
+  >
+    <Image
+      src={cardGraphic}
+      alt="Arrow"
+      className="
+        w-[20px] h-[12px]
+        rotate-[-45deg]
+        transition-all duration-300 ease-in-out
+        group-hover:rotate-0
+        filter brightness-0 invert
+        group-hover:invert-0
+      "
+    />
+  </div>
+</Link>
+
 </div>
 
         </div>
