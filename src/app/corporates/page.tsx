@@ -80,19 +80,20 @@ export default function CorporatePage() {
 
             <div className="mt-[34px]">
   <p
-    style={{
-      fontFamily: "Inter",
-      fontWeight: 400,          // Regular
-      fontSize: "18px",
-      lineHeight: "100%",
-      letterSpacing: "-0.03em", // -3%
-      color: "#1e1e1e",
-      maxWidth: "460px",
-    }}
-  >
-    Mind A Lot is built for the modern workforce: instant, anonymous, and effective.
-    Because people don't wait for office hours to break down.
-  </p>
+  style={{
+    fontFamily: "Inter",
+    fontWeight: 400,
+    fontSize: "18px",
+    lineHeight: "1.3em",       // adjust line spacing
+    letterSpacing: "-0.03em",
+    color: "#1e1e1e",
+    maxWidth: "490px",
+  }}
+  className="text-[18px] sm:text-[18px] leading-[1.3] md:max-w-[460px]"
+>
+  Mind A Lot is built for the modern workforce: instant, anonymous, and effective.
+  Because people don't wait for office hours to break down.
+</p>
 
   <p
     style={{
@@ -102,7 +103,7 @@ export default function CorporatePage() {
       lineHeight: "100%",
       letterSpacing: "-0.03em", // -3%
       color: "#8a8a8a",
-      maxWidth: "440px",
+      maxWidth: "490px",
       marginTop: "12px",        // 👈 spacing between paragraphs
     }}
   >
