@@ -15,18 +15,72 @@ const menuItems = [
   { name: "Contact", path: "/contact" },
 ];
 
+// Redirect to App Store / Play Store based on device
+const redirectToAppStore = () => {
+  if (typeof window === "undefined") return;
+
+  const userAgent = navigator.userAgent || navigator.vendor;
+
+  if (/iPad|iPhone|iPod/.test(userAgent)) {
+    window.location.href =
+      "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+    return;
+  }
+
+  if (/android/i.test(userAgent)) {
+    window.location.href =
+      "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+    return;
+  }
+
+  // Desktop fallback
+  window.location.href =
+    "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+};
+
 export default function Header({ textWhite = false }) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Use a string of Tailwind classes
   const linkTextClass = textWhite ? "text-[#F6F2EB]" : "text-[#5B4A3E]";
 
+  const JoinNowButton = (
+    <button
+      onClick={redirectToAppStore}
+      className="
+        group relative overflow-hidden rounded-[30px]
+        flex items-center justify-center text-center
+        border border-[#5B4A3E]
+        group-hover:border-[#5B4A3E]
+        transition-colors duration-300
+      "
+      style={{
+        width: "174px",
+        height: "47px",
+        background: "#FFFFFF",
+        fontFamily: "Inter",
+        fontSize: "18px",
+        fontWeight: 500,
+        lineHeight: "100%",
+      }}
+    >
+      <span
+        className="
+          absolute inset-0 bg-[#5B4A3E] rounded-[30px]
+          opacity-0 scale-x-50
+          group-hover:opacity-100 group-hover:scale-x-155
+          origin-center transition-all duration-1000 ease-in-out
+        "
+      />
+      <span className="relative z-10 text-[#5B4A3E] group-hover:text-[#F6F2EB] transition-colors duration-1000 ease-in-out">
+        Join now
+      </span>
+    </button>
+  );
 
   return (
     <header className="w-full h-[90px] fixed top-0 left-0 z-50 flex items-center justify-center bg-transparent transition-colors duration-300">
       <div className="w-[1440px] h-[90px] flex items-center justify-between px-[75px]">
-        
         {/* LOGO */}
         <Link href="/">
           <Image
@@ -47,7 +101,9 @@ export default function Header({ textWhite = false }) {
               <Link
                 key={item.path}
                 href={item.path}
-                className={`${linkTextClass} font-inter text-[18px] whitespace-nowrap ${isActive ? "font-bold" : "font-normal"} transition-colors duration-200`}
+                className={`${linkTextClass} font-inter text-[18px] whitespace-nowrap ${
+                  isActive ? "font-bold" : "font-normal"
+                } transition-colors duration-200`}
               >
                 {item.name}
               </Link>
@@ -55,44 +111,8 @@ export default function Header({ textWhite = false }) {
           })}
         </nav>
 
-      {/* JOIN NOW BUTTON */}
-<div className="hidden md:flex">
-    <Link
-    href="/join"
-    className="
-      group relative overflow-hidden rounded-[30px]
-      flex items-center justify-center text-center
-      border border-[#5B4A3E]
-      group-hover:border-[#5B4A3E]
-      transition-colors duration-300
-    "
-    style={{
-      width: "174px",
-      height: "47px",
-      background: "#FFFFFF",
-      fontFamily: "Inter",
-      fontSize: "18px",
-      fontWeight: 500,
-      lineHeight: "100%",
-    }}
-  >
-    {/* Hover background */}
-    <span
-      className="
-        absolute inset-0 bg-[#5B4A3E] rounded-[30px]
-        opacity-0 scale-x-50
-        group-hover:opacity-100 group-hover:scale-x-155
-        origin-center transition-all duration-1000 ease-in-out
-      "
-    />
-
-    {/* Text */}
-    <span className="relative z-10 text-[#5B4A3E] group-hover:text-[#F6F2EB] transition-colors duration-1000 easy-in-out">
-      Join now
-    </span>
-  </Link>
-</div>
-
+        {/* JOIN NOW BUTTON for large screens */}
+        <div className="hidden md:flex">{JoinNowButton}</div>
 
         {/* Hamburger Menu */}
         <div className="md:hidden flex items-center gap-4">
@@ -112,47 +132,16 @@ export default function Header({ textWhite = false }) {
               key={item.path}
               href={item.path}
               onClick={() => setIsMenuOpen(false)}
-              className={`font-inter text-[16px] ${pathname === item.path ? "font-bold" : "font-normal"} ${linkTextClass}`}
+              className={`font-inter text-[16px] ${
+                pathname === item.path ? "font-bold" : "font-normal"
+              } ${linkTextClass}`}
             >
               {item.name}
             </Link>
           ))}
 
-         <Link
-    href="/join"
-    className="
-      group relative overflow-hidden rounded-[30px]
-      flex items-center justify-center text-center
-      border border-[#5B4A3E]
-      group-hover:border-[#5B4A3E]
-      transition-colors duration-300
-    "
-    style={{
-      width: "174px",
-      height: "47px",
-      background: "#FFFFFF",
-      fontFamily: "Inter",
-      fontSize: "18px",
-      fontWeight: 500,
-      lineHeight: "100%",
-    }}
-  >
-    {/* Hover background */}
-    <span
-      className="
-        absolute inset-0 bg-[#5B4A3E] rounded-[30px]
-        opacity-0 scale-x-50
-        group-hover:opacity-100 group-hover:scale-x-155
-        origin-center transition-all duration-1000 ease-in-out
-      "
-    />
-
-    {/* Text */}
-    <span className="relative z-10 text-[#5B4A3E] group-hover:text-[#F6F2EB] transition-colors duration-1000 easy-in-out">
-      Join now
-    </span>
-  </Link>
-
+          {/* JOIN NOW BUTTON for mobile */}
+          {JoinNowButton}
         </div>
       )}
     </header>
