@@ -316,7 +316,7 @@ export default function CorporatePage() {
       className="text-[32px] sm:text-[50px] font-semibold text-[#3a2b20] mb-10 sm:mb-14 text-center sm:text-left"
       style={{ fontFamily: "Inter" }}
     >
-      What we Offer to Organizations?
+      What We Offer to Organizations?
     </h2>
 
     {/* GRID */}
