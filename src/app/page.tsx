@@ -65,18 +65,19 @@ export default function Home() {
 const HomeHero = () => {
   return (
    
-    <section
-        className="
+   <section
+  className="
     relative 
     w-full 
-    min-h-fit lg:min-h-screen lg:h-[864px]
+    min-h-[850px] lg:min-h-[950px] lg:h-auto
     flex flex-col items-center justify-start lg:block
     bg-cover bg-center lg:bg-no-repeat lg:bg-[length:full_864px]
-    mx-auto overflow-hidden
+    mx-auto overflow-visible
     font-inter
   "
-      style={{ backgroundImage: `url('${Homebg.src}')` }}
-    >
+  style={{ backgroundImage: `url('${Homebg.src}')` }}
+>
+
        
       {/* GRADIENT OVERLAY */}
       <div

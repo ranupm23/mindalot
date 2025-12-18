@@ -23,6 +23,7 @@ import waveIcon from '@/assets/resource-page/wave.svg'
 import brownPlayIcon from '@/assets/resource-page/play.svg'
 import React from 'react'
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const redirectToAppStore = () => {
   if (typeof window === "undefined") return;
@@ -55,6 +56,7 @@ const ResourcePage = () => {
     return (
         <div className="flex flex-col min-h-screen">
           
+          <Header />
             {/* MAIN CONTENT */}
             <div className='flex-1 container-page xl:pr-0 xl:pl-0 px-4 sm:px-6 md:px-8'>
                 <div className="pt-16 flex flex-col lg:flex-row lg:justify-between gap-9">
