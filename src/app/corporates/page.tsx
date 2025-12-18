@@ -390,9 +390,11 @@ export default function CorporatePage() {
             <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
             <span className="w-[6px] h-[6px] rounded-full bg-white/40"></span>
           </div>
-          <p className="text-[14px] sm:text-sm leading-relaxed px-6 sm:px-20">
-            Well-being at work isn't a benefit, it's a strength!
-          </p>
+          {/* <p className="text-[20px] sm:text-sm leading-relaxed px-6 sm:px-20"> */}
+         <p className="text-[17px] sm:text-[18px] leading-snug px-4 sm:px-16 text-center">
+  Well-being at work isn't a benefit, it's a strength!
+</p>
+
         </div>
       </div>
     </div>
