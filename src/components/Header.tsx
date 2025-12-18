@@ -47,7 +47,8 @@ export default function Header({ textWhite = false }) {
   const linkTextClass = textWhite ? "text-[#F6F2EB]" : "text-[#5B4A3E]";
 
   return (
-    <header className="w-full h-[90px] fixed top-0 left-0 z-50 flex items-center justify-center bg-transparent transition-colors duration-300">
+   <header className="w-full h-[90px] relative z-50 flex items-center justify-center bg-transparent transition-colors duration-300">
+
       <div className="w-[1440px] h-[90px] flex items-center justify-between px-[75px]">
         {/* LOGO */}
         <Link href="/">
