@@ -11,7 +11,7 @@ import heroimage from "@/assets/corporate-assets/hero.png";
 import roundcircle from "@/assets/corporate-assets/yourmentalhealth.png";
 import cardExportCircle from "@/assets/contact-page/right-side-image.png";
 import cardSecurity from "@/assets/corporate-assets/card-security.svg";
-import groupClipPath1 from "@/assets/corporate-assets/group/group-clip-path1.png";
+import groupClipPath1 from "@/assets/corporate-assets/group/24.png";
 import groupClipPath2 from "@/assets/corporate-assets/group/group-clip-path2.png";
 import groupClipPath3 from "@/assets/corporate-assets/group/group-clip-path3.png";
 import cardcirclegrpup from "@/assets/corporate-assets/card-export-circle.svg";
