@@ -234,7 +234,7 @@ export default function CorporatePage() {
 </div>
 
 {/* QUOTE CARD */}
-<div
+{/* <div
   className="absolute rounded-[11px] z-[30]"
   style={{
     bottom: '-265px',
@@ -249,7 +249,7 @@ export default function CorporatePage() {
   }}
 >
   {/* Noise overlay */}
-  <div
+  {/* <div
     className="absolute inset-0 pointer-events-none"
     style={{
       backgroundImage:
@@ -258,10 +258,10 @@ export default function CorporatePage() {
       opacity: 0.8, // density 80%
       mixBlendMode: 'overlay', // monotone effect
     }}
-  ></div>
+  ></div>  */}
 
   {/* Card content */}
-  <div className="flex flex-col h-full justify-between relative z-[10]">
+  {/* <div className="flex flex-col h-full justify-between relative z-[10]">
     <div className="flex justify-end">
       <Image
         src={cardExportCircle}
@@ -285,10 +285,10 @@ export default function CorporatePage() {
     >
       Investing in mental wellness means<br />investing in lasting success.
     </p>
-  </div>
+  </div> */}
 
   {/* Image inside quote card */}
-  <Image
+  {/* <Image
     src={roundcircle} // replace with your image
     alt="Quote Card Image"
     width={65}
@@ -300,7 +300,7 @@ export default function CorporatePage() {
       borderRadius: '15px',
     }}
   />
-</div>
+</div> */}
 
 
 </div>
