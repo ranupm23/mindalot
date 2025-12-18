@@ -78,7 +78,7 @@ export default function CorporatePage() {
               </p>
             </div> */}
 
-            <div className="mt-[34px]">
+            <div className="mt-[6px]">
   <p
   style={{
     fontFamily: "Inter",
