@@ -142,169 +142,106 @@ export default function CorporatePage() {
 
 
           {/* RIGHT IMAGE SECTION */}
-          <div className="relative flex justify-center lg:justify-end items-start pt-[40px]">
-            <div className="relative" style={{ width: '540px', height: '400px' }}>
-              
-   {/* FRAME 1 */}
-<div
-  className="absolute rounded-[22px] z-[-0] pointer-events-none"
-  style={{
-    top: '-46px',
-    left: '-46px',
-    width: '586px',
-    height: '446px',
-    borderRadius: '22px',
-    // Radial gradient at top-left corner
-    background: 'radial-gradient(circle at top left, rgba(199,183,169,0.3) 0%, rgba(199,183,169,0.05) 30%, rgba(199,183,169,0) 100%)',
-    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-    WebkitMaskComposite: 'xor',
-    maskComposite: 'exclude',
-    padding: '1px',
-    // Remove border entirely
-    // border: '1px solid transparent',
-  }}
-></div>
+         {/* RIGHT IMAGE SECTION */}
+<div className="relative flex justify-center lg:justify-end items-start pt-[40px]">
 
+  {/* Desktop / Tablet Version */}
+  <div className="relative lg:block hidden" style={{ width: '540px', height: '400px' }}>
+    {/* FRAME 1 */}
+    <div
+      className="absolute rounded-[22px] z-0 pointer-events-none"
+      style={{
+        top: '-46px',
+        left: '-46px',
+        width: '586px',
+        height: '446px',
+        borderRadius: '22px',
+        background: 'radial-gradient(circle at top left, rgba(199,183,169,0.3) 0%, rgba(199,183,169,0.05) 30%, rgba(199,183,169,0) 100%)',
+        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+        WebkitMaskComposite: 'xor',
+        maskComposite: 'exclude',
+        padding: '1px',
+      }}
+    ></div>
 
+    {/* FRAME 2 */}
+    <div
+      className="absolute rounded-[20px] z-0 pointer-events-none"
+      style={{
+        top: '-28px',
+        left: '-28px',
+        width: '568px',
+        height: '428px',
+        borderRadius: '20px',
+        background: 'radial-gradient(circle at top left, rgba(199,183,169,0.45) 0%, rgba(199,183,169,0.05) 30%, rgba(199,183,169,0) 100%)',
+        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+        WebkitMaskComposite: 'xor',
+        maskComposite: 'exclude',
+        padding: '1px',
+        border: '1px solid transparent',
+      }}
+    ></div>
 
-             {/* FRAME 2 */}
-<div
-  className="absolute rounded-[20px] z-[-0] pointer-events-none"
-  style={{
-    top: '-28px',
-    left: '-28px',
-    width: '568px',
-    height: '428px',
-    borderRadius: '20px',
-    // Radial gradient at top-left corner
-    background: 'radial-gradient(circle at top left, rgba(199,183,169,0.45) 0%, rgba(199,183,169,0.05) 30%, rgba(199,183,169,0) 100%)',
-    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-    WebkitMaskComposite: 'xor',
-    maskComposite: 'exclude',
-    padding: '1px',
-    border: '1px solid transparent',
-  }}
-></div>
+    {/* FRAME 3 */}
+    <div
+      className="absolute rounded-[18px] z-0 pointer-events-none"
+      style={{
+        top: '-14px',
+        left: '-14px',
+        width: '554px',
+        height: '414px',
+        borderRadius: '18px',
+        background: 'radial-gradient(circle at top left, rgba(199,183,169,0.55) 0%, rgba(199,183,169,0.05) 30%, rgba(199,183,169,0) 100%)',
+        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+        WebkitMaskComposite: 'xor',
+        maskComposite: 'exclude',
+        padding: '1px',
+        border: '1px solid transparent',
+      }}
+    ></div>
 
-             {/* FRAME 3 */}
-<div
-  className="absolute rounded-[18px] z-[0] pointer-events-none"
-  style={{
-    top: '-14px',
-    left: '-14px',
-    width: '554px',
-    height: '414px',
-    borderRadius: '18px',
-    // Radial gradient at top-left corner
-    background: 'radial-gradient(circle at top left, rgba(199,183,169,0.55) 0%, rgba(199,183,169,0.05) 30%, rgba(199,183,169,0) 100%)',
-    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-    WebkitMaskComposite: 'xor',
-    maskComposite: 'exclude',
-    padding: '1px',
-    border: '1px solid transparent',
-  }}
-></div>
-
-              {/* MAIN IMAGE */}
-              <div className="absolute top-0 left-0 w-[620px] h-[460px] -translate-x-[50px] rounded-[16px] overflow-hidden z-[10]">
-                <Image
-                  src={heroimage}
-                  width={620}
-                  height={460}
-                  alt="Corporate group"
-                  className="w-full h-full object-contain bg-transparent"
-                />
-              </div>
-
-              {/* REPLACED CIRCULAR BADGE WITH IMAGE */}
-<div
-  className="absolute z-[20]"
-  style={{
-    top: '-34px',
-    right: '-4px',
-    width: '88px',
-    height: '88px',
-  }}
->
-  <Image
-    src={roundcircle}
-    alt="Your Mental Health"
-    className="w-full h-full object-contain rounded-full"
-  />
-</div>
-
-{/* QUOTE CARD */}
-{/* <div
-  className="absolute rounded-[11px] z-[30]"
-  style={{
-    bottom: '-265px',
-    left: '-156px',
-    width: '300px',
-    height: '126px',
-    borderRadius: '11px',
-    backgroundColor: '#BE9B84',
-    padding: '16px 18px',
-    boxShadow: '0 2px 12px rgba(92, 71, 55, 0.06)',
-    position: 'relative', // for internal positioning
-  }}
->
-  {/* Noise overlay */}
-  {/* <div
-    className="absolute inset-0 pointer-events-none"
-    style={{
-      backgroundImage:
-        'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'64\' height=\'64\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.5\' numOctaves=\'1\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'64\' height=\'64\' filter=\'url(%23noise)\' fill=\'%2300000059\'/%3E%3C/svg%3E")',
-      backgroundRepeat: 'repeat',
-      opacity: 0.8, // density 80%
-      mixBlendMode: 'overlay', // monotone effect
-    }}
-  ></div>  */}
-
-  {/* Card content */}
-  {/* <div className="flex flex-col h-full justify-between relative z-[10]">
-    <div className="flex justify-end">
+    {/* MAIN IMAGE */}
+    <div className="absolute top-0 left-0 w-[620px] h-[460px] -translate-x-[50px] rounded-[16px] overflow-hidden z-[10]">
       <Image
-        src={cardExportCircle}
-        width={58}
-        height={58}
-        alt="Decorative Icon"
-        className="opacity-70"
-        style={{ transform: 'rotate(-10deg)' }}
+        src={heroimage}
+        width={620}
+        height={460}
+        alt="Corporate group"
+        className="w-full h-full object-contain bg-transparent"
       />
     </div>
-    <p
+
+    {/* CIRCULAR BADGE */}
+    <div
+      className="absolute z-[20]"
       style={{
-        fontFamily: 'Inter, sans-serif',
-        fontWeight: 400,
-        fontStyle: 'normal',
-        fontSize: '14px',
-        lineHeight: '25px',
-        letterSpacing: '-0.03em',
-        color: '#fff',
+        top: '-34px',
+        right: '-4px',
+        width: '88px',
+        height: '88px',
       }}
     >
-      Investing in mental wellness means<br />investing in lasting success.
-    </p>
-  </div> */}
+      <Image
+        src={roundcircle}
+        alt="Your Mental Health"
+        className="w-full h-full object-contain rounded-full"
+      />
+    </div>
+  </div>
 
-  {/* Image inside quote card */}
-  {/* <Image
-    src={roundcircle} // replace with your image
-    alt="Quote Card Image"
-    width={65}
-    height={65}
-    style={{
-      position: 'absolute',
-      top: '496px', // relative to the page, not card
-      left: '869px', // relative to the page, not card
-      borderRadius: '15px',
-    }}
-  />
-</div> */}
-
+  {/* Mobile / Tablet Version - Full width with padding */}
+  <div className="block lg:hidden w-full px-6 sm:px-10">
+    <div className="w-full rounded-[16px] overflow-hidden relative">
+      <Image
+        src={heroimage}
+        alt="Corporate group"
+        className="w-full h-auto object-contain"
+      />
+    </div>
+  </div>
 
 </div>
-</div>
+
 
         </div>
       </section>
