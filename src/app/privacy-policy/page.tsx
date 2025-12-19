@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
         <ul className="list-disc pl-6 mb-6 leading-[1.8]">
           <li>
             Access or update your data by emailing{" "}
-            <strong>support@mindalot.care</strong>
+            <strong>info@mindalot.care</strong>
           </li>
           <li>Request deletion of your data</li>
           <li>Choose not to share specific information</li>
