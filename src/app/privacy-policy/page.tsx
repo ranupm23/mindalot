@@ -233,7 +233,7 @@ export default function PrivacyPolicy() {
         <p className="mb-6 leading-[1.8]">
           <strong>Name:</strong> Sumukh L <br />
           <strong>Phone:</strong> +91 9606258596 <br />
-          <strong>Email:</strong> support@mindalot.care <br />
+          <strong>Email:</strong> info@mindalot.care <br />
           <br />
           <strong>Address:</strong> <br />
           VK Palace, 2nd Floor, 2nd Cross, 10th Main, <br />
