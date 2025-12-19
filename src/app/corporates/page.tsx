@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 // Import all images from assets
 import graphic1 from "@/assets/corporate-assets/graphic1.svg";
 import cardGraphic from "@/assets/corporate-assets/card-circle-white/card-graphic.svg";
+
 import heroimage from "@/assets/corporate-assets/hero.png";
 import roundcircle from "@/assets/corporate-assets/yourmentalhealth.png";
 import cardExportCircle from "@/assets/contact-page/right-side-image.png";
@@ -417,7 +418,7 @@ export default function CorporatePage() {
 
  {/* CTA 2 */}
 <Link
-  href="https://docs.google.com/forms/d/YOUR_FORM_ID/viewform"
+  href="/corporate/sample-report.pdf"
   className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#ffffff] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
   style={{
     fontFamily: "'Nunito Sans', sans-serif",

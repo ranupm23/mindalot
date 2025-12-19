@@ -8,7 +8,7 @@ import headerLogo from "@/assets/header-assets/Mindalotlogo.png";
 
 const menuItems = [
   { name: "Home", path: "/" },
-  { name: "For Universities", path: "/university" },
+  { name: "For Educational Institutions", path: "/university" },
   { name: "For Corporates", path: "/corporates" },
   { name: "Features", path: "/#features" },
   { name: "Resources", path: "/resource" },
