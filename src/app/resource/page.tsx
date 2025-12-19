@@ -59,7 +59,7 @@ const ResourcePage = () => {
           <Header />
             {/* MAIN CONTENT */}
             <div className='flex-1 container-page xl:pr-0 xl:pl-0 px-4 sm:px-6 md:px-8'>
-                <div className="pt-16 flex flex-col lg:flex-row lg:justify-between gap-9">
+                <div className="flex flex-col lg:flex-row lg:justify-between gap-9">
                     {/* Left Text Section */}
                     <div className="relative z-10 flex flex-col items-center sm:items-start pt-20 lg:pb-20 md:mb-20 text-center sm:text-left whitespace-nowrap">
                         <h1 className="font-inter font-semibold text-[32px] sm:text-[42px] md:text-[50px] lg:text-[55px] leading-[40px] sm:leading-[55px] md:leading-[65px] lg:leading-[80px] tracking-[-0.06em] text-[#5C4737]">
@@ -116,7 +116,7 @@ const SlideImages = () => {
 const OurResourcesSection = () => {
     return (
         <>
-            <h2 className='text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[60px] text-[#5C4737] font-semibold -tracking-[6%] font-inter mt-15 md:mt-0'>Our Resources!</h2>
+            <h2 className='text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[60px] text-[#5C4737] font-semibold -tracking-[6%] font-inter mt-12 md:mt-20'>Our Resources!</h2>
             <div className='mt-5 sm:mt-[46px] grid lg:grid-cols-2 gap-x-5 gap-y-[15px] sm:gap-y-[30px] mb-20 whitespace-nowrap'>
                 <ResourceCard btnLabel="Listen Audio" img={ourResource1} btnIcon={waveIcon} rotateIconOnHover={false} />
                 <ResourceCard btnLabel="Watch Video" img={ourResource2} btnIcon={brownPlayIcon} />
