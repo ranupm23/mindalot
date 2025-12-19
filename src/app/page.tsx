@@ -637,9 +637,10 @@ const Features = () => {
           {/* --- RIGHT COLUMN (F5-F8) --- */}
           <div className="space-y-0 lg:mt-0"> {/* Ensure it aligns correctly on desktop */}
             <FeatureItem
-              iconSrc={featureIcon5}
-              altText="Content Icon"
-              title="Expert Videos, Podcasts, and Content Drops"
+              iconSrc={featureIcon8}
+              altText="Anonymity Icon"
+              title="100% Anonymity Guaranteed"
+              isLast={true} // Last item in the column, no divider needed
             />
             <FeatureItem
               iconSrc={featureIcon6}
@@ -651,12 +652,12 @@ const Features = () => {
               altText="Hospital Icon"
               title="Escalation To Partner Hospitals For Psychiatric Care"
             />
-            <FeatureItem
-              iconSrc={featureIcon8}
-              altText="Anonymity Icon"
-              title="100% Anonymity Guaranteed"
-              isLast={true} // Last item in the column, no divider needed
+             <FeatureItem
+              iconSrc={featureIcon5}
+              altText="Content Icon"
+              title="Expert Videos, Podcasts, and Content Drops"
             />
+            
           </div>
 
         </div>
