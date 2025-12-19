@@ -55,7 +55,7 @@ export default function CorporatePage() {
   style={{ fontFamily: "Inter", fontWeight: 600 }}
 >
   <span className="block">Real Mental Wellness,</span>
-  <span className="block">Not Just Another EAP.</span>
+  <span className="block">Not Just Another EAP</span>
 </h1>
 
 
