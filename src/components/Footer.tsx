@@ -88,7 +88,7 @@ const Footer = () => {
       <h3 className="text-lg  font-sans font-medium text-[20px]">Contact</h3>
       <div className="flex flex-col gap-4 text-[16px] mt-2">
         <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
-          <Mail size={18} stroke="#5B4A3E" /> support@mindalot.com
+          <Mail size={18} stroke="#5B4A3E" /> info@mindalot.care
         </div>
         <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
           <Phone size={18} stroke="#5B4A3E" /> +91-96062-58596
