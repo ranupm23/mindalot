@@ -283,7 +283,7 @@ export default function CorporatePage() {
         {
           icon: cardSecurity,
           title: "Insightful, privacy-first reports",
-          text: "HR teams receive usage trends and well-being analytics without revealing individual identities.",
+          text: "HR teams receive usage trends and well-being analytics without compromising employee privacy",
         },
       ].map((card, i) => (
         <div
