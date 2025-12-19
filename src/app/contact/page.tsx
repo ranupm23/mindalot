@@ -26,43 +26,55 @@ export default function ContactPage() {
   const [acceptedPolicies, setAcceptedPolicies] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    if (!acceptedPolicies) {
-      e.preventDefault();
-      setShowPopup(true);
-      return;
-    }
+  e.preventDefault();
 
-    e.preventDefault();
-    const form = e.currentTarget;
+  if (!acceptedPolicies) {
+    setShowPopup(true);
+    return;
+  }
 
-    setLoading(true);
-    setError(false);
-    setSuccess(false);
+  const form = e.currentTarget;
 
-    const formData = new FormData(form);
-    formData.append("access_key", "YOUR_ACCESS_KEY");
+  // Use querySelector to get the input reliably
+  const emailInput = form.querySelector<HTMLInputElement>('input[name="email"]');
+  const email = emailInput?.value.trim() || "";
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
+  // Validate email ends with .care
+  if (!email.endsWith("@mindalot.care")) {
+    setError(true);
+    alert("Email must end with @mindalot.care");
+    return;
+  }
 
-      const result = await response.json();
-      setLoading(false);
+  setLoading(true);
+  setError(false);
+  setSuccess(false);
 
-      if (result.success) {
-        setSuccess(true);
-        form.reset();
-        setTimeout(() => setSuccess(false), 4000);
-      } else {
-        setError(true);
-      }
-    } catch {
-      setLoading(false);
+  const formData = new FormData(form);
+  formData.append("access_key", "YOUR_ACCESS_KEY");
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+    setLoading(false);
+
+    if (result.success) {
+      setSuccess(true);
+      form.reset();
+      setTimeout(() => setSuccess(false), 4000);
+    } else {
       setError(true);
     }
-  };
+  } catch {
+    setLoading(false);
+    setError(true);
+  }
+};
+
 
   return (
     <main className="w-full bg-white text-[#3E2723]">
@@ -196,6 +208,7 @@ export default function ContactPage() {
   <input
     type="email"
     name="email"
+    
     required
     placeholder="Enter your email"
     className="mt-1 w-full border-b border-[#C8B9AC] py-2 text-[18px] placeholder:text-[#9E9086] focus:outline-none"
