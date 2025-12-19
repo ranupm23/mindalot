@@ -64,7 +64,7 @@ const ResourcePage = () => {
                     <div className="relative z-10 flex flex-col items-center sm:items-start pt-20 lg:pb-20 md:mb-20 text-center sm:text-left whitespace-nowrap">
                         <h1 className="font-inter font-semibold text-[32px] sm:text-[42px] md:text-[50px] lg:text-[55px] leading-[40px] sm:leading-[55px] md:leading-[65px] lg:leading-[80px] tracking-[-0.06em] text-[#5C4737]">
                             Curated resources from<br />
-                            real professionals, <span className="whitespace-nowrap">no fluff</span>
+                            real professionals, <span className="whitespace-nowrap">no fluff.</span>
                         </h1>
                         <p className='text-[12px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-medium mt-[20px] sm:mt-[30px] leading-[20px] sm:leading-[28px] md:leading-[32px] lg:leading-[35px] -tracking-[3%] font-inter'>
                             Ever wondered how small daily habits can reshape your mindset? Explore<br /> 
