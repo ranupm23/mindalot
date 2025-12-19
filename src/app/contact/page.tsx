@@ -185,12 +185,12 @@ export default function ContactPage() {
     <label className="text-[18px] text-[#5B4A3E]">Email</label>
 
     {/* Forgot password link */}
-    <a
+    {/* <a
       href="/forgot-password"
       className="text-[12px] text-[#967B6A] hover:text-[#A78870] transition-colors"
     >
       Forgot Password?
-    </a>
+    </a> */}
   </div>
 
   <input
