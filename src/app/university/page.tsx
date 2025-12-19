@@ -1159,7 +1159,8 @@ const ConnectCampus = () => {
 <div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 w-full px-4 md:px-0 justify-center">
 
   {/* Schedule a Demo Button */}
-  <Link href="/contact" className="max-md:w-full">
+  <Link href="mailto:support@mindalot.care?subject=Schedule%20a%20Demo" className="max-md:w-full">
+  
     <button
       className="
         group relative
