@@ -1241,7 +1241,7 @@ const LastSection = () => {
           >
             {/* Button 1 */}
             <a
-              href="mailto:hello@mindalot.com"
+              href="tel:+919606258596"
               className="
                 group relative 
                 flex items-center justify-start
