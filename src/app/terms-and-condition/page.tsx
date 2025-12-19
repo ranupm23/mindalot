@@ -7,9 +7,9 @@ export default function TermsPage() {
   return (
     <main className="bg-[#FDFDFD] text-[#3E2723]">
      
-
+    <Header />
       {/* CONTENT */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
         <h1 className="text-3xl sm:text-4xl font-bold mb-10 text-[#3E2723]">
           Terms & Conditions
         </h1>
@@ -24,7 +24,7 @@ export default function TermsPage() {
           Published under Rule 3(1) of the Information Technology (Intermediaries
           Guidelines) Rules, 2011, this document outlines the terms for accessing
           and using the Mind A Lot platform available at{" "}
-          <strong>www.mindalot.com</strong>.
+          <strong>mindalot.com</strong>.
         </p>
 
         <p className="mb-6 leading-[1.8]">
@@ -148,7 +148,7 @@ export default function TermsPage() {
           <br />
           Phone: <strong>+91 9606258596</strong>  
           <br />
-          Email: <strong>support@mindalot.care</strong>  
+          Email: <strong>info@mindalot.care</strong>  
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4">
