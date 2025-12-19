@@ -330,7 +330,7 @@ export default function CorporatePage() {
           </div>
           {/* <p className="text-[20px] sm:text-sm leading-relaxed px-6 sm:px-20"> */}
          <p className="text-[17px] sm:text-[18px] leading-snug px-4 sm:px-16 text-center">
-  Well-being at work isn't a benefit, it's a strength!
+  Well-being at work isn't a benefit, it's a strength
 </p>
 
         </div>
@@ -377,7 +377,7 @@ export default function CorporatePage() {
          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-[36px]">
   {/* CTA 1 */}
   <Link
-  href="https://docs.google.com/forms/d/YOUR_FORM_ID/viewform"
+  href="mailto:support@mindalot.care"
   className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#ffffff] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
   style={{
     fontFamily: "'Nunito Sans', sans-serif",
