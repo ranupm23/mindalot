@@ -599,7 +599,7 @@ const Features = () => {
         {/* === HEADER BLOCK === */}
         <div className="mb-12 sm:mb-16">
           <h2 className="text-4xl sm:text-5xl font-semibold text-black font-['Inter'] mb-4">
-            Key features
+            Key Features
           </h2>
           <p className="text-base sm:text-lg text-black font-medium font-['Nunito_Sans'] max-w-xl">
             Discover the essential features you need - all in one trusted platform.
