@@ -337,7 +337,7 @@ const AccessMoreResourceSection = () => {
 
         {/* BUTTON 1 - View All Resources (stays same) */}
         <a
-          href="/resource"
+          href="https://youtube.com/@mind_alot?si=Y_E5tD3qxVunQ2e3"
           className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
           style={{
             fontFamily: "'Nunito Sans', sans-serif",
