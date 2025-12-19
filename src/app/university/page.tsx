@@ -161,7 +161,11 @@ const HeroSection = () => {
         >
      {/* Button */}
      {/* 5. Button Layout Container */}
-<button
+     <a
+    href="mailto:support@mindalot.care?subject=Schedule%20a%20Demo"
+    className="no-underline"
+  >
+<button 
   onMouseEnter={(e) => {
     e.currentTarget.style.background = "#5C4737";
     e.currentTarget.style.border = "2px solid transparent"; // remove border
@@ -220,7 +224,7 @@ const HeroSection = () => {
     />
   </div>
 </button>
-
+</a>
 
 </div>
     
