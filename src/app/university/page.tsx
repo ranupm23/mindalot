@@ -38,7 +38,10 @@ const HeroSection = () => {
     >
       {/* Background and Overlays */}
       <div className="absolute inset-0 w-full h-full">
-         <Header textWhite={true} />
+          <div className="relative z-[100] pointer-events-auto">
+    <Header textWhite={true} />
+  </div>
+        
         <Image src={hero1} alt="Hero background" fill className="object-cover opacity-100" priority />
       </div>
       <div className="absolute inset-0 w-full h-full z-[1]" style={{ background: '#00000099' }} />
@@ -1301,6 +1304,7 @@ const ConnectCampus = () => {
   return (
     <>
       <main className="overflow-hidden bg-[#FDFDFD]">
+        
         <HeroSection />
         <OfferSection />
         <ConnectCampus />
