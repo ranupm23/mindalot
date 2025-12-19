@@ -215,6 +215,8 @@ export default function ContactPage() {
                 <option>Partnership</option>
                 <option>Pricing</option>
                 <option>Support</option>
+                <option>Forgot password</option>
+                <option>Book a demo</option>
               </select>
             </div>
 
