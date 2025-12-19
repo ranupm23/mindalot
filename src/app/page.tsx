@@ -1298,7 +1298,7 @@ const LastSection = () => {
 
             {/* Button 2 */}
             <a
-              href="https://discord.com/"
+              href="mailto:support@mindalot.care"
               target="_blank"
               rel="noopener noreferrer"
               className="
