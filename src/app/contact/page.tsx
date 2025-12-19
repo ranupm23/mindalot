@@ -89,7 +89,7 @@ export default function ContactPage() {
               </a>
 
               <a
-                href="/terms-and-conditions"
+                href="/terms-and-condition"
                 target="_blank"
                 className="text-[#967B6A] underline text-[15px] font-medium"
               >
