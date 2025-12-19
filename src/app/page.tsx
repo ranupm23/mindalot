@@ -279,7 +279,7 @@ const MakeUs = () => {
           { no: "03", title: "Flexible Access", desc: "Want to choose your own counsellor? Prefer video or voice? You can book that — all on your terms. Connect in the way that feels most comfortable for you." },
           { no: "04", title: "Goal-Based Nudges", desc: "Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time." },
           { no: "05", title: "Mood Tracker", desc: "Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn’t need to hurt you again." },
-          { no: "06", title: "Self-Discovery Tools & Library", desc: "Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling." }
+          { no: "06", title: "Self-Discovery Tools & Library", desc: "Quick self-assessments, expert-curated videos, podcasts and real-life stories — all designed to help you understand your patterns, habits, stressors, and emotional needs, whenever you need clarity or a companion." }
         ].map((item) => (
           
           <div key={item.no} className="flex flex-col space-y-2">
