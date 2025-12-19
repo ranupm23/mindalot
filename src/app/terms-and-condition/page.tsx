@@ -65,7 +65,7 @@ export default function TermsPage() {
           All payments made for services are{" "}
           <strong>non-refundable</strong> unless otherwise approved by Mind A Lot.
           Refunds may be requested by emailing{" "}
-          <strong>support@mindalot.care</strong>.
+          <strong>info@mindalot.care</strong>.
         </p>
 
         <ul className="list-disc pl-6 mb-6 leading-[1.8]">
