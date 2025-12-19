@@ -13,6 +13,7 @@ import rightside1 from "@/assets/corporate-assets/group/group-clip-path3.png";
 import call from "@/assets/contact-page/call.png";
 import email from "@/assets/contact-page/sms.png";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -64,7 +65,9 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="w-full bg-white text-[#3E2723] pt-20 sm:pt-24 lg:pt-32">
+    <main className="w-full bg-white text-[#3E2723]">
+      <Header />
+      
       {/* POPUP MODAL */}
       {showPopup && (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[9999]">
@@ -132,7 +135,7 @@ export default function ContactPage() {
       )}
 
       {/* MAIN SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 pt-15">
 
         {/* LEFT FORM AREA */}
         <div className="w-full max-w-full lg:max-w-[646px]">
