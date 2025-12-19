@@ -478,7 +478,7 @@ const Whowant = () => {
         <div className="mb-12">
           {/* Heading */}
           <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4 font-['Nunito_Sans']">
-            Who it’s For ?
+            Who It’s For ?
           </h2>
 
           {/* Description */}
