@@ -74,7 +74,7 @@ const HeroSection = () => {
                 margin: 0,
               }}
             >
-              Mental health on campus is no longer optional.
+              Mental health on campus is no longer optional
             </h1>
           </div>
         </div>
