@@ -1381,63 +1381,62 @@ const LastSection = () => {
             </a>
 
             {/* Button 3 */}
-            <a
-              href="https://play.google.com/store/games"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                group relative 
-                flex items-center justify-start
-                w-[212px] h-[54px] sm:h-[60px] 
-                rounded-[30px] 
-                border-2 border-[#F6F2EB] 
-                bg-transparent no-underline overflow-hidden 
-                transition-all duration-300 
-                hover:border-0 hover:bg-[#5C4737]
-              "
-            >
-              <span
-                className="
-                  absolute top-[18px] sm:top-[21px] left-[20px] sm:left-[24px] 
-                  font-inter font-medium 
-                  text-[15px] sm:text-[16px] leading-none 
-                  text-[#F6F2EB] 
-                  whitespace-nowrap 
-                  transition-colors duration-200
-                "
-                style={{ letterSpacing: "-0.03em" }}
-              >
-                Download App
-              </span>
+           <button
+  onClick={redirectToAppStore}
+  className="
+    group relative 
+    flex items-center justify-start
+    w-[212px] h-[54px] sm:h-[60px] 
+    rounded-[30px] 
+    border-2 border-[#F6F2EB] 
+    bg-transparent overflow-hidden 
+    transition-all duration-300 
+    hover:border-0 hover:bg-[#5C4737]
+  "
+>
+  <span
+    className="
+      absolute top-[18px] sm:top-[21px] left-[20px] sm:left-[24px] 
+      font-inter font-medium 
+      text-[15px] sm:text-[16px] leading-none 
+      text-[#F6F2EB] 
+      whitespace-nowrap 
+      transition-colors duration-200
+    "
+    style={{ letterSpacing: "-0.03em" }}
+  >
+    Download App
+  </span>
 
-              <div
-                className="
-                  absolute top-[2px] sm:top-[3px] right-[10px] 
-                  w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] 
-                  rounded-full 
-                  flex items-center justify-center 
-                  bg-[#5B4A3E] 
-                  transition-all duration-300 
-                  group-hover:bg-white 
-                  group-hover:rotate-45 
-                "
-              >
-                <Image
-                  src={newarrow}
-                  alt="arrow"
-                  width={16}
-                  height={16}
-                  className="block group-hover:hidden w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
-                />
-                <Image
-                  src={blackarrow}
-                  alt="arrow"
-                  width={16}
-                  height={16}
-                  className="hidden group-hover:block w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] transition-all"
-                />
-              </div>
-            </a>
+  <div
+    className="
+      absolute top-[2px] sm:top-[3px] right-[10px] 
+      w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] 
+      rounded-full 
+      flex items-center justify-center 
+      bg-[#5B4A3E] 
+      transition-all duration-300 
+      group-hover:bg-white 
+      group-hover:rotate-45
+    "
+  >
+    <Image
+      src={newarrow}
+      alt="arrow"
+      width={16}
+      height={16}
+      className="block group-hover:hidden w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
+    />
+    <Image
+      src={blackarrow}
+      alt="arrow"
+      width={16}
+      height={16}
+      className="hidden group-hover:block w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
+    />
+  </div>
+</button>
+
           </div>
         </div>
       </div>
