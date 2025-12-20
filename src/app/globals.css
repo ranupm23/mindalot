@@ -36,8 +36,9 @@
   }
 }
 
-html {
-  overflow-x: auto;
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 
@@ -59,33 +60,7 @@ html {
   @apply mt-3 max-w-2xl text-base text-slate-600;
 }
 
-/* Hero styling helpers */
-.hero {
-  position: relative;
-  isolation: isolate;
-}
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-      to right,
-      rgba(2, 6, 23, 0.45),
-      rgba(2, 6, 23, 0.20),
-      rgba(2, 6, 23, 0.05)
-    );
-  z-index: 0;
-}
-@media screen and (max-width:764px){
-
-  .hero-section{
-    margin-top:3rem;
-  }
-  .final{
-    width:300px;
-  }
-}
 
 /* CTA button animation that matches university page hover behaviour */
 .cta-btn {
@@ -111,4 +86,118 @@ html {
 }
 .cta-btn:hover .rotate-on-hover {
   transform: rotate(45deg);
+}
+
+
+.hero {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+}
+
+/* LEFT */
+.hero-left {
+  position: relative;
+  width: 50%;
+  background: url("/left-bg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(90, 70, 55, 0.75);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 420px;
+  color: #f5f1ec;
+}
+
+.hero-tagline {
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.hero-actions {
+  display: flex;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.hero-title-left {
+  position: absolute;
+  left: 60px;
+  top: 120px;
+  font-size: 160px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.hero-title-left.secondary {
+  top: 320px;
+}
+
+/* RIGHT */
+.hero-right {
+  width: 50%;
+  background: url("/right-bg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-right-content {
+  text-align: center;
+  color: #2e2e2e;
+  max-width: 520px;
+}
+
+.hero-description {
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.hero-title-right {
+  font-size: 160px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.hero-subtext {
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.btn-filled {
+  background: #fff;
+  color: #5c4737;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.arrow {
+  font-size: 16px;
 }
