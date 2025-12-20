@@ -200,39 +200,32 @@ const HomeHero = () => {
             </a>
 
             {/* Button 2: Download App */}
-            <a
-              href="https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="no-underline"
-            >
-              <button
-                className="group relative flex items-center font-nunito transition-all duration-300 w-[280px] lg:w-[235px] h-[60px] rounded-[30px] bg-[#F6F2EB] border-none cursor-pointer hover:bg-[#5C4737]"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#5C4737";
-                  const text = e.currentTarget.querySelector(".btn-text");
-                  if (text) text.style.color = "#F6F2EB";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#F6F2EB";
-                  const text = e.currentTarget.querySelector(".btn-text");
-                  if (text) text.style.color = "#5B4A3E";
-                }}
-              >
-                <span
-                  className="btn-text transition-colors duration-300 absolute w-full text-center lg:text-left lg:w-[151px] top-[18px] lg:left-[20px] text-[#5B4A3E] text-[18px] font-medium"
-                >
-                  Download the app
-                </span>
-                <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[5px] right-[5px] lg:left-[181px] bg-[#F6F2EB] rounded-full">
-                  <Image
-                    src={blackarrow}
-                    alt="arrow"
-                    style={{ width: "20px", height: "20px" }}
-                  />
-                </div>
-              </button>
-            </a>
+            {/* Button 2: Download App */}
+<a
+  href="https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="no-underline"
+>
+  <button
+    // Added hover:text-[#F6F2EB] to handle the button background change via CSS
+    className="group relative flex items-center font-nunito transition-all duration-300 w-[280px] lg:w-[235px] h-[60px] rounded-[30px] bg-[#F6F2EB] border-none cursor-pointer hover:bg-[#5C4737]"
+  >
+    <span
+      // Added group-hover:text-[#F6F2EB] here to change text color when parent is hovered
+      className="btn-text transition-colors duration-300 absolute w-full text-center lg:text-left lg:w-[151px] top-[18px] lg:left-[20px] text-[#5B4A3E] text-[18px] font-medium group-hover:text-[#F6F2EB]"
+    >
+      Download the app
+    </span>
+    <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[5px] right-[5px] lg:left-[181px] bg-[#F6F2EB] rounded-full">
+      <Image
+        src={blackarrow}
+        alt="arrow"
+        style={{ width: "20px", height: "20px" }}
+      />
+    </div>
+  </button>
+</a>
           </div>
 
         </div>
