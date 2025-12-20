@@ -242,9 +242,10 @@ const HomeHero = () => {
 };
 
 
+
 const MakeUs = () => {
   return (
-    <section className="w-full overflow-x-hidden py-12 sm:py-20 px-5 sm:px-10 lg:px-20">
+    <section className="w-full overflow-x-hidden py-12 sm:py-20 px-5 mt-[-30px] sm:px-10 lg:px-20">
       
       {/* HEADER */}
       <h2
@@ -278,7 +279,7 @@ const MakeUs = () => {
           { no: "06", title: "Self-Discovery Tools & Library", desc: "Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling." }
         ].map((item) => (
           
-          <div key={item.no} className="flex flex-col space-y-3 group">
+          <div key={item.no} className="flex flex-col space-y-3">
             
             {/* NUMBER & LINE WRAPPER */}
             <div className="relative">
@@ -300,19 +301,21 @@ const MakeUs = () => {
                 className="
                   w-[96px] h-[18px] mt-2
                   transition-all duration-300
-                  group-hover:w-[160px] 
+                  hover:w-[160px] 
                   ml-[-3px]
+                  cursor-pointer
                 "
               />
             </div>
 
-            {/* TITLE: Removed fixed w-[440px], added w-full */}
+            {/* TITLE */}
             <div
               className="
                 text-xl sm:text-2xl font-semibold text-[#5C4737]
                 font-['Inter'] 
                 w-[700px] 
                 leading-tight
+                mb-2 sm:mb-4  /* <--- ADDED: Extra bottom margin to push description down */
               "
             >
               {item.title}
@@ -628,18 +631,14 @@ const FeatureItem = ({ iconSrc, altText, title, isLast = false }: FeatureItemPro
 
 const Features = () => {
   return (
-    <section className="relative w-full overflow-hidden mt-12 sm:mt-20">
+    <section className="relative w-full overflow-hidden mt-11 sm:mt-20">
       
-      {/* CONTAINER:
-          - px-4: Mobile (16px). Keeps content close to edges for maximum reading width.
-          - sm:px-10: Tablet.
-          - lg:px-[50px]: Desktop.
-      */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-[50px] pb-[60px] sm:pb-[80px]">
+      {/* CONTAINER */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-[50px] pb-[10px] sm:pb-[80px]">
 
-        {/* HEADER */}
-        <div className="mb-10 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black font-['Inter'] mb-4 sm:mb-6 leading-tight">
+        {/* HEADER - Reduced margins significantly */}
+        <div className="mb-2 sm:mb-4 pl-[13px]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black font-['Inter'] mb-2 sm:mb-3 leading-tight">
             Key features
           </h2>
           <p className="text-base sm:text-lg text-black font-medium font-['Nunito_Sans'] max-w-xl leading-relaxed">
@@ -647,11 +646,7 @@ const Features = () => {
           </p>
         </div>
 
-        {/* GRID LAYOUT 
-            - grid-cols-1: Single column on mobile.
-            - lg:grid-cols-2: Two columns on desktop.
-            - gap-y-12: Adds space between the Left and Right column groups on mobile.
-        */}
+        {/* GRID LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 lg:gap-x-16 lg:gap-y-0">
           
           {/* LEFT COLUMN LIST */}
@@ -664,7 +659,6 @@ const Features = () => {
 
           {/* RIGHT COLUMN LIST */}
           <div className="flex flex-col w-full">
-            {/* Wrapper allows precise right-padding on desktop only */}
             <div className="w-full lg:pr-[50px]"> 
               <FeatureItem iconSrc={featureIcon5} altText="Video" title="Expert Videos, Podcasts, and Content Drops" />
               <FeatureItem iconSrc={featureIcon6} altText="Lang" title="Works Across Countries & Languages" />
@@ -947,7 +941,7 @@ const Trusted = () => {
 
   return (
     <section 
-      className="relative w-full bg-[#F6F2EB] mt-[-60px] sm:py-16 lg:h-[290px] overflow-hidden" 
+      className="relative w-full bg-[#F6F2EB] lg:mt-[-200px] sm:py-16 lg:h-[290px] overflow-hidden" 
     >
       
       {/* ===========================================
