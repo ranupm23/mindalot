@@ -1,3 +1,5 @@
+
+"use client";
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import subtract from "@/assets/subtract.svg"
@@ -9,7 +11,7 @@ import meditate5 from "@/assets/resource-page/meditate5.webp"
 import playIcon from "@/assets/play-icon.svg"
 import ourResource1 from "@/assets/resource-page/podcost1.png"
 import ourResource2 from "@/assets/resource-page/podcost2.png"
-import ourResource3 from "@/assets/resource-page/podcost3.png"
+import ourResource3 from "@/assets/resource-page/resource-33.png"
 import ourResource4 from "@/assets/resource-page/podcost4.png"
 import podcast1 from "@/assets/resource-page/man-woman-talking-podcast.webp"
 import podcast2 from "@/assets/resource-page/podcost-hero.png"
@@ -21,19 +23,48 @@ import waveIcon from '@/assets/resource-page/wave.svg'
 import brownPlayIcon from '@/assets/resource-page/play.svg'
 import React from 'react'
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+
+const redirectToAppStore = () => {
+  if (typeof window === "undefined") return;
+
+  const userAgent = navigator.userAgent || navigator.vendor;
+
+  // iOS devices
+  if (/iPad|iPhone|iPod/.test(userAgent)) {
+    window.location.href =
+      "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+    return;
+  }
+
+  // Android devices
+  if (/android/i.test(userAgent)) {
+    window.location.href =
+      "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+    return;
+  }
+
+  // Desktop fallback
+  window.location.href =
+    "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+};
+
+
 
 
 const ResourcePage = () => {
     return (
         <div className="flex flex-col min-h-screen">
+          
+          <Header />
             {/* MAIN CONTENT */}
             <div className='flex-1 container-page xl:pr-0 xl:pl-0 px-4 sm:px-6 md:px-8'>
-                <div className="pt-16 flex flex-col lg:flex-row lg:justify-between gap-9">
+                <div className="flex flex-col lg:flex-row lg:justify-between gap-9">
                     {/* Left Text Section */}
-                    <div className="relative z-10 flex flex-col items-center sm:items-start pt-20 lg:pb-20 md:mb-20 text-center sm:text-left">
-                        <h1 className="font-inter font-semibold text-[32px] sm:text-[42px] md:text-[50px] lg:text-[60px] leading-[40px] sm:leading-[55px] md:leading-[65px] lg:leading-[80px] tracking-[-0.06em] text-[#5C4737]">
-                            Curated Resources from<br />
-                            Real Professionals. <span className="whitespace-nowrap">No Fluff.</span>
+                    <div className="relative z-10 flex flex-col items-center sm:items-start pt-20 lg:pb-20 md:mb-20 text-center sm:text-left whitespace-nowrap">
+                        <h1 className="font-inter font-semibold text-[32px] sm:text-[42px] md:text-[50px] lg:text-[55px] leading-[40px] sm:leading-[55px] md:leading-[65px] lg:leading-[80px] tracking-[-0.06em] text-[#5C4737]">
+                            Curated resources from<br />
+                            real professionals, <span className="whitespace-nowrap">no fluff.</span>
                         </h1>
                         <p className='text-[12px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-medium mt-[20px] sm:mt-[30px] leading-[20px] sm:leading-[28px] md:leading-[32px] lg:leading-[35px] -tracking-[3%] font-inter'>
                             Ever wondered how small daily habits can reshape your mindset? Explore<br /> 
@@ -85,8 +116,8 @@ const SlideImages = () => {
 const OurResourcesSection = () => {
     return (
         <>
-            <h2 className='text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[60px] text-[#5C4737] font-semibold -tracking-[6%] font-inter mt-15 md:mt-0'>Our Resources!</h2>
-            <div className='mt-5 sm:mt-[46px] grid lg:grid-cols-2 gap-x-5 gap-y-[15px] sm:gap-y-[30px] mb-20'>
+            <h2 className='text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[60px] text-[#5C4737] font-semibold -tracking-[6%] font-inter mt-12 md:mt-20'>Our Resources!</h2>
+            <div className='mt-5 sm:mt-[46px] grid lg:grid-cols-2 gap-x-5 gap-y-[15px] sm:gap-y-[30px] mb-20 whitespace-nowrap'>
                 <ResourceCard btnLabel="Listen Audio" img={ourResource1} btnIcon={waveIcon} rotateIconOnHover={false} />
                 <ResourceCard btnLabel="Watch Video" img={ourResource2} btnIcon={brownPlayIcon} />
                 <ResourceCard btnLabel="Read more" img={ourResource3} btnIcon={arrrow} />
@@ -96,70 +127,201 @@ const OurResourcesSection = () => {
     )
 }
 
-const ResourceCard = ({ btnLabel, img, btnIcon, rotateIconOnHover = true }: { btnLabel: string, img: StaticImageData, btnIcon: StaticImageData, rotateIconOnHover?: boolean }) => {
-    const links: { [key: string]: string } = {
-        'Listen Audio': 'https://www.google.com/',
-        'Watch Video': 'https://www.microsoft.com/',
-        'Read more': 'https://www.apple.com/',
-        'Start Quiz': 'https://www.amazon.com/'
-    };
-    
-    return (
-        <div className='relative mx-auto'>
-            <Image src={img} alt="meditate" height={350} className='rounded-[20px] max-h-[350px] mx-auto' />
-            <a href={links[btnLabel]} target="_blank" rel="noopener noreferrer" className='bg-[#967B6A] hover:bg-[#BE9B84] group w-[30%] absolute bottom-0 right-0 cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full text-xs sm:text-sm xl:text-base inline-flex'>
-                {btnLabel}
-                <div className={`w-[30px] h-[30px] sm:w-10 sm:h-10 xl:w-[50px] xl:h-[50px] ml-[5px] lg:ml-[15px] rounded-full bg-white flex justify-center items-center`}>
-                    <Image src={btnIcon} alt="arrow" width={18} height={18} className={`m-auto w-3 h-3 sm:w-[18px] sm:h-[18px] ${rotateIconOnHover ? 'group-hover:rotate-45' : ''} transition-all`} />
-                </div>
-            </a>
+
+const ResourceCard = ({
+  btnLabel,
+  img,
+  btnIcon,
+  rotateIconOnHover = true,
+}: {
+  btnLabel: string;
+  img: StaticImageData;
+  btnIcon: StaticImageData;
+  rotateIconOnHover?: boolean;
+}) => {
+  return (
+    <div className="relative mx-auto">
+      <Image
+        src={img}
+        alt="meditate"
+        height={350}
+        className="rounded-[20px] max-h-[350px] mx-auto"
+      />
+
+      <button
+        onClick={redirectToAppStore}
+        className="bg-[#967B6A] hover:bg-[#BE9B84] group w-[30%] absolute bottom-0 right-0 cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full text-xs sm:text-sm xl:text-base inline-flex"
+      >
+        {btnLabel}
+
+        <div className="w-[30px] h-[30px] sm:w-10 sm:h-10 xl:w-[50px] xl:h-[50px] ml-[5px] lg:ml-[15px] rounded-full bg-white flex justify-center items-center">
+          <Image
+            src={btnIcon}
+            alt="arrow"
+            width={18}
+            height={18}
+            className={`m-auto w-3 h-3 sm:w-[18px] sm:h-[18px] ${
+              rotateIconOnHover ? "group-hover:rotate-45" : ""
+            } transition-all`}
+          />
         </div>
-    )
-}
+      </button>
+    </div>
+  );
+};
+
+
+// const ResourceCard = ({ btnLabel, img, btnIcon, rotateIconOnHover = true }: { btnLabel: string, img: StaticImageData, btnIcon: StaticImageData, rotateIconOnHover?: boolean }) => {
+//     const links: { [key: string]: string } = {
+//         'Listen Audio': 'https://www.google.com/',
+//         'Watch Video': 'https://www.microsoft.com/',
+//         'Read more': 'https://www.apple.com/',
+//         'Start Quiz': 'https://www.amazon.com/'
+//     };
+    
+//     return (
+//         <div className='relative mx-auto'>
+//             <Image src={img} alt="meditate" height={350} className='rounded-[20px] max-h-[350px] mx-auto' />
+//             <a href={links[btnLabel]} target="_blank" rel="noopener noreferrer" className='bg-[#967B6A] hover:bg-[#BE9B84] group w-[30%] absolute bottom-0 right-0 cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-between items-center rounded-full text-xs sm:text-sm xl:text-base inline-flex'>
+//                 {btnLabel}
+//                 <div className={`w-[30px] h-[30px] sm:w-10 sm:h-10 xl:w-[50px] xl:h-[50px] ml-[5px] lg:ml-[15px] rounded-full bg-white flex justify-center items-center`}>
+//                     <Image src={btnIcon} alt="arrow" width={18} height={18} className={`m-auto w-3 h-3 sm:w-[18px] sm:h-[18px] ${rotateIconOnHover ? 'group-hover:rotate-45' : ''} transition-all`} />
+//                 </div>
+//             </a>
+//         </div>
+//     )
+// }
 
 const PodcastSection = () => {
-    return (
-        <>
-            <div className='flex justify-between'>
-                <div className='flex'>
-                    <Image src={podcast1} alt="podcast" width={155} height={155} className='object-cover rounded-[20px] w-[60px] h-[60px] sm:w-20 sm:h-20 md:w-[100px] md:h-[100px] lg:w-[155px] lg:h-[155px]' />
-                    <div className='flex flex-col justify-center items-center font-inter ml-2 xl:ml-3'>
-                        <h3 className='text-[20px] md:text-[30px] lg:text-[40px] xl:text-[50px] tracking-[-3%] text-[#755840] mr-auto'>New Blog</h3>
-                        <p className='text-[10px] sm:text-xs md:text-base lg:text-lg xl:text-[24px] tracking-[-3%] font-semibold text-[#6D6D6F]'>Mind A Lot, Every Day</p>
-                    </div>
-                </div>
-                <div className='font-inter font-medium text-[30px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[100px] text-[#5C4737] tracking-[-3%] my-auto'>PODCAST</div>
-            </div>
-            <div className='w-full relative'>
-                <div className='flex gap-1 sm:gap-2.5 justify-between items-center absolute left-2.5 top-2.5 sm:left-[30px] sm:top-[30px] px-2 py-1 sm:px-4 sm:py-2.5 backdrop-blur-[10px] rounded-full font-medium text-xs sm:text-base shadow-md'>
-                    <Image src={playIcon} alt="play" width={20} height={20} className='w-2 h-2 sm:w-5 sm:h-5 my-auto filter brightness-0' />
-                    Start Listening
-                </div>
-                <Image src={podcast2} alt="podcast" width={1268} height={504} className='object-cover rounded-[20px] w-full mt-10 mb-20' />
-                <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[100px] h-[100px] sm:w-[180px] sm:h-[180px] xl:w-[225px] xl:h-[225px] border-2 border-white/25 rounded-full'></div>
-                <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[70px] h-[70px] sm:w-[130px] sm:h-[130px] xl:w-[175px] xl:h-[175px] border-2 border-white/50 rounded-full'></div>
-                <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-10 h-10 sm:w-20 sm:h-20 xl:w-[125px] xl:h-[125px] border-2 border-white rounded-full'></div>
-                <Image src={playIcon} alt="play" width={50} height={60} className='absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[calc(50%-1.5px)] xl:-translate-x-[calc(50%-5px)] z-20 w-[18px] h-[18px] sm:w-[25px] sm:h-[25px] xl:w-[50px] xl:h-[60px]' />
-                <div className='absolute bottom-2.5 sm:bottom-[30px] right-2.5 sm:right-[30px] w-[60px] h-[30px] sm:w-[120px] sm:h-[60px] flex p-[3px] sm:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group'>
-                    <div className='relative'>
-                        <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white bg-purple-500'>
-                            <Image src={avatar1} alt='avatar-img' width={50} height={50} />
-                        </div>
-                        <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white translate-x-[60%] bg-gray-400'>
-                            <Image src={avatar2} alt='avatar-img' width={50} height={50} />
-                        </div>
-                        <div className='absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%]'>
-                            <Image src={arrrow} alt="arrow" width={18} height={18} className='m-auto group-hover:rotate-45 w-2 h-2 sm:w-[18px] sm:h-[18px] transition-all filter brightness-0' />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
+  const redirectToAppStore = () => {
+    if (typeof window === "undefined") return;
+
+    const userAgent = navigator.userAgent || navigator.vendor;
+
+    if (/iPad|iPhone|iPod/.test(userAgent)) {
+      window.open(
+        "https://apps.apple.com/in/app/zenit-edu/id6748683332",
+        "_blank"
+      );
+      return;
+    }
+
+    if (/android/i.test(userAgent)) {
+      window.open(
+        "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share",
+        "_blank"
+      );
+      return;
+    }
+
+    // fallback desktop link
+    window.open(
+      "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share",
+      "_blank"
+    );
+  };
+
+  return (
+    <div className="relative w-full">
+      {/* Start Listening Button */}
+      <button
+        onClick={redirectToAppStore}
+        className="flex gap-1 sm:gap-2.5 justify-between items-center absolute left-2.5 top-2.5 sm:left-[30px] sm:top-[30px] px-2 py-1 sm:px-4 sm:py-2.5 backdrop-blur-[10px] rounded-full font-medium text-xs sm:text-base shadow-md z-50 bg-white/30 hover:bg-[#BE9B84] transition-all"
+      >
+        <Image
+          src={playIcon}
+          alt="play"
+          width={20}
+          height={20}
+          className="w-2 h-2 sm:w-5 sm:h-5 my-auto filter brightness-0"
+        />
+        Start Listening
+      </button>
+
+      {/* Podcast Hero Image */}
+      <Image
+        src={podcast2}
+        alt="podcast"
+        width={1268}
+        height={504}
+        className="object-cover rounded-[20px] w-full mt-10 mb-20"
+      />
+
+      {/* Central Play Icon */}
+      <button
+        onClick={redirectToAppStore}
+        className="absolute left-1/2 top-1/2 -translate-1/2 z-20 w-[70px] h-[70px] sm:w-[130px] sm:h-[130px] xl:w-[175px] xl:h-[175px] rounded-full flex items-center justify-center bg-white/30 hover:bg-[#BE9B84] transition-all"
+      >
+        <Image
+          src={playIcon}
+          alt="play"
+          width={50}
+          height={50}
+          className="w-[50%] h-[50%] sm:w-[50%] sm:h-[50%] xl:w-[50%] xl:h-[50%]"
+        />
+      </button>
+
+      {/* Avatars */}
+      <div className="absolute bottom-2.5 sm:bottom-[30px] right-2.5 sm:right-[30px]">
+  <button
+    onClick={redirectToAppStore}
+    className="w-[60px] h-[30px] sm:w-[120px] sm:h-[60px] flex p-[3px] sm:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group transition-all hover:bg-[#BE9B84]"
+  >
+    <div className="relative w-full h-full">
+      {/* First Avatar */}
+      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white bg-purple-500 overflow-hidden">
+        <Image src={avatar1} alt="avatar-img" width={50} height={50} className="object-cover" />
+      </div>
+
+      {/* Second Avatar */}
+      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white translate-x-[60%] bg-gray-400 overflow-hidden">
+        <Image src={avatar2} alt="avatar-img" width={50} height={50} className="object-cover" />
+      </div>
+
+      {/* Arrow Circle */}
+      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%] transition-transform group-hover:rotate-45">
+        <Image
+          src={arrrow}
+          alt="arrow"
+          width={18}
+          height={18}
+          className="w-2 h-2 sm:w-[18px] sm:h-[18px]"
+        />
+      </div>
+    </div>
+  </button>
+</div>
+</div>
+  );
+};
 
 
-   const AccessMoreResourceSection = () => {
+
+const AccessMoreResourceSection = () => {
+  const handleRedirect = () => {
+    if (typeof window === "undefined") return;
+
+    const userAgent = navigator.userAgent || navigator.vendor;
+
+    // iOS devices
+    if (/iPad|iPhone|iPod/.test(userAgent)) {
+      window.location.href =
+        "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+      return;
+    }
+
+    // Android devices
+    if (/android/i.test(userAgent)) {
+      window.location.href =
+        "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+      return;
+    }
+
+    // Desktop fallback
+    window.location.href =
+      "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+  };
+
   return (
     <div className="pb-20">
       <h2 className="text-[30px] lg:text-[40px] xl:text-[50px] text-[#5C4737] font-semibold text-center">
@@ -173,9 +335,9 @@ const PodcastSection = () => {
       <div className="flex flex-col sm:flex-row justify-center gap-5 items-center relative mb-10">
         <div className="w-[250px] h-[250px] rounded-full absolute top-full left-1/2 bg-[#BE9B84] -translate-x-1/2 -translate-y-[15%] blur-[130px] -z-50"></div>
 
-        {/* BUTTON 1 */}
+        {/* BUTTON 1 - View All Resources (stays same) */}
         <a
-          href="/resource"
+          href="https://youtube.com/@mind_alot?si=Y_E5tD3qxVunQ2e3"
           className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
           style={{
             fontFamily: "'Nunito Sans', sans-serif",
@@ -186,7 +348,6 @@ const PodcastSection = () => {
         >
           <span className="tracking-[-0.01em]">View all resources</span>
 
-          {/* Circle with Arrow */}
           <div className="w-[46px] h-[46px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -201,11 +362,9 @@ const PodcastSection = () => {
           </div>
         </a>
 
-        {/* BUTTON 2 */}
-        <a
-          href="https://play.google.com/store"
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* BUTTON 2 - Download Free Tools (redirects based on device) */}
+        <button
+          onClick={handleRedirect}
           className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
           style={{
             fontFamily: "'Nunito Sans', sans-serif",
@@ -216,7 +375,6 @@ const PodcastSection = () => {
         >
           <span className="tracking-[-0.01em]">Download free tools</span>
 
-          {/* Circle with Arrow */}
           <div className="w-[46px] h-[46px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +387,7 @@ const PodcastSection = () => {
               <path d="M0 6h18M12 0l6 6-6 6" stroke="currentColor" strokeWidth="2" />
             </svg>
           </div>
-        </a>
+        </button>
       </div>
     </div>
   );

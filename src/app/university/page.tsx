@@ -19,6 +19,7 @@ import Regulator from "@/assets/universityPage/Regulatory.png";
 import arrow from "@/assets/arrow.svg";
 import whitea from "@/assets/universityPage/Arrow 1.png";
 import blacka from "@/assets/universityPage/black arr.png";
+import Header from "@/components/Header";
 export default function University() {
 
 // ========== HERO SECTION ==========
@@ -37,6 +38,10 @@ const HeroSection = () => {
     >
       {/* Background and Overlays */}
       <div className="absolute inset-0 w-full h-full">
+          <div className="relative z-[100] pointer-events-auto">
+    <Header textWhite={true} />
+  </div>
+        
         <Image src={hero1} alt="Hero background" fill className="object-cover opacity-100" priority />
       </div>
       <div className="absolute inset-0 w-full h-full z-[1]" style={{ background: '#00000099' }} />
@@ -69,7 +74,7 @@ const HeroSection = () => {
                 margin: 0,
               }}
             >
-              Mental health on campus is no longer optional.
+              Mental health on campus is no longer optional
             </h1>
           </div>
         </div>
@@ -156,7 +161,11 @@ const HeroSection = () => {
         >
      {/* Button */}
      {/* 5. Button Layout Container */}
-<button
+     <a
+    href="mailto:support@mindalot.care?subject=Schedule%20a%20Demo"
+    className="no-underline"
+  >
+<button 
   onMouseEnter={(e) => {
     e.currentTarget.style.background = "#5C4737";
     e.currentTarget.style.border = "2px solid transparent"; // remove border
@@ -215,7 +224,7 @@ const HeroSection = () => {
     />
   </div>
 </button>
-
+</a>
 
 </div>
     
@@ -1150,7 +1159,8 @@ const ConnectCampus = () => {
 <div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 w-full px-4 md:px-0 justify-center">
 
   {/* Schedule a Demo Button */}
-  <Link href="/contact" className="max-md:w-full">
+  <Link href="mailto:support@mindalot.care?subject=Schedule%20a%20Demo" className="max-md:w-full">
+  
     <button
       className="
         group relative
@@ -1299,6 +1309,7 @@ const ConnectCampus = () => {
   return (
     <>
       <main className="overflow-hidden bg-[#FDFDFD]">
+        
         <HeroSection />
         <OfferSection />
         <ConnectCampus />

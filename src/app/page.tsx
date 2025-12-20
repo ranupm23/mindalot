@@ -43,6 +43,7 @@ import blackarrow from '../assets/home-page/Footer/black arr.png';
 import CTAButton from "@/components/CTAButton";
 import { Footprints } from "lucide-react";
 import { useState } from 'react';
+import Header from '@/components/Header'
 
 
 // Placeholder assets - **You must define these imports in your file**
@@ -56,6 +57,56 @@ import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 
+const redirectToAppStore = () => {
+  if (typeof window === "undefined") return;
+
+  const userAgent = navigator.userAgent || navigator.vendor;
+
+  // iOS
+  if (/iPad|iPhone|iPod/.test(userAgent)) {
+    window.location.href =
+      "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+    return;
+  }
+
+  // Android
+  if (/android/i.test(userAgent)) {
+    window.location.href =
+      "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+    return;
+  }
+
+  // Desktop fallback
+  window.location.href =
+    "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+};
+
+
+const redirectToAppStore = () => {
+  if (typeof window === "undefined") return;
+
+  const userAgent = navigator.userAgent || navigator.vendor;
+
+  // iOS
+  if (/iPad|iPhone|iPod/.test(userAgent)) {
+    window.location.href =
+      "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+    return;
+  }
+
+  // Android
+  if (/android/i.test(userAgent)) {
+    window.location.href =
+      "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+    return;
+  }
+
+  // Desktop fallback
+  window.location.href =
+    "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+};
+
+
 
 
 export default function Home() {
@@ -68,101 +119,79 @@ const HomeHero = () => {
   const sectionHeight = 864;
 
   return (
-    <section
-      className="relative mx-auto w-[1440px] max-w-full h-[864px] overflow-hidden bg-no-repeat"
-      style={{
-        backgroundImage: `url(${imagePath})`,
-        // CHANGE 1: Force exact size to match the text calculation logic
-        // backgroundSize: `${sectionWidth}px ${sectionHeight}px`,
-        backgroundSize:"contain"
-      }}
-    >
-      {/* 1. LEFT Glassmorphism Overlay Layer */}
+   
+   <section
+  className="
+    relative 
+    w-full 
+    min-h-[850px] lg:min-h-[950px] lg:h-auto
+    flex flex-col items-center justify-start lg:block
+    bg-cover bg-center lg:bg-no-repeat lg:bg-[length:full_864px]
+    mx-auto overflow-visible
+    font-inter
+  "
+  style={{ backgroundImage: `url('${Homebg.src}')` }}
+>
+
+       
+      {/* GRADIENT OVERLAY */}
       <div
         className="absolute top-0 left-0 w-[720px] h-864 backdrop-blur-[60px] z-10"
         style={{
           // Slightly adjusted gradient to match the "brownish" sepia tone in screenshot
           background: `linear-gradient(134.5deg, rgba(91, 74, 62, 0.8) 0%, rgba(117, 88, 64, 0.75) 60%, rgba(50, 40, 30, 0.6) 100%)`,
         }}
-      >
-        {/* "MIND" - See-Through Text */}
-        <h1
-          className="absolute flex items-center justify-center font-inter pointer-events-none"
-          style={{
-            width: '566px',
-            height: '242px',
-            top: '158px',
-            left: '154px',
+      />
+        <Header textWhite={true} />
 
-            fontSize: '200px',
-            fontWeight: '600',
-            lineHeight: '100%',
-            letterSpacing: '0.06em',
-            textAlign: 'center',
+      {/* CONTENT WRAPPER */}
+      <div className="relative z-20 flex flex-col items-center w-full px-5 pt-32 pb-12 lg:p-0 lg:block lg:h-full font-inter">
+        
+        {/* --- 1. TITLE GROUP: MIND A LOT --- */}
+        <div className="flex flex-row items-baseline justify-center gap-1.5 sm:gap-3 lg:contents whitespace-nowrap">
+          {/* MIND */}
+          <div
+            className="
+              relative text-[60px] xs:text-[62px] sm:text-[80px]
+              font-semibold leading-none tracking-[0.02em]
+              text-transparent bg-clip-text [-webkit-background-clip:text] bg-cover
+              lg:absolute lg:text-[200px] lg:w-[566px] lg:h-[242px]
+              lg:top-[158px] lg:left-[145px] lg:tracking-[0.06em]
+              lg:bg-no-repeat lg:bg-[length:1440px_864px] lg:bg-[position:-154px_-158px]
+            "
+            style={{ backgroundImage: `url('${Homebg.src}')` }}
+          >
+            MIND
+          </div>
 
-            // The Magic: Text Background
-            backgroundImage: `url(${imagePath})`,
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
+          {/* A */}
+          <div
+            className="
+              relative text-[60px] xs:text-[62px] sm:text-[80px]
+              font-semibold leading-none tracking-[0.02em]
+              text-transparent bg-clip-text [-webkit-background-clip:text] bg-cover
+              lg:absolute lg:text-[200px] lg:w-[145px] lg:h-[242px]
+              lg:top-[400px] lg:left-[575px] lg:tracking-[0.06em]
+              lg:bg-no-repeat lg:bg-[length:1440px_864px] lg:bg-[position:-575px_-400px]
+            "
+            style={{ backgroundImage: `url('${Homebg.src}')` }}
+          >
+            A
+          </div>
 
-            // CHANGE 2: Ensure these match the parent section exactly
-            // Logic: -(left position) -(top position)
-            backgroundPosition: '-154px -158px',
-            backgroundSize: `${sectionWidth}px ${sectionHeight}px`,
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
-          MIND
-        </h1>
-
-        {/* "A" - See-Through Center Text */}
-        <span
-          className="absolute flex items-center justify-center font-inter pointer-events-none"
-          style={{
-            width: '145px',
-            height: '242px',
-            top: '400px',
-            left: '575px',
-
-            fontSize: '200px',
-            fontWeight: '600',
-            lineHeight: '100%',
-            letterSpacing: '0.06em',
-            textAlign: 'center',
-
-            backgroundImage: `url(${imagePath})`,
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-
-            // Logic: -(left position) -(top position)
-            backgroundPosition: '-575px -400px',
-            backgroundSize: `${sectionWidth}px ${sectionHeight}px`,
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
-          A
-        </span>
-
-        {/* Left Subtitle */}
-        <p
-          className="absolute font-inter"
-          style={{
-            width: '387px',
-            height: '58px',
-            top: '512px',
-            left: '160px',
-            color: '#FDE2CD',
-            fontSize: '24px',
-            fontWeight: '400',
-            lineHeight: '100%',
-            letterSpacing: '-0.06em',
-          }}
-        >
-          You don’t have to say who you are to start feeling better
-        </p>
-      </div>
+          {/* LOT */}
+          <div
+            className="
+              relative text-[60px] xs:text-[62px] sm:text-[80px]
+              font-semibold leading-none tracking-[0.02em] text-[#F6F2EB]
+              lg:absolute lg:text-[200px] lg:w-[413px] lg:h-[242px]
+              lg:top-[380px] lg:left-[750px] lg:tracking-[0.06em]
+              lg:flex lg:items-center lg:justify-center
+            "
+          >
+            LOT
+          </div>
+        </div>
 
       {/* 2. RIGHT SIDE CONTENT */}
 
@@ -223,133 +252,46 @@ const HomeHero = () => {
         Your safe space is just one tap away!
       </p>
 
-      {/* 3. CTA BUTTON LAYOUT */}
-      <div
-        className="absolute flex items-center z-30"
-        style={{
-          width: '467px',
-          height: '60px',
-          top: '725px',
-          left: '490px',
-          gap: '20px',
-        }}
-      >
-        {/* Button 1: Start Chat */}
-        <a
-          href="https://apps.apple.com/in/app/zenit-edu/id6748683332"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: 'none' }}
+        {/* --- 5. CTA BUTTONS --- */}
+        <div
+          className="
+            relative flex flex-col items-center gap-[16px] mt-6 w-full
+            lg:absolute lg:mt-0 lg:flex-row
+            lg:w-[467px] lg:h-[60px]
+            lg:top-[715px] lg:left-[490px]
+          "
         >
-          <button
-            className="group relative flex items-center font-nunito transition-all duration-300"
-            style={{
-              width: '212px',
-              height: '60px',
-              borderRadius: '30px',
-              border: '2px solid #F6F2EB',
-              background: 'transparent',
-              color: '#F6F2EB',
-              fontSize: '16px',
-              fontWeight: '500',
-              lineHeight: '100%',
-              letterSpacing: '-0.03em',
-              cursor: 'pointer',
-              paddingLeft: '30px',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#5C4737';
-              e.currentTarget.style.borderColor = 'transparent';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.borderColor = '#F6F2EB';
-            }}
-          >
-            Start chat now
-            <div
-              className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg]"
-              style={{
-                width: '50px',
-                height: '50px',
-                top: '3px',
-                left: '155px',
-                background: '#F6F2EB',
-                borderRadius: '50%',
-              }}
-            >
-              <Image
-                src={blackarrow}
-                alt="arrow"
-                style={{ width: '20px', height: '20px' }}
-              />
-            </div>
-          </button>
-        </a>
+       {/* BUTTON 1 */}
+       <a
+  href="https://wa.me/919606258596?text=Hi%20Mindalot%20Team,%20I%20would%20like%20to%20schedule%20a%20demo."
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  
 
-        {/* Button 2: Download App */}
-        <a
-          href="https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: 'none' }}
-        >
-          <button
-            className="group relative flex items-center font-nunito transition-all duration-300"
-            style={{
-              width: '235px',
-              height: '60px',
-              borderRadius: '30px',
-              background: '#F6F2EB',
-              border: 'none',
-              cursor: 'pointer',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#5C4737';
-              // Selector for text span
-              const text = e.currentTarget.querySelector('.btn-text');
-              if (text) text.style.color = '#F6F2EB';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#F6F2EB';
-              const text = e.currentTarget.querySelector('.btn-text');
-              if (text) text.style.color = '#5B4A3E';
-            }}
-          >
-            <span
-              className="btn-text transition-colors duration-300"
-              style={{
-                position: 'absolute',
-                width: '151px',
-                top: '20px', // Adjusted slightly for centering
-                left: '20px',
-                color: '#5B4A3E',
-                fontSize: '18px',
-                fontWeight: '500',
-              }}
-            >
-              Download the app
-            </span>
+<button className="group relative w-[280px] lg:w-[212px] h-[56px] lg:h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-transparent">
+  <span className="absolute w-[120px] h-[22px] top-[17px] lg:top-[17px] left-[40px] lg:left-[20px] font-inter font-medium text-[15px] lg:text-[16px] text-[#F6F2EB]">
+    Start chat now
+  </span>
+  {/* Circle increased to 52px, top adjusted to 2px/4px to center vertically */}
+  <div className="absolute w-[50px] h-[50px] top-[1px] lg:top-[3px] right-[2px] lg:left-[155px] rounded-full bg-[#F6F2EB] flex items-center justify-center">
+    <Image src={arrow} alt="arrow" className="w-[18px] lg:w-[20px] h-[18px] lg:h-[20px] transform transition-transform duration-300 group-hover:rotate-45" />
+  </div>
+</button>
+</a>
 
-            <div
-              className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg]"
-              style={{
-                width: '50px',
-                height: '50px',
-                top: '5px',
-                left: '181px',
-                background: '#F6F2EB', // Fixed Color
-                borderRadius: '50%',
-              }}
-            >
-              <Image
-                src={blackarrow}
-                alt="arrow"
-                style={{ width: '20px', height: '20px' }}
-              />
-            </div>
-          </button>
-        </a>
+{/* BUTTON 2 */}
+<button onClick={redirectToAppStore} className="group relative w-[280px] lg:w-[235px] h-[56px] lg:h-[60px] rounded-[30px] bg-[#F6F2EB] transition-all duration-300 hover:bg-[#5C4737]">
+  <span className="absolute w-[159px] h-[25px] top-[18px] lg:top-[17px] left-[30px] lg:left-[20px] font-inter font-medium text-[16px] lg:text-[18px] text-[#5B4A3E] transition-colors duration-300 group-hover:text-white">
+    Download the app
+  </span>
+  {/* Circle increased to 52px, top adjusted for 60px height button */}
+  <div className="absolute w-[50px] h-[50px] top-[1px] lg:top-[5px] right-[2px] lg:left-[180px] rounded-full bg-[#FFFFFF] flex items-center justify-center">
+    <Image src={arrow} alt="arrow" className="w-[18px] lg:w-[20px] h-[18px] lg:h-[20px] transform transition-transform duration-300 group-hover:rotate-45" />
+  </div>
+</button>
+        </div>
+
       </div>
     </section>
   );
@@ -386,10 +328,10 @@ const MakeUs = () => {
         {[ 
           { no: "01", title: "Instant Human Support", desc: "Start chatting the moment you feel overwhelmed. No forms. No queues. No matching wait. A real counsellor responds in seconds." },
           { no: "02", title: "100% Anonymous", desc: "You can choose a nickname. Your real identity stays private. Even our counsellors won’t know who you are. Feel safe, share freely." },
-          { no: "03", title: "Flexible Access", desc: "Want to choose your own counsellor? Prefer video or voice? You can book that." },
+          { no: "03", title: "Flexible Access", desc: "Want to choose your own counsellor? Prefer video or voice? You can book that — all on your terms. Connect in the way that feels most comfortable for you." },
           { no: "04", title: "Goal-Based Nudges", desc: "Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time." },
           { no: "05", title: "Mood Tracker", desc: "Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn’t need to hurt you again." },
-          { no: "06", title: "Self-Discovery Tools & Library", desc: "Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling." }
+          { no: "06", title: "Self-Discovery Tools & Library", desc: "Quick self-assessments, expert-curated videos, podcasts and real-life stories — all designed to help you understand your patterns, habits, stressors, and emotional needs, whenever you need clarity or a companion." }
         ].map((item) => (
           
           <div key={item.no} className="flex flex-col space-y-2">
@@ -600,7 +542,7 @@ const Whowant = () => {
         <div className="mb-12">
           {/* Heading */}
           <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4 font-['Nunito_Sans']">
-            Who it’s For ?
+            Who It’s For ?
           </h2>
 
           {/* Description */}
@@ -725,9 +667,9 @@ const Features = () => {
       <div className="max-w-7xl mx-auto px-[50px]">
 
         {/* === HEADER BLOCK === */}
-        <div className="mb-2 sm:mb-4 px-[15px]">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-black font-['Inter'] mb-5">
-            Key features
+        <div className="mb-12 sm:mb-16">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-black font-['Inter'] mb-4">
+            Key Features
           </h2>
           <p className="text-base sm:text-lg text-black font-medium font-['Nunito_Sans'] max-w-xl">
             Discover the essential features you need - all in one trusted platform.
@@ -749,20 +691,31 @@ const Features = () => {
               isLast
             />
           </div>
-
-          {/* RIGHT COLUMN */}
-          <div className="flex flex-col items-start">
-            <div className="w-full pr-[50px]"> {/* Wrap right column items */}
-              <FeatureItem iconSrc={featureIcon5} altText="Content Icon" title="Expert Videos, Podcasts, and Content Drops" />
-              <FeatureItem iconSrc={featureIcon6} altText="Language Icon" title="Works Across Countries & Languages" />
-              <FeatureItem iconSrc={featureIcon7} altText="Hospital Icon" title="Escalation To Partner Hospitals For Psychiatric Care" />
-              <FeatureItem
-                iconSrc={featureIcon8}
-                altText="Anonymity Icon"
-                title="100% Anonymity Guaranteed"
-                isLast
-              />
-            </div>
+          
+          {/* --- RIGHT COLUMN (F5-F8) --- */}
+          <div className="space-y-0 lg:mt-0"> {/* Ensure it aligns correctly on desktop */}
+            <FeatureItem
+              iconSrc={featureIcon8}
+              altText="Anonymity Icon"
+              title="100% Anonymity Guaranteed"
+              isLast={true} // Last item in the column, no divider needed
+            />
+            <FeatureItem
+              iconSrc={featureIcon6}
+              altText="Language Icon"
+              title="Works Across Countries & Languages"
+            />
+            <FeatureItem
+              iconSrc={featureIcon7}
+              altText="Hospital Icon"
+              title="Escalation To Partner Hospitals For Psychiatric Care"
+            />
+             <FeatureItem
+              iconSrc={featureIcon5}
+              altText="Content Icon"
+              title="Expert Videos, Podcasts, and Content Drops"
+            />
+            
           </div>
 
         </div>
@@ -1338,7 +1291,7 @@ const LastSection = () => {
           >
             {/* Button 1 */}
             <a
-              href="mailto:hello@mindalot.com"
+              href="tel:+919606258596"
               className="
                 group relative 
                 flex items-center justify-start
@@ -1395,7 +1348,7 @@ const LastSection = () => {
 
             {/* Button 2 */}
             <a
-              href="https://discord.com/"
+              href="mailto:support@mindalot.care"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -1453,63 +1406,62 @@ const LastSection = () => {
             </a>
 
             {/* Button 3 */}
-            <a
-              href="https://play.google.com/store/games"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                group relative 
-                flex items-center justify-start
-                w-[212px] h-[54px] sm:h-[60px] 
-                rounded-[30px] 
-                border-2 border-[#F6F2EB] 
-                bg-transparent no-underline overflow-hidden 
-                transition-all duration-300 
-                hover:border-0 hover:bg-[#5C4737]
-              "
-            >
-              <span
-                className="
-                  absolute top-[18px] sm:top-[21px] left-[20px] sm:left-[24px] 
-                  font-inter font-medium 
-                  text-[15px] sm:text-[16px] leading-none 
-                  text-[#F6F2EB] 
-                  whitespace-nowrap 
-                  transition-colors duration-200
-                "
-                style={{ letterSpacing: "-0.03em" }}
-              >
-                Download App
-              </span>
+           <button
+  onClick={redirectToAppStore}
+  className="
+    group relative 
+    flex items-center justify-start
+    w-[212px] h-[54px] sm:h-[60px] 
+    rounded-[30px] 
+    border-2 border-[#F6F2EB] 
+    bg-transparent overflow-hidden 
+    transition-all duration-300 
+    hover:border-0 hover:bg-[#5C4737]
+  "
+>
+  <span
+    className="
+      absolute top-[18px] sm:top-[21px] left-[20px] sm:left-[24px] 
+      font-inter font-medium 
+      text-[15px] sm:text-[16px] leading-none 
+      text-[#F6F2EB] 
+      whitespace-nowrap 
+      transition-colors duration-200
+    "
+    style={{ letterSpacing: "-0.03em" }}
+  >
+    Download App
+  </span>
 
-              <div
-                className="
-                  absolute top-[2px] sm:top-[3px] right-[10px] 
-                  w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] 
-                  rounded-full 
-                  flex items-center justify-center 
-                  bg-[#5B4A3E] 
-                  transition-all duration-300 
-                  group-hover:bg-white 
-                  group-hover:rotate-45 
-                "
-              >
-                <Image
-                  src={newarrow}
-                  alt="arrow"
-                  width={16}
-                  height={16}
-                  className="block group-hover:hidden w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
-                />
-                <Image
-                  src={blackarrow}
-                  alt="arrow"
-                  width={16}
-                  height={16}
-                  className="hidden group-hover:block w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] transition-all"
-                />
-              </div>
-            </a>
+  <div
+    className="
+      absolute top-[2px] sm:top-[3px] right-[10px] 
+      w-[44px] sm:w-[50px] h-[44px] sm:h-[50px] 
+      rounded-full 
+      flex items-center justify-center 
+      bg-[#5B4A3E] 
+      transition-all duration-300 
+      group-hover:bg-white 
+      group-hover:rotate-45
+    "
+  >
+    <Image
+      src={newarrow}
+      alt="arrow"
+      width={16}
+      height={16}
+      className="block group-hover:hidden w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
+    />
+    <Image
+      src={blackarrow}
+      alt="arrow"
+      width={16}
+      height={16}
+      className="hidden group-hover:block w-[16px] sm:w-[18px] h-[16px] sm:h-[18px]"
+    />
+  </div>
+</button>
+
           </div>
         </div>
       </div>
