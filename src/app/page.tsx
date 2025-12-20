@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import Footer from "../components/Footer";
+import Header from "@/components/Header";
 import {StaticImageData} from "next/image"
 import Link from "next/link";
 import arrow from "../assets/arrow.svg";
@@ -43,7 +44,7 @@ import blackarrow from '../assets/home-page/Footer/black arr.png';
 import CTAButton from "@/components/CTAButton";
 import { Footprints } from "lucide-react";
 import { useState } from 'react';
-import Header from '@/components/Header'
+
 
 
 // Placeholder assets - **You must define these imports in your file**
@@ -62,11 +63,182 @@ import { IoLogoYoutube } from "react-icons/io";
 
 export default function Home() {
 
+// const HomeHero = () => {
+//   // Ensure imagePath is a string URL
+//   const imagePath = Homebg?.src || Homebg || "/path/to/default.jpg";
+
+//   // Desktop Dimensions (Used for the background clipping logic)
+//   const sectionWidth = 1440;
+//   const sectionHeight = 864;
+
+//   return (
+//     <section
+//       className="relative mx-auto w-full max-w-[1440px] overflow-hidden bg-no-repeat bg-cover bg-top lg:bg-top-right transition-all"
+//       style={{
+//         backgroundImage: `url(${imagePath})`,
+//         // On mobile, let the height grow with content. On Desktop, fix it.
+//       }}
+//     >
+//       {/* Container to enforce Height only on Desktop */}
+//       <div className="relative w-full min-h-screen lg:h-[864px]">
+//         {/* =========================================
+//             1. LEFT OVERLAY (Gradient Layer)
+//            ========================================= */}
+//         <div
+//           className="absolute top-0 left-0 w-full h-full lg:w-[720px] lg:h-[864px] backdrop-blur-[60px] z-10"
+//           style={{
+//             background: `linear-gradient(134.5deg, rgba(91, 74, 62, 0.9) 0%, rgba(117, 88, 64, 0.85) 60%, rgba(50, 40, 30, 0.7) 100%)`,
+//           }}
+//         />
+
+//         {/* =========================================
+//             2. CONTENT CONTAINER
+//            ========================================= */}
+//         <div className="relative z-20 w-full h-full flex flex-col items-center justify-center px-4 pt-20 pb-10 lg:block lg:p-0">
+          
+//           {/* --------------------------------------
+//               MOBILE TITLE ("MIND A LOT" Unified)
+//               Visible on Mobile, Hidden on Desktop
+//              --------------------------------------- */}
+//           <div className="lg:hidden text-center mb-6">
+//             <h1 className="font-inter text-[15vw] sm:text-[80px] font-bold leading-none tracking-tight text-[#F6F2EB]">
+//               <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#e8dcc8] to-[#9c7e63]">MIND A</span>{" "}
+//               <span>LOT</span>
+//             </h1>
+//           </div>
+
+//           {/* --------------------------------------
+//               DESKTOP TITLES (Original Logic)
+//               Hidden on Mobile, Visible on Desktop
+//              --------------------------------------- */}
+          
+//           {/* "MIND" - See-Through */}
+//           <h1
+//             className="hidden lg:flex absolute items-center justify-center font-inter pointer-events-none lg:w-[566px] lg:h-[242px] lg:top-[158px] lg:left-[154px] lg:text-[200px] font-semibold leading-[100%] tracking-[0.06em] text-center"
+//             style={{
+//               backgroundImage: `url(${imagePath})`,
+//               backgroundClip: "text",
+//               WebkitBackgroundClip: "text",
+//               color: "transparent",
+//               backgroundPosition: "-154px -158px",
+//               backgroundSize: `${sectionWidth}px ${sectionHeight}px`,
+//               backgroundRepeat: "no-repeat",
+//             }}
+//           >
+//             MIND
+//           </h1>
+
+//           {/* "A" - See-Through */}
+//           <span
+//             className="hidden lg:flex absolute items-center justify-center font-inter pointer-events-none lg:w-[145px] lg:h-[242px] lg:top-[400px] lg:left-[575px] lg:text-[200px] font-semibold leading-[100%] tracking-[0.06em] text-center"
+//             style={{
+//               backgroundImage: `url(${imagePath})`,
+//               backgroundClip: "text",
+//               WebkitBackgroundClip: "text",
+//               color: "transparent",
+//               backgroundPosition: "-575px -400px",
+//               backgroundSize: `${sectionWidth}px ${sectionHeight}px`,
+//               backgroundRepeat: "no-repeat",
+//             }}
+//           >
+//             A
+//           </span>
+
+//            {/* "LOT" - Solid Color */}
+//            <h2 className="hidden lg:flex absolute items-center justify-center font-inter text-[#F6F2EB] lg:w-[413px] lg:h-[242px] lg:top-[400px] lg:left-[750px] lg:text-[200px] font-semibold leading-[100%] tracking-[0.06em] text-center z-0">
+//             LOT
+//           </h2>
+
+
+//           {/* --------------------------------------
+//               CONTENT ELEMENTS (Responsive)
+//              --------------------------------------- */}
+
+//           {/* Description Paragraph */}
+//           {/* Mobile: Static position, center text. Desktop: Absolute right side */}
+//           <p className="font-inter text-[#F6F2EB] lg:text-[#1C1C1BCC] text-[16px] leading-[25px] tracking-[-0.03em] text-center lg:text-right w-full max-w-[400px] lg:w-[373px] lg:h-[75px] mb-8 lg:mb-0 lg:absolute lg:top-[279px] lg:left-[783px] z-0">
+//             Mind A Lot is an anonymous, app-based counselling platform that
+//             connects you instantly to a real, <br className="hidden lg:block" /> trained professional
+//           </p>
+
+
+//           {/* Left Subtitle ("You don't have to say...") */}
+//           {/* Mobile: Order adjusted visually via flex order or simple placement */}
+//           <p className="font-inter text-[#FDE2CD] text-[20px] lg:text-[24px] font-normal leading-[120%] lg:leading-[100%] tracking-[-0.06em] text-center lg:text-left w-full max-w-[400px] lg:w-[387px] lg:h-[58px] mb-8 lg:mb-0 lg:absolute lg:top-[512px] lg:left-[160px]">
+//             You don’t have to say who you are to start feeling better
+//           </p>
+
+//           {/* "Safe Space" CTA Text */}
+//           <p className="font-inter text-[#F6F2EB] text-[16px] font-bold leading-[100%] tracking-[-0.03em] mb-4 lg:mb-0 lg:absolute lg:w-[280px] lg:h-[19px] lg:top-[650px] lg:left-[587px] z-20">
+//             Your safe space is just one tap away!
+//           </p>
+
+//           {/* --------------------------------------
+//               BUTTONS
+//              --------------------------------------- */}
+//           <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-[20px] w-full lg:w-[467px] lg:h-[60px] lg:absolute lg:top-[725px] lg:left-[490px] z-30">
+            
+//             {/* Button 1: Start Chat */}
+//             <a
+//               href="https://apps.apple.com/in/app/zenit-edu/id6748683332"
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="no-underline"
+//             >
+//               <button
+//                 className="group relative flex items-center justify-start font-nunito transition-all duration-300 w-[280px] lg:w-[212px] h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent text-[#F6F2EB] text-[16px] font-medium leading-[100%] tracking-[-0.03em] cursor-pointer pl-[30px] hover:bg-[#5C4737] hover:border-transparent"
+//               >
+//                 Start chat now
+//                 <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[3px] right-[5px] lg:left-[155px] bg-[#F6F2EB] rounded-full">
+//                   <Image
+//                     src={blackarrow}
+//                     alt="arrow"
+//                     style={{ width: "20px", height: "20px" }}
+//                   />
+//                 </div>
+//               </button>
+//             </a>
+
+//             {/* Button 2: Download App */}
+//             {/* Button 2: Download App */}
+// <a
+//   href="https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"
+//   target="_blank"
+//   rel="noopener noreferrer"
+//   className="no-underline"
+// >
+//   <button
+//     // Added hover:text-[#F6F2EB] to handle the button background change via CSS
+//     className="group relative flex items-center font-nunito transition-all duration-300 w-[280px] lg:w-[235px] h-[60px] rounded-[30px] bg-[#F6F2EB] border-none cursor-pointer hover:bg-[#5C4737]"
+//   >
+//     <span
+//       // Added group-hover:text-[#F6F2EB] here to change text color when parent is hovered
+//       className="btn-text transition-colors duration-300 absolute w-full text-center lg:text-left lg:w-[151px] top-[18px] lg:left-[20px] text-[#5B4A3E] text-[18px] font-medium group-hover:text-[#F6F2EB]"
+//     >
+//       Download the app
+//     </span>
+//     <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[5px] right-[5px] lg:left-[181px] bg-[#F6F2EB] rounded-full">
+//       <Image
+//         src={blackarrow}
+//         alt="arrow"
+//         style={{ width: "20px", height: "20px" }}
+//       />
+//     </div>
+//   </button>
+// </a>
+//           </div>
+
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
 const HomeHero = () => {
   // Ensure imagePath is a string URL
   const imagePath = Homebg?.src || Homebg || "/path/to/default.jpg";
 
-  // Desktop Dimensions (Used for the background clipping logic)
+  // Desktop Dimensions
   const sectionWidth = 1440;
   const sectionHeight = 864;
 
@@ -75,15 +247,21 @@ const HomeHero = () => {
       className="relative mx-auto w-full max-w-[1440px] overflow-hidden bg-no-repeat bg-cover bg-top lg:bg-top-right transition-all"
       style={{
         backgroundImage: `url(${imagePath})`,
-        // On mobile, let the height grow with content. On Desktop, fix it.
       }}
     >
-      {/* Container to enforce Height only on Desktop */}
-      <div className="relative w-full min-h-screen lg:h-[864px]">
+      {/* CHANGE 1: 
+         Removed 'min-h-screen'. 
+         Used 'h-auto' for mobile so it fits content length.
+         Kept 'lg:h-[864px]' for desktop.
+      */}
+      <div className="relative w-full h-auto lg:h-[864px]">
         
-        {/* =========================================
-            1. LEFT OVERLAY (Gradient Layer)
-           ========================================= */}
+        {/* HEADER */}
+        <div className="absolute top-0 left-0 w-full z-50">
+          <Header textWhite/>
+        </div>
+
+        {/* LEFT OVERLAY (Gradient) */}
         <div
           className="absolute top-0 left-0 w-full h-full lg:w-[720px] lg:h-[864px] backdrop-blur-[60px] z-10"
           style={{
@@ -91,15 +269,15 @@ const HomeHero = () => {
           }}
         />
 
-        {/* =========================================
-            2. CONTENT CONTAINER
-           ========================================= */}
-        <div className="relative z-20 w-full h-full flex flex-col items-center justify-center px-4 pt-20 pb-10 lg:block lg:p-0">
+        {/* CHANGE 2: 
+           Content Container
+           - 'pt-28': Added more top space so content clears the Header on mobile.
+           - 'pb-16': Added decent bottom space so it doesn't feel cramped, but isn't huge.
+           - 'h-full' removed on mobile (implied by flex/block) to let it grow naturally.
+        */}
+        <div className="relative z-20 w-full flex flex-col items-center justify-center px-4 pt-28 pb-16 lg:h-full lg:block lg:p-0">
           
-          {/* --------------------------------------
-              MOBILE TITLE ("MIND A LOT" Unified)
-              Visible on Mobile, Hidden on Desktop
-             --------------------------------------- */}
+          {/* MOBILE TITLE */}
           <div className="lg:hidden text-center mb-6">
             <h1 className="font-inter text-[15vw] sm:text-[80px] font-bold leading-none tracking-tight text-[#F6F2EB]">
               <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#e8dcc8] to-[#9c7e63]">MIND A</span>{" "}
@@ -107,12 +285,7 @@ const HomeHero = () => {
             </h1>
           </div>
 
-          {/* --------------------------------------
-              DESKTOP TITLES (Original Logic)
-              Hidden on Mobile, Visible on Desktop
-             --------------------------------------- */}
-          
-          {/* "MIND" - See-Through */}
+          {/* DESKTOP TITLES (Hidden on Mobile) */}
           <h1
             className="hidden lg:flex absolute items-center justify-center font-inter pointer-events-none lg:w-[566px] lg:h-[242px] lg:top-[158px] lg:left-[154px] lg:text-[200px] font-semibold leading-[100%] tracking-[0.06em] text-center"
             style={{
@@ -128,7 +301,6 @@ const HomeHero = () => {
             MIND
           </h1>
 
-          {/* "A" - See-Through */}
           <span
             className="hidden lg:flex absolute items-center justify-center font-inter pointer-events-none lg:w-[145px] lg:h-[242px] lg:top-[400px] lg:left-[575px] lg:text-[200px] font-semibold leading-[100%] tracking-[0.06em] text-center"
             style={{
@@ -144,26 +316,21 @@ const HomeHero = () => {
             A
           </span>
 
-           {/* "LOT" - Solid Color */}
            <h2 className="hidden lg:flex absolute items-center justify-center font-inter text-[#F6F2EB] lg:w-[413px] lg:h-[242px] lg:top-[400px] lg:left-[750px] lg:text-[200px] font-semibold leading-[100%] tracking-[0.06em] text-center z-0">
             LOT
           </h2>
 
 
-          {/* --------------------------------------
-              CONTENT ELEMENTS (Responsive)
-             --------------------------------------- */}
-
+          {/* CONTENT ELEMENTS */}
+          
           {/* Description Paragraph */}
-          {/* Mobile: Static position, center text. Desktop: Absolute right side */}
           <p className="font-inter text-[#F6F2EB] lg:text-[#1C1C1BCC] text-[16px] leading-[25px] tracking-[-0.03em] text-center lg:text-right w-full max-w-[400px] lg:w-[373px] lg:h-[75px] mb-8 lg:mb-0 lg:absolute lg:top-[279px] lg:left-[783px] z-0">
             Mind A Lot is an anonymous, app-based counselling platform that
             connects you instantly to a real, <br className="hidden lg:block" /> trained professional
           </p>
 
 
-          {/* Left Subtitle ("You don't have to say...") */}
-          {/* Mobile: Order adjusted visually via flex order or simple placement */}
+          {/* Left Subtitle */}
           <p className="font-inter text-[#FDE2CD] text-[20px] lg:text-[24px] font-normal leading-[120%] lg:leading-[100%] tracking-[-0.06em] text-center lg:text-left w-full max-w-[400px] lg:w-[387px] lg:h-[58px] mb-8 lg:mb-0 lg:absolute lg:top-[512px] lg:left-[160px]">
             You don’t have to say who you are to start feeling better
           </p>
@@ -173,12 +340,10 @@ const HomeHero = () => {
             Your safe space is just one tap away!
           </p>
 
-          {/* --------------------------------------
-              BUTTONS
-             --------------------------------------- */}
+          {/* BUTTONS */}
           <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-[20px] w-full lg:w-[467px] lg:h-[60px] lg:absolute lg:top-[725px] lg:left-[490px] z-30">
             
-            {/* Button 1: Start Chat */}
+            {/* Button 1 */}
             <a
               href="https://apps.apple.com/in/app/zenit-edu/id6748683332"
               target="_blank"
@@ -199,33 +364,30 @@ const HomeHero = () => {
               </button>
             </a>
 
-            {/* Button 2: Download App */}
-            {/* Button 2: Download App */}
-<a
-  href="https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="no-underline"
->
-  <button
-    // Added hover:text-[#F6F2EB] to handle the button background change via CSS
-    className="group relative flex items-center font-nunito transition-all duration-300 w-[280px] lg:w-[235px] h-[60px] rounded-[30px] bg-[#F6F2EB] border-none cursor-pointer hover:bg-[#5C4737]"
-  >
-    <span
-      // Added group-hover:text-[#F6F2EB] here to change text color when parent is hovered
-      className="btn-text transition-colors duration-300 absolute w-full text-center lg:text-left lg:w-[151px] top-[18px] lg:left-[20px] text-[#5B4A3E] text-[18px] font-medium group-hover:text-[#F6F2EB]"
-    >
-      Download the app
-    </span>
-    <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[5px] right-[5px] lg:left-[181px] bg-[#F6F2EB] rounded-full">
-      <Image
-        src={blackarrow}
-        alt="arrow"
-        style={{ width: "20px", height: "20px" }}
-      />
-    </div>
-  </button>
-</a>
+            {/* Button 2 */}
+            <a
+              href="https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="no-underline"
+            >
+              <button
+                className="group relative flex items-center font-nunito transition-all duration-300 w-[280px] lg:w-[235px] h-[60px] rounded-[30px] bg-[#F6F2EB] border-none cursor-pointer hover:bg-[#5C4737]"
+              >
+                <span
+                  className="btn-text transition-colors duration-300 absolute w-full text-center lg:text-left lg:w-[151px] top-[18px] lg:left-[20px] text-[#5B4A3E] text-[18px] font-medium group-hover:text-[#F6F2EB]"
+                >
+                  Download the app
+                </span>
+                <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[5px] right-[5px] lg:left-[181px] bg-[#F6F2EB] rounded-full">
+                  <Image
+                    src={blackarrow}
+                    alt="arrow"
+                    style={{ width: "20px", height: "20px" }}
+                  />
+                </div>
+              </button>
+            </a>
           </div>
 
         </div>
@@ -233,7 +395,6 @@ const HomeHero = () => {
     </section>
   );
 };
-
 
 
 const MakeUs = () => {
@@ -1002,7 +1163,7 @@ const LastSection = () => {
       {/* =======================================
           1. CTA CARD (Floating on top)
           ======================================= */}
-      <div className="relative z-20 px-4 w-full flex justify-center mt-[100px] mb-[-180px] sm:mb-[-150px]">
+     <div className="relative z-20 px-4 w-full flex justify-center mt-[100px] mb-[-180px] sm:mb-[-150px] lg:h-[363px]">
         <div
           className="
             relative 
@@ -1018,7 +1179,6 @@ const LastSection = () => {
           }}
         >
           {/* Inner Content Container */}
-          {/* Changed bg to transparent or a matching brown to avoid any grey flashes */}
           <div className="relative w-full h-full bg-[#9C7A64] rounded-[12px] md:rounded-[22px] overflow-hidden">
             
             {/* Background Image (Rocks) */}
@@ -1027,22 +1187,22 @@ const LastSection = () => {
                 src={rocksImage}
                 alt="CTA Background"
                 fill
-                className="object-cover object-bottom" // Anchors image to bottom so rocks are visible
-                // FIX: Removed 'translateY'. Kept slight scale to ensure edge-to-edge fit.
-                style={{ transform: "scale(1.05)" }} 
+                className="object-cover object-bottom"
+                // FIX: Increased scale to 1.2 to ensure the top edge covers the background color
+                style={{ transform: "scale(1.2) translateY(35px)" }} 
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/20" /> 
             </div>
 
             {/* Content */}
-            <div className="relative z-10 flex flex-col items-center justify-center py-12 px-4 text-center">
+            <div className="relative z-10 flex flex-col items-center justify-center py-20 px-4 text-center">
               
-              <h2 className="font-inter font-semibold text-[#F6F2EB] text-[24px] sm:text-[32px] md:text-[42px] lg:text-[50px] leading-[1.2] mb-4 max-w-[863px]">
+              <h2 className="font-inter font-semibold text-[#F6F2EB] text-[24px] sm:text-[32px] md:text-[42px] lg:text-[50px] leading-[1.2] mb-4 md:whitespace-nowrap">
                 Take the first step toward feeling better.
               </h2>
 
-              <p className="font-inter font-normal text-white text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] mb-8 max-w-[684px]">
+              <p className="font-inter font-normal text-white text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] mb-8 md:whitespace-nowrap">
                 Start talking. Stay anonymous. Feel lighter. Because your mind matters a lot.
               </p>
 
@@ -1054,8 +1214,8 @@ const LastSection = () => {
                   <div className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer">
                     <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">Talk To Our Team</span>
                     <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
-                       <Image src={newarrow} alt="arrow" className="w-4 h-4 block group-hover:hidden" />
-                       <Image src={blackarrow} alt="arrow" className="w-4 h-4 hidden group-hover:block" />
+                        <Image src={newarrow} alt="arrow" className="w-4 h-4 block group-hover:hidden" />
+                        <Image src={blackarrow} alt="arrow" className="w-4 h-4 hidden group-hover:block" />
                     </div>
                   </div>
                 </a>
@@ -1065,8 +1225,8 @@ const LastSection = () => {
                   <div className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer">
                     <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">Partner With Us</span>
                     <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
-                       <Image src={newarrow} alt="arrow" className="w-4 h-4 block group-hover:hidden" />
-                       <Image src={blackarrow} alt="arrow" className="w-4 h-4 hidden group-hover:block" />
+                        <Image src={newarrow} alt="arrow" className="w-4 h-4 block group-hover:hidden" />
+                        <Image src={blackarrow} alt="arrow" className="w-4 h-4 hidden group-hover:block" />
                     </div>
                   </div>
                 </a>
@@ -1076,8 +1236,8 @@ const LastSection = () => {
                   <div className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer">
                     <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">Download App</span>
                     <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
-                       <Image src={newarrow} alt="arrow" className="w-4 h-4 block group-hover:hidden" />
-                       <Image src={blackarrow} alt="arrow" className="w-4 h-4 hidden group-hover:block" />
+                        <Image src={newarrow} alt="arrow" className="w-4 h-4 block group-hover:hidden" />
+                        <Image src={blackarrow} alt="arrow" className="w-4 h-4 hidden group-hover:block" />
                     </div>
                   </div>
                 </a>
@@ -1087,7 +1247,6 @@ const LastSection = () => {
           </div>
         </div>
       </div>
-
       {/* =======================================
           2. FOOTER SECTION
           ======================================= */}
