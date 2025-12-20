@@ -13,7 +13,6 @@ import w4 from "../assets/home-page/deserves/w4.png";
 import w5 from "../assets/home-page/deserves/w5.png";
 import w6 from "../assets/home-page/deserves/w6.png";
 import fi1 from "../assets/home-page/features/Frame.png";
-
 import f1l from "../assets/home-page/features/Line 15.png";
 import featureIcon2 from "../assets/home-page/features/gps.png"; // F2 Icon
 import dividerImage2 from "../assets/home-page/features/Line 15.png"; 
@@ -60,177 +59,301 @@ import { IoLogoYoutube } from "react-icons/io";
 
 
 export default function Home() {
-
 const HomeHero = () => {
+  // Ensure imagePath is a string URL
+  const imagePath = Homebg.src || Homebg;
+
+  // Constants for alignment (MUST match text background logic)
+  const sectionWidth = 1440;
+  const sectionHeight = 864;
+
   return (
     <section
-        className="
-    relative 
-    w-full 
-    min-h-fit lg:min-h-screen lg:h-[864px]
-    flex flex-col items-center justify-start lg:block
-    bg-cover bg-center lg:bg-no-repeat lg:bg-[length:full_864px]
-    mx-auto overflow-hidden
-    font-inter
-  "
-      style={{ backgroundImage: `url('${Homebg.src}')` }}
+      className="relative mx-auto w-[1440px] max-w-full h-[864px] overflow-hidden bg-no-repeat"
+      style={{
+        backgroundImage: `url(${imagePath})`,
+        // CHANGE 1: Force exact size to match the text calculation logic
+        // backgroundSize: `${sectionWidth}px ${sectionHeight}px`,
+        backgroundSize:"contain"
+      }}
     >
-      {/* GRADIENT OVERLAY */}
+      {/* 1. LEFT Glassmorphism Overlay Layer */}
       <div
-        className="absolute top-0 left-0 z-10 backdrop-blur-[40px] lg:backdrop-blur-[60px] w-full h-full lg:w-[720px]"
+        className="absolute top-0 left-0 w-[720px] h-864 backdrop-blur-[60px] z-10"
         style={{
-          background:
-            "linear-gradient(134.5deg, rgba(91,74,62,0.7) 2.41%, rgba(117,88,64,0.7) 73.14%, rgba(0,0,0,0.595) 100%)",
+          // Slightly adjusted gradient to match the "brownish" sepia tone in screenshot
+          background: `linear-gradient(134.5deg, rgba(91, 74, 62, 0.8) 0%, rgba(117, 88, 64, 0.75) 60%, rgba(50, 40, 30, 0.6) 100%)`,
         }}
-      />
+      >
+        {/* "MIND" - See-Through Text */}
+        <h1
+          className="absolute flex items-center justify-center font-inter pointer-events-none"
+          style={{
+            width: '566px',
+            height: '242px',
+            top: '158px',
+            left: '154px',
 
-      {/* CONTENT WRAPPER */}
-      <div className="relative z-20 flex flex-col items-center w-full px-5 pt-32 pb-12 lg:p-0 lg:block lg:h-full font-inter">
-        
-        {/* --- 1. TITLE GROUP: MIND A LOT --- */}
-        <div className="flex flex-row items-baseline justify-center gap-1.5 sm:gap-3 lg:contents whitespace-nowrap">
-          {/* MIND */}
-          <div
-            className="
-              relative text-[60px] xs:text-[62px] sm:text-[80px]
-              font-semibold leading-none tracking-[0.02em]
-              text-transparent bg-clip-text [-webkit-background-clip:text] bg-cover
-              lg:absolute lg:text-[200px] lg:w-[566px] lg:h-[242px]
-              lg:top-[158px] lg:left-[145px] lg:tracking-[0.06em]
-              lg:bg-no-repeat lg:bg-[length:1440px_864px] lg:bg-[position:-154px_-158px]
-            "
-            style={{ backgroundImage: `url('${Homebg.src}')` }}
+            fontSize: '200px',
+            fontWeight: '600',
+            lineHeight: '100%',
+            letterSpacing: '0.06em',
+            textAlign: 'center',
+
+            // The Magic: Text Background
+            backgroundImage: `url(${imagePath})`,
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+
+            // CHANGE 2: Ensure these match the parent section exactly
+            // Logic: -(left position) -(top position)
+            backgroundPosition: '-154px -158px',
+            backgroundSize: `${sectionWidth}px ${sectionHeight}px`,
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          MIND
+        </h1>
+
+        {/* "A" - See-Through Center Text */}
+        <span
+          className="absolute flex items-center justify-center font-inter pointer-events-none"
+          style={{
+            width: '145px',
+            height: '242px',
+            top: '400px',
+            left: '575px',
+
+            fontSize: '200px',
+            fontWeight: '600',
+            lineHeight: '100%',
+            letterSpacing: '0.06em',
+            textAlign: 'center',
+
+            backgroundImage: `url(${imagePath})`,
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+
+            // Logic: -(left position) -(top position)
+            backgroundPosition: '-575px -400px',
+            backgroundSize: `${sectionWidth}px ${sectionHeight}px`,
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          A
+        </span>
+
+        {/* Left Subtitle */}
+        <p
+          className="absolute font-inter"
+          style={{
+            width: '387px',
+            height: '58px',
+            top: '512px',
+            left: '160px',
+            color: '#FDE2CD',
+            fontSize: '24px',
+            fontWeight: '400',
+            lineHeight: '100%',
+            letterSpacing: '-0.06em',
+          }}
+        >
+          You don’t have to say who you are to start feeling better
+        </p>
+      </div>
+
+      {/* 2. RIGHT SIDE CONTENT */}
+
+      {/* Description Paragraph */}
+      <p
+        className="absolute font-inter z-0"
+        style={{
+          width: '373px',
+          height: '75px',
+          top: '279px',
+          left: '783px',
+          color: '#1C1C1BCC', // Dark grey/black for the light side
+          fontSize: '16px',
+          fontWeight: '400',
+          lineHeight: '25px',
+          letterSpacing: '-0.03em',
+          textAlign: 'right',
+        }}
+      >
+        Mind A Lot is an anonymous, app-based counselling platform that connects you
+        instantly to a real,
+        <br /> trained professional
+      </p>
+
+      {/* "LOT" - Large Text (Solid Color) */}
+      <h2
+        className="absolute flex items-center justify-center font-inter text-[#F6F2EB] z-0"
+        style={{
+          width: '413px',
+          height: '242px',
+          top: '400px',
+          left: '750px',
+          fontSize: '200px',
+          fontWeight: '600',
+          lineHeight: '100%',
+          letterSpacing: '0.06em',
+          textAlign: 'center',
+        }}
+      >
+        LOT
+      </h2>
+
+      {/* "Safe Space" CTA Text */}
+      <p
+        className="absolute font-inter z-20"
+        style={{
+          width: '280px',
+          height: '19px',
+          top: '650px',
+          left: '587px',
+          color: '#F6F2EB',
+          fontSize: '16px',
+          fontWeight: '700',
+          lineHeight: '100%',
+          letterSpacing: '-0.03em',
+        }}
+      >
+        Your safe space is just one tap away!
+      </p>
+
+      {/* 3. CTA BUTTON LAYOUT */}
+      <div
+        className="absolute flex items-center z-30"
+        style={{
+          width: '467px',
+          height: '60px',
+          top: '725px',
+          left: '490px',
+          gap: '20px',
+        }}
+      >
+        {/* Button 1: Start Chat */}
+        <a
+          href="https://apps.apple.com/in/app/zenit-edu/id6748683332"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none' }}
+        >
+          <button
+            className="group relative flex items-center font-nunito transition-all duration-300"
+            style={{
+              width: '212px',
+              height: '60px',
+              borderRadius: '30px',
+              border: '2px solid #F6F2EB',
+              background: 'transparent',
+              color: '#F6F2EB',
+              fontSize: '16px',
+              fontWeight: '500',
+              lineHeight: '100%',
+              letterSpacing: '-0.03em',
+              cursor: 'pointer',
+              paddingLeft: '30px',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#5C4737';
+              e.currentTarget.style.borderColor = 'transparent';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.borderColor = '#F6F2EB';
+            }}
           >
-            MIND
-          </div>
+            Start chat now
+            <div
+              className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg]"
+              style={{
+                width: '50px',
+                height: '50px',
+                top: '3px',
+                left: '155px',
+                background: '#F6F2EB',
+                borderRadius: '50%',
+              }}
+            >
+              <Image
+                src={blackarrow}
+                alt="arrow"
+                style={{ width: '20px', height: '20px' }}
+              />
+            </div>
+          </button>
+        </a>
 
-          {/* A */}
-          <div
-            className="
-              relative text-[60px] xs:text-[62px] sm:text-[80px]
-              font-semibold leading-none tracking-[0.02em]
-              text-transparent bg-clip-text [-webkit-background-clip:text] bg-cover
-              lg:absolute lg:text-[200px] lg:w-[145px] lg:h-[242px]
-              lg:top-[400px] lg:left-[575px] lg:tracking-[0.06em]
-              lg:bg-no-repeat lg:bg-[length:1440px_864px] lg:bg-[position:-575px_-400px]
-            "
-            style={{ backgroundImage: `url('${Homebg.src}')` }}
+        {/* Button 2: Download App */}
+        <a
+          href="https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none' }}
+        >
+          <button
+            className="group relative flex items-center font-nunito transition-all duration-300"
+            style={{
+              width: '235px',
+              height: '60px',
+              borderRadius: '30px',
+              background: '#F6F2EB',
+              border: 'none',
+              cursor: 'pointer',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#5C4737';
+              // Selector for text span
+              const text = e.currentTarget.querySelector('.btn-text');
+              if (text) text.style.color = '#F6F2EB';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#F6F2EB';
+              const text = e.currentTarget.querySelector('.btn-text');
+              if (text) text.style.color = '#5B4A3E';
+            }}
           >
-            A
-          </div>
+            <span
+              className="btn-text transition-colors duration-300"
+              style={{
+                position: 'absolute',
+                width: '151px',
+                top: '20px', // Adjusted slightly for centering
+                left: '20px',
+                color: '#5B4A3E',
+                fontSize: '18px',
+                fontWeight: '500',
+              }}
+            >
+              Download the app
+            </span>
 
-          {/* LOT */}
-          <div
-            className="
-              relative text-[60px] xs:text-[62px] sm:text-[80px]
-              font-semibold leading-none tracking-[0.02em] text-[#F6F2EB]
-              lg:absolute lg:text-[200px] lg:w-[413px] lg:h-[242px]
-              lg:top-[380px] lg:left-[750px] lg:tracking-[0.06em]
-              lg:flex lg:items-center lg:justify-center
-            "
-          >
-            LOT
-          </div>
-        </div>
-
-        {/* --- 2. SUBTEXT --- */}
-        <div
-          className="
-            relative mt-8 text-center text-[#FDE2CD]
-            text-[16px] sm:text-[20px]
-            font-normal leading-[1.3] tracking-[-0.04em]
-            font-inter max-w-[280px] sm:max-w-none
-            lg:absolute lg:mt-0 lg:w-[497px] lg:h-[58px]
-            lg:top-[510px] lg:left-[150px]
-            lg:text-left lg:text-[24px]
-          "
-        >
-          You don’t have to say who you are to <br className="hidden lg:block" /> start feeling better
-        </div>
-
-        {/* --- 3. DESCRIPTION TEXT --- */}
-        <div
-          className="
-            relative mt-4 px-4
-            max-w-[420px] mx-auto
-            font-inter
-            text-[14px] sm:text-[16px]
-            leading-[1.5]
-            text-[#F6F2EB]/90
-            text-center
-
-            lg:absolute lg:px-0 lg:mx-0
-            lg:w-[420px]
-            lg:top-[240px] lg:left-[740px]
-            lg:text-right
-            lg:text-[#1C1C1BCC]
-          "
-        >
-          <span className="block lg:hidden">
-            Mind A Lot is an anonymous, app-based counselling platform that connects
-            you instantly to a real, trained professional
-          </span>
-
-          <span className="hidden lg:block">
-            Mind A Lot is an anonymous, app-based&nbsp;counselling
-            <br />
-            platform that connects you instantly to a real,
-            <br />
-            trained professional
-          </span>
-        </div>
-
-        {/* --- 4. BOTTOM TAGLINE --- */}
-        <div
-          className="
-            relative mt-12 text-[#F6F2EB] font-bold
-            text-[15px] sm:text-[16px]
-            text-center tracking-[-0.02em]
-            font-inter
-            lg:absolute lg:mt-0 lg:w-[280px] lg:h-[19px]
-            lg:top-[640px] lg:left-[587px]
-          "
-        >
-          Your safe space is just one tap away!
-        </div>
-
-        {/* --- 5. CTA BUTTONS --- */}
-        <div
-          className="
-            relative flex flex-col items-center gap-[16px] mt-6 w-full
-            lg:absolute lg:mt-0 lg:flex-row
-            lg:w-[467px] lg:h-[60px]
-            lg:top-[715px] lg:left-[490px]
-          "
-        >
-       {/* BUTTON 1 */}
-<button className="group relative w-[280px] lg:w-[212px] h-[56px] lg:h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-transparent">
-  <span className="absolute w-[120px] h-[22px] top-[17px] lg:top-[17px] left-[40px] lg:left-[20px] font-inter font-medium text-[15px] lg:text-[16px] text-[#F6F2EB]">
-    Start chat now
-  </span>
-  {/* Circle increased to 52px, top adjusted to 2px/4px to center vertically */}
-  <div className="absolute w-[50px] h-[50px] top-[1px] lg:top-[3px] right-[2px] lg:left-[155px] rounded-full bg-[#F6F2EB] flex items-center justify-center">
-    <Image src={arrow} alt="arrow" className="w-[18px] lg:w-[20px] h-[18px] lg:h-[20px] transform transition-transform duration-300 group-hover:rotate-45" />
-  </div>
-</button>
-
-{/* BUTTON 2 */}
-<button className="group relative w-[280px] lg:w-[235px] h-[56px] lg:h-[60px] rounded-[30px] bg-[#F6F2EB] transition-all duration-300 hover:bg-[#5C4737]">
-  <span className="absolute w-[159px] h-[25px] top-[18px] lg:top-[17px] left-[30px] lg:left-[20px] font-inter font-medium text-[16px] lg:text-[18px] text-[#5B4A3E] transition-colors duration-300 group-hover:text-white">
-    Download the app
-  </span>
-  {/* Circle increased to 52px, top adjusted for 60px height button */}
-  <div className="absolute w-[50px] h-[50px] top-[1px] lg:top-[5px] right-[2px] lg:left-[180px] rounded-full bg-[#FFFFFF] flex items-center justify-center">
-    <Image src={arrow} alt="arrow" className="w-[18px] lg:w-[20px] h-[18px] lg:h-[20px] transform transition-transform duration-300 group-hover:rotate-45" />
-  </div>
-</button>
-        </div>
-
+            <div
+              className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg]"
+              style={{
+                width: '50px',
+                height: '50px',
+                top: '5px',
+                left: '181px',
+                background: '#F6F2EB', // Fixed Color
+                borderRadius: '50%',
+              }}
+            >
+              <Image
+                src={blackarrow}
+                alt="arrow"
+                style={{ width: '20px', height: '20px' }}
+              />
+            </div>
+          </button>
+        </a>
       </div>
     </section>
   );
 };
-
 
 const MakeUs = () => {
   return (
@@ -288,7 +411,7 @@ const MakeUs = () => {
                 src={line}
                 alt="line"
                 className="
-                  w-[96px] h-[18px] mt-1
+                  w-[96px] h-[18px] mt-2
                   transition-[width] duration-300
                   hover:w-[160px]
                   ml-[-3px]
@@ -323,68 +446,52 @@ const MakeUs = () => {
   );
 };
 
-
-
-
 const Whowant = () => {
   interface CardProps {
-  imageSrc: string | StaticImageData;
-  altText: string;
-  title: string;
-}
+    imageSrc: string | StaticImageData;
+    altText: string;
+    title: string;
+  }
 
   const Card = ({ imageSrc, altText, title }: CardProps) => (
-  <div className="relative w-full overflow-hidden rounded-[12px] shadow-lg aspect-[4/3] sm:aspect-auto sm:h-[300px]">
-    <Image 
-      src={imageSrc} 
-      alt={altText} 
-      fill 
-      className="object-cover" 
-      sizes="(max-width: 640px) 100vw, 50vw"
-    />
-    
-    {/* Gradient Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/10" />
-    {/* Text */}
-    <div className="absolute bottom-5 left-5 text-white text-xl sm:text-2xl font-semibold font-['Inter'] leading-tight">
-      {title}
-    </div>
-  </div>
-);
-  return (
-    // Section uses flexible padding on small screens, and the original fixed height on large screens (lg)
-    <section className="w-full bg-[#F6F2EB] py-10 sm:py-16 px-4 sm:px-6 lg:h-[1169px] lg:p-0 relative">
+    <div className="relative w-full overflow-hidden rounded-[12px] shadow-lg aspect-[4/3] sm:aspect-auto sm:h-[300px]">
+      <Image
+        src={imageSrc}
+        alt={altText}
+        fill
+        className="object-cover"
+        sizes="(max-width: 640px) 100vw, 50vw"
+      />
 
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/10" />
+      {/* Text */}
+      <div className="absolute bottom-5 left-5 text-white text-xl sm:text-2xl font-semibold font-['Inter'] leading-tight">
+        {title}
+      </div>
+    </div>
+  );
+
+  return (
+    // UPDATED SECTION CLASS:
+    // 1. Changed py-10 to py-20 for more space on mobile.
+    // 2. Changed lg:p-0 to lg:pt-[100px] lg:px-0 to add space on top for desktop.
+    // 3. Increased lg:h to [1269px] to account for the extra top space so bottom content isn't cut off.
+<section className="w-full bg-[#F6F2EB] py-10 sm:py-24 px-4 sm:px-6 lg:h-[1171px] lg:pt-[70px] lg:px-0 relative">
       {/* ------------------------------------------- */}
-      {/* 1. DESKTOP-ONLY LAYOUT (lg:block) - Keeps original absolute positioning */}
+      {/* 1. DESKTOP-ONLY LAYOUT (lg:block)           */}
       {/* ------------------------------------------- */}
       <div className="hidden lg:block w-full h-full relative">
-        {/* All original absolute elements are placed here, but their `top` values must be relative to the section's top (1787px - 1787px = 0px).
-            Since the original code used extreme `top` values, I'm adjusting them to be relative to the start of this section.
-            I will use the original delta between elements: (1787px - original_top) for the new relative top.
-            
-            Original: top-[1787px] -> New: top-0
-            Original: top-[1868px] -> New: top-[81px] (1868 - 1787)
-            Original: top-[1972px] -> New: top-[185px] (1972 - 1787)
-            ... and so on.
-            
-            However, to simplify, I will assume the original top value of 1787px was the intended top offset of the *whole component* from the top of the document. 
-            I'll use a `top` offset inside a `relative` container to maintain the exact look.
-        */}
-        <div className="w-full h-full absolute top-[1787px]"> 
-          {/* This wrapper is an attempt to preserve the original component's position relative to the document body if that was necessary. 
-              A cleaner approach is to use the first element's 'top' as the reference point (top-0) inside the `lg:h-[1169px] relative` section.
-              Let's use the cleaner, relative-to-section approach: */}
-        </div>
         
         {/* Heading */}
-        <h2 className="absolute top-0 left-[44px] w-[321px] h-[68px] font-['Nunito_Sans'] font-bold text-[50px] text-black">
+        <h2 className="relative top-0 left-[44px] w-[321px] h-[68px] font-['Nunito_Sans'] font-bold text-[50px] text-black">
           Who it’s For ?
         </h2>
 
         {/* Description */}
         <p className="absolute top-[81px] left-[44px] w-[381px] text-[18px] text-black/80 font-['Nunito_Sans']">
-          Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
+          Mind A Lot is for everyone who wants to feel better, grow stronger, and
+          cope smarter.
         </p>
 
         {/* Quote Card */}
@@ -400,67 +507,95 @@ const Whowant = () => {
           – Mind A Lot is here for you!
         </p>
 
-        {/* Working Professionals (Original top: 2120px -> New top: 333px) */}
+        {/* Working Professionals */}
         <div className="absolute top-[333px] left-[44px] w-[410px] h-[262px] rounded-[12px] overflow-hidden">
           <Image src={w1} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/90" />
-          <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
-            Working Professionals
-          </div>
+          <div className="absolute bottom-[20px] left-0 w-full text-center text-white text-[30px] font-semibold">
+  Working Professionals
+</div>
         </div>
 
-        {/* Students (Original top: 1787px -> New top: 0px) */}
+        {/* Students */}
         <div className="absolute top-0 left-[476px] w-[410px] h-[594px] rounded-[12px] overflow-hidden">
           <Image src={w2} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_72%,rgba(0,0,0,.6)_83%)]" />
-          <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
+          <div className="absolute bottom-[38px] left-0 w-full text-center text-white text-[30px] font-semibold">
             Students & Young Adults
           </div>
         </div>
 
-        {/* Others (Original top: 1787px -> New top: 0px) */}
+        {/* Others */}
         <div className="absolute top-0 left-[906px] w-[410px] h-[594px] rounded-[12px] overflow-hidden">
           <Image src={w3} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_76%,rgba(0,0,0,.8)_100%)]" />
-          <div className="absolute bottom-[20px] left-[20px] text-white text-[30px] font-semibold">
+          <div className="absolute bottom-[38px] left-0 w-full text-center text-white text-[30px] font-semibold">
             LGBTQ+ Community
           </div>
         </div>
 
-        {/* Older Adults (Original top: 2402px -> New top: 615px) */}
+        {/* Older Adults */}
         <div className="absolute top-[615px] left-[48px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
-          <Image src={w4} alt="Older Adults" className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 74.16%, rgba(0, 0, 0, 0.7) 100%)" }} />
-          <div className="absolute top-[339px] left-[122px] w-[181px] h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white">
+          <Image
+            src={w4}
+            alt="Older Adults"
+            className="w-full h-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(0, 0, 0, 0) 74.16%, rgba(0, 0, 0, 0.7) 100%)",
+            }}
+          />
+          <div className="absolute top-[339px] left-0 w-full text-center  w-[181px] h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white">
             Older Adults
           </div>
         </div>
 
-        {/* Neurodivergent Users (Original top: 2402px -> New top: 615px) */}
+        {/* Neurodivergent Users */}
         <div className="absolute top-[615px] left-[480px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
-          <Image src={w5} alt="Neurodivergent Users" className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.88%, rgba(0, 0, 0, 0.8) 100%)" }} />
-          <div className="absolute top-[339px] left-[54px] w-[322px] h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white text-center">
+          <Image
+            src={w5}
+            alt="Neurodivergent Users"
+            className="w-full h-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.88%, rgba(0, 0, 0, 0.8) 100%)",
+            }}
+          />
+          <div className="absolute top-[327px]  w-[322px]  left-0 w-full text-center  h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white text-center">
             Neurodivergent Users
           </div>
         </div>
 
-        {/* Anyone Needing Support (Original top: 2402px -> New top: 615px) */}
+        {/* Anyone Needing Support */}
         <div className="absolute top-[615px] left-[910px] w-[410px] h-[416px] rounded-[12px] overflow-hidden">
-          <Image src={w6} alt="Anyone Needing Support" className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.51%, rgba(0, 0, 0, 0.8) 100%)" }} />
-          <div className="absolute top-[339px] left-[32px] w-[366px] h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white text-center">
+          <Image
+            src={w6}
+            alt="Anyone Needing Support"
+            className="w-full h-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(0, 0, 0, 0) 71.51%, rgba(0, 0, 0, 0.8) 100%)",
+            }}
+          />
+          <div className="absolute top-[339px] left-0 w-full text-center  w-[366px] h-[36px] font-['Inter'] font-semibold text-[30px] leading-[100%] tracking-[-3%] text-white text-center">
             Anyone Needing Support
           </div>
         </div>
       </div>
-      
-      
+
       {/* ------------------------------------------- */}
-      {/* 2. MOBILE/TABLET LAYOUT (lg:hidden) - Fully responsive and stackable */}
+      {/* 2. MOBILE/TABLET LAYOUT (lg:hidden)         */}
       {/* ------------------------------------------- */}
       <div className="lg:hidden max-w-7xl mx-auto">
-        
         {/* Header Content Group */}
         <div className="mb-12">
           {/* Heading */}
@@ -470,7 +605,8 @@ const Whowant = () => {
 
           {/* Description */}
           <p className="text-base sm:text-lg text-black/80 max-w-lg mb-8 font-['Nunito_Sans']">
-            Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
+            Mind A Lot is for everyone who wants to feel better, grow stronger,
+            and cope smarter.
           </p>
 
           {/* Quote Card */}
@@ -487,32 +623,38 @@ const Whowant = () => {
         </div>
 
         {/* Responsive Grid for Image Cards */}
-        {/* Stacks on mobile, 2 columns on tablet (sm) */}
         <div className="grid gap-6 sm:grid-cols-2">
-
-          {/* Card: Students & Young Adults (w2) */}
-          <Card imageSrc={w2} altText="Students" title="Students & Young Adults" />
-
-          {/* Card: LGBTQ+ Community (w3) */}
-          <Card imageSrc={w3} altText="LGBTQ+ Community" title="LGBTQ+ Community" />
-          
-          {/* Card: Working Professionals (w1) */}
-          <Card imageSrc={w1} altText="Working Professionals" title="Working Professionals" />
-          
-          {/* Card: Older Adults (w4) */}
+          <Card
+            imageSrc={w2}
+            altText="Students"
+            title="Students & Young Adults"
+          />
+          <Card
+            imageSrc={w3}
+            altText="LGBTQ+ Community"
+            title="LGBTQ+ Community"
+          />
+          <Card
+            imageSrc={w1}
+            altText="Working Professionals"
+            title="Working Professionals"
+          />
           <Card imageSrc={w4} altText="Older Adults" title="Older Adults" />
-
-          {/* Card: Neurodivergent Users (w5) */}
-          <Card imageSrc={w5} altText="Neurodivergent Users" title="Neurodivergent Users" />
-          
-          {/* Card: Anyone Needing Support (w6) */}
-          <Card imageSrc={w6} altText="Anyone Needing Support" title="Anyone Needing Support" />
+          <Card
+            imageSrc={w5}
+            altText="Neurodivergent Users"
+            title="Neurodivergent Users"
+          />
+          <Card
+            imageSrc={w6}
+            altText="Anyone Needing Support"
+            title="Anyone Needing Support"
+          />
         </div>
       </div>
     </section>
   );
 };
-
 // Extracted Card Component for responsive layout
 // interface CardProps {
 //   imageSrc: string;
@@ -540,7 +682,6 @@ const Whowant = () => {
 //   </div>
 // );
 
-
 interface FeatureItemProps {
   iconSrc: string | StaticImageData;
   altText: string;
@@ -550,6 +691,7 @@ interface FeatureItemProps {
 
 // Extracted reusable Feature Component
 // Extracted reusable Feature Component
+
 const FeatureItem = ({ iconSrc, altText, title, isLast = false }: FeatureItemProps) => (
   <>
     <div className="flex items-center w-full min-h-[80px] py-4">
@@ -561,31 +703,30 @@ const FeatureItem = ({ iconSrc, altText, title, isLast = false }: FeatureItemPro
           className="w-[50px] h-[50px]"
         />
       </div>
+
       {/* Title Area */}
       <div className="flex-grow ml-4">
-        <div className="text-black font-['Nunito_Sans'] text-lg sm:text-xl md:text-2xl font-semibold leading-tight tracking-[-0.03em]">
+        <div className="text-black font-['Nunito_Sans'] text-lg sm:text-xl md:text-2xl leading-tight tracking-[-0.03em] whitespace-nowrap overflow-hidden text-ellipsis">
           {title}
         </div>
       </div>
     </div>
-    {/* Divider Line - Hidden if 'isLast' or on large screens (as it's used within a grid column) */}
+
+    {/* Divider Line */}
     {!isLast && (
-      <div className="w-full h-px bg-gray-300 mx-auto" />
+      <div className="ml-[15px] w-[calc(100%-15px)] h-px bg-gray-300" />
     )}
   </>
 );
 
 const Features = () => {
-  // Assuming these image sources (fi1, f1l, featureIcon2, etc.) are imported
-  // and need to be passed down to the FeatureItem component.
   return (
-    <section className="relative w-full overflow-hidden mt-10 sm:mt-20 px-4 sm:px-6 lg:px-8">
-      
-      <div className="max-w-7xl mx-auto">
-        
+    <section className="relative w-full overflow-hidden mt-10 sm:mt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-[50px]">
+
         {/* === HEADER BLOCK === */}
-        <div className="mb-12 sm:mb-16">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-black font-['Inter'] mb-4">
+        <div className="mb-2 sm:mb-4 px-[15px]">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-black font-['Inter'] mb-5">
             Key features
           </h2>
           <p className="text-base sm:text-lg text-black font-medium font-['Nunito_Sans'] max-w-xl">
@@ -593,57 +734,35 @@ const Features = () => {
           </p>
         </div>
 
-        {/* === MAIN FEATURES GRID (F1-F8) === */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6">
-          
-          {/* --- LEFT COLUMN (F1-F4) --- */}
-          <div className="space-y-0">
-            <FeatureItem
-              iconSrc={fi1}
-              altText="24/7 Chat Icon"
-              title="24/7 Live Chat With Human Counsellors"
-            />
-            <FeatureItem
-              iconSrc={featureIcon2}
-              altText="Goal Tracker Icon"
-              title="Goal Tracker With Behavioural Nudges"
-            />
-            <FeatureItem
-              iconSrc={featureIcon3}
-              altText="Mood Guidance Icon"
-              title="Mood-Based Guidance"
-            />
+        {/* === FEATURES GRID === */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-6">
+
+          {/* LEFT COLUMN */}
+          <div className="flex flex-col">
+            <FeatureItem iconSrc={fi1} altText="24/7 Chat Icon" title="24/7 Live Chat With Human Counsellors" />
+            <FeatureItem iconSrc={featureIcon2} altText="Goal Tracker Icon" title="Goal Tracker With Behavioural Nudges" />
+            <FeatureItem iconSrc={featureIcon3} altText="Mood Guidance Icon" title="Mood-Based Guidance" />
             <FeatureItem
               iconSrc={featureIcon4}
               altText="Assessments Icon"
               title="Bite-Sized Self Assessments"
-              isLast={true} // Last item in the column, no divider needed
+              isLast
             />
           </div>
-          
-          {/* --- RIGHT COLUMN (F5-F8) --- */}
-          <div className="space-y-0 lg:mt-0"> {/* Ensure it aligns correctly on desktop */}
-            <FeatureItem
-              iconSrc={featureIcon5}
-              altText="Content Icon"
-              title="Expert Videos, Podcasts, and Content Drops"
-            />
-            <FeatureItem
-              iconSrc={featureIcon6}
-              altText="Language Icon"
-              title="Works Across Countries & Languages"
-            />
-            <FeatureItem
-              iconSrc={featureIcon7}
-              altText="Hospital Icon"
-              title="Escalation To Partner Hospitals For Psychiatric Care"
-            />
-            <FeatureItem
-              iconSrc={featureIcon8}
-              altText="Anonymity Icon"
-              title="100% Anonymity Guaranteed"
-              isLast={true} // Last item in the column, no divider needed
-            />
+
+          {/* RIGHT COLUMN */}
+          <div className="flex flex-col items-start">
+            <div className="w-full pr-[50px]"> {/* Wrap right column items */}
+              <FeatureItem iconSrc={featureIcon5} altText="Content Icon" title="Expert Videos, Podcasts, and Content Drops" />
+              <FeatureItem iconSrc={featureIcon6} altText="Language Icon" title="Works Across Countries & Languages" />
+              <FeatureItem iconSrc={featureIcon7} altText="Hospital Icon" title="Escalation To Partner Hospitals For Psychiatric Care" />
+              <FeatureItem
+                iconSrc={featureIcon8}
+                altText="Anonymity Icon"
+                title="100% Anonymity Guaranteed"
+                isLast
+              />
+            </div>
           </div>
 
         </div>
@@ -651,7 +770,6 @@ const Features = () => {
     </section>
   );
 };
-
 
 
 
@@ -990,13 +1108,6 @@ const Trusted = () => {
 };
 
 
-
-
-
-
-
-
-
 const LastSection = () => {
   const Footer = (
     <main
@@ -1020,7 +1131,7 @@ const LastSection = () => {
           alt="footer overlay logo"
           width={500}
           height={500}
-          style={{ height: "100%", width: "auto", objectFit: "contain", opacity: 0.1 }}
+          style={{ height: "100%", width: "auto", backgroundSize:"cover",  opacity: 0.1 }}
           priority
         />
       </div>
@@ -1411,16 +1522,9 @@ const LastSection = () => {
   );
 };
 
-
-
-
-
-
-
-
 return (
     <>
-      <HomeHero />
+      <HomeHero/>
       <MakeUs/>
       <Whowant/>
       <Features/>
