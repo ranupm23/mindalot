@@ -1253,15 +1253,29 @@ const LastSection = () => {
                 </a>
 
                 {/* Button 3 */}
-                <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" className="no-underline">
-                  <div className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer">
-                    <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">Download App</span>
-                    <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
-                        <Image src={newarrow} alt="arrow" className="w-4 h-4 block group-hover:hidden" />
-                        <Image src={blackarrow} alt="arrow" className="w-4 h-4 hidden group-hover:block" />
-                    </div>
-                  </div>
-                </a>
+              <button
+  type="button"
+  onClick={redirectToAppStore}
+  className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer"
+>
+  <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">
+    Download App
+  </span>
+
+  <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
+    <Image
+      src={newarrow}
+      alt="arrow"
+      className="w-4 h-4 block group-hover:hidden"
+    />
+    <Image
+      src={blackarrow}
+      alt="arrow"
+      className="w-4 h-4 hidden group-hover:block"
+    />
+  </div>
+</button>
+
 
               </div>
             </div>
