@@ -368,35 +368,30 @@ const HomeHero = () => {
           {/* BUTTONS */}
           <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-[20px] w-full lg:w-[467px] lg:h-[60px] lg:absolute lg:top-[725px] lg:left-[490px] z-30">
             
-            {/* Button 1 */}
-            <a
-              href="https://apps.apple.com/in/app/zenit-edu/id6748683332"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="no-underline"
-            >
-              <button
-                className="group relative flex items-center justify-start font-nunito transition-all duration-300 w-[280px] lg:w-[212px] h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent text-[#F6F2EB] text-[16px] font-medium leading-[100%] tracking-[-0.03em] cursor-pointer pl-[30px] hover:bg-[#5C4737] hover:border-transparent"
-              >
-                Start chat now
-                <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[3px] right-[5px] lg:left-[155px] bg-[#F6F2EB] rounded-full">
-                  <Image
-                    src={blackarrow}
-                    alt="arrow"
-                    style={{ width: "20px", height: "20px" }}
-                  />
-                </div>
-              </button>
-            </a>
+           {/* WhatsApp Chat Button */}
+<a
+  href="https://wa.me/919606258596?text=Hello%20Mindalot%20Team"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="no-underline"
+>
+  <button
+    className="group relative flex items-center justify-start font-nunito transition-all duration-300 w-[280px] lg:w-[212px] h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent text-[#F6F2EB] text-[16px] font-medium leading-[100%] tracking-[-0.03em] cursor-pointer pl-[30px] hover:bg-[#5C4737] hover:border-transparent"
+  >
+    Start chat now
+    <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[3px] right-[5px] lg:left-[155px] bg-[#F6F2EB] rounded-full">
+      <Image
+        src={blackarrow}
+        alt="arrow"
+        style={{ width: "20px", height: "20px" }}
+      />
+    </div>
+  </button>
+</a>
 
             {/* Button 2 */}
-            <a
-              href="https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="no-underline"
-            >
-              <button
+           
+              <button onClick={redirectToAppStore}
                 className="group relative flex items-center font-nunito transition-all duration-300 w-[280px] lg:w-[235px] h-[60px] rounded-[30px] bg-[#F6F2EB] border-none cursor-pointer hover:bg-[#5C4737]"
               >
                 <span
@@ -412,7 +407,7 @@ const HomeHero = () => {
                   />
                 </div>
               </button>
-            </a>
+            
           </div>
 
         </div>
