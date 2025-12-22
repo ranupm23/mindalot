@@ -58,10 +58,11 @@ const Footer = () => {
         height={169}
         className="w-[263px] h-auto"
       />
-      <p className="mt-2 text-[15px] leading-relaxed max-w-[300px]">
-        Anonymous support that listens, nudges, and grows with you. When
-        your mind feels too much, we’re just a tap away.
-      </p>
+      <p className="mt-2 font-inter font-normal text-[16px] leading-[30px] tracking-[-0.03em] max-w-[300px]">
+  Anonymous support that listens, nudges, and grows with you. When
+  your mind feels too much, we’re just a tap away.
+</p>
+
 
       <div className="mt-16 flex flex-wrap items-center gap-10">
         <Link href="/terms-and-condition" className="flex items-center gap-2 hover:text-[#8C7A6B]">
@@ -75,36 +76,80 @@ const Footer = () => {
 
     {/* COMPANY SECTION */}
     <div className="flex flex-col justify-start mt-16">
-      <h3 className="text-lg font-sans font-medium text-[20px]">Company</h3>
-      <ul className="flex flex-col gap-3 text-[16px] mt-2">
-        <li><Link href="/features" className="hover:text-[#8C7A6B]">Features</Link></li>
-        <li><Link href="/contact" className="hover:text-[#8C7A6B]">Contact Us</Link></li>
-        <li><Link href="/resource" className="hover:text-[#8C7A6B]">Resources</Link></li>
-      </ul>
+      <h3
+  className="
+    font-inter
+    font-medium
+    text-[20px]
+    leading-[100%]
+    tracking-[-0.03em]
+  "
+>
+  Company
+</h3>
+
+   <ul className="flex flex-col gap-4 mt-6 font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
+  <li>
+    <Link href="/features" className="hover:text-[#8C7A6B]">
+      Features
+    </Link>
+  </li>
+  <li>
+    <Link href="/contact" className="hover:text-[#8C7A6B]">
+      Contact Us
+    </Link>
+  </li>
+  <li>
+    <Link href="/resource" className="hover:text-[#8C7A6B]">
+      Resources
+    </Link>
+  </li>
+</ul>
+
     </div>
 
     {/* CONTACT SECTION */}
     <div className="flex flex-col justify-start mt-16 max-w-[320px]">
-      <h3 className="text-lg  font-sans font-medium text-[20px]">Contact</h3>
-      <div className="flex flex-col gap-4 text-[16px] mt-2">
-        <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
-          <Mail size={18} stroke="#5B4A3E" /> info@mindalot.care
-        </div>
-        <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
-          <Phone size={18} stroke="#5B4A3E" /> +91-96062-58596
-        </div>
-        <div className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight">
-          <MapPin size={18} stroke="#5B4A3E" />
-          #122K, 1st block, 14th cross, 19th 'B' Main,<br />
-          Rajajinagar, Bengaluru – 560010
-        </div>
-      </div>
-    </div>
-
+      <h3
+  className="
+    font-inter
+    font-medium
+    text-[20px]
+    leading-[100%]
+    tracking-[-0.03em]
+  "
+>
+  Contact
+</h3>
+<div className="flex flex-col gap-4 mt-6 font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
+  <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
+    <Mail size={18} stroke="#5B4A3E" /> info@mindalot.care
+  </div>
+  <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
+    <Phone size={18} stroke="#5B4A3E" /> +91-96062-58596
+  </div>
+  <div className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight">
+    <MapPin size={18} stroke="#5B4A3E" />
+    #122K, 1st block, 14th cross, 19th 'B' Main,<br />
+    Rajajinagar, Bengaluru – 560010
+  </div>
+</div>
+</div>
     {/* SOCIAL MEDIA */}
     <div className="flex flex-col justify-start mt-16 -ml-[-8]">
-      <h3 className="text-lg font-sans font-medium text-[20px]">Follow us on</h3>
-      <div className="flex items-center gap-4 mt-2">
+      <h3
+  className="
+    font-inter
+    font-medium
+    text-[20px]
+    leading-[100%]
+    tracking-[-0.03em]
+  "
+>
+  Follow us on
+</h3>
+
+      <div className="flex items-center gap-4 mt-6">
         <a
           href="https://www.instagram.com/mind.alot?igsh=dWh5bGNtc3JoYTNs"
           target="_blank"
