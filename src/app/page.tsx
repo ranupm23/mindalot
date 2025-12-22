@@ -834,10 +834,11 @@ const Features = () => {
           {/* RIGHT COLUMN LIST */}
           <div className="flex flex-col w-full">
             <div className="w-full lg:pr-[50px]"> 
-              <FeatureItem iconSrc={featureIcon5} altText="Video" title="Expert Videos, Podcasts, and Content Drops" />
+               <FeatureItem iconSrc={featureIcon8} altText="Anon" title="100% Anonymity Guaranteed" />
               <FeatureItem iconSrc={featureIcon6} altText="Lang" title="Works Across Countries & Languages" />
-              <FeatureItem iconSrc={featureIcon7} altText="Hospital" title="Escalation To Partner Hospitals For Psychiatric Care" />
-              <FeatureItem iconSrc={featureIcon8} altText="Anon" title="100% Anonymity Guaranteed" isLast />
+              <FeatureItem iconSrc={featureIcon7} altText="Hospital" title="Escalation To Partner Hospitals For Psychiatric Care"  />
+           
+                <FeatureItem iconSrc={featureIcon5} altText="Video" title="Expert Videos, Podcasts, and Content Drops" isLast />
             </div>
           </div>
 
