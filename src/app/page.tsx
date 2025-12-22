@@ -1231,7 +1231,7 @@ const LastSection = () => {
               <div className="flex flex-wrap justify-center gap-4 w-full">
                 
                 {/* Button 1 */}
-                <a href="mailto:hello@mindalot.com" className="no-underline">
+                <a href="tel:+919606258596" className="no-underline">
                   <div className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer">
                     <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">Talk To Our Team</span>
                     <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
@@ -1242,7 +1242,9 @@ const LastSection = () => {
                 </a>
 
                 {/* Button 2 */}
-                <a href="https://discord.com/" target="_blank" rel="noopener noreferrer" className="no-underline">
+                <a href="mailto:support@mindalot.care"
+ 
+  target="_blank" rel="noopener noreferrer" className="no-underline">
                   <div className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer">
                     <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">Partner With Us</span>
                     <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
