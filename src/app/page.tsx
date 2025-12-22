@@ -60,6 +60,32 @@ import { FaLinkedin } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 
 
+// Redirect based on device
+const redirectToAppStore = () => {
+  if (typeof window === "undefined") return;
+
+  const userAgent = navigator.userAgent || navigator.vendor;
+
+  // iOS devices
+  if (/iPad|iPhone|iPod/.test(userAgent)) {
+    window.location.href =
+      "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+    return;
+  }
+
+  // Android devices
+  if (/android/i.test(userAgent)) {
+    window.location.href =
+      "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+    return;
+  }
+
+  // Desktop fallback
+  window.location.href =
+    "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+};
+
+
 
 
 export default function Home() {
