@@ -66,7 +66,10 @@ const Footer = () => {
 
       <div className="mt-16 flex flex-wrap items-center gap-10">
         <Link href="/terms-and-condition" className="flex items-center gap-2 hover:text-[#8C7A6B]">
-          <span className="text-[28px] leading-none">•</span> Terms & Conditions
+          
+          <span className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
+  • Terms & Condition's
+</span>
         </Link>
         <Link href="/privacy-policy" className="flex items-center gap-2 hover:text-[#8C7A6B]">
           <span className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
