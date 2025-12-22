@@ -69,7 +69,10 @@ const Footer = () => {
           <span className="text-[28px] leading-none">•</span> Terms & Conditions
         </Link>
         <Link href="/privacy-policy" className="flex items-center gap-2 hover:text-[#8C7A6B]">
-          <span className="text-[28px] leading-none">•</span> Privacy Policy
+          <span className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
+  • Privacy Policy
+</span>
+
         </Link>
       </div>
     </div>
