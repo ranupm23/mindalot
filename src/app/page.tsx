@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Header from "@/components/Header";
 import {StaticImageData} from "next/image"
 import Link from "next/link";
+
 import arrow from "../assets/arrow.svg";
 import Homebg from "../assets/home-page/hero/rock.png";
 import line from "../assets/home-page/ourDiffrent/m1.png";
@@ -243,12 +244,10 @@ const HomeHero = () => {
   const sectionHeight = 864;
 
   return (
-    <section
-      className="relative mx-auto w-full max-w-[1440px] overflow-hidden bg-no-repeat bg-cover bg-top lg:bg-top-right transition-all"
-      style={{
-        backgroundImage: `url(${imagePath})`,
-      }}
-    >
+        <section
+  className="relative w-full overflow-hidden bg-cover bg-top lg:bg-top-right"
+  style={{ backgroundImage: `url(${imagePath})` }}
+>
       {/* CHANGE 1: 
          Removed 'min-h-screen'. 
          Used 'h-auto' for mobile so it fits content length.
@@ -1247,102 +1246,12 @@ const LastSection = () => {
           </div>
         </div>
       </div>
-      {/* =======================================
-          2. FOOTER SECTION
-          ======================================= */}
-    <footer
-      className="relative w-full text-[#5B4A3E] overflow-hidden pt-[180px] pb-16 sm:pt-[200px]"
-      style={{
-        background:
-          "linear-gradient(125.54deg, #5B4B3E -12.44%, #F6F1EB -2.52%, #E8DED4 19.98%, #ABA093 80.72%, #8A8077 101.75%)",
-      }}
-    >
-      {/* UPDATED VISIBILITY:
-        - Changed 'opacity-30' to 'opacity-60' so it is clearly visible.
-        - Added 'mix-blend-multiply' so it blends naturally with the brown gradient.
-      */}
-      <div className="absolute right-0 bottom-0 z-0 pointer-events-none opacity-60 mix-blend-multiply w-[300px] h-[350px] lg:w-[400px] lg:h-[450px]">
-        <Image 
-          src={footerBgLogo} 
-          alt="footer bg" 
-          fill 
-          className="object-contain object-right-bottom" 
-        />
-      </div>
 
-      <div className="relative z-10 mx-auto max-w-[1300px] px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_0.7fr_1.3fr_0.8fr] gap-10 lg:gap-6 text-left">
-          
-          {/* Column 1: Logo & Description */}
-          <div className="flex flex-col items-start">
-            <div className="mb-6">
-                <Image src={headerLogo} alt="Mind Alot logo" width={160} height={50} className="object-contain" />
-            </div>
-            
-            <p className="text-[15px] leading-relaxed max-w-[340px] font-medium font-inter text-[#4A3B32]">
-              Anonymous support that listens, nudges, and grows with you. When your mind feels too much, we're just a tap away.
-            </p>
-
-            <div className="mt-8 flex items-center gap-6 text-sm font-semibold text-[#4A3B32] font-inter">
-              <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B] transition-colors">
-                <span className="text-xl leading-none">•</span> Terms & Conditions
-              </Link>
-              <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B] transition-colors">
-                <span className="text-xl leading-none">•</span> Privacy Policy
-              </Link>
-            </div>
-          </div>
-
-          {/* Column 2: Company */}
-          <div className="flex flex-col items-start pt-2">
-            <h3 className="text-lg font-bold font-inter mb-6 text-[#4A3B32]">Company</h3>
-            <ul className="space-y-4 text-[15px] font-medium font-inter">
-              <li><Link href="/features" className="hover:text-[#8C7A6B] transition-colors">Features</Link></li>
-              <li><Link href="/contact" className="hover:text-[#8C7A6B] transition-colors">Contact Us</Link></li>
-              <li><Link href="/resources" className="hover:text-[#8C7A6B] transition-colors">Resources</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Contact */}
-          <div className="flex flex-col items-start pt-2 font-inter">
-            <h3 className="text-lg font-bold mb-6 text-[#4A3B32] font-inter">Contact</h3>
-            <div className="space-y-4 text-[15px] font-medium">
-              <div className="flex items-center gap-3 hover:text-[#8C7A6B] transition-colors">
-                <Mail size={18} className="text-[#5B4A3E] shrink-0" /> 
-                <a href="mailto:support@mindalot.com">support@mindalot.com</a>
-              </div>
-              
-              <div className="flex items-center gap-3 hover:text-[#8C7A6B] transition-colors">
-                <Phone size={18} className="text-[#5B4A3E] shrink-0" /> 
-                <span>+91-96062-58596</span>
-              </div>
-              
-              <div className="flex items-start gap-3 hover:text-[#8C7A6B] transition-colors">
-                <MapPin size={18} className="text-[#5B4A3E] mt-1 shrink-0" />
-                <span className="leading-snug">
-                  #122K, 1st block, 14th cross, 19th ‘B’ Main,<br />
-                  Rajajinagar, Bengaluru - 560010
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Column 4: Follow Us */}
-          <div className="flex flex-col items-start pt-2 relative">
-            <h3 className="text-lg font-bold mb-6 text-[#4A3B32] font-inter">Follow us on</h3>
-            <div className="flex gap-4">
-              <a href="#" className="hover:opacity-70 transition-opacity">
-                <Instagram size={32} strokeWidth={1.5} className="text-[#5B4A3E]" />
-              </a>
-              <a href="#" className="hover:opacity-70 transition-opacity">
-                <FaLinkedin size={32} color="#5B4A3E" />
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </footer>
+      <div className="mt-18">
+  <Footer />
+</div>
+   
+         
     </section>
   );
 };
