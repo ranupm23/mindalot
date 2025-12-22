@@ -19,7 +19,7 @@ const Footer = () => {
     <footer
       className={`
         relative w-full text-[#5B4A3E]
-        ${isHome ? "pt-24 pb-10" : "pt-20 pb-16"}
+        ${isHome ? "pt-24 pb-10" : "pt-10 pb-16"}
         bg-gradient-to-br from-[#5B4B3E] via-[#F6F1EB] via-[#E8DED4] via-[#ABA093] to-[#8A8077]
         overflow-hidden
       `}
@@ -54,11 +54,11 @@ const Footer = () => {
       <Image
         src={headerLogo}
         alt="logo"
-        width={263}
-        height={169}
+        width={233}
+        height={139}
         className="w-[263px] h-auto"
       />
-      <p className="mt-2 font-inter font-normal text-[16px] leading-[30px] tracking-[-0.03em] max-w-[300px]">
+      <p className="mt-[-30] font-inter font-normal text-[16px] leading-[30px] tracking-[-0.03em] max-w-[300px]">
   Anonymous support that listens, nudges, and grows with you. When
   your mind feels too much, we’re just a tap away.
 </p>
@@ -161,21 +161,21 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Instagram stroke="#5B4A3E" size={26} className="hover:opacity-70" />
+          <Instagram stroke="#5B4A3E" size={30} className="hover:opacity-70" />
         </a>
         <a
           href="https://www.linkedin.com/showcase/mind-a-lot/about/?viewAsMember=true"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaLinkedin color="#5B4A3E" size={26} className="hover:opacity-70" />
+          <FaLinkedin color="#5B4A3E" size={30} className="hover:opacity-70" />
         </a>
         <a
           href="https://youtube.com/@mind_alot?si=Y_E5tD3qxVunQ2e3"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IoLogoYoutube color="#5B4A3E" size={30} className="hover:opacity-70" />
+          <IoLogoYoutube color="#5B4A3E" size={35} className="hover:opacity-70" />
         </a>
       </div>
     </div>
