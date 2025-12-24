@@ -10,7 +10,7 @@ const menuItems = [
   { name: "Home", path: "/" },
   { name: "For Educational Institutions", path: "/university" },
   { name: "For Corporates", path: "/corporates" },
-  { name: "Features", path: "/#features" },
+  { name: "Features", path: "/features" },
   { name: "Resources", path: "/resource" },
   { name: "Contact", path: "/contact" },
 ];
