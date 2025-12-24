@@ -1189,7 +1189,7 @@ const LastSection = () => {
                 fill
                 className="object-cover object-bottom"
                 // FIX: Increased scale to 1.2 to ensure the top edge covers the background color
-                style={{ transform: "scale(1.2) translateY(35px)" }} 
+                style={{ transform: "scale(1.2) translateY(30px)" }} 
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/20" /> 
@@ -1221,7 +1221,7 @@ const LastSection = () => {
                 </a>
 
                 {/* Button 2 */}
-                <a href="https://discord.com/" target="_blank" rel="noopener noreferrer" className="no-underline">
+                <a href="https://apps.apple.com/in/app/zenit-edu/id6748683332" target="_blank" rel="noopener noreferrer" className="no-underline">
                   <div className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer">
                     <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">Partner With Us</span>
                     <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
@@ -1232,7 +1232,7 @@ const LastSection = () => {
                 </a>
 
                 {/* Button 3 */}
-                <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" className="no-underline">
+                <a href="https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="no-underline">
                   <div className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer">
                     <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">Download App</span>
                     <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
