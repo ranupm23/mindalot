@@ -40,10 +40,10 @@ const FeatureHome = () => {
       {/* Button */}
       {/* The button container is now relative to the flex flow (using margin-top), 
           but the insides remain absolute as per your specific design. */}
-      <button className="mt-12 md:mt-[145px] w-[235px] h-[60px] rounded-[30px] border border-[#5B4A3E] bg-[#F6F2EB] relative hover:opacity-95 transition-opacity group">
+      <button className="mt-12 md:mt-[145px] w-[235px] h-[60px] rounded-[30px] border border-[#5B4A3E] bg-[#F6F2EB] hover:bg-[#5C4737] relative hover:opacity-95 transition-opacity group">
         
         {/* Text */}
-        <span className="absolute top-[20px] left-[20px] font-['Nunito_Sans'] font-medium text-[18px] leading-[100%] tracking-normal text-[#5B4A3E]">
+        <span className="absolute top-[20px] left-[20px] font-['Nunito_Sans'] font-medium text-[18px] leading-[100%] tracking-normal text-[#5B4A3E] group-hover:text-white">
           Click to explore
         </span>
 
@@ -52,7 +52,7 @@ const FeatureHome = () => {
           <Image
             src={arrow}
             alt="Arrow"
-            className="w-[20px] h-[20px] object-contain"
+            className="w-[20px] h-[20px] object-contain transition-transform duration-300 group-hover:rotate-45"
           />
         </div>
         
@@ -257,18 +257,18 @@ const FeatureLast = () => {
       </p>
       
       {/* Button */}
-      <button className="relative w-[255px] md:w-[255px] h-[60px] rounded-[30px] border border-[#5B4A3E] bg-[#F6F2EB] inline-flex items-center justify-center pl-6 pr-16 md:pl-5 md:pr-12 whitespace-nowrap overflow-hidden">
+      <button className="group relative w-[255px] md:w-[255px] h-[60px] rounded-[30px] border border-[#5B4A3E] bg-[#F6F2EB] hover:bg-[#5C4737] inline-flex items-center justify-center pl-6 pr-16 md:pl-5 md:pr-12 whitespace-nowrap overflow-hidden">
         {/* Button Text */}
-        <span className="font-['Nunito_Sans'] font-medium text-[16px] md:text-[18px] leading-[100%] text-[#5B4A3E] whitespace-nowrap">
+        <span className="font-['Nunito_Sans'] font-medium text-[16px] md:text-[18px] leading-[100%] text-[#5B4A3E] whitespace-nowrap group-hover:text-white">
           Download the app
         </span>
 
         {/* Circle with Arrow */}
-        <div className="absolute right-1 top-1 md:right-1 md:top-[3px] w-[50px] h-[50px] md:w-[50px] md:h-[50px] rounded-full bg-white flex items-center justify-center">
+        <div className="absolute right-1 top-1 md:right-1 md:top-[3px] w-[50px] h-[50px] md:w-[50px] md:h-[50px] rounded-full bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
           <Image
             src={arrow}
             alt="arrow"
-            className="w-4 h-4"
+            className="w-4 h-4 transition-transform duration-300 group-hover:rotate-45"
           />
         </div>
       </button>
@@ -276,13 +276,6 @@ const FeatureLast = () => {
     </section>
   );
 };
-
-
-
-
-
-
-
 
     return(
         <>
