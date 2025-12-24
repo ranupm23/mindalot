@@ -1210,7 +1210,7 @@ const LastSection = () => {
                 fill
                 className="object-cover object-bottom"
                 // FIX: Increased scale to 1.2 to ensure the top edge covers the background color
-                style={{ transform: "scale(1.2) translateY(30px)" }} 
+                style={{ transform: "scale(1.2) translateY(35px)" }} 
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/20" /> 
@@ -1242,7 +1242,9 @@ const LastSection = () => {
                 </a>
 
                 {/* Button 2 */}
-                <a href="https://apps.apple.com/in/app/zenit-edu/id6748683332" target="_blank" rel="noopener noreferrer" className="no-underline">
+                <a href="mailto:support@mindalot.care"
+ 
+  target="_blank" rel="noopener noreferrer" className="no-underline">
                   <div className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer">
                     <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">Partner With Us</span>
                     <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
@@ -1253,43 +1255,28 @@ const LastSection = () => {
                 </a>
 
                 {/* Button 3 */}
-                <a href="https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="no-underline">
-                  <div className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer">
-                    <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">Download App</span>
-                    <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
-                        <Image src={newarrow} alt="arrow" className="w-4 h-4 block group-hover:hidden" />
-                        <Image src={blackarrow} alt="arrow" className="w-4 h-4 hidden group-hover:block" />
-                    </div>
-                  </div>
-                </a>
+              <button
+  type="button"
+  onClick={redirectToAppStore}
+  className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer"
+>
+  <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">
+    Download App
+  </span>
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* =======================================
-          2. FOOTER SECTION
-          ======================================= */}
-    <footer
-      className="relative w-full text-[#5B4A3E] overflow-hidden pt-[180px] pb-16 sm:pt-[200px]"
-      style={{
-        background:
-          "linear-gradient(125.54deg, #5B4B3E -12.44%, #F6F1EB -2.52%, #E8DED4 19.98%, #ABA093 80.72%, #8A8077 101.75%)",
-      }}
-    >
-      {/* UPDATED VISIBILITY:
-        - Changed 'opacity-30' to 'opacity-60' so it is clearly visible.
-        - Added 'mix-blend-multiply' so it blends naturally with the brown gradient.
-      */}
-      <div className="absolute right-0 bottom-0 z-0 pointer-events-none opacity-60 mix-blend-multiply w-[300px] h-[350px] lg:w-[400px] lg:h-[450px]">
-        <Image 
-          src={footerBgLogo} 
-          alt="footer bg" 
-          fill 
-          className="object-contain object-right-bottom" 
-        />
-      </div>
+  <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
+    <Image
+      src={newarrow}
+      alt="arrow"
+      className="w-4 h-4 block group-hover:hidden"
+    />
+    <Image
+      src={blackarrow}
+      alt="arrow"
+      className="w-4 h-4 hidden group-hover:block"
+    />
+  </div>
+</button>
 
 
               </div>
@@ -1319,7 +1306,6 @@ return (
     </>
   );
 }
-
 
 
 
