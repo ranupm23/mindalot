@@ -23,7 +23,8 @@ export default function CorporatePage() {
       
 <Header />
       {/* HERO SECTION */}
-      <section className="w-full bg-[#FDFDFD] pt-[30px] pb-[60px] px-20">
+      <section className="w-full bg-[#FDFDFD] pt-4 pb-6 sm:pt-[30px] sm:pb-[70px] px-4 sm:px-10 lg:px-20">
+
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[80px] items-start">
           
           {/* LEFT TEXT */}
@@ -293,7 +294,7 @@ export default function CorporatePage() {
         >
           <div className="bg-[#F8F8F8] rounded-[15px] w-full h-full flex flex-col justify-between p-4">
             {/* ICON TOP LEFT */}
-            <div className="w-[75px] h-[75px] mx-auto sm:mx-0">
+            {/* <div className="w-[75px] h-[75px] mx-auto sm:mx-0">
               <Image
                 src={card.icon}
                 width={75}
@@ -301,7 +302,17 @@ export default function CorporatePage() {
                 alt={card.title}
                 className="object-contain"
               />
-            </div>
+            </div> */}
+            <div className="w-[48px] h-[48px] sm:w-[60px] sm:h-[60px] lg:w-[75px] lg:h-[75px] mx-auto sm:mx-0">
+  <Image
+    src={card.icon}
+    width={75}
+    height={75}
+    alt={card.title}
+    className="w-full h-full object-contain"
+  />
+</div>
+
 
             {/* TITLE AND TEXT BOTTOM */}
             <div className="mt-4 sm:mt-auto text-center sm:text-left">

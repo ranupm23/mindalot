@@ -19,7 +19,7 @@ const Footer = () => {
     <footer
       className={`
         relative w-full text-[#5B4A3E]
-        ${isHome ? "pt-24 pb-10" : "pt-20 pb-16"}
+        ${isHome ? "pt-24 pb-10" : "pt-10 pb-16"}
         bg-gradient-to-br from-[#5B4B3E] via-[#F6F1EB] via-[#E8DED4] via-[#ABA093] to-[#8A8077]
         overflow-hidden
       `}
@@ -54,77 +54,128 @@ const Footer = () => {
       <Image
         src={headerLogo}
         alt="logo"
-        width={263}
-        height={169}
+        width={233}
+        height={139}
         className="w-[263px] h-auto"
       />
-      <p className="mt-2 text-[15px] leading-relaxed max-w-[300px]">
-        Anonymous support that listens, nudges, and grows with you. When
-        your mind feels too much, we’re just a tap away.
-      </p>
+      <p className="mt-[-30] font-inter font-normal text-[16px] leading-[30px] tracking-[-0.03em] max-w-[300px]">
+  Anonymous support that listens, nudges, and grows with you. When
+  your mind feels too much, we’re just a tap away.
+</p>
+
 
       <div className="mt-16 flex flex-wrap items-center gap-10">
         <Link href="/terms-and-condition" className="flex items-center gap-2 hover:text-[#8C7A6B]">
-          <span className="text-[28px] leading-none">•</span> Terms & Conditions
+          
+          <span className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
+  • Terms & Condition's
+</span>
         </Link>
         <Link href="/privacy-policy" className="flex items-center gap-2 hover:text-[#8C7A6B]">
-          <span className="text-[28px] leading-none">•</span> Privacy Policy
+          <span className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
+  • Privacy Policy
+</span>
+
         </Link>
       </div>
     </div>
 
     {/* COMPANY SECTION */}
     <div className="flex flex-col justify-start mt-16">
-      <h3 className="text-lg font-sans font-medium text-[20px]">Company</h3>
-      <ul className="flex flex-col gap-3 text-[16px] mt-2">
-        <li><Link href="/features" className="hover:text-[#8C7A6B]">Features</Link></li>
-        <li><Link href="/contact" className="hover:text-[#8C7A6B]">Contact Us</Link></li>
-        <li><Link href="/resource" className="hover:text-[#8C7A6B]">Resources</Link></li>
-      </ul>
+      <h3
+  className="
+    font-inter
+    font-medium
+    text-[20px]
+    leading-[100%]
+    tracking-[-0.03em]
+  "
+>
+  Company
+</h3>
+
+   <ul className="flex flex-col gap-4 mt-6 font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
+  <li>
+    <Link href="/features" className="hover:text-[#8C7A6B]">
+      Features
+    </Link>
+  </li>
+  <li>
+    <Link href="/contact" className="hover:text-[#8C7A6B]">
+      Contact Us
+    </Link>
+  </li>
+  <li>
+    <Link href="/resource" className="hover:text-[#8C7A6B]">
+      Resources
+    </Link>
+  </li>
+</ul>
+
     </div>
 
     {/* CONTACT SECTION */}
     <div className="flex flex-col justify-start mt-16 max-w-[320px]">
-      <h3 className="text-lg  font-sans font-medium text-[20px]">Contact</h3>
-      <div className="flex flex-col gap-4 text-[16px] mt-2">
-        <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
-          <Mail size={18} stroke="#5B4A3E" /> info@mindalot.care
-        </div>
-        <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
-          <Phone size={18} stroke="#5B4A3E" /> +91-96062-58596
-        </div>
-        <div className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight">
-          <MapPin size={18} stroke="#5B4A3E" />
-          #122K, 1st block, 14th cross, 19th 'B' Main,<br />
-          Rajajinagar, Bengaluru – 560010
-        </div>
-      </div>
-    </div>
-
+      <h3
+  className="
+    font-inter
+    font-medium
+    text-[20px]
+    leading-[100%]
+    tracking-[-0.03em]
+  "
+>
+  Contact
+</h3>
+<div className="flex flex-col gap-4 mt-6 font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
+  <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
+    <Mail size={18} stroke="#5B4A3E" /> info@mindalot.care
+  </div>
+  <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
+    <Phone size={18} stroke="#5B4A3E" /> +91-96062-58596
+  </div>
+  <div className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight">
+    <MapPin size={18} stroke="#5B4A3E" />
+    #122K, 1st block, 14th cross, 19th 'B' Main,<br />
+    Rajajinagar, Bengaluru – 560010
+  </div>
+</div>
+</div>
     {/* SOCIAL MEDIA */}
     <div className="flex flex-col justify-start mt-16 -ml-[-8]">
-      <h3 className="text-lg font-sans font-medium text-[20px]">Follow us on</h3>
-      <div className="flex items-center gap-4 mt-2">
+      <h3
+  className="
+    font-inter
+    font-medium
+    text-[20px]
+    leading-[100%]
+    tracking-[-0.03em]
+  "
+>
+  Follow us on
+</h3>
+
+      <div className="flex items-center gap-4 mt-6">
         <a
           href="https://www.instagram.com/mind.alot?igsh=dWh5bGNtc3JoYTNs"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Instagram stroke="#5B4A3E" size={26} className="hover:opacity-70" />
+          <Instagram stroke="#5B4A3E" size={30} className="hover:opacity-70" />
         </a>
         <a
           href="https://www.linkedin.com/showcase/mind-a-lot/about/?viewAsMember=true"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaLinkedin color="#5B4A3E" size={26} className="hover:opacity-70" />
+          <FaLinkedin color="#5B4A3E" size={30} className="hover:opacity-70" />
         </a>
         <a
           href="https://youtube.com/@mind_alot?si=Y_E5tD3qxVunQ2e3"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IoLogoYoutube color="#5B4A3E" size={30} className="hover:opacity-70" />
+          <IoLogoYoutube color="#5B4A3E" size={35} className="hover:opacity-70" />
         </a>
       </div>
     </div>

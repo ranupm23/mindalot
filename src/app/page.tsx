@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Header from "@/components/Header";
 import {StaticImageData} from "next/image"
 import Link from "next/link";
+
 import arrow from "../assets/arrow.svg";
 import Homebg from "../assets/home-page/hero/rock.png";
 import line from "../assets/home-page/ourDiffrent/m1.png";
@@ -57,6 +58,32 @@ import footerBgLogo from "@/assets/footer-assets/footer-background-logo.png";
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
+
+
+// Redirect based on device
+const redirectToAppStore = () => {
+  if (typeof window === "undefined") return;
+
+  const userAgent = navigator.userAgent || navigator.vendor;
+
+  // iOS devices
+  if (/iPad|iPhone|iPod/.test(userAgent)) {
+    window.location.href =
+      "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+    return;
+  }
+
+  // Android devices
+  if (/android/i.test(userAgent)) {
+    window.location.href =
+      "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+    return;
+  }
+
+  // Desktop fallback
+  window.location.href =
+    "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+};
 
 
 
@@ -243,12 +270,10 @@ const HomeHero = () => {
   const sectionHeight = 864;
 
   return (
-    <section
-      className="relative mx-auto w-full max-w-[1440px] overflow-hidden bg-no-repeat bg-cover bg-top lg:bg-top-right transition-all"
-      style={{
-        backgroundImage: `url(${imagePath})`,
-      }}
-    >
+        <section
+  className="relative w-full overflow-hidden bg-cover bg-top lg:bg-top-right"
+  style={{ backgroundImage: `url(${imagePath})` }}
+>
       {/* CHANGE 1: 
          Removed 'min-h-screen'. 
          Used 'h-auto' for mobile so it fits content length.
@@ -343,35 +368,30 @@ const HomeHero = () => {
           {/* BUTTONS */}
           <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-[20px] w-full lg:w-[467px] lg:h-[60px] lg:absolute lg:top-[725px] lg:left-[490px] z-30">
             
-            {/* Button 1 */}
-            <a
-              href="https://apps.apple.com/in/app/zenit-edu/id6748683332"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="no-underline"
-            >
-              <button
-                className="group relative flex items-center justify-start font-nunito transition-all duration-300 w-[280px] lg:w-[212px] h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent text-[#F6F2EB] text-[16px] font-medium leading-[100%] tracking-[-0.03em] cursor-pointer pl-[30px] hover:bg-[#5C4737] hover:border-transparent"
-              >
-                Start chat now
-                <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[3px] right-[5px] lg:left-[155px] bg-[#F6F2EB] rounded-full">
-                  <Image
-                    src={blackarrow}
-                    alt="arrow"
-                    style={{ width: "20px", height: "20px" }}
-                  />
-                </div>
-              </button>
-            </a>
+           {/* WhatsApp Chat Button */}
+<a
+  href="https://wa.me/919606258596?text=Hello%20Mindalot%20Team"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="no-underline"
+>
+  <button
+    className="group relative flex items-center justify-start font-nunito transition-all duration-300 w-[280px] lg:w-[212px] h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent text-[#F6F2EB] text-[16px] font-medium leading-[100%] tracking-[-0.03em] cursor-pointer pl-[30px] hover:bg-[#5C4737] hover:border-transparent"
+  >
+    Start chat now
+    <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[3px] right-[5px] lg:left-[155px] bg-[#F6F2EB] rounded-full">
+      <Image
+        src={blackarrow}
+        alt="arrow"
+        style={{ width: "20px", height: "20px" }}
+      />
+    </div>
+  </button>
+</a>
 
             {/* Button 2 */}
-            <a
-              href="https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="no-underline"
-            >
-              <button
+           
+              <button onClick={redirectToAppStore}
                 className="group relative flex items-center font-nunito transition-all duration-300 w-[280px] lg:w-[235px] h-[60px] rounded-[30px] bg-[#F6F2EB] border-none cursor-pointer hover:bg-[#5C4737]"
               >
                 <span
@@ -387,7 +407,7 @@ const HomeHero = () => {
                   />
                 </div>
               </button>
-            </a>
+            
           </div>
 
         </div>
@@ -814,10 +834,11 @@ const Features = () => {
           {/* RIGHT COLUMN LIST */}
           <div className="flex flex-col w-full">
             <div className="w-full lg:pr-[50px]"> 
-              <FeatureItem iconSrc={featureIcon5} altText="Video" title="Expert Videos, Podcasts, and Content Drops" />
+               <FeatureItem iconSrc={featureIcon8} altText="Anon" title="100% Anonymity Guaranteed" />
               <FeatureItem iconSrc={featureIcon6} altText="Lang" title="Works Across Countries & Languages" />
-              <FeatureItem iconSrc={featureIcon7} altText="Hospital" title="Escalation To Partner Hospitals For Psychiatric Care" />
-              <FeatureItem iconSrc={featureIcon8} altText="Anon" title="100% Anonymity Guaranteed" isLast />
+              <FeatureItem iconSrc={featureIcon7} altText="Hospital" title="Escalation To Partner Hospitals For Psychiatric Care"  />
+           
+                <FeatureItem iconSrc={featureIcon5} altText="Video" title="Expert Videos, Podcasts, and Content Drops" isLast />
             </div>
           </div>
 
@@ -1210,7 +1231,7 @@ const LastSection = () => {
               <div className="flex flex-wrap justify-center gap-4 w-full">
                 
                 {/* Button 1 */}
-                <a href="mailto:hello@mindalot.com" className="no-underline">
+                <a href="tel:+919606258596" className="no-underline">
                   <div className="group relative w-[212px] h-[54px] rounded-[30px] border-2 border-[#F6F2EB] flex items-center bg-transparent transition-all duration-300 hover:bg-[#5C4737] hover:border-[#5C4737] cursor-pointer">
                     <span className="pl-6 text-[#F6F2EB] font-inter font-medium text-[15px]">Talk To Our Team</span>
                     <div className="absolute right-[5px] w-[44px] h-[44px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:rotate-45">
@@ -1270,79 +1291,18 @@ const LastSection = () => {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1300px] px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_0.7fr_1.3fr_0.8fr] gap-10 lg:gap-6 text-left">
-          
-          {/* Column 1: Logo & Description */}
-          <div className="flex flex-col items-start">
-            <div className="mb-6">
-                <Image src={headerLogo} alt="Mind Alot logo" width={160} height={50} className="object-contain" />
-            </div>
-            
-            <p className="text-[15px] leading-relaxed max-w-[340px] font-medium font-inter text-[#4A3B32]">
-              Anonymous support that listens, nudges, and grows with you. When your mind feels too much, we're just a tap away.
-            </p>
 
-            <div className="mt-8 flex items-center gap-6 text-sm font-semibold text-[#4A3B32] font-inter">
-              <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B] transition-colors">
-                <span className="text-xl leading-none">•</span> Terms & Conditions
-              </Link>
-              <Link href="#" className="flex items-center gap-2 hover:text-[#8C7A6B] transition-colors">
-                <span className="text-xl leading-none">•</span> Privacy Policy
-              </Link>
-            </div>
-          </div>
-
-          {/* Column 2: Company */}
-          <div className="flex flex-col items-start pt-2">
-            <h3 className="text-lg font-bold font-inter mb-6 text-[#4A3B32]">Company</h3>
-            <ul className="space-y-4 text-[15px] font-medium font-inter">
-              <li><Link href="/features" className="hover:text-[#8C7A6B] transition-colors">Features</Link></li>
-              <li><Link href="/contact" className="hover:text-[#8C7A6B] transition-colors">Contact Us</Link></li>
-              <li><Link href="/resources" className="hover:text-[#8C7A6B] transition-colors">Resources</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Contact */}
-          <div className="flex flex-col items-start pt-2 font-inter">
-            <h3 className="text-lg font-bold mb-6 text-[#4A3B32] font-inter">Contact</h3>
-            <div className="space-y-4 text-[15px] font-medium">
-              <div className="flex items-center gap-3 hover:text-[#8C7A6B] transition-colors">
-                <Mail size={18} className="text-[#5B4A3E] shrink-0" /> 
-                <a href="mailto:support@mindalot.com">support@mindalot.com</a>
-              </div>
-              
-              <div className="flex items-center gap-3 hover:text-[#8C7A6B] transition-colors">
-                <Phone size={18} className="text-[#5B4A3E] shrink-0" /> 
-                <span>+91-96062-58596</span>
-              </div>
-              
-              <div className="flex items-start gap-3 hover:text-[#8C7A6B] transition-colors">
-                <MapPin size={18} className="text-[#5B4A3E] mt-1 shrink-0" />
-                <span className="leading-snug">
-                  #122K, 1st block, 14th cross, 19th ‘B’ Main,<br />
-                  Rajajinagar, Bengaluru - 560010
-                </span>
               </div>
             </div>
           </div>
-
-          {/* Column 4: Follow Us */}
-          <div className="flex flex-col items-start pt-2 relative">
-            <h3 className="text-lg font-bold mb-6 text-[#4A3B32] font-inter">Follow us on</h3>
-            <div className="flex gap-4">
-              <a href="#" className="hover:opacity-70 transition-opacity">
-                <Instagram size={32} strokeWidth={1.5} className="text-[#5B4A3E]" />
-              </a>
-              <a href="#" className="hover:opacity-70 transition-opacity">
-                <FaLinkedin size={32} color="#5B4A3E" />
-              </a>
-            </div>
-          </div>
-
         </div>
       </div>
-    </footer>
+
+      <div className="mt-18">
+  <Footer />
+</div>
+   
+         
     </section>
   );
 };

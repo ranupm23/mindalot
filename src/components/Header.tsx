@@ -44,11 +44,8 @@ export default function Header({ textWhite = false }) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const linkTextClass = textWhite ? "text-[#F6F2EB]" : "text-[#5B4A3E]";
-
   return (
-   <header className="w-full h-[90px] relative z-10 flex items-center justify-center bg-transparent transition-colors duration-300">
-
+    <header className="w-full h-[90px] relative z-10 flex items-center justify-center bg-transparent transition-colors duration-300">
       <div className="w-[1440px] h-[90px] flex items-center justify-between px-[75px]">
         {/* LOGO */}
         <Link href="/">
@@ -70,9 +67,9 @@ export default function Header({ textWhite = false }) {
               <Link
                 key={item.path}
                 href={item.path}
-                className={`${linkTextClass} font-inter text-[18px] whitespace-nowrap ${
+                className={`font-inter text-[18px] whitespace-nowrap transition-colors duration-200 ${
                   isActive ? "font-bold" : "font-normal"
-                } transition-colors duration-200`}
+                } ${textWhite ? "text-[#F6F2EB]" : "text-[#5B4A3E]"}`}
               >
                 {item.name}
               </Link>
@@ -80,7 +77,7 @@ export default function Header({ textWhite = false }) {
           })}
         </nav>
 
-        {/* JOIN NOW BUTTON */}
+        {/* JOIN NOW BUTTON for large screens */}
         <div className="hidden md:flex">
           <button
             onClick={redirectToAppStore}
@@ -95,19 +92,14 @@ export default function Header({ textWhite = false }) {
               lineHeight: "100%",
             }}
           >
-            {/* Hover background */}
-            <span
-              className="absolute inset-0 bg-[#5B4A3E] rounded-[30px] opacity-0 scale-x-50 group-hover:opacity-100 group-hover:scale-x-155 origin-center transition-all duration-1000 ease-in-out"
-            />
-
-            {/* Text */}
+            <span className="absolute inset-0 bg-[#5B4A3E] rounded-[30px] opacity-0 scale-x-50 group-hover:opacity-100 group-hover:scale-x-155 origin-center transition-all duration-1000 ease-in-out" />
             <span className="relative z-10 text-[#5B4A3E] group-hover:text-[#F6F2EB] transition-colors duration-1000 ease-in-out">
               Join now
             </span>
           </button>
         </div>
 
-        {/* Hamburger Menu */}
+        {/* Hamburger Menu for mobile */}
         <div className="md:hidden flex items-center gap-4">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div className="w-6 h-0.5 bg-current mb-1"></div>
@@ -127,7 +119,7 @@ export default function Header({ textWhite = false }) {
               onClick={() => setIsMenuOpen(false)}
               className={`font-inter text-[16px] ${
                 pathname === item.path ? "font-bold" : "font-normal"
-              } ${linkTextClass}`}
+              } text-black`} // always black on mobile
             >
               {item.name}
             </Link>
@@ -147,9 +139,7 @@ export default function Header({ textWhite = false }) {
               lineHeight: "100%",
             }}
           >
-            <span
-              className="absolute inset-0 bg-[#5B4A3E] rounded-[30px] opacity-0 scale-x-50 group-hover:opacity-100 group-hover:scale-x-155 origin-center transition-all duration-1000 ease-in-out"
-            />
+            <span className="absolute inset-0 bg-[#5B4A3E] rounded-[30px] opacity-0 scale-x-50 group-hover:opacity-100 group-hover:scale-x-155 origin-center transition-all duration-1000 ease-in-out" />
             <span className="relative z-10 text-[#5B4A3E] group-hover:text-[#F6F2EB] transition-colors duration-1000 ease-in-out">
               Join now
             </span>
