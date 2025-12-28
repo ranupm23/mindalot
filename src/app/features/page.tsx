@@ -72,65 +72,35 @@ const FeatureHome = () => {
   );
 };
 
-
 const FeatureOffer = () => {
   const [activeStep, setActiveStep] = useState(0);
 
-  // --- Scroll Listener for Animation ---
+  // --- Scroll Listener ---
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       
-      // Thresholds aligned with your Text positions (Text2 starts ~930px, Text3 ~1118px, etc.)
-      if (scrollY < 850) {
-        setActiveStep(0);
-      } else if (scrollY < 1050) {
-        setActiveStep(1);
-      } else if (scrollY < 1250) {
-        setActiveStep(2);
-      } else if (scrollY < 1450) {
-        setActiveStep(3);
-      } else {
-        setActiveStep(4); // Stays on Image 5 for the remaining text items
-      }
+      // Thresholds based on your text positions
+      if (scrollY < 850) setActiveStep(0);
+      else if (scrollY < 1050) setActiveStep(1);
+      else if (scrollY < 1250) setActiveStep(2);
+      else if (scrollY < 1450) setActiveStep(3);
+      else setActiveStep(4);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
-  // --- Helper to generate dynamic styles without breaking existing layout ---
-  const getAnimStyle = (index) => {
-    // 1. Calculate Shift: Move stack up by 90px per step
-    //    Image spacing is 90px (930 - 840 = 90). 
-    //    To replace Image 1 with Image 2, we shift everything up by 90px.
-    const translateY = -(activeStep * 90);
-
-    // 2. Calculate Opacity: 
-    //    If the image is "past" (index < activeStep), fade it out.
-    //    Otherwise, it's visible.
-    const opacity = index < activeStep ? 0 : 1;
-
-    // 3. Scale Effect (Optional polish): 
-    //    Past images shrink slightly as they fade out
-    const scale = index < activeStep ? 0.9 : 1;
-
-    return {
-      transform: `translateY(${translateY}px) scale(${scale})`,
-      opacity: opacity,
-      transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)', // Smooth smooth easing
-    };
-  };
-
-
-  // --- Styling Constants (UNTOUCHED) ---
+  // --- Styling Constants ---
   const baseImgStyle = "absolute left-[96px] w-[538px] h-[500px] rounded-[20px] object-cover shadow-2xl";
   const stackBorder = "border-[4px] border-white";
   const numStyle = "font-['Inter'] font-semibold text-[24px] leading-[100%] tracking-[-0.03em] text-right text-[#755840]";
   const titleStyle = "font-['Inter'] font-semibold text-[50px] leading-[100%] tracking-[-0.03em] text-[#5C4737]";
   const descStyle = "font-['Inter'] font-medium text-[18px] leading-[35px] tracking-[-0.03em] text-[#6D6D6F]";
 
+  // Shared transition string to keep JSX clean
+  const transitionStyle = "all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)";
 
   return (
     <section className="w-full">
@@ -148,12 +118,13 @@ const FeatureOffer = () => {
             </div>
           </div>
         <div className="mt-[-50] space-y-6">
-           {/* (Mobile Text content omitted for brevity - kept consistent) */}
-           {/* ... Paste your mobile text content here if needed ... */}
+           {/* Mobile Text items... */}
+           <div><div className="text-[20px] font-semibold text-[#755840]">01</div><h3 className="text-[22px] font-semibold text-[#5C4737]">Live chat counselling</h3><p className="text-[16px] text-[#6D6D6F]">Connect instantly with trained professionals available 24/7...</p></div>
+           {/* ... (Add other mobile texts if needed) ... */}
         </div>
       </div>
 
-      {/* DESKTOP: Layout classes remain exactly as provided */}
+      {/* DESKTOP */}
       <div className="hidden md:block w-full h-[230vh]">
         
         {/* ==========================
@@ -163,96 +134,107 @@ const FeatureOffer = () => {
           Features we offer !
         </h2>
 
-        {/* --- Image 1 --- */}
+        {/* --- Image 1 (Index 0) --- */}
         <Image
           src={fea1}
           alt="Feature Highlight 1"
-          // Original Classes Kept
-          className={`${baseImgStyle} top-[840px] z-50 reveal-on-scroll fade-slide`}
-          // Added Animation Style
-          style={{ ...getAnimStyle(0) }} 
+          className={`${baseImgStyle} top-[840px] z-50`}
+          style={{ 
+            transform: `translateY(-${activeStep * 90}px) scale(${0 < activeStep ? 0.9 : 1})`,
+            opacity: 0 < activeStep ? 0 : 1,
+            transition: transitionStyle
+          }} 
         />
         
-        {/* --- Image 2 --- */}
+        {/* --- Image 2 (Index 1) --- */}
         <Image
           src={fea2}
           alt="Feature Highlight 2"
-          className={`${baseImgStyle} ${stackBorder} top-[930px] z-40 reveal-on-scroll fade-slide`}
-          style={{ ...getAnimStyle(1) }}
+          className={`${baseImgStyle} ${stackBorder} top-[930px] z-40`}
+          style={{ 
+            transform: `translateY(-${activeStep * 90}px) scale(${1 < activeStep ? 0.9 : 1})`,
+            opacity: 1 < activeStep ? 0 : 1,
+            transition: transitionStyle
+          }}
         />
         
-        {/* --- Image 3 --- */}
+        {/* --- Image 3 (Index 2) --- */}
         <Image
           src={fea3}
           alt="Feature Highlight 3"
-          className={`${baseImgStyle} ${stackBorder} top-[1020px] z-30 reveal-on-scroll fade-slide`}
-          style={{ ...getAnimStyle(2) }}
+          className={`${baseImgStyle} ${stackBorder} top-[1020px] z-30`}
+          style={{ 
+            transform: `translateY(-${activeStep * 90}px) scale(${2 < activeStep ? 0.9 : 1})`,
+            opacity: 2 < activeStep ? 0 : 1,
+            transition: transitionStyle
+          }}
         />
         
-        {/* --- Image 4 --- */}
+        {/* --- Image 4 (Index 3) --- */}
         <Image
           src={fea4}
           alt="Feature Highlight 4"
-          className={`${baseImgStyle} ${stackBorder} top-[1110px] z-20 reveal-on-scroll fade-slide`}
-          style={{ ...getAnimStyle(3) }}
+          className={`${baseImgStyle} ${stackBorder} top-[1110px] z-20`}
+          style={{ 
+            transform: `translateY(-${activeStep * 90}px) scale(${3 < activeStep ? 0.9 : 1})`,
+            opacity: 3 < activeStep ? 0 : 1,
+            transition: transitionStyle
+          }}
         />
         
-        {/* --- Image 5 --- */}
+        {/* --- Image 5 (Index 4) --- */}
         <Image
           src={fea5}
           alt="Feature Highlight 5"
-          className={`${baseImgStyle} ${stackBorder} top-[1200px] z-10 reveal-on-scroll fade-slide`}
-          style={{ ...getAnimStyle(4) }}
+          className={`${baseImgStyle} ${stackBorder} top-[1200px] z-10`}
+          style={{ 
+            transform: `translateY(-${activeStep * 90}px) scale(${4 < activeStep ? 0.9 : 1})`,
+            opacity: 4 < activeStep ? 0 : 1, // Stays visible
+            transition: transitionStyle
+          }}
         />
 
 
         {/* ==========================
-            RIGHT SIDE: TEXT CONTENT (Exactly as provided)
+            RIGHT SIDE: TEXT CONTENT (UNCHANGED)
            ========================== */}
 
-        {/* --- 01 --- */}
         <div className={`absolute top-[752px] left-[689px] w-[27px] h-[29px] ${numStyle}`}>01</div>
         <h3 className={`absolute top-[744px] left-[736px] w-[479px] h-[61px] ${titleStyle}`}>Live chat counselling</h3>
         <p className={`absolute top-[815px] left-[736px] w-[613px] h-[70px] ${descStyle}`}>
           Connect instantly with trained professionals available 24/7, offering real-time emotional support without any waiting or delays.
         </p>
 
-        {/* --- 02 --- */}
         <div className={`absolute top-[939px] left-[685px] w-[31px] h-[29px] ${numStyle}`}>02</div>
         <h3 className={`absolute top-[931px] left-[736px] w-[351px] h-[61px] ${titleStyle}`}>Anonymity first</h3>
         <p className={`absolute top-[1002px] left-[736px] w-[613px] h-[70px] ${descStyle}`}>
           Your privacy comes first — use your chosen name at all times. Counsellors never see your personal details or identity.
         </p>
 
-        {/* --- 03 --- */}
         <div className={`absolute top-[1126px] left-[685px] w-[31px] h-[29px] ${numStyle}`}>03</div>
         <h3 className={`absolute top-[1118px] left-[736px] w-[426px] h-[61px] ${titleStyle}`}>Goal-based nudge</h3>
         <p className={`absolute top-[1189px] left-[736px] w-[613px] h-[70px] ${descStyle}`}>
           Set simple, achievable wellness goals and receive thoughtful nudges. Daily push notifications help you stay mindful and consistent.
         </p>
 
-        {/* --- 04 --- */}
         <div className={`absolute top-[1313px] left-[684px] w-[32px] h-[29px] ${numStyle}`}>04</div>
         <h3 className={`absolute top-[1305px] left-[736px] w-[307px] h-[61px] ${titleStyle}`}>Mood tracker</h3>
         <p className={`absolute top-[1376px] left-[736px] w-[613px] h-[70px] ${descStyle}`}>
           Just tap and express how you feel — no overthinking or long forms. Get the right support without judgment or analysis paralysis.
         </p>
 
-        {/* --- 05 --- */}
         <div className={`absolute top-[1500px] left-[685px] w-[31px] h-[29px] ${numStyle}`}>05</div>
         <h3 className={`absolute top-[1492px] left-[736px] w-[413px] h-[61px] ${titleStyle}`}>Self-assessments</h3>
         <p className={`absolute top-[1563px] left-[736px] w-[613px] h-[70px] ${descStyle}`}>
           Take quick, reflective assessments to track how you’re really doing. Each check-in gives you insight to understand your mind better.
         </p>
 
-        {/* --- 06 --- */}
         <div className={`absolute top-[1687px] left-[685px] w-[31px] h-[29px] ${numStyle}`}>06</div>
         <h3 className={`absolute top-[1679px] left-[736px] w-[286px] h-[61px] ${titleStyle}`}>Content hub</h3>
         <p className={`absolute top-[1750px] left-[736px] w-[613px] h-[70px] ${descStyle}`}>
           Explore a world of expert videos, podcasts, and blogs crafted to uplift you. Learn, reflect, and grow at your own pace.
         </p>
 
-        {/* --- 07 --- */}
         <div className={`absolute top-[1874px] left-[687px] w-[29px] h-[29px] ${numStyle}`}>07</div>
         <h3 className={`absolute top-[1866px] left-[736px] w-[378px] h-[61px] ${titleStyle}`}>Escalation ready</h3>
         <p className={`absolute top-[1937px] left-[736px] w-[613px] h-[70px] ${descStyle}`}>
