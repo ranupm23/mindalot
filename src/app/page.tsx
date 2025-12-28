@@ -1211,7 +1211,7 @@ const LastSection = () => {
                 fill
                 className="object-cover object-bottom"
                 // FIX: Increased scale to 1.2 to ensure the top edge covers the background color
-                style={{ transform: "scale(1.2) translateY(35px)" }} 
+                style={{ transform: "scale(1.2) translateY(28px)" }} 
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/20" /> 
