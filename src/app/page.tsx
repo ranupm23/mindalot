@@ -419,7 +419,7 @@ const HomeHero = () => {
 
 const MakeUs = () => {
   return (
-    <section className="w-full overflow-x-hidden py-12 sm:py-20 px-5 mt-[-30px] sm:px-10 lg:px-20">
+    <section className="w-full  overflow-x-hidden py-12 sm:py-20 px-5 mt-[-30px] sm:px-10 lg:px-20">
       
       {/* HEADER */}
       <h2
@@ -543,7 +543,8 @@ const Whowant = () => {
     // 1. Changed py-10 to py-20 for more space on mobile.
     // 2. Changed lg:p-0 to lg:pt-[100px] lg:px-0 to add space on top for desktop.
     // 3. Increased lg:h to [1269px] to account for the extra top space so bottom content isn't cut off.
-<section className="w-full bg-[#F6F2EB] py-10 sm:py-24 px-4 sm:px-6 lg:h-[1171px] lg:pt-[70px] lg:px-0 relative">
+<section className="w-full bg-[#F6F2EB] py-10 sm:py-24 px-4 sm:px-6 lg:h-[1171px] lg:pt-[70px] lg:px-0 relative flex items-center justify-center">
+
       {/* ------------------------------------------- */}
       {/* 1. DESKTOP-ONLY LAYOUT (lg:block)           */}
       {/* ------------------------------------------- */}
@@ -1210,7 +1211,7 @@ const LastSection = () => {
                 fill
                 className="object-cover object-bottom"
                 // FIX: Increased scale to 1.2 to ensure the top edge covers the background color
-                style={{ transform: "scale(1.2) translateY(35px)" }} 
+                style={{ transform: "scale(1.2) translateY(28px)" }} 
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/20" /> 
