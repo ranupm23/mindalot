@@ -15,7 +15,6 @@ const menuItems = [
   { name: "Contact", path: "/contact" },
 ];
 
-// Redirect based on device
 const redirectToAppStore = () => {
   if (typeof window === "undefined") return;
 
@@ -39,6 +38,7 @@ const redirectToAppStore = () => {
   window.location.href =
     "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
 };
+
 
 export default function Header({ textWhite = false }) {
   const pathname = usePathname();
