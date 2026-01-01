@@ -11,7 +11,7 @@ import meditate5 from "@/assets/resource-page/meditate5.webp"
 import playIcon from "@/assets/play-icon.svg"
 import ourResource1 from "@/assets/resource-page/podcost1.png"
 import ourResource2 from "@/assets/resource-page/podcost2.png"
-import ourResource3 from "@/assets/resource-page/resource-33.png"
+import ourResource3 from "@/assets/resource-page/Mask group.png"
 import ourResource4 from "@/assets/resource-page/podcost4.png"
 import podcast1 from "@/assets/resource-page/man-woman-talking-podcast.webp"
 import podcast2 from "@/assets/resource-page/podcost-hero.png"
@@ -223,20 +223,7 @@ const PodcastSection = () => {
 
   return (
     <div className="relative w-full">
-      {/* Start Listening Button */}
-      <button
-        onClick={redirectToAppStore}
-        className="flex gap-1 sm:gap-2.5 justify-between items-center absolute left-2.5 top-2.5 sm:left-[30px] sm:top-[30px] px-2 py-1 sm:px-4 sm:py-2.5 backdrop-blur-[10px] rounded-full font-medium text-xs sm:text-base shadow-md z-50 bg-white/30 hover:bg-[#BE9B84] transition-all"
-      >
-        <Image
-          src={playIcon}
-          alt="play"
-          width={20}
-          height={20}
-          className="w-2 h-2 sm:w-5 sm:h-5 my-auto filter brightness-0"
-        />
-        Start Listening
-      </button>
+   
 
       {/* Podcast Hero Image */}
       <Image
@@ -261,36 +248,7 @@ const PodcastSection = () => {
         />
       </button>
 
-      {/* Avatars */}
-      <div className="absolute bottom-2.5 sm:bottom-[30px] right-2.5 sm:right-[30px]">
-  <button
-    onClick={redirectToAppStore}
-    className="w-[60px] h-[30px] sm:w-[120px] sm:h-[60px] flex p-[3px] sm:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group transition-all hover:bg-[#BE9B84]"
-  >
-    <div className="relative w-full h-full">
-      {/* First Avatar */}
-      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white bg-purple-500 overflow-hidden">
-        <Image src={avatar1} alt="avatar-img" width={50} height={50} className="object-cover" />
-      </div>
-
-      {/* Second Avatar */}
-      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white translate-x-[60%] bg-gray-400 overflow-hidden">
-        <Image src={avatar2} alt="avatar-img" width={50} height={50} className="object-cover" />
-      </div>
-
-      {/* Arrow Circle */}
-      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%] transition-transform group-hover:rotate-45">
-        <Image
-          src={arrrow}
-          alt="arrow"
-          width={18}
-          height={18}
-          className="w-2 h-2 sm:w-[18px] sm:h-[18px]"
-        />
-      </div>
-    </div>
-  </button>
-</div>
+   
 </div>
   );
 };
@@ -336,7 +294,7 @@ const AccessMoreResourceSection = () => {
         <div className="w-[250px] h-[250px] rounded-full absolute top-full left-1/2 bg-[#BE9B84] -translate-x-1/2 -translate-y-[15%] blur-[130px] -z-50"></div>
 
         {/* BUTTON 1 - View All Resources (stays same) */}
-        <a
+        {/* <a
           href="https://youtube.com/@mind_alot?si=Y_E5tD3qxVunQ2e3"
           className="group flex items-center gap-[8px] text-[#5B4A3E] text-[18px] font-medium pl-[26px] pr-[4px] py-[4px] rounded-[40px] border border-[#5B4A3E] bg-[#F6F2EB] shadow-sm transition-all duration-300 hover:bg-[#5C4737] hover:text-white hover:border-[#3e3229]"
           style={{
@@ -360,7 +318,7 @@ const AccessMoreResourceSection = () => {
               <path d="M0 6h18M12 0l6 6-6 6" stroke="currentColor" strokeWidth="2" />
             </svg>
           </div>
-        </a>
+        </a> */}
 
         {/* BUTTON 2 - Download Free Tools (redirects based on device) */}
         <button
@@ -373,7 +331,7 @@ const AccessMoreResourceSection = () => {
             letterSpacing: "0%",
           }}
         >
-          <span className="tracking-[-0.01em]">Download free tools</span>
+          <span className="tracking-[-0.01em]">Download App</span>
 
           <div className="w-[46px] h-[46px] bg-[#5B4A3E] rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-[#8A8077]">
             <svg

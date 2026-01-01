@@ -110,6 +110,11 @@ const Footer = () => {
       Resources
     </Link>
   </li>
+  <li>
+    <Link href="https://www.jagratiedu.com/Home.html" className="hover:text-[#8C7A6B]">
+      Add our team
+    </Link>
+  </li>
 </ul>
 
     </div>
@@ -128,18 +133,35 @@ const Footer = () => {
   Contact
 </h3>
 <div className="flex flex-col gap-4 mt-6 font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
-  <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
+  {/* Email */}
+  <a
+    href="mailto:info@mindalot.care"
+    className="flex items-center gap-3 hover:text-[#8C7A6B]"
+  >
     <Mail size={18} stroke="#5B4A3E" /> info@mindalot.care
-  </div>
-  <div className="flex items-center gap-3 hover:text-[#8C7A6B]">
+  </a>
+
+  {/* Phone */}
+  <a
+    href="tel:+919606258596"
+    className="flex items-center gap-3 hover:text-[#8C7A6B]"
+  >
     <Phone size={18} stroke="#5B4A3E" /> +91-96062-58596
-  </div>
-  <div className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight">
+  </a>
+
+  {/* Address */}
+  <a
+    href="https://www.google.com/maps/search/?api=1&query=122K+1st+block+14th+cross+19th+B+Main+Rajajinagar+Bengaluru+560010"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight"
+  >
     <MapPin size={18} stroke="#5B4A3E" />
     #122K, 1st block, 14th cross, 19th 'B' Main,<br />
     Rajajinagar, Bengaluru – 560010
-  </div>
+  </a>
 </div>
+
 </div>
     {/* SOCIAL MEDIA */}
     <div className="flex flex-col justify-start mt-16 -ml-[-8]">
