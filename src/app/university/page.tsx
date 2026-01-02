@@ -6,7 +6,7 @@ import { FaLinkedin } from "react-icons/fa";
 import Footer from "@/components/Footer";
 //Import Framer Motion
 import { motion } from "framer-motion";
-import { useState ,useEffect } from "react";
+import { useState, useRef } from "react";
 import hero1 from "@/assets/universityPage/hero-1.png";
 import c1 from "@/assets/universityPage/24.png";
 import of1 from "@/assets/universityPage/24.png";
@@ -20,7 +20,116 @@ import arrow from "@/assets/arrow.svg";
 import whitea from "@/assets/universityPage/Arrow 1.png";
 import blacka from "@/assets/universityPage/black arr.png";
 import Header from "@/components/Header";
+
+type SubmitStatus = 'success' | 'error' | null;
+
 export default function University() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phoneNumber: "",
+    workEmail: "",
+    institutionName: "",
+    roleDesignation: ""
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  // Open modal
+  const openModal = () => {
+    setIsModalOpen(true);
+    setSubmitStatus(null);
+  };
+
+  // Close modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setFormData({
+      fullName: "",
+      phoneNumber: "",
+      workEmail: "",
+      institutionName: "",
+      roleDesignation: ""
+    });
+    setSubmitStatus(null);
+  };
+
+  // Handle input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate all fields
+    if (!formData.fullName || !formData.phoneNumber || !formData.workEmail || !formData.institutionName || !formData.roleDesignation) {
+      setSubmitStatus('error');
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.workEmail)) {
+      setSubmitStatus('error');
+      return;
+    }
+
+    setIsLoading(true);
+    setSubmitStatus(null);
+
+    try {
+      // Create email parameters
+      const subject = `University Demo Request from ${formData.fullName} - ${formData.institutionName}`;
+      const body = `University Demo Request Details:
+
+Full Name: ${formData.fullName}
+Phone Number: ${formData.phoneNumber}
+Official Work Email Address: ${formData.workEmail}
+Name of the Institution: ${formData.institutionName}
+Your Role / Designation: ${formData.roleDesignation}
+
+This person is interested in scheduling a demo for Mind A Lot for their educational institution.`;
+
+      // Encode for mailto link
+      const encodedSubject = encodeURIComponent(subject);
+      const encodedBody = encodeURIComponent(body);
+      
+      // Create mailto link
+      const mailtoLink = `mailto:support@mindalot.care?subject=${encodedSubject}&body=${encodedBody}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      // Set success status
+      setSubmitStatus('success');
+      
+      // Reset form after successful submission
+      setTimeout(() => {
+        setIsModalOpen(false);
+        setFormData({
+          fullName: "",
+          phoneNumber: "",
+          workEmail: "",
+          institutionName: "",
+          roleDesignation: ""
+        });
+        setSubmitStatus(null);
+      }, 2000);
+      
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
 // ========== HERO SECTION ==========
 const HeroSection = () => {
@@ -38,12 +147,31 @@ const HeroSection = () => {
     >
       {/* Background and Overlays */}
       <div className="absolute inset-0 w-full h-full">
-          <div className="relative z-[100] pointer-events-auto">
-    <Header textWhite={true} />
-  </div>
+        <div className="relative z-[100] pointer-events-auto">
+          {/* Header with transparent background */}
+          <div className="absolute top-0 left-0 w-full z-50 bg-transparent">
+            <Header textWhite={true} />
+          </div>
+        </div>
         
-        <Image src={hero1} alt="Hero background" fill className="object-cover opacity-100" priority />
+        {/* Background Image with more transparency and black fade */}
+        <div className="absolute inset-0">
+          <Image 
+            src={hero1} 
+            alt="Hero background" 
+            fill 
+            className="object-cover"
+            style={{
+              opacity: 0.8,
+              filter: 'brightness(0.6)'
+            }}
+            priority 
+          />
+          {/* Black fade overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+        </div>
       </div>
+      
       <div className="absolute inset-0 w-full h-full z-[1]" style={{ background: '#00000099' }} />
       <div 
         className="absolute inset-0 w-full h-full z-[2]"
@@ -56,7 +184,7 @@ const HeroSection = () => {
       
       <div className="relative z-10 w-full h-full px-4 md:px-0 flex flex-col items-center justify-center py-12 md:py-0 md:block">
         
-        {/* 1. H1 Layout */}
+        {/* 1. H1 Layout - Increased size and boldness */}
         <div
           className="w-[90%] md:w-[704px] mb-6 md:mb-0 mt-16 md:mt-0 md:absolute md:top-[259px] md:left-1/2 md:-translate-x-1/2"
           style={{
@@ -66,7 +194,7 @@ const HeroSection = () => {
         >
           <div className="flex items-center justify-center w-full h-full">
             <h1
-              className="text-[32px] sm:text-[30px] md:text-[50px] lg:text-[60px] leading-[38px] sm:leading-[46px] md:leading-[55px] lg:leading-[66px] text-center font-medium"
+              className="text-[38px] sm:text-[40px] md:text-[58px] lg:text-[68px] leading-[44px] sm:leading-[50px] md:leading-[62px] lg:leading-[72px] text-center font-bold"
               style={{
                 fontFamily: 'Helvetica Neue, Arial, sans-serif',
                 letterSpacing: '-3%',
@@ -74,12 +202,12 @@ const HeroSection = () => {
                 margin: 0,
               }}
             >
-              Mental health on campus is no longer optional
+              Mental health on campus is no longer
             </h1>
           </div>
         </div>
 
-        {/* 2. First Paragraph */}
+        {/* 2. First Paragraph - Increased size and boldness */}
         <div 
           className="w-[90%] md:w-[588px] mt-4 md:mt-0 mb-3 md:mb-0 md:absolute md:top-[421px] md:left-1/2 md:-translate-x-1/2"
           style={{
@@ -89,7 +217,7 @@ const HeroSection = () => {
         >
           <div className="flex items-center justify-center w-full h-full">
             <p
-              className="text-[16px] sm:text-[17px] md:text-[18px] leading-[22px] sm:leading-[23px] md:leading-[25px] text-center font-light"
+              className="text-[18px] sm:text-[19px] md:text-[20px] leading-[24px] sm:leading-[25px] md:leading-[28px] text-center font-semibold"
               style={{
                 fontFamily: 'Inter',
                 letterSpacing: '-3%',
@@ -102,7 +230,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* 3. Second Paragraph */}
+        {/* 3. Second Paragraph - Increased size and boldness */}
         <div 
           className="w-[90%] md:w-[534px] mt-3 md:mt-0 mb-3 md:mb-0 md:absolute md:top-[485px] md:left-1/2 md:-translate-x-1/2"
           style={{
@@ -112,7 +240,7 @@ const HeroSection = () => {
         >
           <div className="flex items-center justify-center w-full h-full">
             <p
-              className="text-[16px] sm:text-[17px] md:text-[18px] leading-[22px] sm:leading-[23px] md:leading-[25px] text-center font-light"
+              className="text-[18px] sm:text-[19px] md:text-[20px] leading-[24px] sm:leading-[25px] md:leading-[28px] text-center font-semibold"
               style={{
                 fontFamily: 'Inter',
                 letterSpacing: '-3%',
@@ -126,7 +254,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* 4. Third Paragraph */}
+        {/* 4. Third Paragraph - Increased size and boldness */}
         <div 
           className="w-[90%] md:w-[456px] mt-3 md:mt-0 mb-6 md:mb-0 md:absolute md:top-[561px] md:left-1/2 md:-translate-x-1/2"
           style={{
@@ -136,7 +264,7 @@ const HeroSection = () => {
         >
           <div className="flex items-center justify-center w-full h-full">
             <p
-              className="text-[16px] sm:text-[17px] md:text-[18px] leading-[22px] sm:leading-[23px] md:leading-[25px] text-center font-light whitespace-normal md:whitespace-nowrap"
+              className="text-[18px] sm:text-[19px] md:text-[20px] leading-[24px] sm:leading-[25px] md:leading-[28px] text-center font-semibold whitespace-normal md:whitespace-nowrap"
               style={{
                 fontFamily: 'Inter',
                 letterSpacing: '-3%',
@@ -150,87 +278,76 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* ---------------------------------------------
-            ⭐ 5. NEW BUTTON LAYOUT (212 × 60)
-        ---------------------------------------------- */}
+        {/* Schedule Demo Button */}
         <div
           className="w-[180px] md:w-[212px] h-[50px] md:h-[60px] md:absolute md:top-[636px] md:left-1/2 md:-translate-x-1/2"
           style={{
             opacity: 1,
           }}
         >
-     {/* Button */}
-     {/* 5. Button Layout Container */}
-     <a
-    href="mailto:support@mindalot.care?subject=Schedule%20a%20Demo"
-    className="no-underline"
-  >
-<button 
-  onMouseEnter={(e) => {
-    e.currentTarget.style.background = "#5C4737";
-    e.currentTarget.style.border = "2px solid transparent"; // remove border
-    const img = e.currentTarget.querySelector("img");
-    if (img) img.style.transform = "rotate(45deg)";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.background = "transparent";
-    e.currentTarget.style.border = "2px solid #F6F2EB"; // reset border
-    const img = e.currentTarget.querySelector("img");
-    if (img) img.style.transform = "rotate(0deg)";
-  }}
-  style={{
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "start",
-    position: "relative",
-    border: "2px solid #F6F2EB",
-    borderRadius: "30px",
-    background: "transparent",
-    transition: "0.3s",
-  }}
->
-  {/* Button Text */}
-  <span
-    className="text-[14px] md:text-[16px] absolute top-1/2 -translate-y-1/2 left-[16px] md:left-[20px]"
-    style={{
-      width: "auto",
-      fontFamily: "Nunito Sans",
-      fontWeight: 500,
-      color: "#F6F2EB",
-    }}
-  >
-    Schedule a demo
-  </span>
+          <button
+            onClick={openModal}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#5C4737";
+              e.currentTarget.style.border = "2px solid transparent";
+              const img = e.currentTarget.querySelector("img");
+              if (img) img.style.transform = "rotate(45deg)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.border = "2px solid #F6F2EB";
+              const img = e.currentTarget.querySelector("img");
+              if (img) img.style.transform = "rotate(0deg)";
+            }}
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "start",
+              position: "relative",
+              border: "2px solid #F6F2EB",
+              borderRadius: "30px",
+              background: "transparent",
+              transition: "0.3s",
+              cursor: "pointer",
+            }}
+          >
+            {/* Button Text */}
+            <span
+              className="text-[14px] md:text-[16px] absolute top-1/2 -translate-y-1/2 left-[16px] md:left-[20px]"
+              style={{
+                width: "auto",
+                fontFamily: "Nunito Sans",
+                fontWeight: 500,
+                color: "#F6F2EB",
+              }}
+            >
+              Schedule a demo
+            </span>
 
-  {/* Circle */}
-  <div
-    className="absolute w-[42px] h-[42px] md:w-[50px] md:h-[50px] left-[130px] md:left-[155px] top-1/2 -translate-y-1/2 rounded-full flex items-center justify-center"
-    style={{
-      backgroundColor: "#F6F2EB",
-      border: "1px solid #F6F2EBEE",
-    }}
-  >
-    <Image
-      src={blacka}
-      alt="arrow icon"
-      width={18}
-      height={18}
-      className="md:w-5 md:h-5"
-      style={{
-        transition: "0.3s", // smooth rotation
-      }}
-    />
-  </div>
-</button>
-</a>
-
-</div>
-    
+            {/* Circle */}
+            <div
+              className="absolute w-[42px] h-[42px] md:w-[50px] md:h-[50px] left-[130px] md:left-[155px] top-1/2 -translate-y-1/2 rounded-full flex items-center justify-center"
+              style={{
+                backgroundColor: "#F6F2EB",
+                border: "1px solid #F6F2EBEE",
+              }}
+            >
+              <Image
+                src={blacka}
+                alt="arrow icon"
+                width={18}
+                height={18}
+                className="md:w-5 md:h-5"
+                style={{
+                  transition: "0.3s",
+                }}
+              />
+            </div>
+          </button>
         </div>
-
-      
+      </div>
     </motion.section>
   );
 };
@@ -239,89 +356,85 @@ const HeroSection = () => {
 const OfferSection = () => {
   return (
     <section
-      // Desktop Height 180vh. On Mobile: height auto (!important to override inline style), padding on top/bottom
-      // **Changed to max-md:!h-auto to force height to auto on mobile**
       className="max-md:py-12 max-md:!h-auto"
       style={{
         backgroundColor: "#F6F2EB",
         height: "180vh", // Desktop fixed height
       }}
     >
-    
-  
-    {/* Heading Layout */}
-   
-<div
-  style={{
-    width: "713px",
-    height: "68px",
-    position: "absolute",
-    top: "916px",
-    left: "84px",
-    opacity: 1,
-  }}
-  className="
-    max-md:!relative 
-    max-md:!w-full 
-    max-md:!h-auto
-    max-md:!px-4 
-    max-md:!top-auto 
-    max-md:!left-0
-    max-md:!mb-6 
-    max-md:!static
-    max-md:overflow-visible
-  "
->
-  <h1
-    className="
-      font-nunito font-bold 
-      text-[50px] leading-[100%]
-      break-words
+      {/* Heading Layout */}
+      <div
+        style={{
+          width: "713px",
+          height: "68px",
+          position: "absolute",
+          top: "916px",
+          left: "84px",
+          opacity: 1,
+        }}
+        className="
+          max-md:!relative 
+          max-md:!w-full 
+          max-md:!h-auto
+          max-md:!px-4 
+          max-md:!top-auto 
+          max-md:!left-0
+          max-md:!mb-6 
+          max-md:!static
+          max-md:overflow-visible
+        "
+      >
+        <h1
+          className="
+            font-nunito font-bold 
+            text-[50px] leading-[100%]
+            break-words
 
-      max-lg:text-[42px]
-      max-md:text-[32px]
-      max-sm:text-[26px]
-      max-[430px]:text-[22px]
-      max-[360px]:text-[20px]
-      max-[320px]:text-[18px]
-    "
-    style={{
-      fontFamily: "Nunito Sans",
-      fontWeight: 700,
-      margin: 0,
-    }}
-  >
-    What{" "}
-    <span
-      className="
-        max-md:text-[32px]
-        max-sm:text-[26px]
-        max-[430px]:text-[22px]
-        max-[360px]:text-[20px]
-        max-[320px]:text-[18px]
-      "
-      style={{
-        fontFamily: "Nunito Sans",
-        fontWeight: 700,
-      }}
-    >
-      we
-    </span>{" "}
-    offer to universities?
-  </h1>
-</div>
+            max-lg:text-[42px]
+            max-md:text-[32px]
+            max-sm:text-[26px]
+            max-[430px]:text-[22px]
+            max-[360px]:text-[20px]
+            max-[320px]:text-[18px]
+          "
+          style={{
+            fontFamily: "Nunito Sans",
+            fontWeight: 700,
+            margin: 0,
+          }}
+        >
+          What{" "}
+          <span
+            className="
+              max-md:text-[32px]
+              max-sm:text-[26px]
+              max-[430px]:text-[22px]
+              max-[360px]:text-[20px]
+              max-[320px]:text-[18px]
+            "
+            style={{
+              fontFamily: "Nunito Sans",
+              fontWeight: 700,
+            }}
+          >
+            we
+          </span>{" "}
+          offer to universities?
+        </h1>
+      </div>
+
+      
       {/* Cards Container - Mobile: Stacked, full width, with gap */}
       <div className="max-md:flex max-md:flex-col max-md:gap-6">
         {/* --- Card 1 --- */}
         <div
-          // Desktop styles for absolute positioning and fixed size
           style={{
             width: "290px",
             height: "350px",
             position: "absolute",
             top: "1030px",
             left: "84px",
-            borderRadius: "10px",
+            borderRadius: "16px",
             background: "#F8F8F8",
             borderWidth: "1px",
             borderStyle: "solid",
@@ -329,12 +442,10 @@ const OfferSection = () => {
               "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
             borderImageSlice: 1,
           }}
-          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
           className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
         >
           {/* Inner Image Box */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "75px",
               height: "75px",
@@ -342,13 +453,11 @@ const OfferSection = () => {
               top: "20px",
               left: "20px",
             }}
-            // Mobile styles: relative, smaller size, margin-bottom.
             className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
           >
             <Image
-              src={c1} // replace with actual import
+              src={c1}
               alt="icon"
-              // Desktop image size and position
               style={{
                 width: "56.25px",
                 height: "62.4609375px",
@@ -356,14 +465,12 @@ const OfferSection = () => {
                 top: "6.25px",
                 left: "9.38px",
               }}
-              // Mobile image size and position.
               className="max-md:relative max-md:w-[45px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
             />
           </div>
 
           {/* Title */}
           <p
-            // Desktop styles for absolute positioning
             style={{
               width: "195px",
               height: "58px",
@@ -377,7 +484,6 @@ const OfferSection = () => {
               letterSpacing: "-0.03em",
               color: "#5C4737",
             }}
-            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             24/7 Anonymous Access
@@ -385,7 +491,6 @@ const OfferSection = () => {
 
           {/* Description */}
           <p
-            // Desktop styles for absolute positioning
             style={{
               width: "262px",
               height: "75px",
@@ -399,7 +504,6 @@ const OfferSection = () => {
               letterSpacing: "-0.03em",
               color: "#6D6D6F",
             }}
-            // Mobile styles: relative, full width, auto height, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Real counselling, round the clock — with complete privacy and
@@ -409,14 +513,13 @@ const OfferSection = () => {
 
         {/* --- Card 2 --- */}
         <div
-          // Desktop styles for absolute positioning and fixed size
           style={{
             width: "290px",
             height: "350px",
             position: "absolute",
             top: "1064px",
             left: "386px",
-            borderRadius: "10px",
+            borderRadius: "16px",
             background: "#F8F8F8",
             borderWidth: "1px",
             borderStyle: "solid",
@@ -424,12 +527,10 @@ const OfferSection = () => {
               "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
             borderImageSlice: 1,
           }}
-          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
           className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
         >
           {/* Inner Image Box */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "75px",
               height: "75px",
@@ -437,14 +538,12 @@ const OfferSection = () => {
               top: "20px",
               left: "20px",
             }}
-            // Mobile styles: relative, smaller size, margin-bottom.
             className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
           >
             {/* Image */}
             <Image
               src={holistic}
               alt="icon"
-              // Desktop image size and position
               style={{
                 width: "62.5px",
                 height: "59.3425px",
@@ -452,14 +551,12 @@ const OfferSection = () => {
                 top: "6px",
                 left: "6.25px",
               }}
-              // Mobile styles.
               className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
             />
           </div>
 
           {/* Title */}
           <p
-            // Desktop styles for absolute positioning
             style={{
               width: "196px",
               height: "58px",
@@ -473,7 +570,6 @@ const OfferSection = () => {
               letterSpacing: "-0.03em",
               color: "#5C4737",
             }}
-            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Holistic Student Support
@@ -481,7 +577,6 @@ const OfferSection = () => {
 
           {/* Description */}
           <p
-            // Desktop styles for absolute positioning
             style={{
               width: "262px",
               height: "100px",
@@ -495,25 +590,23 @@ const OfferSection = () => {
               letterSpacing: "-0.03em",
               color: "#6D6D6F",
             }}
-            // Mobile styles: relative, full width, auto height, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Covering exam stress, relationships, identity, focus, and more —
-            because whatever you’re going through, you don’t have to face it
+            because whatever you're going through, you don't have to face it
             alone.
           </p>
         </div>
 
         {/* --- Card 3 --- */}
         <div
-          // Desktop styles for absolute positioning and fixed size
           style={{
             width: "290px",
             height: "350px",
             position: "absolute",
             top: "1094px",
             left: "688px",
-            borderRadius: "10px",
+            borderRadius: "16px",
             background: "#F8F8F8",
             borderWidth: "1px",
             borderStyle: "solid",
@@ -521,12 +614,10 @@ const OfferSection = () => {
               "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
             borderImageSlice: 1,
           }}
-          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
           className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
         >
           {/* Inner Image Box */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "75px",
               height: "75px",
@@ -534,14 +625,12 @@ const OfferSection = () => {
               top: "20px",
               left: "20px",
             }}
-            // Mobile styles: relative, smaller size, margin-bottom.
             className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
           >
             {/* Image */}
             <Image
-              src={Risk} // <-- replace with your actual image import
+              src={Risk}
               alt="icon"
-              // Desktop image size and position
               style={{
                 width: "62.4688px",
                 height: "62.4688px",
@@ -549,14 +638,12 @@ const OfferSection = () => {
                 top: "6.27px",
                 left: "6.26px",
               }}
-              // Mobile image size and position.
               className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
             />
           </div>
 
           {/* Title */}
           <p
-            // Desktop styles for absolute positioning
             style={{
               width: "197px",
               height: "58px",
@@ -570,7 +657,6 @@ const OfferSection = () => {
               letterSpacing: "-0.03em",
               color: "#5C4737",
             }}
-            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             High-Risk Case Escalation
@@ -578,7 +664,6 @@ const OfferSection = () => {
 
           {/* Description */}
           <p
-            // Desktop styles for absolute positioning
             style={{
               width: "262px",
               height: "100px",
@@ -592,7 +677,6 @@ const OfferSection = () => {
               letterSpacing: "-0.03em",
               color: "#6D6D6F",
             }}
-            // Mobile styles: relative, full width, auto height, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Built-in protocols for high-risk cases with seamless escalation to
@@ -603,14 +687,13 @@ const OfferSection = () => {
 
         {/* --- Card 4 --- */}
         <div
-          // Desktop styles for absolute positioning and fixed size
           style={{
             width: "290px",
             height: "350px",
             position: "absolute",
             top: "1124px",
             left: "990px",
-            borderRadius: "10px",
+            borderRadius: "16px",
             background: "#F8F8F8",
             borderWidth: "1px",
             borderStyle: "solid",
@@ -618,12 +701,10 @@ const OfferSection = () => {
               "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
             borderImageSlice: 1,
           }}
-          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
           className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
         >
           {/* Inner Image Box */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "75px",
               height: "75px",
@@ -631,14 +712,12 @@ const OfferSection = () => {
               top: "20px",
               left: "20px",
             }}
-            // Mobile styles: relative, smaller size, margin-bottom.
             className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
           >
             {/* Image */}
             <Image
-              src={Dashboard} // <-- replace with your actual image import
+              src={Dashboard}
               alt="icon"
-              // Desktop image size and position
               style={{
                 width: "62.5px",
                 height: "62.5px",
@@ -646,14 +725,12 @@ const OfferSection = () => {
                 top: "6.25px",
                 left: "6.25px",
               }}
-              // Mobile image size and position.
               className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
             />
           </div>
 
           {/* Title */}
           <p
-            // Desktop styles for absolute positioning
             style={{
               width: "198px",
               height: "58px",
@@ -667,7 +744,6 @@ const OfferSection = () => {
               letterSpacing: "-0.03em",
               color: "#5C4737",
             }}
-            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Institutional Dashboards
@@ -675,7 +751,6 @@ const OfferSection = () => {
 
           {/* Description */}
           <p
-            // Desktop styles for absolute positioning
             style={{
               width: "262px",
               height: "100px",
@@ -689,7 +764,6 @@ const OfferSection = () => {
               letterSpacing: "-0.03em",
               color: "#6D6D6F",
             }}
-            // Mobile styles: relative, full width, auto height, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Anonymized, real-time wellness insights to inform campus-wide mental
@@ -700,14 +774,13 @@ const OfferSection = () => {
 
         {/* --- Card 5 (Second Row First) --- */}
         <div
-          // Desktop styles for absolute positioning and fixed size
           style={{
             width: "290px",
             height: "350px",
             position: "absolute",
             top: "1496px",
             left: "84px",
-            borderRadius: "10px",
+            borderRadius: "16px",
             background: "#F8F8F8",
             borderWidth: "1px",
             borderStyle: "solid",
@@ -715,12 +788,10 @@ const OfferSection = () => {
               "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
             borderImageSlice: 1,
           }}
-          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
           className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
         >
           {/* Inner Image Box */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "75px",
               height: "75px",
@@ -730,7 +801,6 @@ const OfferSection = () => {
               opacity: 1,
               transform: "rotate(0deg)",
             }}
-            // Mobile styles: relative, smaller size, margin-bottom.
             className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
           >
             {/* Direct Image inside — NOT another layout */}
@@ -739,7 +809,6 @@ const OfferSection = () => {
               alt="icon"
               width={62.5}
               height={62.5}
-              // Desktop image size and position
               style={{
                 position: "absolute",
                 top: "6.25px",
@@ -747,13 +816,11 @@ const OfferSection = () => {
                 opacity: 1,
                 transform: "rotate(0deg)",
               }}
-              // Mobile image size and position.
               className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
             />
           </div>
           {/* Title */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "195px",
               height: "58px",
@@ -769,7 +836,6 @@ const OfferSection = () => {
               letterSpacing: "-3%",
               color: "#5C4737",
             }}
-            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Global Accessibility
@@ -777,7 +843,6 @@ const OfferSection = () => {
 
           {/* Description */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "262px",
               height: "100px",
@@ -793,7 +858,6 @@ const OfferSection = () => {
               letterSpacing: "-3%",
               color: "#6D6D6F",
             }}
-            // Mobile styles: relative, full width, auto height, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Works seamlessly across devices, time zones, and multiple languages
@@ -803,14 +867,13 @@ const OfferSection = () => {
 
         {/* --- Card 6 (Second Row Second) --- */}
         <div
-          // Desktop styles for absolute positioning and fixed size
           style={{
             width: "290px",
             height: "350px",
             position: "absolute",
             top: "1526px",
             left: "384px",
-            borderRadius: "10px",
+            borderRadius: "16px",
             background: "#F8F8F8",
             borderWidth: "1px",
             borderStyle: "solid",
@@ -818,12 +881,10 @@ const OfferSection = () => {
               "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
             borderImageSlice: 1,
           }}
-          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
           className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
         >
           {/* Inner Image Box */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "75px",
               height: "75px",
@@ -832,16 +893,14 @@ const OfferSection = () => {
               left: "20px",
               opacity: 1,
             }}
-            // Mobile styles: relative, smaller size, margin-bottom.
             className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
           >
             {/* Direct Image Inside */}
             <Image
-              src={Custom} // replace with actual image variable
+              src={Custom}
               alt="icon"
               width={62.5}
               height={62.5}
-              // Desktop image size and position
               style={{
                 position: "absolute",
                 top: "6.25px",
@@ -849,14 +908,12 @@ const OfferSection = () => {
                 opacity: 1,
                 transform: "rotate(0deg)",
               }}
-              // Mobile image size and position.
               className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
             />
           </div>
 
           {/* Title */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "196px",
               height: "58px",
@@ -872,7 +929,6 @@ const OfferSection = () => {
               letterSpacing: "-3%",
               color: "#5C4737",
             }}
-            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Custom Content Drops
@@ -880,7 +936,6 @@ const OfferSection = () => {
 
           {/* Description */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "262px",
               height: "100px",
@@ -896,7 +951,6 @@ const OfferSection = () => {
               letterSpacing: "-3%",
               color: "#6D6D6F",
             }}
-            // Mobile styles: relative, full width, auto height, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Targeted resources for exam anxiety, homesickness, burnout, and
@@ -907,14 +961,13 @@ const OfferSection = () => {
 
         {/* --- Card 7 (Second Row Third) --- */}
         <div
-          // Desktop styles for absolute positioning and fixed size
           style={{
             width: "290px",
             height: "350px",
             position: "absolute",
             top: "1556px",
             left: "684px",
-            borderRadius: "10px",
+            borderRadius: "16px",
             background: "#F8F8F8",
             borderWidth: "1px",
             borderStyle: "solid",
@@ -922,12 +975,10 @@ const OfferSection = () => {
               "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
             borderImageSlice: 1,
           }}
-          // Mobile styles: Centered (mx-auto), fixed max-width (max-w-xs or 320px), auto height, padding.
           className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
         >
           {/* Inner Image Box */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "75px",
               height: "75px",
@@ -937,16 +988,14 @@ const OfferSection = () => {
               opacity: 1,
               transform: "rotate(0deg)",
             }}
-            // Mobile styles: relative, smaller size, margin-bottom.
             className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
           >
             {/* Direct Image inside */}
             <Image
-              src={Regulator} // replace with actual image variable
+              src={Regulator}
               alt="icon"
               width={56.28125}
               height={58.203125}
-              // Desktop image size and position
               style={{
                 position: "absolute",
                 top: "7.42px",
@@ -955,14 +1004,12 @@ const OfferSection = () => {
                 transform: "rotate(0deg)",
                 objectFit: "contain",
               }}
-              // Mobile image size and position.
               className="max-md:relative max-md:w-[45px] max-md:h-[47px] max-md:top-auto max-md:left-auto max-md:!static"
             />
           </div>
 
           {/* Title */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "197px",
               height: "58px",
@@ -978,7 +1025,6 @@ const OfferSection = () => {
               color: "#5C4737",
               transform: "rotate(0deg)",
             }}
-            // Mobile styles: relative, full width, auto height, margin-bottom, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Regulatory Compliance
@@ -986,7 +1032,6 @@ const OfferSection = () => {
 
           {/* Description */}
           <div
-            // Desktop styles for absolute positioning
             style={{
               width: "262px",
               height: "100px",
@@ -1002,7 +1047,6 @@ const OfferSection = () => {
               color: "#6D6D6F",
               transform: "rotate(0deg)",
             }}
-            // Mobile styles: relative, full width, auto height, font size.
             className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
           >
             Helps your institution stay compliant with UGC/NAAC/AICTE mental
@@ -1011,111 +1055,74 @@ const OfferSection = () => {
           </div>
         </div>
 
-        {/* --- Card 8 (Last Card, Call to Action) --- */}
-         {/* --- Card 8 (Last Card, Call to Action) --- */}
-        {/* --- Card 8 (Last Card, Call to Action) --- */}
-        {/* --- Card 8 (Last Card, Call to Action) --- */}
+        {/* --- Card 8 (Second Row Fourth) - YOUTUBE CARD AT LAST POSITION --- */}
         <div
-          // Desktop styles for absolute positioning and fixed size (UNTOCUHED)
           style={{
             width: "290px",
             height: "350px",
             position: "absolute",
             top: "1586px",
-            left: "984px", // Changed from 1050px
-            borderRadius: "10px",
+            left: "984px",
+            borderRadius: "16px",
             background: "#5C4737",
             opacity: 1,
             padding: "20px",
             boxSizing: "border-box",
           }}
-          // Mobile styles: Flex structure to position button at the bottom
-          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:min-h-[250px] max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto max-md:flex max-md:flex-col max-md:justify-between"
+          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:min-h-[350px] max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto max-md:flex max-md:flex-col max-md:justify-center"
         >
-          {/* Inner Text - Content for flex item 1 (UNTOCUHED) */}
-          <div
-            // Desktop styles for absolute positioning and fixed width/height (UNTOCUHED)
-            style={{
-              width: "227px",
-              height: "140px",
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-              fontFamily: "Inter",
-              fontWeight: 500,
-              fontSize: "18px",
-              lineHeight: "35px",
-              letterSpacing: "-3%",
-              color: "#FFFFFF",
-            }}
-            // Mobile styles: relative, full width, auto height, padding reset.
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:p-0 max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Start building a mentally healthy campus - remove other lines and the
-            download balloon
-          </div>
-
-          {/* Button - Content for flex item 2 */}
-          <button
-            // Desktop styles (UNTOCUHED)
-            style={{
-              width: "262px",
-              height: "60px",
-              position: "absolute",
-              top: "242px",
-              left: "20px",
-              opacity: 1,
-              borderRadius: "30px",
-              background: "#967B6A",
-              color: "#FFFFFF",
-              fontSize: "16px",
-              fontWeight: 500,
-              border: "none",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              paddingLeft: "20px",
-              paddingRight: "20px", // Desktop padding right
-              transform: "rotate(0deg)",
-            }}
-            // Mobile styles:
-            // max-md:w-[262px] (Desktop width) and max-md:mx-auto (Centered).
-            // **MODIFIED:** Added max-md:!px-4 (reduced horizontal padding) and max-md:text-sm (reduced font size)
-            className="max-md:relative max-md:!static max-md:w-[262px] max-md:mx-auto max-md:h-[60px] max-md:top-auto max-md:left-auto max-md:mt-auto max-md:mb-0 max-md:!h-auto max-md:!px-4 max-md:text-sm"
-          >
-            Download University Kit
-            {/* White Circle */}
-            <div
-              className="
-                  absolute top-[5px] right-[6px]
-                  w-[50px] h-[50px] bg-white
-                  rounded-full flex items-center justify-center
-                  transition-all
-                  /* MODIFIED: Increased negative right margin to simulate better overhang with reduced mobile padding */
-                  max-md:relative max-md:top-auto max-md:right-auto 
-                  max-md:!static max-md:shrink-0 max-md:-mr-3
-                "
-            >
-              <Image
-                src={arrow}
-                alt="arrow"
-                width={18}
-                height={18}
-                className="transition-all group-hover:rotate-45"
-              />
+          {/* Video Container */}
+          <div className="w-full h-full flex flex-col items-center justify-center">
+            <div className="mb-3 text-center">
+              <h3 className="text-white text-[20px] sm:text-[22px] font-semibold mb-2" style={{ fontFamily: "Inter" }}>
+                See How It Works
+              </h3>
+              <p className="text-white/80 text-sm mb-4">
+                Watch our demo video
+              </p>
             </div>
-          </button>
+            
+            {/* Video Container */}
+            <div className="relative w-full h-40 rounded-lg overflow-hidden bg-black/30">
+              <div className="absolute inset-0 flex items-center justify-center">
+                {/* YouTube video embed */}
+                <iframe
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&modestbranding=1&rel=0"
+                  title="Mind A Lot Demo Video"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+                
+                {/* Fallback if video doesn't load */}
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#5c4737]/80 to-[#3a2b20]/80">
+                  <div className="text-center p-4">
+                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                    <p className="text-white font-medium">Demo Video</p>
+                    <p className="text-white/70 text-sm mt-1">Click to play</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-3 text-xs text-white/60 text-center">
+              Experience the platform in action
+            </div>
+          </div>
         </div>
       </div>
       {/* End Cards Container */}
     </section>
   );
 };
+
 // ========== CONNECT SECTION ==========
 const ConnectCampus = () => {
   return (
-    // 💡 Wrapper: Adjusted padding/margin for mobile (max-md:mt-16, max-md:pb-16)
     <motion.section
       className="
         flex flex-col justify-center items-center
@@ -1123,7 +1130,7 @@ const ConnectCampus = () => {
         max-md:mt-16 max-md:pb-16 max-md:space-y-6
       "
       initial="hidden"
-      whileInView="visible" // Animate when the section comes into view
+      whileInView="visible"
     >
       {/* Heading */}
       <motion.h2
@@ -1155,169 +1162,318 @@ const ConnectCampus = () => {
         Empower your students and faculty with 24/7 confidential support, real
         counselling, and real results — powered by Mind A Lot.
       </motion.p>
-{/* Buttons Section: Mobile: Stack (flex-col), full width */}
-<div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 w-full px-4 md:px-0 justify-center">
 
-  {/* Schedule a Demo Button */}
-  <Link href="mailto:support@mindalot.care?subject=Schedule%20a%20Demo" className="max-md:w-full">
-  
-    <button
-      className="
-        group relative
-        w-[212px] h-[60px]
-        border-[2px] border-[#5B4A3E]
-        rounded-[30px]
-        flex items-center 
-        cursor-pointer
-        bg-transparent
-        transition-all
-        hover:bg-[#5C4737]
-        hover:border-transparent
-        max-md:w-full max-md:justify-center max-md:px-4
-      "
-    >
-      {/* Text */}
-      <span
-        className="
-          absolute 
-          top-[21px] left-[24px]
-          font-inter font-medium
-          text-[16px] leading-[100%]
-          tracking-[-0.03em]
-          text-[#5B4A3E]
-          whitespace-nowrap
-          transition-all
-          group-hover:text-white
-          max-md:relative max-md:!top-auto max-md:!left-auto max-md:text-center
-        "
-      >
-        Schedule a demo
-      </span>
+      {/* Buttons Section */}
+      <div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-4 w-full px-4 md:px-0 justify-center">
+        {/* Schedule a Demo Button */}
+        <button
+          onClick={openModal}
+          className="
+            group relative
+            w-[212px] h-[60px]
+            border-[2px] border-[#5B4A3E]
+            rounded-[30px]
+            flex items-center 
+            cursor-pointer
+            bg-transparent
+            transition-all
+            hover:bg-[#5C4737]
+            hover:border-transparent
+            max-md:w-full max-md:justify-center max-md:px-4
+          "
+        >
+          {/* Text */}
+          <span
+            className="
+              absolute 
+              top-[21px] left-[24px]
+              font-inter font-medium
+              text-[16px] leading-[100%]
+              tracking-[-0.03em]
+              text-[#5B4A3E]
+              whitespace-nowrap
+              transition-all
+              group-hover:text-white
+              max-md:relative max-md:!top-auto max-md:!left-auto max-md:text-center
+            "
+          >
+            Schedule a demo
+          </span>
 
-      {/* Circle */}
-      <div
-        className="
-          absolute 
-          left-[155px]
-          w-[50px] h-[50px]
-          rounded-full 
-          bg-[#5B4A3E]
-          flex items-center justify-center
-          transition-all
-          group-hover:bg-white
-          max-md:absolute max-md:left-auto max-md:right-2
-        "
-      >
-        {/* WHITE ARROW (default) */}
-        <Image
-          src={whitea}
-          alt="arrow"
-          width={18}
-          height={18}
-          className="transition-all group-hover:hidden"
-        />
+          {/* Circle */}
+          <div
+            className="
+              absolute 
+              left-[155px]
+              w-[50px] h-[50px]
+              rounded-full 
+              bg-[#5B4A3E]
+              flex items-center justify-center
+              transition-all
+              group-hover:bg-white
+              max-md:absolute max-md:left-auto max-md:right-2
+            "
+          >
+            {/* WHITE ARROW (default) */}
+            <Image
+              src={whitea}
+              alt="arrow"
+              width={18}
+              height={18}
+              className="transition-all group-hover:hidden"
+            />
 
-        {/* BLACK ARROW (on hover) */}
-        <Image
-          src={blacka}
-          alt="arrow"
-          width={18}
-          height={18}
-          className="hidden group-hover:block transition-all group-hover:rotate-45"
-        />
+            {/* BLACK ARROW (on hover) */}
+            <Image
+              src={blacka}
+              alt="arrow"
+              width={18}
+              height={18}
+              className="hidden group-hover:block transition-all group-hover:rotate-45"
+            />
+          </div>
+        </button>
+
+        {/* Download University Partnership Kit Button */}
+        <Link 
+          href="https://drive.google.com/file/d/18979mEF_zw9ba3gkqkPJP_uSX6ePTcIo/view" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="max-md:w-full"
+        >
+          <button
+            className="
+              group relative
+              w-[270px] h-[60px]
+              border-[2px] border-[#5B4A3E]
+              rounded-[30px]
+              flex items-center
+              cursor-pointer
+              bg-transparent
+              transition-all
+              hover:bg-[#5C4737]
+              hover:border-transparent
+              max-md:w-full max-md:justify-center max-md:px-4
+            "
+          >
+            {/* Text */}
+            <span
+              className="
+                absolute 
+                top-[21px] left-[24px]
+                font-inter font-medium
+                text-[16px] leading-[100%]
+                tracking-[-0.03em]
+                text-[#5B4A3E]
+                whitespace-nowrap
+                transition-all
+                group-hover:text-white
+                max-md:relative max-md:!top-auto max-md:!left-auto max-md:text-center
+              "
+            >
+              Download University Kit
+            </span>
+
+            {/* Circle */}
+            <div
+              className="
+                absolute
+                left-[213px]
+                w-[50px] h-[50px]
+                rounded-full
+                bg-[#5B4A3E]
+                flex items-center justify-center
+                transition-all
+                group-hover:bg-white
+                max-md:absolute max-md:left-auto max-md:right-2
+              "
+            >
+              {/* WHITE ARROW (default) */}
+              <Image
+                src={whitea}
+                alt="arrow"
+                width={18}
+                height={18}
+                className="transition-all group-hover:hidden"
+              />
+
+              {/* BLACK ARROW (on hover) */}
+              <Image
+                src={blacka}
+                alt="arrow"
+                width={18}
+                height={18}
+                className="hidden group-hover:block transition-all group-hover:rotate-45"
+              />
+            </div>
+          </button>
+        </Link>
       </div>
-    </button>
-  </Link>
-
-  {/* Download University Partnership Kit Button */}
-  <Link href="/resource" className="max-md:w-full">
-    <button
-      className="
-        group relative
-        w-[270px] h-[60px]
-        border-[2px] border-[#5B4A3E]
-        rounded-[30px]
-        flex items-center
-        cursor-pointer
-        bg-transparent
-        transition-all
-        hover:bg-[#5C4737]
-        hover:border-transparent
-        max-md:w-full max-md:justify-center max-md:px-4
-      "
-    >
-      {/* Text */}
-      <span
-        className="
-          absolute 
-          top-[21px] left-[24px]
-          font-inter font-medium
-          text-[16px] leading-[100%]
-          tracking-[-0.03em]
-          text-[#5B4A3E]
-          whitespace-nowrap
-          transition-all
-          group-hover:text-white
-          max-md:relative max-md:!top-auto max-md:!left-auto max-md:text-center
-        "
-      >
-        Download University Kit
-      </span>
-
-      {/* Circle */}
-      <div
-        className="
-          absolute
-          left-[213px]
-          w-[50px] h-[50px]
-          rounded-full
-          bg-[#5B4A3E]
-          flex items-center justify-center
-          transition-all
-          group-hover:bg-white
-          max-md:absolute max-md:left-auto max-md:right-2
-        "
-      >
-        {/* WHITE ARROW (default) */}
-        <Image
-          src={whitea}
-          alt="arrow"
-          width={18}
-          height={18}
-          className="transition-all group-hover:hidden"
-        />
-
-        {/* BLACK ARROW (on hover) */}
-        <Image
-          src={blacka}
-          alt="arrow"
-          width={18}
-          height={18}
-          className="hidden group-hover:block transition-all group-hover:rotate-45"
-        />
-      </div>
-    </button>
-  </Link>
-
-</div>
-
     </motion.section>
   );
 };
 
-  
   return (
     <>
       <main className="overflow-hidden bg-[#FDFDFD]">
-        
         <HeroSection />
         <OfferSection />
         <ConnectCampus />
         <Footer/>
+
+        {/* MODAL POPUP */}
+        {isModalOpen && (
+          <>
+            {/* Backdrop with blur effect */}
+            <div className="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm" onClick={closeModal}></div>
+            
+            {/* Modal Content */}
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              <div 
+                ref={modalRef}
+                className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Close button */}
+                <button
+                  onClick={closeModal}
+                  className="sticky top-0 right-0 float-right mt-4 mr-4 text-gray-400 hover:text-gray-600 text-2xl z-10 bg-white rounded-full p-1"
+                >
+                  &times;
+                </button>
+
+                {/* Modal Content Container */}
+                <div className="p-6">
+                  {/* Modal Title */}
+                  <h3 className="text-2xl font-bold text-[#3a2b20] mb-6 text-center">
+                    Schedule a Demo
+                  </h3>
+
+                  {/* Success/Error Messages */}
+                  {submitStatus === 'success' && (
+                    <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-center">
+                      ✓ Form submitted successfully! Opening email client...
+                    </div>
+                  )}
+                  
+                  {submitStatus === 'error' && (
+                    <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-center">
+                      Please fill all fields correctly before submitting.
+                    </div>
+                  )}
+
+                  {/* Form */}
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5c4737] focus:border-transparent"
+                        placeholder="Enter your full name"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        name="phoneNumber"
+                        value={formData.phoneNumber}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5c4737] focus:border-transparent"
+                        placeholder="Enter your phone number"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Official Work Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        name="workEmail"
+                        value={formData.workEmail}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5c4737] focus:border-transparent"
+                        placeholder="Enter your work email"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Name of the Institution *
+                      </label>
+                      <input
+                        type="text"
+                        name="institutionName"
+                        value={formData.institutionName}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5c4737] focus:border-transparent"
+                        placeholder="Enter your institution name"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Your Role / Designation *
+                      </label>
+                      <select
+                        name="roleDesignation"
+                        value={formData.roleDesignation}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5c4737] focus:border-transparent bg-white"
+                        required
+                      >
+                        <option value="">Select your role</option>
+                        <option value="Principal">Principal</option>
+                        <option value="Counselor">Counselor</option>
+                        <option value="HR">HR</option>
+                        <option value="Administrator">Administrator</option>
+                        <option value="Faculty">Faculty</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+
+                    {/* Info text */}
+                    <p className="text-sm text-gray-500 text-center mt-4">
+                      Clicking "Send" will open your email client with a pre-filled email to <strong>support@mindalot.care</strong>
+                    </p>
+
+                    <button
+                      type="submit"
+                      disabled={isLoading}
+                      className="w-full mt-6 bg-[#5c4737] text-white py-3 rounded-lg font-medium hover:bg-[#4a392e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed sticky bottom-0"
+                    >
+                      {isLoading ? (
+                        <span className="flex items-center justify-center">
+                          <svg className="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Processing...
+                        </span>
+                      ) : (
+                        'Send'
+                      )}
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </main>
     </>
   );
 }
-
-
-
