@@ -917,7 +917,6 @@ const MakeUs = () => {
   );
 };
 
-// UPDATED Whowant component with enhanced hover effects
 const Whowant = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
@@ -937,41 +936,35 @@ const Whowant = () => {
     { id: 6, imageSrc: w6, altText: "Anyone Needing Support", title: "Anyone Needing Support" }
   ];
 
-  /* ================= REUSABLE HOVER CARD ================= */
   const HoverCard = ({ imageSrc, altText, title, id }: CardProps) => (
     <div
       className="relative w-full h-full rounded-[12px] overflow-hidden bg-black
-      group cursor-pointer transition-transform duration-700 hover:scale-[1.03]"
+        group cursor-pointer transition-transform duration-700 hover:scale-[1.03]"
       onMouseEnter={() => setHoveredCard(id)}
       onMouseLeave={() => setHoveredCard(null)}
     >
-      {/* Image */}
       <Image
         src={imageSrc}
         alt={altText}
         fill
         className="object-cover scale-[1.05] transition-transform duration-700 group-hover:scale-110"
       />
-
-      {/* Black fade from bottom */}
       <div
         className={`absolute inset-0 transition-all duration-700 ease-out
-        ${
-          hoveredCard === id
-            ? "bg-gradient-to-t from-black/95 via-black/70 to-black/10"
-            : "bg-gradient-to-t from-black/50 via-black/20 to-transparent"
-        }`}
+          ${
+            hoveredCard === id
+              ? "bg-gradient-to-t from-black/95 via-black/70 to-black/10"
+              : "bg-gradient-to-t from-black/50 via-black/20 to-transparent"
+          }`}
       />
-
-      {/* Title */}
       <div
         className={`absolute inset-0 flex items-center justify-center
-        text-white text-center transition-all duration-700 ease-out
-        ${
-          hoveredCard === id
-            ? "opacity-100 translate-y-0 text-3xl font-bold"
-            : "opacity-90 translate-y-16 text-xl font-semibold"
-        }`}
+          text-white text-center transition-all duration-700 ease-out
+          ${
+            hoveredCard === id
+              ? "opacity-100 translate-y-0 text-3xl font-bold"
+              : "opacity-90 translate-y-16 text-xl font-semibold"
+          }`}
       >
         {title}
       </div>
@@ -979,54 +972,49 @@ const Whowant = () => {
   );
 
   return (
-    <section className="w-full bg-[#F6F2EB] py-10 sm:py-24 px-4 sm:px-6 lg:h-[1171px] lg:pt-[70px] relative flex justify-center">
+    <section className="w-full bg-[#F6F2EB] py-10 sm:py-24 px-4 sm:px-6 relative flex justify-center">
 
-      {/* ================= DESKTOP ================= */}
-      <div className="hidden lg:block w-full 2xl:max-w-[1800px] h-full relative">
+      {/* ================= DESKTOP / LARGE SCREENS ================= */}
+     <div className="hidden lg:grid grid-cols-3 gap-x-6 gap-y-6 w-full 2xl:max-w-[1800px] mx-auto -mb-[420px]">
 
-        {/* Heading */}
-        <h2 className="absolute top-0 left-[44px] text-[50px] font-bold">
-          Who it's For
-        </h2>
 
-        {/* Description */}
-        <p className="absolute top-[81px] left-[44px] w-[381px] text-[18px] text-black/80">
-          Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
-        </p>
+        {/* Heading and Description */}
+        <div className="col-span-3">
+          <h2 className="text-[50px] font-bold mb-2">Who it's For</h2>
+          <p className="w-[380px] text-[18px] text-black/80 mb-4">
+            Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
+          </p>
+          <div className="relative w-[410px] h-[113px] mb-12 bg-[#F8F8F8] rounded-md px-4 py-3">
+            <p className="italic font-bold text-[16px]">
+              " Wherever you are. Whoever you are. However you feel. "
+            </p>
+            <p className="mt-4 text-[16px]">– Mind A Lot is here for you!</p>
+          </div>
+        </div>
 
-        {/* Quote */}
-        <div className="absolute top-[185px] left-[44px] w-[410px] h-[113px] bg-[#F8F8F8] rounded-md" />
-        <p className="absolute top-[204px] left-[59px] italic font-bold text-[16px]">
-          " Wherever you are. Whoever you are. However you feel. "
-        </p>
-        <p className="absolute top-[267px] left-[239px] text-[16px]">
-          – Mind A Lot is here for you!
-        </p>
-
-        {/* Cards */}
-        <div className="absolute top-[333px] left-[44px] w-[410px] h-[262px]">
+        {/* ================= CARDS ================= */}
+        {/* First row */}
+        <div className="w-full h-[380px]">
           <HoverCard {...cards[0]} />
         </div>
-
-        <div className="absolute top-0 left-[476px] w-[410px] h-[594px] 2xl:left-[32%] 2xl:w-[440px]">
+        <div className="w-full h-[800px] -translate-y-[415px]">
           <HoverCard {...cards[1]} />
         </div>
-
-        <div className="absolute top-0 left-[906px] w-[410px] h-[594px] 2xl:left-[64%] 2xl:w-[440px]">
+        <div className="w-full h-[800px] -translate-y-[415px]">
           <HoverCard {...cards[2]} />
         </div>
 
-        <div className="absolute top-[615px] left-[48px] w-[410px] h-[416px]">
+        {/* Second row */}
+        <div className="w-full h-[416px] -translate-y-[420px]">
           <HoverCard {...cards[3]} />
         </div>
-
-        <div className="absolute top-[615px] left-[480px] w-[410px] h-[416px]">
+        <div className="w-full h-[416px] -translate-y-[420px]">
           <HoverCard {...cards[4]} />
         </div>
-
-        <div className="absolute top-[615px] left-[910px] w-[410px] h-[416px]">
+        <div className="w-full h-[416px] -translate-y-[420px]">
           <HoverCard {...cards[5]} />
         </div>
+
       </div>
 
       {/* ================= MOBILE / TABLET ================= */}
@@ -1049,6 +1037,7 @@ const Whowant = () => {
   );
 };
 
+
 interface FeatureItemProps {
   iconSrc: string | StaticImageData;
   altText: string;
@@ -1060,13 +1049,11 @@ const FeatureItem = ({ iconSrc, altText, title, isLast = false }: FeatureItemPro
   return (
     <div 
       className={`
-        flex items-center gap-4 sm:gap-5 
-        py-4 sm:py-6 lg:py-8
+        flex items-center gap-4 sm:gap-5 py-4 sm:py-6 lg:py-8
         ${!isLast ? 'border-b border-gray-200' : ''}
         group cursor-pointer transition-all duration-500 hover:bg-gray-50/80 hover:pl-4 rounded-lg hover:shadow-md
       `}
     >
-      {/* ICON */}
       <div className="shrink-0 w-12 h-12 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
         <Image
           src={iconSrc} 
@@ -1075,16 +1062,12 @@ const FeatureItem = ({ iconSrc, altText, title, isLast = false }: FeatureItemPro
         />
       </div>
 
-      {/* TEXT CONTAINER */}
       <div className="flex-1 min-w-0">
         <h3 
           className="
             font-medium text-black font-['Inter'] leading-snug
-            text-base sm:text-xl 
-            whitespace-normal
-            lg:whitespace-nowrap
-            xl:whitespace-nowrap
-            transition-all duration-500
+            text-base sm:text-xl whitespace-normal
+            lg:whitespace-nowrap transition-all duration-500
             group-hover:text-[#5C4737] group-hover:font-bold group-hover:translate-x-2
           "
         >
@@ -1094,7 +1077,6 @@ const FeatureItem = ({ iconSrc, altText, title, isLast = false }: FeatureItemPro
     </div>
   );
 };
-
 const Features = () => {
   return (
     <section className="relative w-full overflow-hidden mt-11 sm:mt-20">

@@ -137,7 +137,7 @@ const HeroSection = () => {
     <motion.section
       className="relative w-full flex items-center justify-center overflow-hidden mx-auto min-h-[90vh] md:h-[866px]"
       style={{
-        maxWidth: '1440px',
+        maxWidth: '4440px',
         width: '100%',
         opacity: 1,
       }}
@@ -354,778 +354,125 @@ const HeroSection = () => {
 
 // ========== OFFER SECTION =========
 const OfferSection = () => {
+  const cards = [
+    {
+      icon: c1,
+      title: "24/7 Anonymous Access",
+      desc: "Real counselling, round the clock — with complete privacy and immediate support, whenever and wherever you need it.",
+    },
+    {
+      icon: holistic,
+      title: "Holistic Student Support",
+      desc: "Covering exam stress, relationships, identity, focus, and more — because whatever you're going through, you don't have to face it alone.",
+    },
+    {
+      icon: Risk,
+      title: "High-Risk Case Escalation",
+      desc: "Built-in protocols for high-risk cases with seamless escalation to partner hospitals, guaranteeing safety and continuity of care.",
+    },
+    {
+      icon: Dashboard,
+      title: "Institutional Dashboards",
+      desc: "Anonymized, real-time wellness insights to help institutions proactively support students.",
+    },
+    {
+      icon: Global,
+      title: "Global Accessibility",
+      desc: "Works across devices, time zones, and languages — help is always within reach.",
+    },
+    {
+      icon: Custom,
+      title: "Custom Content Drops",
+      desc: "Targeted resources for exam anxiety, burnout, homesickness, and prevention.",
+    },
+    {
+      icon: Regulator,
+      title: "Regulatory Compliance",
+      desc: "Stay compliant with UGC/NAAC/AICTE mental health directives with meaningful action.",
+    },
+  ];
+
   return (
-   <section
-  className="
-    max-md:py-12 
-    max-md:!h-auto
-
-    2xl:scale-[0.9]
-    2xl:origin-top
-  "
-  style={{
-    backgroundColor: "#F6F2EB",
-    height: "180vh",
-  }}
->
-
-      {/* Heading Layout */}
-      <div
-        style={{
-          width: "713px",
-          height: "68px",
-          position: "absolute",
-          top: "916px",
-          left: "84px",
-          opacity: 1,
-        }}
-        className="
-          max-md:!relative 
-          max-md:!w-full 
-          max-md:!h-auto
-          max-md:!px-4 
-          max-md:!top-auto 
-          max-md:!left-0
-          max-md:!mb-6 
-          max-md:!static
-          max-md:overflow-visible
-        "
-      >
-        <h1
-          className="
-            font-nunito font-bold 
-            text-[50px] leading-[100%]
-            break-words
-
-            max-lg:text-[42px]
-            max-md:text-[32px]
-            max-sm:text-[26px]
-            max-[430px]:text-[22px]
-            max-[360px]:text-[20px]
-            max-[320px]:text-[18px]
-          "
-          style={{
-            fontFamily: "Nunito Sans",
-            fontWeight: 700,
-            margin: 0,
-          }}
-        >
-          What{" "}
-          <span
-            className="
-              max-md:text-[32px]
-              max-sm:text-[26px]
-              max-[430px]:text-[22px]
-              max-[360px]:text-[20px]
-              max-[320px]:text-[18px]
-            "
-            style={{
-              fontFamily: "Nunito Sans",
-              fontWeight: 700,
-            }}
-          >
-            we
-          </span>{" "}
-          offer to universities?
-        </h1>
+    <section className="w-full bg-[#F6F2EB] py-16 xl:py-20">
+      {/* Heading */}
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 mb-12">
+        <h2 className="font-nunito font-bold text-[42px] lg:text-[50px] text-[#5C4737]">
+          What <span className="text-[#5C4737]">we</span> offer to universities?
+        </h2>
       </div>
 
-      
-      {/* Cards Container - Mobile: Stacked, full width, with gap */}
-      <div className="max-md:flex max-md:flex-col max-md:gap-6">
-        {/* --- Card 1 --- */}
-        <div
-          style={{
-            width: "290px",
-            height: "350px",
-            position: "absolute",
-            top: "1030px",
-            left: "84px",
-            borderRadius: "16px",
-            background: "#F8F8F8",
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderImageSource:
-              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
-            borderImageSlice: 1,
-          }}
-          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
-        >
-          {/* Inner Image Box */}
+      {/* Cards Grid */}
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
+        {cards.map((card, index) => (
           <div
-            style={{
-              width: "75px",
-              height: "75px",
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-            }}
-            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
-          >
-            <Image
-              src={c1}
-              alt="icon"
-              style={{
-                width: "56.25px",
-                height: "62.4609375px",
-                position: "absolute",
-                top: "6.25px",
-                left: "9.38px",
-              }}
-              className="max-md:relative max-md:w-[45px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
-            />
-          </div>
+            key={index}
+            className={`relative bg-[#F8F8F8] rounded-[16px] border border-[#5C4737]/30 p-6 h-[350px] flex flex-col
+              ${index % 4 === 1 ? "mt-8 sm:mt-10" : ""}
+              ${index % 4 === 2 ? "mt-16 sm:mt-20" : ""}
+              ${index % 4 === 3 ? "mt-24 sm:mt-28" : ""}
 
-          {/* Title */}
-          <p
-            style={{
-              width: "195px",
-              height: "58px",
-              position: "absolute",
-              top: "139px",
-              left: "20px",
-              fontFamily: "Inter",
-              fontWeight: 600,
-              fontSize: "24px",
-              lineHeight: "100%",
-              letterSpacing: "-0.03em",
-              color: "#5C4737",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
+              hover:scale-105 hover:shadow-xl transition-transform transition-shadow duration-300
+            `}
           >
-            24/7 Anonymous Access
-          </p>
+            {/* Bottom-right fade effect */}
+            <div className="absolute bottom-0 right-0 w-[80px] h-[80px] bg-gradient-to-tl from-[#F6F2EB]/70 via-transparent rounded-br-[16px] pointer-events-none"></div>
 
-          {/* Description */}
-          <p
-            style={{
-              width: "262px",
-              height: "75px",
-              position: "absolute",
-              top: "207px",
-              left: "20px",
-              fontFamily: "Inter",
-              fontWeight: 500,
-              fontSize: "14px",
-              lineHeight: "25px",
-              letterSpacing: "-0.03em",
-              color: "#6D6D6F",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Real counselling, round the clock — with complete privacy and
-            immediate support, whenever and wherever you need it.
-          </p>
-        </div>
-
-        {/* --- Card 2 --- */}
-        <div
-          style={{
-            width: "290px",
-            height: "350px",
-            position: "absolute",
-            top: "1064px",
-            left: "386px",
-            borderRadius: "16px",
-            background: "#F8F8F8",
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderImageSource:
-              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
-            borderImageSlice: 1,
-          }}
-          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
-        >
-          {/* Inner Image Box */}
-          <div
-            style={{
-              width: "75px",
-              height: "75px",
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-            }}
-            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
-          >
-            {/* Image */}
-            <Image
-              src={holistic}
-              alt="icon"
-              style={{
-                width: "62.5px",
-                height: "59.3425px",
-                position: "absolute",
-                top: "6px",
-                left: "6.25px",
-              }}
-              className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
-            />
-          </div>
-
-          {/* Title */}
-          <p
-            style={{
-              width: "196px",
-              height: "58px",
-              position: "absolute",
-              top: "127px",
-              left: "20px",
-              fontFamily: "Inter",
-              fontWeight: 600,
-              fontSize: "24px",
-              lineHeight: "100%",
-              letterSpacing: "-0.03em",
-              color: "#5C4737",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Holistic Student Support
-          </p>
-
-          {/* Description */}
-          <p
-            style={{
-              width: "262px",
-              height: "100px",
-              position: "absolute",
-              top: "195px",
-              left: "20px",
-              fontFamily: "Inter",
-              fontWeight: 500,
-              fontSize: "14px",
-              lineHeight: "25px",
-              letterSpacing: "-0.03em",
-              color: "#6D6D6F",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Covering exam stress, relationships, identity, focus, and more —
-            because whatever you're going through, you don't have to face it
-            alone.
-          </p>
-        </div>
-
-        {/* --- Card 3 --- */}
-        <div
-          style={{
-            width: "290px",
-            height: "350px",
-            position: "absolute",
-            top: "1094px",
-            left: "688px",
-            borderRadius: "16px",
-            background: "#F8F8F8",
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderImageSource:
-              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
-            borderImageSlice: 1,
-          }}
-          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
-        >
-          {/* Inner Image Box */}
-          <div
-            style={{
-              width: "75px",
-              height: "75px",
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-            }}
-            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
-          >
-            {/* Image */}
-            <Image
-              src={Risk}
-              alt="icon"
-              style={{
-                width: "62.4688px",
-                height: "62.4688px",
-                position: "absolute",
-                top: "6.27px",
-                left: "6.26px",
-              }}
-              className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
-            />
-          </div>
-
-          {/* Title */}
-          <p
-            style={{
-              width: "197px",
-              height: "58px",
-              position: "absolute",
-              top: "121px",
-              left: "20px",
-              fontFamily: "Inter",
-              fontWeight: 600,
-              fontSize: "24px",
-              lineHeight: "100%",
-              letterSpacing: "-0.03em",
-              color: "#5C4737",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            High-Risk Case Escalation
-          </p>
-
-          {/* Description */}
-          <p
-            style={{
-              width: "262px",
-              height: "100px",
-              position: "absolute",
-              top: "189px",
-              left: "20px",
-              fontFamily: "Inter",
-              fontWeight: 500,
-              fontSize: "14px",
-              lineHeight: "25px",
-              letterSpacing: "-0.03em",
-              color: "#6D6D6F",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Built-in protocols for high-risk cases with seamless escalation to
-            partner hospitals, guaranteeing safety, continuity, and quality of
-            care.
-          </p>
-        </div>
-
-        {/* --- Card 4 --- */}
-        <div
-          style={{
-            width: "290px",
-            height: "350px",
-            position: "absolute",
-            top: "1124px",
-            left: "990px",
-            borderRadius: "16px",
-            background: "#F8F8F8",
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderImageSource:
-              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
-            borderImageSlice: 1,
-          }}
-          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
-        >
-          {/* Inner Image Box */}
-          <div
-            style={{
-              width: "75px",
-              height: "75px",
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-            }}
-            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
-          >
-            {/* Image */}
-            <Image
-              src={Dashboard}
-              alt="icon"
-              style={{
-                width: "62.5px",
-                height: "62.5px",
-                position: "absolute",
-                top: "6.25px",
-                left: "6.25px",
-              }}
-              className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
-            />
-          </div>
-
-          {/* Title */}
-          <p
-            style={{
-              width: "198px",
-              height: "58px",
-              position: "absolute",
-              top: "119px",
-              left: "20px",
-              fontFamily: "Inter",
-              fontWeight: 600,
-              fontSize: "24px",
-              lineHeight: "100%",
-              letterSpacing: "-0.03em",
-              color: "#5C4737",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Institutional Dashboards
-          </p>
-
-          {/* Description */}
-          <p
-            style={{
-              width: "262px",
-              height: "100px",
-              position: "absolute",
-              top: "187px",
-              left: "20px",
-              fontFamily: "Inter",
-              fontWeight: 500,
-              fontSize: "14px",
-              lineHeight: "25px",
-              letterSpacing: "-0.03em",
-              color: "#6D6D6F",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Anonymized, real-time wellness insights to inform campus-wide mental
-            health status, helping institutions identify trends and support
-            students proactively.
-          </p>
-        </div>
-
-        {/* --- Card 5 (Second Row First) --- */}
-        <div
-          style={{
-            width: "290px",
-            height: "350px",
-            position: "absolute",
-            top: "1496px",
-            left: "84px",
-            borderRadius: "16px",
-            background: "#F8F8F8",
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderImageSource:
-              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
-            borderImageSlice: 1,
-          }}
-          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
-        >
-          {/* Inner Image Box */}
-          <div
-            style={{
-              width: "75px",
-              height: "75px",
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-              opacity: 1,
-              transform: "rotate(0deg)",
-            }}
-            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
-          >
-            {/* Direct Image inside — NOT another layout */}
-            <Image
-              src={Global}
-              alt="icon"
-              width={62.5}
-              height={62.5}
-              style={{
-                position: "absolute",
-                top: "6.25px",
-                left: "6.25px",
-                opacity: 1,
-                transform: "rotate(0deg)",
-              }}
-              className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
-            />
-          </div>
-          {/* Title */}
-          <div
-            style={{
-              width: "195px",
-              height: "58px",
-              position: "absolute",
-              top: "124px",
-              left: "20px",
-              opacity: 1,
-              transform: "rotate(0deg)",
-              fontFamily: "Inter",
-              fontWeight: 600,
-              fontSize: "24px",
-              lineHeight: "100%",
-              letterSpacing: "-3%",
-              color: "#5C4737",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Global Accessibility
-          </div>
-
-          {/* Description */}
-          <div
-            style={{
-              width: "262px",
-              height: "100px",
-              position: "absolute",
-              top: "192px",
-              left: "20px",
-              opacity: 1,
-              transform: "rotate(0deg)",
-              fontFamily: "Inter",
-              fontWeight: 500,
-              fontSize: "14px",
-              lineHeight: "25px",
-              letterSpacing: "-3%",
-              color: "#6D6D6F",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Works seamlessly across devices, time zones, and multiple languages
-            to serve all students — because help should always be within reach.
-          </div>
-        </div>
-
-        {/* --- Card 6 (Second Row Second) --- */}
-        <div
-          style={{
-            width: "290px",
-            height: "350px",
-            position: "absolute",
-            top: "1526px",
-            left: "384px",
-            borderRadius: "16px",
-            background: "#F8F8F8",
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderImageSource:
-              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
-            borderImageSlice: 1,
-          }}
-          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
-        >
-          {/* Inner Image Box */}
-          <div
-            style={{
-              width: "75px",
-              height: "75px",
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-              opacity: 1,
-            }}
-            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
-          >
-            {/* Direct Image Inside */}
-            <Image
-              src={Custom}
-              alt="icon"
-              width={62.5}
-              height={62.5}
-              style={{
-                position: "absolute",
-                top: "6.25px",
-                left: "6.25px",
-                opacity: 1,
-                transform: "rotate(0deg)",
-              }}
-              className="max-md:relative max-md:w-[50px] max-md:h-[50px] max-md:top-auto max-md:left-auto max-md:!static"
-            />
-          </div>
-
-          {/* Title */}
-          <div
-            style={{
-              width: "196px",
-              height: "58px",
-              position: "absolute",
-              top: "120px",
-              left: "20px",
-              opacity: 1,
-              transform: "rotate(0deg)",
-              fontFamily: "Inter",
-              fontWeight: 600,
-              fontSize: "24px",
-              lineHeight: "100%",
-              letterSpacing: "-3%",
-              color: "#5C4737",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Custom Content Drops
-          </div>
-
-          {/* Description */}
-          <div
-            style={{
-              width: "262px",
-              height: "100px",
-              position: "absolute",
-              top: "188px",
-              left: "20px",
-              opacity: 1,
-              transform: "rotate(0deg)",
-              fontFamily: "Inter",
-              fontWeight: 500,
-              fontSize: "14px",
-              lineHeight: "25px",
-              letterSpacing: "-3%",
-              color: "#6D6D6F",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Targeted resources for exam anxiety, homesickness, burnout, and
-            self-harm prevention — fostering a safer, more supportive campus
-            environment.
-          </div>
-        </div>
-
-        {/* --- Card 7 (Second Row Third) --- */}
-        <div
-          style={{
-            width: "290px",
-            height: "350px",
-            position: "absolute",
-            top: "1556px",
-            left: "684px",
-            borderRadius: "16px",
-            background: "#F8F8F8",
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderImageSource:
-              "linear-gradient(135deg, #5C4737 0%, rgba(194,150,116,0) 100%)",
-            borderImageSlice: 1,
-          }}
-          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto"
-        >
-          {/* Inner Image Box */}
-          <div
-            style={{
-              width: "75px",
-              height: "75px",
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-              opacity: 1,
-              transform: "rotate(0deg)",
-            }}
-            className="max-md:relative max-md:w-[60px] max-md:h-[60px] max-md:mb-4 max-md:top-auto max-md:left-auto max-md:!static"
-          >
-            {/* Direct Image inside */}
-            <Image
-              src={Regulator}
-              alt="icon"
-              width={56.28125}
-              height={58.203125}
-              style={{
-                position: "absolute",
-                top: "7.42px",
-                left: "6.25px",
-                opacity: 1,
-                transform: "rotate(0deg)",
-                objectFit: "contain",
-              }}
-              className="max-md:relative max-md:w-[45px] max-md:h-[47px] max-md:top-auto max-md:left-auto max-md:!static"
-            />
-          </div>
-
-          {/* Title */}
-          <div
-            style={{
-              width: "197px",
-              height: "58px",
-              position: "absolute",
-              top: "120px",
-              left: "20px",
-              opacity: 1,
-              fontFamily: "Inter",
-              fontWeight: 600,
-              fontSize: "24px",
-              lineHeight: "100%",
-              letterSpacing: "-3%",
-              color: "#5C4737",
-              transform: "rotate(0deg)",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:mb-3 max-md:top-auto max-md:left-auto max-md:text-[20px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Regulatory Compliance
-          </div>
-
-          {/* Description */}
-          <div
-            style={{
-              width: "262px",
-              height: "100px",
-              position: "absolute",
-              top: "188px",
-              left: "20px",
-              opacity: 1,
-              fontFamily: "Inter",
-              fontWeight: 500,
-              fontSize: "14px",
-              lineHeight: "25px",
-              letterSpacing: "-3%",
-              color: "#6D6D6F",
-              transform: "rotate(0deg)",
-            }}
-            className="max-md:relative max-md:w-full max-md:h-auto max-md:top-auto max-md:left-auto max-md:text-[14px] max-md:!static max-md:!w-auto max-md:!h-auto"
-          >
-            Helps your institution stay compliant with UGC/NAAC/AICTE mental
-            health directives — turning compliance into meaningful student
-            well-being action.
-          </div>
-        </div>
-
-        {/* --- Card 8 (Second Row Fourth) - YOUTUBE CARD AT LAST POSITION --- */}
-        <div
-          style={{
-            width: "290px",
-            height: "350px",
-            position: "absolute",
-            top: "1586px",
-            left: "984px",
-            borderRadius: "16px",
-            background: "#5C4737",
-            opacity: 1,
-            padding: "20px",
-            boxSizing: "border-box",
-          }}
-          className="max-md:relative max-md:!static max-md:w-full max-md:max-w-xs max-md:mx-auto max-md:h-auto max-md:min-h-[350px] max-md:p-5 max-md:top-auto max-md:left-auto max-md:!w-auto max-md:!h-auto max-md:flex max-md:flex-col max-md:justify-center"
-        >
-          {/* Video Container */}
-          <div className="w-full h-full flex flex-col items-center justify-center">
-            <div className="mb-3 text-center">
-              <h3 className="text-white text-[20px] sm:text-[22px] font-semibold mb-2" style={{ fontFamily: "Inter" }}>
-                See How It Works
-              </h3>
-              <p className="text-white/80 text-sm mb-4">
-                Watch our demo video
-              </p>
+            <div className="w-[60px] h-[60px] mb-4 z-10 relative">
+              <Image
+                src={card.icon}
+                alt="icon"
+                className="w-full h-full object-contain"
+              />
             </div>
+
+            <h3 className="text-[22px] font-semibold text-[#5C4737] mb-3 leading-tight z-10 relative">
+              {card.title}
+            </h3>
+
+            <p className="text-[14px] text-[#6D6D6F] leading-[24px] z-10 relative">
+              {card.desc}
+            </p>
+          </div>
+        ))}
+
+        {/* Video Card */}
+        <div
+          className={`relative bg-[#5C4737] rounded-[16px] p-6 h-[350px] flex flex-col justify-center text-center
+            ${7 % 4 === 1 ? "mt-8 sm:mt-10" : ""}
+            ${7 % 4 === 2 ? "mt-16 sm:mt-20" : ""}
+            ${7 % 4 === 3 ? "mt-24 sm:mt-28" : ""}
             
-            {/* Video Container */}
-            <div className="relative w-full h-40 rounded-lg overflow-hidden bg-black/30">
-              <div className="absolute inset-0 flex items-center justify-center">
-                {/* YouTube video embed */}
-                <iframe
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&modestbranding=1&rel=0"
-                  title="Mind A Lot Demo Video"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-                
-                {/* Fallback if video doesn't load */}
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#5c4737]/80 to-[#3a2b20]/80">
-                  <div className="text-center p-4">
-                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-                    <p className="text-white font-medium">Demo Video</p>
-                    <p className="text-white/70 text-sm mt-1">Click to play</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mt-3 text-xs text-white/60 text-center">
-              Experience the platform in action
-            </div>
+            hover:scale-105 hover:shadow-xl transition-transform transition-shadow duration-300
+          `}
+        >
+          {/* Bottom-right fade effect */}
+          <div className="absolute bottom-0 right-0 w-[80px] h-[80px] bg-gradient-to-tl from-[#5C4737]/50 via-transparent rounded-br-[16px] pointer-events-none"></div>
+
+          <h3 className="text-white text-[22px] font-semibold mb-2 z-10 relative">
+            See How It Works
+          </h3>
+          <p className="text-white/80 text-sm mb-4 z-10 relative">
+            Watch our demo video
+          </p>
+
+          <div className="relative w-full h-[160px] rounded-lg overflow-hidden bg-black/30 z-10">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&rel=0"
+              title="Demo Video"
+              className="w-full h-full"
+              allowFullScreen
+            />
           </div>
+
+          <p className="text-white/60 text-xs mt-3 z-10 relative">
+            Experience the platform in action
+          </p>
         </div>
       </div>
-      {/* End Cards Container */}
     </section>
   );
 };
+
 
 // ========== CONNECT SECTION ==========
 const ConnectCampus = () => {
