@@ -919,6 +919,8 @@ const MakeUs = () => {
 
 // UPDATED Whowant component with enhanced hover effects
 const Whowant = () => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
   interface CardProps {
     imageSrc: string | StaticImageData;
     altText: string;
@@ -935,283 +937,114 @@ const Whowant = () => {
     { id: 6, imageSrc: w6, altText: "Anyone Needing Support", title: "Anyone Needing Support" }
   ];
 
-  const Card = ({ imageSrc, altText, title, id }: CardProps) => (
-    <div 
-      className="relative w-full overflow-hidden rounded-[12px] shadow-lg aspect-[4/3] sm:aspect-auto sm:h-[300px] group cursor-pointer transition-all duration-700 hover:shadow-2xl hover:scale-[1.03]"
+  /* ================= REUSABLE HOVER CARD ================= */
+  const HoverCard = ({ imageSrc, altText, title, id }: CardProps) => (
+    <div
+      className="relative w-full h-full rounded-[12px] overflow-hidden bg-black
+      group cursor-pointer transition-transform duration-700 hover:scale-[1.03]"
       onMouseEnter={() => setHoveredCard(id)}
       onMouseLeave={() => setHoveredCard(null)}
     >
+      {/* Image */}
       <Image
         src={imageSrc}
         alt={altText}
         fill
-        className="object-cover transition-all duration-700 group-hover:scale-110"
-        sizes="(max-width: 640px) 100vw, 50vw"
+        className="object-cover scale-[1.05] transition-transform duration-700 group-hover:scale-110"
       />
 
-      {/* Enhanced Gradient Overlay */}
-      <div className={`absolute inset-0 transition-all duration-700 ${
-        hoveredCard === id 
-          ? 'bg-gradient-to-t from-black/95 via-black/80 to-black/60' 
-          : 'bg-gradient-to-t from-black/60 via-black/30 to-black/10'
-      }`} />
-      
-      {/* Enhanced Text with smooth animation */}
-      <div className={`absolute bottom-5 left-0 w-full text-center text-white transition-all duration-700 transform ${
-        hoveredCard === id 
-          ? 'text-3xl font-bold translate-y-0 opacity-100' 
-          : 'text-xl font-semibold translate-y-2 opacity-90'
-      }`}>
+      {/* Black fade from bottom */}
+      <div
+        className={`absolute inset-0 transition-all duration-700 ease-out
+        ${
+          hoveredCard === id
+            ? "bg-gradient-to-t from-black/95 via-black/70 to-black/10"
+            : "bg-gradient-to-t from-black/50 via-black/20 to-transparent"
+        }`}
+      />
+
+      {/* Title */}
+      <div
+        className={`absolute inset-0 flex items-center justify-center
+        text-white text-center transition-all duration-700 ease-out
+        ${
+          hoveredCard === id
+            ? "opacity-100 translate-y-0 text-3xl font-bold"
+            : "opacity-90 translate-y-16 text-xl font-semibold"
+        }`}
+      >
         {title}
       </div>
-      
-      {/* Hover glow effect */}
-      {hoveredCard === id && (
-        <div className="absolute inset-0 border-2 border-white/30 rounded-[12px] pointer-events-none animate-pulse"></div>
-      )}
     </div>
   );
 
   return (
-<section className="w-full bg-[#F6F2EB] py-10 sm:py-24 px-4 sm:px-6 lg:h-[1171px] lg:pt-[70px] lg:px-0 relative flex items-center justify-center">
+    <section className="w-full bg-[#F6F2EB] py-10 sm:py-24 px-4 sm:px-6 lg:h-[1171px] lg:pt-[70px] relative flex justify-center">
 
-      {/* DESKTOP-ONLY LAYOUT */}
-      <div className="hidden lg:block w-full h-full relative">
-        
+      {/* ================= DESKTOP ================= */}
+      <div className="hidden lg:block w-full 2xl:max-w-[1800px] h-full relative">
+
         {/* Heading */}
-        <h2 className="relative top-0 left-[44px] w-[321px] h-[68px] font-['Nunito_Sans'] font-bold text-[50px] text-black">
+        <h2 className="absolute top-0 left-[44px] text-[50px] font-bold">
           Who it's For
         </h2>
 
         {/* Description */}
-        <p className="absolute top-[81px] left-[44px] w-[381px] text-[18px] text-black/80 font-['Nunito_Sans']">
-          Mind A Lot is for everyone who wants to feel better, grow stronger, and
-          cope smarter.
+        <p className="absolute top-[81px] left-[44px] w-[381px] text-[18px] text-black/80">
+          Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
         </p>
-
-        {/* Quote Card */}
-        <div className="absolute top-[185px] left-[44px] w-[410px] h-[113px] bg-[#F8F8F8] rounded-md" />
 
         {/* Quote */}
-        <p className="absolute top-[204px] left-[59px] w-[331px] italic font-bold text-[16px]">
+        <div className="absolute top-[185px] left-[44px] w-[410px] h-[113px] bg-[#F8F8F8] rounded-md" />
+        <p className="absolute top-[204px] left-[59px] italic font-bold text-[16px]">
           " Wherever you are. Whoever you are. However you feel. "
         </p>
-
-        {/* Signature */}
         <p className="absolute top-[267px] left-[239px] text-[16px]">
           – Mind A Lot is here for you!
         </p>
 
-        {/* Working Professionals with enhanced hover effect */}
-        <div 
-          className="absolute top-[333px] left-[44px] w-[410px] h-[262px] rounded-[12px] overflow-hidden group cursor-pointer transition-all duration-700 hover:scale-[1.03] hover:shadow-2xl"
-          onMouseEnter={() => setHoveredCard(1)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          <Image 
-            src={w1} 
-            alt="" 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-          />
-          <div className={`absolute inset-0 transition-all duration-700 ${
-            hoveredCard === 1 
-              ? 'bg-gradient-to-b from-black/95 via-black/80 to-black/60' 
-              : 'bg-gradient-to-b from-black/0 to-black/90'
-          }`} />
-          <div className={`absolute bottom-[20px] left-0 w-full text-center text-white transition-all duration-700 transform ${
-            hoveredCard === 1 
-              ? 'text-[35px] font-bold translate-y-0 opacity-100' 
-              : 'text-[30px] font-semibold translate-y-2 opacity-90'
-          }`}>
-            Working Professionals
-          </div>
-          {hoveredCard === 1 && (
-            <div className="absolute inset-0 border-2 border-white/30 rounded-[12px] pointer-events-none animate-pulse"></div>
-          )}
+        {/* Cards */}
+        <div className="absolute top-[333px] left-[44px] w-[410px] h-[262px]">
+          <HoverCard {...cards[0]} />
         </div>
 
-        {/* Students with enhanced hover effect */}
-        <div 
-          className="absolute top-0 left-[476px] w-[410px] h-[594px] rounded-[12px] overflow-hidden group cursor-pointer transition-all duration-700 hover:scale-[1.03] hover:shadow-2xl"
-          onMouseEnter={() => setHoveredCard(2)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          <Image 
-            src={w2} 
-            alt="" 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-          />
-          <div className={`absolute inset-0 transition-all duration-700 ${
-            hoveredCard === 2 
-              ? 'bg-gradient-to-b from-black/95 via-black/80 to-black/60' 
-              : 'bg-[linear-gradient(180deg,rgba(0,0,0,0)_72%,rgba(0,0,0,.6)_83%)]'
-          }`} />
-          <div className={`absolute bottom-[38px] left-0 w-full text-center text-white transition-all duration-700 transform ${
-            hoveredCard === 2 
-              ? 'text-[35px] font-bold translate-y-0 opacity-100' 
-              : 'text-[30px] font-semibold translate-y-2 opacity-90'
-          }`}>
-            Students & Young Adults
-          </div>
-          {hoveredCard === 2 && (
-            <div className="absolute inset-0 border-2 border-white/30 rounded-[12px] pointer-events-none animate-pulse"></div>
-          )}
+        <div className="absolute top-0 left-[476px] w-[410px] h-[594px] 2xl:left-[32%] 2xl:w-[440px]">
+          <HoverCard {...cards[1]} />
         </div>
 
-        {/* LGBTQ+ Community with enhanced hover effect */}
-        <div 
-          className="absolute top-0 left-[906px] w-[410px] h-[594px] rounded-[12px] overflow-hidden group cursor-pointer transition-all duration-700 hover:scale-[1.03] hover:shadow-2xl"
-          onMouseEnter={() => setHoveredCard(3)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          <Image 
-            src={w3} 
-            alt="" 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-          />
-          <div className={`absolute inset-0 transition-all duration-700 ${
-            hoveredCard === 3 
-              ? 'bg-gradient-to-b from-black/95 via-black/80 to-black/60' 
-              : 'bg-[linear-gradient(180deg,rgba(0,0,0,0)_76%,rgba(0,0,0,.8)_100%)]'
-          }`} />
-          <div className={`absolute bottom-[38px] left-0 w-full text-center text-white transition-all duration-700 transform ${
-            hoveredCard === 3 
-              ? 'text-[35px] font-bold translate-y-0 opacity-100' 
-              : 'text-[30px] font-semibold translate-y-2 opacity-90'
-          }`}>
-            LGBTQ+ Community
-          </div>
-          {hoveredCard === 3 && (
-            <div className="absolute inset-0 border-2 border-white/30 rounded-[12px] pointer-events-none animate-pulse"></div>
-          )}
+        <div className="absolute top-0 left-[906px] w-[410px] h-[594px] 2xl:left-[64%] 2xl:w-[440px]">
+          <HoverCard {...cards[2]} />
         </div>
 
-        {/* Older Adults with enhanced hover effect */}
-        <div 
-          className="absolute top-[615px] left-[48px] w-[410px] h-[416px] rounded-[12px] overflow-hidden group cursor-pointer transition-all duration-700 hover:scale-[1.03] hover:shadow-2xl"
-          onMouseEnter={() => setHoveredCard(4)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          <Image
-            src={w4}
-            alt="Older Adults"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          <div className={`absolute inset-0 transition-all duration-700 ${
-            hoveredCard === 4 
-              ? 'bg-gradient-to-b from-black/95 via-black/80 to-black/60' 
-              : 'bg-gradient-to-b from-black/0 to-black/70'
-          }`} />
-          <div className={`absolute top-[339px] left-0 w-full text-center text-white transition-all duration-700 transform ${
-            hoveredCard === 4 
-              ? 'text-[35px] font-bold translate-y-0 opacity-100' 
-              : 'text-[30px] font-semibold translate-y-2 opacity-90'
-          }`}>
-            Older Adults
-          </div>
-          {hoveredCard === 4 && (
-            <div className="absolute inset-0 border-2 border-white/30 rounded-[12px] pointer-events-none animate-pulse"></div>
-          )}
+        <div className="absolute top-[615px] left-[48px] w-[410px] h-[416px]">
+          <HoverCard {...cards[3]} />
         </div>
 
-        {/* Neurodivergent Users with enhanced hover effect */}
-        <div 
-          className="absolute top-[615px] left-[480px] w-[410px] h-[416px] rounded-[12px] overflow-hidden group cursor-pointer transition-all duration-700 hover:scale-[1.03] hover:shadow-2xl"
-          onMouseEnter={() => setHoveredCard(5)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          <Image
-            src={w5}
-            alt="Neurodivergent Users"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          <div className={`absolute inset-0 transition-all duration-700 ${
-            hoveredCard === 5 
-              ? 'bg-gradient-to-b from-black/95 via-black/80 to-black/60' 
-              : 'bg-gradient-to-b from-black/0 to-black/80'
-          }`} />
-          <div className={`absolute top-[327px] left-0 w-full text-center text-white transition-all duration-700 transform ${
-            hoveredCard === 5 
-              ? 'text-[35px] font-bold translate-y-0 opacity-100' 
-              : 'text-[30px] font-semibold translate-y-2 opacity-90'
-          }`}>
-            Neurodivergent Users
-          </div>
-          {hoveredCard === 5 && (
-            <div className="absolute inset-0 border-2 border-white/30 rounded-[12px] pointer-events-none animate-pulse"></div>
-          )}
+        <div className="absolute top-[615px] left-[480px] w-[410px] h-[416px]">
+          <HoverCard {...cards[4]} />
         </div>
 
-        {/* Anyone Needing Support with enhanced hover effect */}
-        <div 
-          className="absolute top-[615px] left-[910px] w-[410px] h-[416px] rounded-[12px] overflow-hidden group cursor-pointer transition-all duration-700 hover:scale-[1.03] hover:shadow-2xl"
-          onMouseEnter={() => setHoveredCard(6)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          <Image
-            src={w6}
-            alt="Anyone Needing Support"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          <div className={`absolute inset-0 transition-all duration-700 ${
-            hoveredCard === 6 
-              ? 'bg-gradient-to-b from-black/95 via-black/80 to-black/60' 
-              : 'bg-gradient-to-b from-black/0 to-black/80'
-          }`} />
-          <div className={`absolute top-[339px] left-0 w-full text-center text-white transition-all duration-700 transform ${
-            hoveredCard === 6 
-              ? 'text-[35px] font-bold translate-y-0 opacity-100' 
-              : 'text-[30px] font-semibold translate-y-2 opacity-90'
-          }`}>
-            Anyone Needing Support
-          </div>
-          {hoveredCard === 6 && (
-            <div className="absolute inset-0 border-2 border-white/30 rounded-[12px] pointer-events-none animate-pulse"></div>
-          )}
+        <div className="absolute top-[615px] left-[910px] w-[410px] h-[416px]">
+          <HoverCard {...cards[5]} />
         </div>
       </div>
 
-      {/* MOBILE/TABLET LAYOUT */}
+      {/* ================= MOBILE / TABLET ================= */}
       <div className="lg:hidden max-w-7xl mx-auto">
-        {/* Header Content Group */}
-        <div className="mb-12">
-          {/* Heading */}
-          <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4 font-['Nunito_Sans']">
-            Who it's For
-          </h2>
+        <h2 className="text-4xl sm:text-5xl font-bold mb-4">Who it's For</h2>
+        <p className="mb-8 text-black/80">
+          Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
+        </p>
 
-          {/* Description */}
-          <p className="text-base sm:text-lg text-black/80 max-w-lg mb-8 font-['Nunito_Sans']">
-            Mind A Lot is for everyone who wants to feel better, grow stronger,
-            and cope smarter.
-          </p>
-
-          {/* Quote Card */}
-          <div className="p-4 bg-[#F8F8F8] max-w-md rounded-md">
-            {/* Quote */}
-            <p className="italic font-bold text-base mb-2">
-              " Wherever you are. Whoever you are. However you feel. "
-            </p>
-            {/* Signature */}
-            <p className="text-base text-right">
-              – Mind A Lot is here for you!
-            </p>
-          </div>
-        </div>
-
-        {/* Responsive Grid for Image Cards with hover effects */}
         <div className="grid gap-6 sm:grid-cols-2">
-          {cards.map((card) => (
-            <Card
-              key={card.id}
-              imageSrc={card.imageSrc}
-              altText={card.altText}
-              title={card.title}
-              id={card.id}
-            />
+          {cards.map(card => (
+            <div key={card.id} className="aspect-[4/3]">
+              <HoverCard {...card} />
+            </div>
           ))}
         </div>
       </div>
+
     </section>
   );
 };

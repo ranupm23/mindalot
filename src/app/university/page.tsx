@@ -162,8 +162,8 @@ const HeroSection = () => {
             fill 
             className="object-cover"
             style={{
-              opacity: 0.8,
-              filter: 'brightness(0.6)'
+              opacity: 1,
+              filter: 'brightness(0.87)'
             }}
             priority 
           />
@@ -355,13 +355,20 @@ const HeroSection = () => {
 // ========== OFFER SECTION =========
 const OfferSection = () => {
   return (
-    <section
-      className="max-md:py-12 max-md:!h-auto"
-      style={{
-        backgroundColor: "#F6F2EB",
-        height: "180vh", // Desktop fixed height
-      }}
-    >
+   <section
+  className="
+    max-md:py-12 
+    max-md:!h-auto
+
+    2xl:scale-[0.9]
+    2xl:origin-top
+  "
+  style={{
+    backgroundColor: "#F6F2EB",
+    height: "180vh",
+  }}
+>
+
       {/* Heading Layout */}
       <div
         style={{
