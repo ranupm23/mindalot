@@ -1122,16 +1122,28 @@ const Features = () => {
   );
 };
 
+// const animationStyles = `
+// @keyframes scroll-left-to-right {
+//   from {
+//     transform: translateX(0);
+//   }
+//   to {
+//     transform: translateX(calc(-100% / 2));
+//   }
+// }
+// `;
+
 const animationStyles = `
-@keyframes scroll-left-to-right {
-  from {
+@keyframes scroll-right-to-left {
+  0% {
     transform: translateX(0);
   }
-  to {
-    transform: translateX(calc(-100% / 2));
+  100% {
+    transform: translateX(-50%);
   }
 }
 `;
+
 
 interface Logo {
   src: StaticImageData;
@@ -1146,16 +1158,20 @@ interface LogoCarouselProps {
 // Helper component for the scrolling logo row
 const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
   const duplicatedLogos = [...logos, ...logos];
+
   return (
     <div className="flex w-full overflow-hidden whitespace-nowrap group">
       <style jsx global>{animationStyles}</style>
-      <div 
-        className="flex animate-scroll-ltr w-fit"
-        style={{ animation: 'scroll-left-to-right 20s linear infinite' }}
+
+      <div
+        className="flex w-fit"
+        style={{
+          animation: 'scroll-right-to-left 20s linear infinite'
+        }}
       >
         {duplicatedLogos.map((logo, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className="flex items-center justify-center h-24 sm:h-32 mx-6 sm:mx-10 shrink-0 transition-all duration-500 hover:scale-110 hover:rotate-2"
           >
             <Image
@@ -1208,9 +1224,15 @@ const Trusted = () => {
 
         {/* Images Layout (Carousel) */}
         <div
-          className="absolute w-[922px] h-[144px] overflow-hidden"
-          style={{ top: '49px', left: '530px' }}
-        >
+  className="
+    absolute w-[922px] h-[144px]
+    xl:h-[160px]
+    2xl:h-[180px]
+    overflow-hidden
+  "
+  style={{ top: '49px', left: '530px' }}
+>
+
           <LogoCarousel logos={logos} />
         </div>
       </div>
