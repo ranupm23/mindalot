@@ -15,6 +15,7 @@ const menuItems = [
   { name: "Contact", path: "/contact" },
 ];
 
+// Redirect based on device
 const redirectToAppStore = () => {
   if (typeof window === "undefined") return;
 
@@ -39,13 +40,14 @@ const redirectToAppStore = () => {
     "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
 };
 
-
 export default function Header({ textWhite = false }) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="w-full h-[90px] relative z-10 flex items-center justify-center bg-transparent transition-colors duration-300">
+  <header className="w-full h-[90px] relative z-10 flex items-center justify-center bg-white md:bg-transparent transition-colors duration-300">
+
+
       <div className="w-[1440px] h-[90px] flex items-center justify-between px-[75px]">
         {/* LOGO */}
         <Link href="/">
@@ -111,7 +113,7 @@ export default function Header({ textWhite = false }) {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden w-full bg-white absolute top-[90px] left-0 shadow-lg flex flex-col items-center gap-4 py-4">
+        <div className="md:hidden w-full bg-white absolute top-[90px] left-0 shadow-lg flex flex-col items-center gap-4 py-4 z-[9999]">
           {menuItems.map((item) => (
             <Link
               key={item.path}

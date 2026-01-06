@@ -816,7 +816,7 @@ const HomeHero = () => {
 
 const MakeUs = () => {
   return (
-    <section className="w-full  overflow-x-hidden py-12 sm:py-20 px-5 mt-[-30px] sm:px-10 lg:px-20">
+    <section className="w-full overflow-x-hidden py-12 sm:py-20 px-5 mt-[-30px] sm:px-10 lg:px-20">
       
       {/* HEADER */}
       <h2
@@ -831,17 +831,18 @@ const MakeUs = () => {
         What makes us different ?
       </h2>
 
-      {/* CARDS GRID with smooth hover effects */}
-      <div className="
-        grid 
-        grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-        gap-y-12 gap-x-8        
-        md:gap-y-16 md:gap-x-12
-        lg:gap-24
-        max-w-7xl mx-auto
-      ">
-        
-        {[ 
+      {/* CARDS GRID */}
+      <div
+        className="
+          grid 
+          grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+          gap-y-12 gap-x-8        
+          md:gap-y-16 md:gap-x-12
+          lg:gap-24
+          max-w-7xl mx-auto
+        "
+      >
+        {[
           { no: "01", title: "Instant Human Support", desc: "Start chatting the moment you feel overwhelmed. No forms. No queues. No matching wait. A real counsellor responds in seconds." },
           { no: "02", title: "100% Anonymous", desc: "You can choose a nickname. Your real identity stays private. Even our counsellors won't know who you are. Feel safe, share freely." },
           { no: "03", title: "Flexible Access", desc: "Want to choose your own counsellor? Prefer video or voice? You can book that." },
@@ -849,13 +850,18 @@ const MakeUs = () => {
           { no: "05", title: "Mood Tracker", desc: "Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn't need to hurt you again." },
           { no: "06", title: "Self-Discovery Tools & Library", desc: "Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling." }
         ].map((item) => (
-          
-          <div 
-            key={item.no} 
-            className="flex flex-col space-y-3 group cursor-pointer transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-xl rounded-lg p-6 hover:bg-white/60 hover:backdrop-blur-sm border border-transparent hover:border-[#5C4737]/10"
+          <div
+            key={item.no}
+            className="
+              flex flex-col space-y-3 group cursor-pointer
+              transition-all duration-500
+              hover:scale-[1.02] hover:shadow-xl
+              rounded-lg p-6
+              hover:bg-white/60 hover:backdrop-blur-sm
+              border border-transparent hover:border-[#5C4737]/10
+            "
           >
-            
-            {/* NUMBER & LINE WRAPPER */}
+            {/* NUMBER + PROGRESS BAR */}
             <div className="relative">
               {/* Number */}
               <div
@@ -870,16 +876,15 @@ const MakeUs = () => {
                 {item.no}
               </div>
 
-              {/* Line Image with hover animation */}
-              <div className="relative w-[96px] h-[18px] mt-2 overflow-hidden">
-                <Image
-                  src={line}
-                  alt="decorative line"
+              {/* PROGRESS BAR */}
+              <div className="mt-2 w-[120px] h-[4px] bg-[#E6DED6] overflow-hidden rounded-full">
+                <div
                   className="
-                    w-full h-full
-                    transition-all duration-700
-                    group-hover:w-[160px] group-hover:ml-[-10px]
-                    group-hover:translate-x-4
+                    h-full w-full bg-[#5B4A3E]
+                    transform scale-x-[0.35]
+                    origin-left
+                    transition-transform duration-700 ease-in-out
+                    group-hover:scale-x-100
                   "
                 />
               </div>
@@ -889,8 +894,7 @@ const MakeUs = () => {
             <div
               className="
                 text-xl sm:text-2xl font-semibold text-[#5C4737]
-                font-['Inter'] 
-                leading-tight
+                font-['Inter'] leading-tight
                 mb-2 sm:mb-4
                 transition-all duration-500
                 group-hover:text-[#7D5E4A] group-hover:translate-x-2
@@ -917,9 +921,8 @@ const MakeUs = () => {
   );
 };
 
-const Whowant = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
+const Whowant = () => {
   interface CardProps {
     imageSrc: string | StaticImageData;
     altText: string;
@@ -936,37 +939,71 @@ const Whowant = () => {
     { id: 6, imageSrc: w6, altText: "Anyone Needing Support", title: "Anyone Needing Support" }
   ];
 
+  const subTextMap: Record<number, string> = {
+    1: "Burnout, overthinking, career decisions,relationship stress",
+    2: "Facing exam stress, peer pressure, identity struggles, loneliness",
+    3: "Safe, affirming space to talk about anything",
+    4: "Loss, loneliness, transitions, simply needing someone to talk",
+    5: "ADHD, emotional regulation, social fatigue,",
+    6: "When friends or family aren’t enough, or too much stress suffers you"
+  };
+
   const HoverCard = ({ imageSrc, altText, title, id }: CardProps) => (
     <div
-      className="relative w-full h-full rounded-[12px] overflow-hidden bg-black
-        group cursor-pointer transition-transform duration-700 hover:scale-[1.03]"
-      onMouseEnter={() => setHoveredCard(id)}
-      onMouseLeave={() => setHoveredCard(null)}
+      className="
+        relative w-full h-full rounded-[12px] overflow-hidden bg-black
+        group cursor-pointer transition-transform duration-700 hover:scale-[1.03]
+      "
     >
+      {/* IMAGE */}
       <Image
         src={imageSrc}
         alt={altText}
         fill
         className="object-cover scale-[1.05] transition-transform duration-700 group-hover:scale-110"
       />
+
+      {/* OVERLAY */}
       <div
-        className={`absolute inset-0 transition-all duration-700 ease-out
-          ${
-            hoveredCard === id
-              ? "bg-gradient-to-t from-black/95 via-black/70 to-black/10"
-              : "bg-gradient-to-t from-black/50 via-black/20 to-transparent"
-          }`}
+        className="
+          absolute inset-0
+          bg-gradient-to-t from-black/70 via-black/30 to-transparent
+          transition-all duration-700
+          group-hover:bg-black/75
+        "
       />
+
+      {/* TEXT */}
       <div
-        className={`absolute inset-0 flex items-center justify-center
-          text-white text-center transition-all duration-700 ease-out
-          ${
-            hoveredCard === id
-              ? "opacity-100 translate-y-0 text-3xl font-bold"
-              : "opacity-90 translate-y-16 text-xl font-semibold"
-          }`}
+        className="
+          absolute inset-0 flex flex-col items-center text-white text-center
+          transition-all duration-700 ease-out
+          justify-end pb-10
+          group-hover:justify-center
+        "
       >
-        {title}
+        {/* TITLE */}
+        <h3
+          className="
+            text-2xl font-semibold
+            transition-all duration-700
+            group-hover:text-3xl group-hover:font-bold group-hover:mb-3
+          "
+        >
+          {title}
+        </h3>
+
+        {/* SUB TEXT */}
+        <p
+          className="
+            max-w-[85%] text-sm sm:text-base text-white/90
+            opacity-0 translate-y-4
+            transition-all duration-700
+            group-hover:opacity-100 group-hover:translate-y-0
+          "
+        >
+          {subTextMap[id]}
+        </p>
       </div>
     </div>
   );
@@ -974,50 +1011,53 @@ const Whowant = () => {
   return (
     <section className="w-full bg-[#F6F2EB] py-10 sm:py-24 px-4 sm:px-6 relative flex justify-center">
 
-      {/* ================= DESKTOP / LARGE SCREENS ================= */}
-     <div className="hidden lg:grid grid-cols-3 gap-x-6 gap-y-6 w-full 2xl:max-w-[1800px] mx-auto -mb-[420px]">
+      {/* ================= DESKTOP ================= */}
+      <div className="hidden lg:grid grid-cols-3 gap-x-6 gap-y-6 w-full 2xl:max-w-[1800px] mx-auto -mb-[420px]">
 
-
-        {/* Heading and Description */}
+        {/* HEADER */}
         <div className="col-span-3">
           <h2 className="text-[50px] font-bold mb-2">Who it's For</h2>
           <p className="w-[380px] text-[18px] text-black/80 mb-4">
             Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
           </p>
-          <div className="relative w-[410px] h-[113px] mb-12 bg-[#F8F8F8] rounded-md px-4 py-3">
+
+          <div className="relative w-[410px] h-[113px] mb-12 bg-[#F8F8F8] rounded-md px-4 py-3 ml-auto">
             <p className="italic font-bold text-[16px]">
               " Wherever you are. Whoever you are. However you feel. "
             </p>
-            <p className="mt-4 text-[16px]">– Mind A Lot is here for you!</p>
+            <p className="mt-4 text-[16px] text-right">
+              – Mind A Lot is here for you!
+            </p>
           </div>
         </div>
 
-        {/* ================= CARDS ================= */}
-        {/* First row */}
+        {/* CARDS */}
         <div className="w-full h-[380px]">
           <HoverCard {...cards[0]} />
         </div>
+
         <div className="w-full h-[800px] -translate-y-[415px]">
           <HoverCard {...cards[1]} />
         </div>
+
         <div className="w-full h-[800px] -translate-y-[415px]">
           <HoverCard {...cards[2]} />
         </div>
 
-        {/* Second row */}
         <div className="w-full h-[416px] -translate-y-[420px]">
           <HoverCard {...cards[3]} />
         </div>
+
         <div className="w-full h-[416px] -translate-y-[420px]">
           <HoverCard {...cards[4]} />
         </div>
+
         <div className="w-full h-[416px] -translate-y-[420px]">
           <HoverCard {...cards[5]} />
         </div>
-
       </div>
 
-      {/* ================= MOBILE / TABLET ================= */}
+      {/* ================= MOBILE ================= */}
       <div className="lg:hidden max-w-7xl mx-auto">
         <h2 className="text-4xl sm:text-5xl font-bold mb-4">Who it's For</h2>
         <p className="mb-8 text-black/80">
@@ -1037,7 +1077,6 @@ const Whowant = () => {
   );
 };
 
-
 interface FeatureItemProps {
   iconSrc: string | StaticImageData;
   altText: string;
@@ -1045,30 +1084,57 @@ interface FeatureItemProps {
   isLast?: boolean;
 }
 
-const FeatureItem = ({ iconSrc, altText, title, isLast = false }: FeatureItemProps) => {
+const FeatureItem = ({
+  iconSrc,
+  altText,
+  title,
+  isLast = false,
+}: FeatureItemProps) => {
   return (
-    <div 
+    <div
       className={`
         flex items-center gap-4 sm:gap-5 py-4 sm:py-6 lg:py-8
-        ${!isLast ? 'border-b border-gray-200' : ''}
-        group cursor-pointer transition-all duration-500 hover:bg-gray-50/80 hover:pl-4 rounded-lg hover:shadow-md
+        ${!isLast ? "border-b border-gray-200" : ""}
+        group cursor-pointer transition-all duration-500
+        hover:bg-gray-50/80 hover:pl-4 rounded-lg hover:shadow-md
       `}
     >
-      <div className="shrink-0 w-12 h-12 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+      {/* ICON WRAPPER */}
+      <div
+        className="
+          shrink-0 w-14 h-14 rounded-full
+          flex items-center justify-center
+          border-2 border-transparent
+          bg-transparent
+          transition-all duration-500
+          group-hover:bg-[#5B4A3E]
+          group-hover:border-white
+          group-hover:scale-110
+        "
+      >
         <Image
-          src={iconSrc} 
-          alt={altText} 
-          className="w-full h-full object-contain transition-filter duration-500 group-hover:brightness-110 group-hover:drop-shadow-lg"
+          src={iconSrc}
+          alt={altText}
+          className="
+            w-8 h-8 sm:w-10 sm:h-10
+            object-contain
+            transition-all duration-500
+            group-hover:brightness-0 group-hover:invert
+          "
         />
       </div>
 
+      {/* TEXT */}
       <div className="flex-1 min-w-0">
-        <h3 
+        <h3
           className="
             font-medium text-black font-['Inter'] leading-snug
             text-base sm:text-xl whitespace-normal
             lg:whitespace-nowrap transition-all duration-500
-            group-hover:text-[#5C4737] group-hover:font-bold group-hover:translate-x-2
+            group-hover:text-[#5C4737]
+            group-hover:font-semibold
+            group-hover:text-lg
+            group-hover:translate-x-2
           "
         >
           {title}
@@ -1077,11 +1143,12 @@ const FeatureItem = ({ iconSrc, altText, title, isLast = false }: FeatureItemPro
     </div>
   );
 };
+
+/* ================= FEATURES SECTION ================= */
+
 const Features = () => {
   return (
     <section className="relative w-full overflow-hidden mt-11 sm:mt-20">
-      
-      {/* CONTAINER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-10 lg:px-[50px] pb-[10px] sm:pb-[80px]">
 
         {/* HEADER */}
@@ -1094,25 +1161,58 @@ const Features = () => {
           </p>
         </div>
 
-        {/* GRID LAYOUT */}
+        {/* GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 lg:gap-x-16 lg:gap-y-0">
-          
-          {/* LEFT COLUMN LIST */}
+
+          {/* LEFT COLUMN */}
           <div className="flex flex-col w-full">
-            <FeatureItem iconSrc={fi1} altText="Chat" title="24/7 Live Chat With Human Counsellors" />
-            <FeatureItem iconSrc={featureIcon2} altText="Tracker" title="Goal Tracker With Behavioural Nudges" />
-            <FeatureItem iconSrc={featureIcon3} altText="Mood" title="Mood-Based Guidance" />
-            <FeatureItem iconSrc={featureIcon4} altText="Assessments" title="Bite-Sized Self Assessments" isLast />
+            <FeatureItem
+              iconSrc={fi1}
+              altText="Chat"
+              title="24/7 Live Chat With Human Counsellors"
+            />
+            <FeatureItem
+              iconSrc={featureIcon2}
+              altText="Tracker"
+              title="Goal Tracker With Behavioural Nudges"
+            />
+            <FeatureItem
+              iconSrc={featureIcon3}
+              altText="Mood"
+              title="Mood-Based Guidance"
+            />
+            <FeatureItem
+              iconSrc={featureIcon4}
+              altText="Assessments"
+              title="Bite-Sized Self Assessments"
+              isLast
+            />
           </div>
 
-          {/* RIGHT COLUMN LIST */}
+          {/* RIGHT COLUMN */}
           <div className="flex flex-col w-full">
-            <div className="w-full lg:pr-[50px]"> 
-               <FeatureItem iconSrc={featureIcon8} altText="Anon" title="100% Anonymity Guaranteed" />
-              <FeatureItem iconSrc={featureIcon6} altText="Lang" title="Works Across Countries & Languages" />
-              <FeatureItem iconSrc={featureIcon7} altText="Hospital" title="Escalation To Partner Hospitals For Psychiatric Care"  />
-           
-                <FeatureItem iconSrc={featureIcon5} altText="Video" title="Expert Videos, Podcasts, and Content Drops" isLast />
+            <div className="w-full lg:pr-[50px]">
+              <FeatureItem
+                iconSrc={featureIcon8}
+                altText="Anon"
+                title="100% Anonymity Guaranteed"
+              />
+              <FeatureItem
+                iconSrc={featureIcon6}
+                altText="Lang"
+                title="Works Across Countries & Languages"
+              />
+              <FeatureItem
+                iconSrc={featureIcon7}
+                altText="Hospital"
+                title="Escalation To Partner Hospitals For Psychiatric Care"
+              />
+              <FeatureItem
+                iconSrc={featureIcon5}
+                altText="Video"
+                title="Expert Videos, Podcasts, and Content Drops"
+                isLast
+              />
             </div>
           </div>
 
