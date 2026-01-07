@@ -47,35 +47,49 @@ const Footer = () => {
       </div>
 
      {/* Footer Content */}
+{/* Footer Content */}
 <div className="relative z-10 mx-auto max-w-[1350px] px-8 md:px-12 lg:px-16 xl:px-20">
   <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-24">
     {/* LOGO + DESCRIPTION */}
     <div className="flex flex-col justify-start" style={{ marginTop: '-40px' }}>
-      <Image
-        src={headerLogo}
-        alt="logo"
-        width={233}
-        height={139}
-        className="w-[263px] h-auto"
-      />
+      {/* Logo Container with footerBgLogo on left side */}
+      <div className="relative flex items-center">
+        {/* Background Logo (50% size, left side) */}
+        <div className="absolute -left-16 top-20">
+  <Image
+    src={footerBgLogo}
+    alt="background logo"
+    width={116.5}
+    height={69.5}
+    className="w-[116.5px] h-auto opacity-100 filter drop-shadow-2xl brightness-50 contrast-200"
+  />
+</div>
+        
+        {/* Main Logo */}
+        <Image
+          src={headerLogo}
+          alt="logo"
+          width={233}
+          height={139}
+          className="w-[263px] h-auto relative z-10"
+        />
+      </div>
+      
       <p className="mt-[-30] font-inter font-normal text-[16px] leading-[30px] tracking-[-0.03em] max-w-[300px]">
-  Anonymous support that listens, nudges, and grows with you. When
-  your mind feels too much, we’re just a tap away.
-</p>
-
+        Anonymous support that listens, nudges, and grows with you. When
+        your mind feels too much, we're just a tap away.
+      </p>
 
       <div className="mt-16 flex flex-wrap items-center gap-10">
         <Link href="/terms-and-condition" className="flex items-center gap-2 hover:text-[#8C7A6B]">
-          
           <span className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
-  • Terms & Condition's
-</span>
+            • Terms & Condition's
+          </span>
         </Link>
         <Link href="/privacy-policy" className="flex items-center gap-2 hover:text-[#8C7A6B]">
           <span className="font-inter font-normal text-[16px] leading-[100%] tracking-[-0.03em]">
-  • Privacy Policy
-</span>
-
+            • Privacy Policy
+          </span>
         </Link>
       </div>
     </div>
@@ -156,8 +170,8 @@ const Footer = () => {
     rel="noopener noreferrer"
     className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight"
   >
-    <MapPin size={18} stroke="#5B4A3E" />
-    #122K, 1st block, 14th cross, 19th 'B' Main,<br />
+    <MapPin size={35} stroke="#5B4A3E" />
+    #122K, 1st block, 14th cross, 19th 'B' Main,
     Rajajinagar, Bengaluru – 560010
   </a>
 </div>

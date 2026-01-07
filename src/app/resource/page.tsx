@@ -49,7 +49,7 @@ const ResourcePage = () => {
     return (
         <div className="flex flex-col min-h-screen">
           <div className="relative z-[1000]">
-            <Header />
+            <Header navTextColor="#755840"/>
           </div>
           
           {/* MAIN CONTENT */}
@@ -65,13 +65,13 @@ const ResourcePage = () => {
                           Ever wondered how small daily habits can reshape your mindset? Explore<br /> 
                           resources that make mental wellness simple and actionable.
                       </p>
-                      <div className='text-[#6D6D6F] font-inter font-medium text-[12px] sm:text-[16px] md:text-[20px] gap-2 flex flex-wrap justify-center sm:justify-start mt-3 sm:mt-5'>
-                          <div className='mb-2 sm:mb-0'>Explore</div>
-                          <Image src={subtract} alt="arrow" width={16} height={16} className="sm:w-[20px] sm:h-[20px]" />
-                          <div className='mb-2 sm:mb-0'>Reflect</div>
-                          <Image src={subtract} alt="arrow" width={16} height={16} className="sm:w-[20px] sm:h-[20px]" />
-                          <div className='mb-2 sm:mb-0'>Learn</div>
-                      </div>
+                      <div className='text-[#6D6D6F] font-inter font-medium text-[14px] sm:text-[20px] md:text-[24px] lg:text-[28px] leading-tight gap-2 sm:gap-3 flex flex-wrap items-center justify-center sm:justify-start mt-4 sm:mt-6'>
+  <div className='mb-2 sm:mb-0 leading-relaxed'>Explore</div>
+  <Image src={subtract} alt="arrow" width={16} height={20} className="sm:w-[24px] sm:h-[24px] md:w-[28px] md:h-[28px] lg:w-[32px] lg:h-[32px]" />
+  <div className='mb-2 sm:mb-0 leading-relaxed'>Reflect</div>
+  <Image src={subtract} alt="arrow" width={16} height={20} className="sm:w-[24px] sm:h-[24px] md:w-[28px] md:h-[28px] lg:w-[32px] lg:h-[32px]" />
+  <div className='mb-2 sm:mb-0 leading-relaxed'>Learn</div>
+</div>
                   </div>
                   {/* Slide Images */}
                   <SlideImages />
@@ -88,59 +88,162 @@ const ResourcePage = () => {
       </div>
     )
 }
-
 const SlideImages = () => {
     return (
-        <div className='lg:mt-[40px] mx-auto lg:mx-0 w-full max-w-[400px] sm:max-w-[450px] md:max-w-[523px] h-[200px] sm:h-[250px] md:h-[500px] flex items-center relative'>
+        <div className='lg:mt-[40px] mx-auto lg:mx-0 w-full max-w-[400px] sm:max-w-[450px] md:max-w-[523px] h-[200px] sm:h-[250px] md:h-[500px] flex items-center relative group hover:[&>img]:scale-110 hover:[&>div:not(.blur-bg)]:scale-115 transition-all duration-500'>
+            {/* Circles */}
             <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[120px] sm:w-[150px] md:w-[180px] h-[120px] sm:h-[150px] md:h-[180px] border-2 border-white/25 rounded-full'></div>
             <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[80px] sm:w-[120px] md:w-[130px] h-[80px] sm:h-[120px] md:h-[130px] border-2 border-white/45 rounded-full'></div>
             <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[40px] sm:w-[80px] md:w-20 h-[40px] sm:h-[80px] md:h-20 border-2 border-white/65 rounded-full'></div>
             <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[25px] sm:w-[50px] md:w-[50px] h-[25px] sm:h-[50px] md:h-[50px] border-2 border-white/85 rounded-full'></div>
-            <Image src={playIcon} alt="play" width={40} height={40} className='absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[calc(50%-1.5px)] z-20 w-[16px] h-[16px] sm:w-[30px] sm:h-[30px] md:w-[50px] md:h-[50px]' />
-            <Image src={meditate1} alt="meditate" width={400} height={500} className='object-cover rounded-[16px] absolute left-1/2 -translate-x-1/2 w-[150px] sm:w-[200px] md:w-[300px] xl:w-[400px] h-[180px] sm:h-[250px] md:h-[375px] xl:h-[500px]' />
-            <Image src={meditate2} alt="meditate" width={400} height={460} className='object-cover rounded-[16px] absolute left-1/2 translate-x-[calc(-50%+20px)] -z-10 w-[140px] sm:w-[190px] md:w-[300px] xl:w-[400px] h-[160px] sm:h-[230px] md:h-[345px] xl:h-[460px]' />
-            <Image src={meditate3} alt="meditate" width={400} height={460} className='object-cover rounded-[16px] absolute left-1/2 translate-x-[calc(-50%-20px)] -z-20 w-[140px] sm:w-[190px] md:w-[300px] xl:w-[400px] h-[160px] sm:h-[230px] md:h-[345px] xl:h-[460px]' />
-            <Image src={meditate4} alt="meditate" width={400} height={420} className='object-cover rounded-[16px] absolute left-1/2 translate-x-[calc(-50%-40px)] -z-30 w-[120px] sm:w-[180px] md:w-[300px] xl:w-[400px] h-[140px] sm:h-[210px] md:h-[315px] xl:h-[420px]' />
-            <Image src={meditate5} alt="meditate" width={400} height={420} className='object-cover rounded-[16px] absolute left-1/2 translate-x-[calc(-50%+40px)] -z-40 w-[120px] sm:w-[180px] md:w-[300px] xl:w-[400px] h-[140px] sm:h-[210px] md:h-[315px] xl:h-[420px]' />
-            <div className='w-[200px] sm:w-[250px] md:w-[350px] h-[200px] sm:h-[250px] md:h-[350px] rounded-full absolute bottom-0 left-0 bg-[#BE9B84] -translate-x-1/2 translate-y-2/8 blur-[150px] -z-50'></div>
+            
+            {/* Play icon */}
+            <Image 
+                src={playIcon} 
+                alt="play" 
+                width={40} 
+                height={40} 
+                className='absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[calc(50%-1.5px)] z-20 w-[16px] h-[16px] sm:w-[30px] sm:h-[30px] md:w-[50px] md:h-[50px] transition-transform duration-300' 
+            />
+            
+            {/* Images */}
+            <Image 
+                src={meditate1} 
+                alt="meditate" 
+                width={400} 
+                height={500} 
+                className='object-cover rounded-[16px] absolute left-1/2 -translate-x-1/2 w-[150px] sm:w-[200px] md:w-[300px] xl:w-[400px] h-[180px] sm:h-[250px] md:h-[375px] xl:h-[500px] transition-transform duration-300' 
+            />
+            
+            <Image 
+                src={meditate2} 
+                alt="meditate" 
+                width={400} 
+                height={460} 
+                className='object-cover rounded-[16px] absolute left-1/2 translate-x-[calc(-50%+20px)] -z-10 w-[140px] sm:w-[190px] md:w-[300px] xl:w-[400px] h-[160px] sm:h-[230px] md:h-[345px] xl:h-[460px] transition-transform duration-300 delay-50' 
+            />
+            
+            <Image 
+                src={meditate3} 
+                alt="meditate" 
+                width={400} 
+                height={460} 
+                className='object-cover rounded-[16px] absolute left-1/2 translate-x-[calc(-50%-20px)] -z-20 w-[140px] sm:w-[190px] md:w-[300px] xl:w-[400px] h-[160px] sm:h-[230px] md:h-[345px] xl:h-[460px] transition-transform duration-300 delay-50' 
+            />
+            
+            <Image 
+                src={meditate4} 
+                alt="meditate" 
+                width={400} 
+                height={420} 
+                className='object-cover rounded-[16px] absolute left-1/2 translate-x-[calc(-50%-40px)] -z-30 w-[120px] sm:w-[180px] md:w-[300px] xl:w-[400px] h-[140px] sm:h-[210px] md:h-[315px] xl:h-[420px] transition-transform duration-300 delay-100' 
+            />
+            
+            <Image 
+                src={meditate5} 
+                alt="meditate" 
+                width={400} 
+                height={420} 
+                className='object-cover rounded-[16px] absolute left-1/2 translate-x-[calc(-50%+40px)] -z-40 w-[120px] sm:w-[180px] md:w-[300px] xl:w-[400px] h-[140px] sm:h-[210px] md:h-[315px] xl:h-[420px] transition-transform duration-300 delay-100' 
+            />
+            
+            {/* Background */}
+            <div className='blur-bg w-[200px] sm:w-[250px] md:w-[350px] h-[200px] sm:h-[250px] md:h-[350px] rounded-full absolute bottom-0 left-0 bg-[#BE9B84] -translate-x-1/2 translate-y-2/8 blur-[150px] -z-50 group-hover:scale-135 group-hover:blur-[200px] transition-all duration-700'></div>
         </div>
     )
 }
+// const OurResourcesSection = () => {
+//     return (
+//         <>
+//             <h2 className='text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[60px] text-[#5C4737] font-semibold -tracking-[6%] font-inter mt-12 md:mt-20'>Our Resources!</h2>
+//             <div className='mt-5 sm:mt-[46px] grid lg:grid-cols-2 gap-x-5 gap-y-[15px] sm:gap-y-[30px] mb-20 whitespace-nowrap'>
+//                 <ResourceCard btnLabel="Listen Audio" img={ourResource1} btnIcon={waveIcon} rotateIconOnHover={false} />
+//                 <ResourceCard btnLabel="Watch Video" img={ourResource2} btnIcon={brownPlayIcon} />
+//                 <ResourceCard btnLabel="Read more" img={ourResource3} btnIcon={arrrow} />
+//                 <ResourceCard btnLabel="Start Quiz" img={ourResource4} btnIcon={arrrow} />
+//             </div>
+//         </>
+//     )
+// }
 
-const OurResourcesSection = () => {
-    return (
-        <>
-            <h2 className='text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[60px] text-[#5C4737] font-semibold -tracking-[6%] font-inter mt-12 md:mt-20'>Our Resources!</h2>
-            <div className='mt-5 sm:mt-[46px] grid lg:grid-cols-2 gap-x-5 gap-y-[15px] sm:gap-y-[30px] mb-20 whitespace-nowrap'>
-                <ResourceCard btnLabel="Listen Audio" img={ourResource1} btnIcon={waveIcon} rotateIconOnHover={false} />
-                <ResourceCard btnLabel="Watch Video" img={ourResource2} btnIcon={brownPlayIcon} />
-                <ResourceCard btnLabel="Read more" img={ourResource3} btnIcon={arrrow} />
-                <ResourceCard btnLabel="Start Quiz" img={ourResource4} btnIcon={arrrow} />
-            </div>
-        </>
-    )
-}
+// const ResourceCard = ({
+//   btnLabel,
+//   img,
+//   btnIcon,
+//   rotateIconOnHover = true,
+  
+// }: {
+//   btnLabel: string;
+//   img: StaticImageData;
+//   btnIcon: StaticImageData;
+//   rotateIconOnHover?: boolean;
+// }) => {
+//   return (
+//     <div className="relative mx-auto">
+//       <Image
+//         src={img}
+//         alt="meditate"
+//         height={350}
+//         className="rounded-[20px] max-h-[350px] mx-auto"
+//       />
+
+//       <button
+//         onClick={redirectToAppStore}
+//         className="bg-[#967B6A] hover:bg-[#BE9B84] group w-[30%] absolute bottom-0 right-0 cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-center sm:justify-between items-center rounded-full text-xs sm:text-sm xl:text-base inline-flex"
+//       >
+//         {btnLabel}
+
+//         {/* White circle with arrow is hidden on very small screens */}
+//         <div className="hidden sm:flex w-[30px] h-[30px] sm:w-10 sm:h-10 xl:w-[50px] xl:h-[50px] ml-[5px] lg:ml-[15px] rounded-full bg-white flex justify-center items-center">
+//           <Image
+//             src={btnIcon}
+//             alt="arrow"
+//             width={18}
+//             height={18}
+//             className={`m-auto w-3 h-3 sm:w-[18px] sm:h-[18px] ${
+//               rotateIconOnHover ? "group-hover:rotate-45" : ""
+//             } transition-all`}
+//           />
+//         </div>
+//       </button>
+//     </div>
+//   );
+// };
 
 const ResourceCard = ({
   btnLabel,
   img,
   btnIcon,
   rotateIconOnHover = true,
+  hoverText = "5-Min Breathing Reset for Overthinkers",
 }: {
   btnLabel: string;
   img: StaticImageData;
   btnIcon: StaticImageData;
   rotateIconOnHover?: boolean;
+  hoverText?: string;
 }) => {
   return (
     <div className="relative mx-auto">
-      <Image
-        src={img}
-        alt="meditate"
-        height={350}
-        className="rounded-[20px] max-h-[350px] mx-auto"
-      />
+      {/* Image container with hover effect */}
+      <div className="relative overflow-hidden rounded-[20px] group">
+        <Image
+          src={img}
+          alt="meditate"
+          height={350}
+          className="rounded-[20px] max-h-[350px] mx-auto w-full object-cover"
+        />
+        
+        {/* Black fade overlay - ONLY on image */}
+        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300 rounded-[20px] flex items-center justify-center">
+          {/* Centered text */}
+          <span className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-center px-2 sm:px-4">
+            {hoverText}
+          </span>
+        </div>
+      </div>
 
+      {/* Button - outside the image overlay container */}
       <button
         onClick={redirectToAppStore}
         className="bg-[#967B6A] hover:bg-[#BE9B84] group w-[30%] absolute bottom-0 right-0 cursor-pointer transition-all text-white pl-6 p-[5px] flex justify-center sm:justify-between items-center rounded-full text-xs sm:text-sm xl:text-base inline-flex"
@@ -164,7 +267,40 @@ const ResourceCard = ({
   );
 };
 
-
+const OurResourcesSection = () => {
+    return (
+        <>
+            <h2 className='text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[60px] text-[#5C4737] font-semibold -tracking-[6%] font-inter mt-12 md:mt-20'>Our Resources!</h2>
+            <div className='mt-5 sm:mt-[46px] grid lg:grid-cols-2 gap-x-5 gap-y-[15px] sm:gap-y-[30px] mb-20 whitespace-nowrap'>
+                <ResourceCard 
+                    btnLabel="Listen Audio" 
+                    img={ourResource1} 
+                    btnIcon={waveIcon} 
+                    rotateIconOnHover={false}
+                    hoverText="5-min Breathing reset for Overthinkers"
+                />
+                <ResourceCard 
+                    btnLabel="Watch Video" 
+                    img={ourResource2} 
+                    btnIcon={brownPlayIcon}
+                    hoverText="What to Do When Motivation dies"
+                />
+                <ResourceCard 
+                    btnLabel="Read more" 
+                    img={ourResource3} 
+                    btnIcon={arrrow}
+                    hoverText="Breakup Survival Guide"
+                />
+                <ResourceCard 
+                    btnLabel="Start Quiz" 
+                    img={ourResource4} 
+                    btnIcon={arrrow}
+                    hoverText="Am I Stressed or Just Tired ?"
+                />
+            </div>
+        </>
+    )
+}
 
 // const ResourceCard = ({ btnLabel, img, btnIcon, rotateIconOnHover = true }: { btnLabel: string, img: StaticImageData, btnIcon: StaticImageData, rotateIconOnHover?: boolean }) => {
 //     const links: { [key: string]: string } = {
@@ -218,6 +354,20 @@ const PodcastSection = () => {
 
   return (
     <div className="relative w-full">
+         {/* Start Listening Button */}
+      <button
+        onClick={redirectToAppStore}
+        className="flex gap-1 sm:gap-2.5 justify-between items-center absolute left-2.5 top-2.5 sm:left-[30px] sm:top-[30px] px-2 py-1 sm:px-4 sm:py-2.5 backdrop-blur-[10px] rounded-full font-medium text-xs sm:text-base shadow-md z-50 bg-#5C483799 hover:bg-[#5C483799] transition-all"
+      >
+        <Image
+          src={playIcon}
+          alt="play"
+          width={20}
+          height={20}
+          className="w-2 h-2 sm:w-5 sm:h-5 my-auto filter brightness-0"
+        />
+        Start Listening
+      </button>
    
 
       {/* Podcast Hero Image */}
@@ -242,8 +392,36 @@ const PodcastSection = () => {
           className="w-[50%] h-[50%] sm:w-[50%] sm:h-[50%] xl:w-[50%] xl:h-[50%]"
         />
       </button>
+      {/* Avatars */}
+      <div className="absolute bottom-2.5 sm:bottom-[30px] right-2.5 sm:right-[30px]">
+  <button
+    onClick={redirectToAppStore}
+    className="w-[60px] h-[30px] sm:w-[120px] sm:h-[60px] flex p-[3px] sm:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group transition-all hover:bg-[#BE9B84]"
+  >
+    <div className="relative w-full h-full">
+      {/* First Avatar */}
+      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white bg-purple-500 overflow-hidden">
+        <Image src={avatar1} alt="avatar-img" width={50} height={50} className="object-cover" />
+      </div>
 
-   
+      {/* Second Avatar */}
+      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full border-2 border-white translate-x-[60%] bg-gray-400 overflow-hidden">
+        <Image src={avatar2} alt="avatar-img" width={50} height={50} className="object-cover" />
+      </div>
+
+      {/* Arrow Circle */}
+      <div className="absolute w-[25px] h-[25px] sm:w-[50px] sm:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%] transition-transform group-hover:rotate-45">
+        <Image
+          src={arrrow}
+          alt="arrow"
+          width={18}
+          height={18}
+          className="w-2 h-2 sm:w-[18px] sm:h-[18px]"
+        />
+      </div>
+    </div>
+  </button>
+</div>
 </div>
   );
 };

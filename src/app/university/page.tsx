@@ -150,7 +150,7 @@ const HeroSection = () => {
         <div className="relative z-[100] pointer-events-auto">
           {/* Header with transparent background */}
           <div className="absolute top-0 left-0 w-full z-50 bg-transparent">
-            <Header textWhite={true} />
+            <Header />
           </div>
         </div>
         
@@ -368,27 +368,27 @@ const OfferSection = () => {
     {
       icon: Risk,
       title: "High-Risk Case Escalation",
-      desc: "Built-in protocols for high-risk cases with seamless escalation to partner hospitals, guaranteeing safety and continuity of care.",
+      desc: "Built-in protocols for high-risk cases with seamless escalation to partner hospitals, guaranteeing safety, continuity, and quality of care.",
     },
     {
       icon: Dashboard,
       title: "Institutional Dashboards",
-      desc: "Anonymized, real-time wellness insights to help institutions proactively support students.",
+      desc: "Anonymized, real-time wellness insights to inform campus-wide mental health status, helping institutions identify trends and support students proactively.",
     },
     {
       icon: Global,
       title: "Global Accessibility",
-      desc: "Works across devices, time zones, and languages — help is always within reach.",
+      desc: "Works seamlessly across devices, time zones, and multiple languages to serve all students — because help should always be within reach.",
     },
     {
       icon: Custom,
       title: "Custom Content Drops",
-      desc: "Targeted resources for exam anxiety, burnout, homesickness, and prevention.",
+      desc: "Targeted resources for exam anxiety, homesickness, burnout, and self-harm prevention — fostering a safer, more supportive campus environment.",
     },
     {
       icon: Regulator,
       title: "Regulatory Compliance",
-      desc: "Stay compliant with UGC/NAAC/AICTE mental health directives with meaningful action.",
+      desc: "Helps your institution stay compliant with UGC/NAAC/AICTE mental health directives — turning compliance into meaningful student well-being action.",
     },
   ];
 
@@ -406,16 +406,48 @@ const OfferSection = () => {
         {cards.map((card, index) => (
           <div
             key={index}
-            className={`relative bg-[#F8F8F8] rounded-[16px] border border-[#5C4737]/30 p-6 h-[350px] flex flex-col
+            className={`relative bg-[#F8F8F8] rounded-[16px] p-6 h-[350px] flex flex-col
               ${index % 4 === 1 ? "mt-8 sm:mt-10" : ""}
               ${index % 4 === 2 ? "mt-16 sm:mt-20" : ""}
               ${index % 4 === 3 ? "mt-24 sm:mt-28" : ""}
-
               hover:scale-105 hover:shadow-xl transition-transform transition-shadow duration-300
             `}
+            style={{
+              border: "1px solid transparent",
+              // More extensive fade-out starting from top-left to bottom-right
+              backgroundImage: `
+                linear-gradient(#F8F8F8, #F8F8F8), 
+                linear-gradient(
+                  to bottom right, 
+                  #5C4737 0%, 
+                  rgba(92, 71, 55, 0.8) 30%, 
+                  rgba(92, 71, 55, 0.4) 50%, 
+                  rgba(92, 71, 55, 0.2) 70%, 
+                  transparent 100%
+                )
+              `,
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box",
+            }}
           >
-            {/* Bottom-right fade effect */}
-            <div className="absolute bottom-0 right-0 w-[80px] h-[80px] bg-gradient-to-tl from-[#F6F2EB]/70 via-transparent rounded-br-[16px] pointer-events-none"></div>
+            {/* Enhanced white wash fade overlay covering 50% of the card from bottom-right */}
+            <div 
+              className="absolute inset-0 rounded-[16px] pointer-events-none z-0"
+              style={{
+                background: `
+                  radial-gradient(
+                    ellipse at bottom right,
+                    transparent 0%,
+                    transparent 40%,
+                    rgba(255, 255, 255, 0.3) 60%,
+                    rgba(255, 255, 255, 0.6) 80%,
+                    rgba(255, 255, 255, 0.8) 100%
+                  )
+                `,
+                WebkitMaskImage: "linear-gradient(135deg, transparent 40%, black 70%)",
+                maskImage: "linear-gradient(135deg, transparent 40%, black 70%)",
+              }}
+            ></div>
 
             <div className="w-[60px] h-[60px] mb-4 z-10 relative">
               <Image
@@ -441,12 +473,45 @@ const OfferSection = () => {
             ${7 % 4 === 1 ? "mt-8 sm:mt-10" : ""}
             ${7 % 4 === 2 ? "mt-16 sm:mt-20" : ""}
             ${7 % 4 === 3 ? "mt-24 sm:mt-28" : ""}
-            
             hover:scale-105 hover:shadow-xl transition-transform transition-shadow duration-300
           `}
+          style={{
+            border: "1px solid transparent",
+            // More extensive fade-out for video card
+            backgroundImage: `
+              linear-gradient(#5C4737, #5C4737), 
+              linear-gradient(
+                to bottom right, 
+                rgba(255, 255, 255, 0.3) 0%, 
+                rgba(255, 255, 255, 0.2) 30%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                rgba(255, 255, 255, 0.05) 70%, 
+                transparent 100%
+              )
+            `,
+            backgroundOrigin: "border-box",
+            backgroundClip: "padding-box, border-box",
+          }}
         >
-          {/* Bottom-right fade effect */}
-          <div className="absolute bottom-0 right-0 w-[80px] h-[80px] bg-gradient-to-tl from-[#5C4737]/50 via-transparent rounded-br-[16px] pointer-events-none"></div>
+          {/* Enhanced white wash fade overlay for video card */}
+          <div 
+            className="absolute inset-0 rounded-[16px] pointer-events-none z-0"
+            style={{
+              background: `
+                radial-gradient(
+                  ellipse at bottom right,
+                  transparent 0%,
+                  transparent 30%,
+                  rgba(255, 255, 255, 0.2) 50%,
+                  rgba(255, 255, 255, 0.4) 70%,
+                  rgba(255, 255, 255, 0.6) 90%,
+                  rgba(255, 255, 255, 0.7) 100%
+                )
+              `,
+              WebkitMaskImage: "linear-gradient(135deg, transparent 30%, black 65%)",
+              maskImage: "linear-gradient(135deg, transparent 30%, black 65%)",
+            }}
+          ></div>
 
           <h3 className="text-white text-[22px] font-semibold mb-2 z-10 relative">
             See How It Works
@@ -472,7 +537,6 @@ const OfferSection = () => {
     </section>
   );
 };
-
 
 // ========== CONNECT SECTION ==========
 const ConnectCampus = () => {
@@ -685,7 +749,7 @@ const ConnectCampus = () => {
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
               <div 
                 ref={modalRef}
-                className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl relative"
+                className="bg-white rounded-2xl max-w-md w-full max-h-[75vh] overflow-y-auto shadow-2xl relative mt-8"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Close button */}

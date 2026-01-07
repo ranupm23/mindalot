@@ -109,8 +109,7 @@ Mind A Lot Website
 
   return (
     <main className="w-full bg-white text-[#3E2723]">
-      <Header />
-
+       <Header navTextColor="#755840"/>
       {/* POPUP MODAL */}
       {showPopup && (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[9999]">

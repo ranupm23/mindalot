@@ -41,8 +41,9 @@ export default function FeaturePage () {
   
 const FeatureHome = () => {
   return (
+    
     <section className="relative w-full max-w-[1440px] mx-auto min-h-[320px] md:min-h-[570px] bg-[#D9D9D9] opacity-100 overflow-hidden flex flex-col items-center py-1 md:py-0">
-      
+      <Header navTextColor="#755840"/>
       {/* Heading */}
       {/* Replaced absolute positioning with margins. text-3xl for mobile, text-[60px] for desktop */}
       <h2 
@@ -291,7 +292,7 @@ const FeatureLast = () => {
 
     return(
         <>
-        <Header/>
+        
        <FeatureHome/>
        <FeatureOffer/>
        <FeatureLast/>

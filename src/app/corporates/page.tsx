@@ -129,7 +129,7 @@ This person is interested in scheduling a demo for Mind A Lot.`;
 
   return (
     <div className="bg-[#FDFDFD] text-[#5c4737] overflow-x-hidden">
-      <Header />
+      <Header navTextColor="#755840" />
       {/* HERO SECTION */}
       <section className="w-full bg-[#FDFDFD] pt-4 pb-6 sm:pt-[30px] sm:pb-[70px] px-4 sm:px-10 lg:px-20">
 

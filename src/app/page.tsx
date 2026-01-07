@@ -56,6 +56,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 
 // UPDATED Join Our Team Modal Component - FIXED input issues
+// UPDATED Join Our Team Modal Component - With email functionality
 const JoinTeamModal = ({ 
   isOpen, 
   onClose, 
@@ -80,26 +81,95 @@ const JoinTeamModal = ({
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
   if (!isOpen) return null;
 
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      // Validate all required fields
+      if (!formData.fullName || !formData.email || !formData.mobile || !formData.resume) {
+        throw new Error('Please fill all required fields');
+      }
+
+      // Create email body
+      const emailSubject = `New Job Application - ${formData.fullName}`;
+      
+      const emailBody = `
+New Job Application Received
+
+Applicant Details:
+------------------
+Full Name: ${formData.fullName}
+Email: ${formData.email}
+Mobile: ${formData.mobile}
+Qualification: ${formData.qualification}
+Experience: ${formData.experience} years
+
+Skills & Expertise:
+${formData.skills}
+
+Why they want to join Mind A Lot:
+${formData.whyJoin}
+
+Resume: ${formData.resume ? formData.resume.name : 'Not uploaded'}
+
+Application submitted on: ${new Date().toLocaleString()}
+      `.trim();
+
+      // Create mailto link
+      const mailtoLink = `mailto:support@mindalot.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      
+      // Open user's default email client
+      window.open(mailtoLink, '_blank');
+      
+      // Show success message
+      setSubmitMessage('✅ Please check your email client to send the application. A draft email has been prepared for you.');
+      
+      // Optional: Auto-submit after a delay
+      setTimeout(() => {
+        setSubmitMessage('Application submitted successfully!');
+        setIsSubmitting(false);
+        onSubmit(e);
+      }, 2000);
+
+    } catch (error: any) {
+      setSubmitMessage(`❌ ${error.message}`);
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-8">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold text-[#5C4737]">Join Our Team</h2>
-            <button 
-              onClick={onClose}
-              className="text-gray-500 hover:text-gray-700 text-2xl"
-            >
-              ×
-            </button>
-          </div>
-          
-          <form onSubmit={onSubmit} className="space-y-6">
-            {/* All input fields with autocomplete disabled to prevent browser interference */}
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-start justify-center p-4 pt-20">
+      <div className="bg-white rounded-xl w-full max-w-md max-h-[70vh] overflow-hidden shadow-2xl mt-8">
+        <div className="flex justify-between items-center p-4 border-b border-gray-200 sticky top-0 bg-white z-10">
+          <h2 className="text-lg font-bold text-[#5C4737]">Join Our Team</h2>
+          <button 
+            onClick={onClose}
+            className="text-gray-500 hover:text-gray-700 text-xl w-6 h-6 flex items-center justify-center"
+            disabled={isSubmitting}
+          >
+            ×
+          </button>
+        </div>
+        
+        <div className="overflow-y-auto max-h-[calc(70vh-60px)]">
+          <form onSubmit={handleFormSubmit} className="p-4 space-y-3">
+            {/* Submit Message Display */}
+            {submitMessage && (
+              <div className={`p-2 rounded text-xs ${submitMessage.includes('✅') ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
+                {submitMessage}
+              </div>
+            )}
+
+            {/* Full Name */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-xs font-medium text-gray-700 mb-1">
                 Full Name *
               </label>
               <input
@@ -108,16 +178,16 @@ const JoinTeamModal = ({
                 value={formData.fullName}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5C4737] focus:border-transparent"
+                className="w-full px-2.5 py-1.5 text-xs border border-gray-300 rounded focus:ring-1 focus:ring-[#5C4737] focus:border-transparent"
                 placeholder="Enter your full name"
                 autoComplete="name"
-                autoCorrect="on"
-                spellCheck="true"
+                disabled={isSubmitting}
               />
             </div>
             
+            {/* Qualification */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-xs font-medium text-gray-700 mb-1">
                 Highest Educational Qualification *
               </label>
               <input
@@ -126,16 +196,16 @@ const JoinTeamModal = ({
                 value={formData.qualification}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5C4737] focus:border-transparent"
+                className="w-full px-2.5 py-1.5 text-xs border border-gray-300 rounded focus:ring-1 focus:ring-[#5C4737] focus:border-transparent"
                 placeholder="e.g., Masters in Psychology"
                 autoComplete="off"
-                autoCorrect="off"
-                spellCheck="false"
+                disabled={isSubmitting}
               />
             </div>
             
+            {/* Experience */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-xs font-medium text-gray-700 mb-1">
                 Total Work Experience (in years) *
               </label>
               <input
@@ -144,14 +214,16 @@ const JoinTeamModal = ({
                 value={formData.experience}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5C4737] focus:border-transparent"
+                className="w-full px-2.5 py-1.5 text-xs border border-gray-300 rounded focus:ring-1 focus:ring-[#5C4737] focus:border-transparent"
                 placeholder="e.g., 5"
                 autoComplete="off"
+                disabled={isSubmitting}
               />
             </div>
             
+            {/* Skills */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-xs font-medium text-gray-700 mb-1">
                 Key Skills and Areas of Expertise *
               </label>
               <textarea
@@ -159,17 +231,17 @@ const JoinTeamModal = ({
                 value={formData.skills}
                 onChange={handleInputChange}
                 required
-                rows={3}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5C4737] focus:border-transparent"
+                rows={2}
+                className="w-full px-2.5 py-1.5 text-xs border border-gray-300 rounded focus:ring-1 focus:ring-[#5C4737] focus:border-transparent"
                 placeholder="e.g., Cognitive Behavioral Therapy, Trauma Counseling"
                 autoComplete="off"
-                autoCorrect="off"
-                spellCheck="false"
+                disabled={isSubmitting}
               />
             </div>
             
+            {/* Mobile */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-xs font-medium text-gray-700 mb-1">
                 Mobile Number *
               </label>
               <input
@@ -178,15 +250,16 @@ const JoinTeamModal = ({
                 value={formData.mobile}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5C4737] focus:border-transparent"
+                className="w-full px-2.5 py-1.5 text-xs border border-gray-300 rounded focus:ring-1 focus:ring-[#5C4737] focus:border-transparent"
                 placeholder="Enter your mobile number"
                 autoComplete="off"
-                inputMode="numeric"
+                disabled={isSubmitting}
               />
             </div>
             
+            {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-xs font-medium text-gray-700 mb-1">
                 Email Address *
               </label>
               <input
@@ -195,16 +268,16 @@ const JoinTeamModal = ({
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5C4737] focus:border-transparent"
+                className="w-full px-2.5 py-1.5 text-xs border border-gray-300 rounded focus:ring-1 focus:ring-[#5C4737] focus:border-transparent"
                 placeholder="your.email@example.com"
                 autoComplete="off"
-                autoCorrect="off"
-                spellCheck="false"
+                disabled={isSubmitting}
               />
             </div>
             
+            {/* Resume */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-xs font-medium text-gray-700 mb-1">
                 Upload Your Resume (PDF/DOC format) *
               </label>
               <input
@@ -213,39 +286,56 @@ const JoinTeamModal = ({
                 onChange={handleFileChange}
                 accept=".pdf,.doc,.docx"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5C4737] focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#5C4737] file:text-white hover:file:bg-[#4A3829]"
+                className="w-full px-2.5 py-1.5 text-xs border border-gray-300 rounded focus:ring-1 focus:ring-[#5C4737] focus:border-transparent file:mr-2 file:py-1 file:px-2 file:rounded-full file:border-0 file:text-xs file:font-medium file:bg-[#5C4737] file:text-white hover:file:bg-[#4A3829]"
+                disabled={isSubmitting}
               />
             </div>
             
+            {/* Why Join */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Why Do You Want to Work With Mind A Lot? (Short answer – 2–3 lines) *
+              <label className="block text-xs font-medium text-gray-700 mb-1">
+                Why Do You Want to Work With Mind A Lot? *
               </label>
               <textarea
                 name="whyJoin"
                 value={formData.whyJoin}
                 onChange={handleInputChange}
                 required
-                rows={3}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5C4737] focus:border-transparent"
+                rows={2}
+                className="w-full px-2.5 py-1.5 text-xs border border-gray-300 rounded focus:ring-1 focus:ring-[#5C4737] focus:border-transparent"
                 placeholder="Share your motivation for joining our team..."
                 autoComplete="off"
-                autoCorrect="off"
-                spellCheck="false"
+                disabled={isSubmitting}
               />
             </div>
             
-            <div className="flex gap-4">
+            {/* Note for user */}
+            <div className="p-2 bg-blue-50 border border-blue-100 rounded text-xs text-blue-700">
+              📧 After clicking submit, your email client will open with a pre-filled email to support@mindalot.com. Please review and send it.
+            </div>
+            
+            {/* Buttons */}
+            <div className="flex gap-2 pt-1">
               <button
                 type="submit"
-                className="flex-1 bg-[#5C4737] text-white py-3 px-6 rounded-lg font-medium hover:bg-[#4A3829] transition duration-300"
+                disabled={isSubmitting}
+                className="flex-1 bg-[#5C4737] text-white py-2 px-3 rounded font-medium hover:bg-[#4A3829] transition duration-300 text-xs disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Submit Application
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center">
+                    <svg className="animate-spin h-3 w-3 mr-1 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </span>
+                ) : 'Submit Application'}
               </button>
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 border border-gray-300 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-50 transition duration-300"
+                disabled={isSubmitting}
+                className="flex-1 border border-gray-300 text-gray-700 py-2 px-3 rounded font-medium hover:bg-gray-50 transition duration-300 text-xs disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -339,33 +429,36 @@ export default function Home() {
       quoteHeight: 70 // Estimated height in pixels for short quote
     },
     {
-      id: 1,
-      quote: "Mind A Lot helped me understand my thoughts and emotions better during a very confusing phase of my academic life. The sessions were comfortable, non-judgmental, and practical. I learned how to manage exam stress and build confidence. It felt good to talk to someone who genuinely listened and guided me.",
-      author: "Student, Bengaluru",
-      profileImage: blankProfileImage,
-      quoteHeight: 140 // Estimated height for medium quote
-    },
-    {
-      id: 2,
-      quote: "Balancing work pressure and personal responsibilities had started affecting my mental well-being. Mind A Lot provided structured, professional counseling that helped me regain clarity and emotional balance. The approach was practical and action-oriented, making it easier to apply the learnings in my daily work life.",
-      author: "Corporate Professional, Mumbai",
-      profileImage: blankProfileImage,
-      quoteHeight: 140 // Estimated height for medium quote
-    },
-    {
-      id: 3,
-      quote: "As a parent, I was concerned about my child's emotional well-being but didn't know how to approach the situation. Mind A Lot guided us with sensitivity and professionalism. The counselors helped both my child and us as parents understand emotions better and communicate more openly. I truly appreciate their ethical and child-centric approach.",
-      author: "Parent, Bengaluru",
-      profileImage: blankProfileImage,
-      quoteHeight: 140 // Estimated height for medium quote
-    },
-    {
-      id: 4,
-      quote: "College life comes with academic pressure, career confusion, and personal challenges. Mind A Lot gave me a safe space to talk openly and think clearly. The sessions helped me gain self-awareness and make informed decisions about my future. I would highly recommend Mind A Lot to students who feel overwhelmed or stuck.",
-      author: "College Student, Bengaluru",
-      profileImage: blankProfileImage,
-      quoteHeight: 140 // Estimated height for medium quote
-    }
+  id: 1,
+  quote: "Mind A Lot helped me manage stress and emotions.",
+  author: "Student, Bengaluru",
+  profileImage: blankProfileImage,
+  quoteHeight: 140
+},
+{
+  id: 2,
+  quote: "Mind A Lot guided me to balance work and life.",
+  author: "Professional, Mumbai",
+  profileImage: blankProfileImage,
+  quoteHeight: 140
+},
+{
+  id: 3,
+  quote: "Mind A Lot helped my child and family communicate better.",
+  author: "Parent, Bengaluru",
+  profileImage: blankProfileImage,
+  quoteHeight: 140
+},
+{
+  id: 4,
+  quote: "Mind A Lot helped me handle college pressure confidently.",
+  author: "Student, Bengaluru",
+  profileImage: blankProfileImage,
+  quoteHeight: 140
+}
+
+
+
   ];
 
   // Start automatic testimonial rotation
@@ -643,7 +736,7 @@ export default function Home() {
               <div
                   className="absolute w-[458px] h-auto text-[#0D0D0D] font-['Inter'] text-[24px] font-medium transition-all duration-500"
                   style={{ 
-                    top: '250px', // Adjusted to be higher for long text
+                    top: '300px', // Adjusted to be higher for long text
                     left: '365px', 
                     lineHeight: '35px', 
                     letterSpacing: '-0.03em',
@@ -657,17 +750,18 @@ export default function Home() {
               </div>
 
               {/* AUTHOR INFO - Dynamic based on active testimonial - Fixed at bottom */}
-              <div
-                  className="absolute w-[222px] h-[35px] text-[#6D6D6F] font-['Inter'] text-[24px] font-normal transition-all duration-500"
-                  style={{ 
-                    top: '480px', // Fixed position at bottom
-                    left: '365px', 
-                    lineHeight: '35px', 
-                    letterSpacing: '-0.03em' 
-                  }}
-              >
-                  — {testimonials[activeTestimonial].author}
-              </div>
+             <div
+    className="absolute text-[#6D6D6F] font-['Inter'] text-[24px] font-normal transition-all duration-500 whitespace-nowrap"
+    style={{ 
+        top: '390px',
+        left: '565px', 
+        lineHeight: '35px', 
+        letterSpacing: '-0.03em',
+        textAlign: 'right'
+    }}
+>
+    — {testimonials[activeTestimonial].author}
+</div>
 
               </div>
           </div>
@@ -690,16 +784,19 @@ const HomeHero = () => {
         
         {/* HEADER */}
         <div className="absolute top-0 left-0 w-full z-50">
-          <Header textWhite/>
+          <Header/>
         </div>
 
         {/* LEFT OVERLAY (Gradient) */}
-        <div
-          className="absolute top-0 left-0 w-full h-full lg:w-[720px] lg:h-[864px] backdrop-blur-[60px] z-10"
-          style={{
-            background: `linear-gradient(134.5deg, rgba(91, 74, 62, 0.9) 0%, rgba(117, 88, 64, 0.85) 60%, rgba(50, 40, 30, 0.7) 100%)`,
-          }}
-        />
+ <div
+  className="absolute top-0 left-0 w-full h-full lg:w-[720px] lg:h-[864px] z-10"
+  style={{
+    background: `linear-gradient(134.5deg, rgba(91, 74, 62, 0.5) 0%, rgba(117, 88, 64, 0.5) 60%, rgba(50, 40, 30, 0.5) 100%)`,
+    backdropFilter: "blur(20px)", // strong blur
+  }}
+/>
+
+
 
         <div className="relative z-20 w-full flex flex-col items-center justify-center px-4 pt-28 pb-16 lg:h-full lg:block lg:p-0">
           
@@ -949,67 +1046,68 @@ const Whowant = () => {
   };
 
   const HoverCard = ({ imageSrc, altText, title, id }: CardProps) => (
+  <div
+    className="
+      relative w-full h-full rounded-[12px] overflow-hidden bg-black
+      group cursor-pointer
+    "
+  >
+    {/* IMAGE - Removed zoom on hover */}
+    <Image
+      src={imageSrc}
+      alt={altText}
+      fill
+      className="object-cover scale-110" 
+    />
+
+    {/* OVERLAY - Changed to fade from bottom on hover */}
     <div
       className="
-        relative w-full h-full rounded-[12px] overflow-hidden bg-black
-        group cursor-pointer transition-transform duration-700 hover:scale-[1.03]
+        absolute inset-0
+        bg-gradient-to-t from-black/60 via-black/20 to-transparent
+        transition-all duration-500 ease-in-out
+        group-hover:bg-black/60
+        group-hover:bg-gradient-to-t from-black/80 via-black/40 to-black/20
+      "
+    />
+
+    {/* TEXT - Text always at bottom center, moves to center on hover */}
+    <div
+      className="
+        absolute inset-0 flex flex-col items-center text-white text-center
+        transition-all duration-500 ease-in-out
+        justify-end pb-6
+        group-hover:justify-center
       "
     >
-      {/* IMAGE */}
-      <Image
-        src={imageSrc}
-        alt={altText}
-        fill
-        className="object-cover scale-[1.05] transition-transform duration-700 group-hover:scale-110"
-      />
-
-      {/* OVERLAY */}
-      <div
+      {/* TITLE - Removed zoom on hover */}
+      <h3
         className="
-          absolute inset-0
-          bg-gradient-to-t from-black/70 via-black/30 to-transparent
-          transition-all duration-700
-          group-hover:bg-black/75
-        "
-      />
-
-      {/* TEXT */}
-      <div
-        className="
-          absolute inset-0 flex flex-col items-center text-white text-center
-          transition-all duration-700 ease-out
-          justify-end pb-10
-          group-hover:justify-center
+          text-xl sm:text-2xl font-semibold
+          transition-all duration-500 ease-in-out
+          group-hover:mb-3
         "
       >
-        {/* TITLE */}
-        <h3
-          className="
-            text-2xl font-semibold
-            transition-all duration-700
-            group-hover:text-3xl group-hover:font-bold group-hover:mb-3
-          "
-        >
-          {title}
-        </h3>
+        {title}
+      </h3>
 
-        {/* SUB TEXT */}
-        <p
-          className="
-            max-w-[85%] text-sm sm:text-base text-white/90
-            opacity-0 translate-y-4
-            transition-all duration-700
-            group-hover:opacity-100 group-hover:translate-y-0
-          "
-        >
-          {subTextMap[id]}
-        </p>
-      </div>
+      {/* SUB TEXT */}
+      <p
+        className="
+          max-w-[85%] text-sm sm:text-base text-white/90
+          opacity-0 translate-y-4
+          transition-all duration-500 ease-in-out
+          group-hover:opacity-100 group-hover:translate-y-0
+        "
+      >
+        {subTextMap[id]}
+      </p>
     </div>
-  );
+  </div>
+);
 
   return (
-    <section className="w-full bg-[#F6F2EB] py-10 sm:py-24 px-4 sm:px-6 relative flex justify-center">
+    <section className="w-full bg-[#F6F2EB] py-10 sm:py-24 px-4 sm:px-12 relative flex justify-center">
 
       {/* ================= DESKTOP ================= */}
       <div className="hidden lg:grid grid-cols-3 gap-x-6 gap-y-6 w-full 2xl:max-w-[1800px] mx-auto -mb-[420px]">
@@ -1021,14 +1119,15 @@ const Whowant = () => {
             Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
           </p>
 
-          <div className="relative w-[410px] h-[113px] mb-12 bg-[#F8F8F8] rounded-md px-4 py-3 ml-auto">
-            <p className="italic font-bold text-[16px]">
-              " Wherever you are. Whoever you are. However you feel. "
-            </p>
-            <p className="mt-4 text-[16px] text-right">
-              – Mind A Lot is here for you!
-            </p>
-          </div>
+          <div className="relative w-[410px] h-[113px] mb-12 mt-20 bg-[#F8F8F8] rounded-md px-4 py-3 z-20">
+  <p className="italic font-bold text-[16px]">
+    " Wherever you are. Whoever you are. However you feel. "
+  </p>
+  <p className="mt-4 text-[16px] text-right">
+    – Mind A Lot is here for you!
+  </p>
+</div>
+
         </div>
 
         {/* CARDS */}
@@ -1311,15 +1410,15 @@ const Trusted = () => {
           className="absolute font-['Nunito_Sans'] font-medium text-[40px] leading-none text-black w-[410px] h-[55px]"
           style={{ top: '66px', left: '86px' }}
         >
-          Trusted by 50+ Institutions
+          Trusted by 50+ Clients
         </p>
         
         {/* Description */}
         <p
           className="absolute font-['Nunito_Sans'] font-normal text-[18px] leading-none text-black w-[406px] h-[50px]"
-          style={{ top: '145px', left: '86px' }}
+          style={{ top: '125px', left: '86px' }}
         >
-          Trusted by leading schools and institutions that care for student well-being.
+          Trusted by leading schools and Clients that care for student well-being.
         </p>
 
         {/* Images Layout (Carousel) */}
@@ -1387,16 +1486,17 @@ const LastSection = () => {
             
             {/* Background Image (Rocks) */}
             <div className="absolute inset-0 z-0">
-               <Image
-                src={rocksImage}
-                alt="CTA Background"
-                fill
-                className="object-cover object-bottom"
-                style={{ transform: "scale(1.2) translateY(28px)" }} 
-              />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/20" /> 
-            </div>
+  <Image
+    src={rocksImage}
+    alt="CTA Background"
+    fill
+    className="object-cover object-bottom" // align top
+    style={{ transform: "scale(1.0)" }} // no zoom
+  />
+  {/* Overlay */}
+  <div className="absolute inset-0.3 bg-black/20" />
+</div>
+
 
             {/* Content */}
             <div className="relative z-10 flex flex-col items-center justify-center py-20 px-4 text-center">
