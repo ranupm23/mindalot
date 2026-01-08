@@ -41,7 +41,7 @@ import t3 from "../assets/home-page/trusted/trust3.png";
 import t4 from "../assets/home-page/trusted/trust4.png";
 import t5 from "../assets/home-page/trusted/trust5.png";
 import newarrow from '../assets/home-page/Footer/ffoarrow.png'; 
-import  rocksImage from "../assets/home-page/Footer/fo1.png";
+import  rocksImage from "../assets/home-page/Footer/rock1.png";
 import blackarrow from '../assets/home-page/Footer/black arr.png';
 import CTAButton from "@/components/CTAButton";
 import { Footprints } from "lucide-react";
@@ -1423,16 +1423,18 @@ const Trusted = () => {
 
         {/* Images Layout (Carousel) */}
         <div
-  className="
-    absolute w-[922px] h-[144px]
-    xl:h-[160px]
-    2xl:h-[180px]
-    overflow-hidden
-  "
-  style={{ top: '49px', left: '530px' }}
->
-
-          <LogoCarousel logos={logos} />
+          className="
+            absolute w-[922px] h-[144px]
+            xl:h-[160px]
+            2xl:h-[180px]
+            overflow-hidden
+          "
+          style={{ top: '49px', left: '530px' }}
+        >
+          <LogoCarousel logos={logos.map(logo => ({
+            ...logo,
+            className: "brightness-95 contrast-110 xl:brightness-100 xl:contrast-125 2xl:brightness-105 2xl:contrast-130" // Added brightness/contrast
+          }))} />
         </div>
       </div>
       
@@ -1452,7 +1454,10 @@ const Trusted = () => {
 
         {/* Logo Carousel */}
         <div className="mt-8">
-          <LogoCarousel logos={logos} />
+          <LogoCarousel logos={logos.map(logo => ({
+            ...logo,
+            className: "brightness-95"
+          }))} />
         </div>
       </div>
     </section>
@@ -1490,7 +1495,7 @@ const LastSection = () => {
     src={rocksImage}
     alt="CTA Background"
     fill
-    className="object-cover object-bottom" // align top
+    className="object-cover" // align top
     style={{ transform: "scale(1.0)" }} // no zoom
   />
   {/* Overlay */}
