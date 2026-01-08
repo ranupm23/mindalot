@@ -55,7 +55,7 @@ const ResourcePage = () => {
     return (
         <div className="flex flex-col min-h-screen">
           
-          <Header />
+          <Header  navTextColor="#755840 "/>
             {/* MAIN CONTENT */}
             <div className='flex-1 container-page xl:pr-0 xl:pl-0 px-4 sm:px-6 md:px-8'>
                 <div className="flex flex-col lg:flex-row lg:justify-between gap-9">
@@ -117,10 +117,35 @@ const OurResourcesSection = () => {
         <>
             <h2 className='text-[30px] sm:text-[40px] lg:text-[50px] xl:text-[60px] text-[#5C4737] font-semibold -tracking-[6%] font-inter mt-12 md:mt-20'>Our Resources!</h2>
             <div className='mt-5 sm:mt-[46px] grid lg:grid-cols-2 gap-x-5 gap-y-[15px] sm:gap-y-[30px] mb-20 whitespace-nowrap'>
-                <ResourceCard btnLabel="Listen Audio" img={ourResource1} btnIcon={waveIcon} rotateIconOnHover={false} />
+                {/* <ResourceCard btnLabel="Listen Audio" img={ourResource1} btnIcon={waveIcon} rotateIconOnHover={false} />
                 <ResourceCard btnLabel="Watch Video" img={ourResource2} btnIcon={brownPlayIcon} />
                 <ResourceCard btnLabel="Read more" img={ourResource3} btnIcon={arrrow} />
-                <ResourceCard btnLabel="Start Quiz" img={ourResource4} btnIcon={arrrow} />
+                <ResourceCard btnLabel="Start Quiz" img={ourResource4} btnIcon={arrrow} /> */}
+                 <ResourceCard 
+                    btnLabel="Listen Audio" 
+                    img={ourResource1} 
+                    btnIcon={waveIcon} 
+                    rotateIconOnHover={false}
+                    hoverText="5-min Breathing reset for Overthinkers"
+                />
+                <ResourceCard 
+                    btnLabel="Watch Video" 
+                    img={ourResource2} 
+                    btnIcon={brownPlayIcon}
+                    hoverText="What to Do When Motivation dies"
+                />
+                <ResourceCard 
+                    btnLabel="Read more" 
+                    img={ourResource3} 
+                    btnIcon={arrrow}
+                    hoverText="Breakup Survival Guide"
+                />
+                <ResourceCard 
+                    btnLabel="Start Quiz" 
+                    img={ourResource4} 
+                    btnIcon={arrrow}
+                    hoverText="Am I Stressed or Just Tired ?"
+                />
             </div>
         </>
     )
@@ -132,20 +157,29 @@ const ResourceCard = ({
   img,
   btnIcon,
   rotateIconOnHover = true,
+  hoverText = "5-Min Breathing Reset for Overthinkers",
 }: {
-  btnLabel: string;
+ btnLabel: string;
   img: StaticImageData;
   btnIcon: StaticImageData;
   rotateIconOnHover?: boolean;
+  hoverText?: string;
 }) => {
   return (
-    <div className="relative mx-auto">
+    <div className="relative mx-auto group">
       <Image
         src={img}
         alt="meditate"
         height={350}
         className="rounded-[20px] max-h-[350px] mx-auto"
       />
+        {/* Black fade overlay - ONLY on image */}
+        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300 rounded-[20px] flex items-center justify-center">
+          {/* Centered text */}
+          <span className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-center px-2 sm:px-4 md:px-6">
+            {hoverText}
+          </span>
+        </div>
 
       <button
         onClick={redirectToAppStore}
@@ -234,18 +268,40 @@ const PodcastSection = () => {
       />
 
       {/* Central Play Icon */}
-      <button
-        onClick={redirectToAppStore}
-        className="absolute left-1/2 top-1/2 -translate-1/2 z-20 w-[70px] h-[70px] sm:w-[130px] sm:h-[130px] xl:w-[175px] xl:h-[175px] rounded-full flex items-center justify-center bg-white/30 hover:bg-[#BE9B84] transition-all"
-      >
+          <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[100px] h-[100px] sm:w-[180px] sm:h-[180px] xl:w-[225px] xl:h-[225px] border-2 border-white/25 rounded-full'></div>
+                <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[70px] h-[70px] sm:w-[130px] sm:h-[130px] xl:w-[175px] xl:h-[175px] border-2 border-white/50 rounded-full'></div>
+                <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-10 h-10 sm:w-20 sm:h-20 xl:w-[125px] xl:h-[125px] border-2 border-white rounded-full'></div>
+                <Image src={playIcon} alt="play" width={50} height={60} className='absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-[calc(50%-1.5px)] xl:-translate-x-[calc(50%-5px)] z-20 w-[18px] h-[18px] sm:w-[25px] sm:h-[25px] xl:w-[50px] xl:h-[60px]' />
+                <div className='absolute bottom-2.5 sm:bottom-[30px] right-2.5 sm:right-[30px] w-[60px] h-[30px] sm:w-[120px] sm:h-[60px] flex p-[3px] sm:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group'></div>
+  <div className="absolute bottom-2.5 sm:bottom-[20px] md:bottom-[30px] right-2.5 sm:right-[20px] md:right-[30px]">
+  <button
+    onClick={redirectToAppStore}
+    className="w-[60px] h-[30px] sm:w-[100px] sm:h-[50px] md:w-[120px] md:h-[60px] flex p-[3px] sm:p-[4px] md:p-[5px] bg-white/30 backdrop-blur-[10px] rounded-full cursor-pointer group transition-all hover:bg-[#BE9B84]"
+  >
+    <div className="relative w-full h-full">
+      {/* First Avatar */}
+      <div className="absolute w-[20px] h-[20px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] rounded-full border-2 border-white bg-purple-500 overflow-hidden">
+        <Image src={avatar1} alt="avatar-img" width={50} height={50} className="object-cover w-full h-full" />
+      </div>
+
+      {/* Second Avatar */}
+      <div className="absolute w-[20px] h-[20px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] rounded-full border-2 border-white translate-x-[60%] sm:translate-x-[70%] md:translate-x-[60%] bg-gray-400 overflow-hidden">
+        <Image src={avatar2} alt="avatar-img" width={50} height={50} className="object-cover w-full h-full" />
+      </div>
+
+      {/* Arrow Circle */}
+      <div className="absolute w-[20px] h-[20px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%] sm:translate-x-[140%] md:translate-x-[120%] transition-transform group-hover:rotate-45">
         <Image
-          src={playIcon}
-          alt="play"
-          width={50}
-          height={50}
-          className="w-[50%] h-[50%] sm:w-[50%] sm:h-[50%] xl:w-[50%] xl:h-[50%]"
+          src={arrrow}
+          alt="arrow"
+          width={18}
+          height={18}
+          className="w-2 h-2 sm:w-3 sm:h-3 md:w-[18px] md:h-[18px]"
         />
-      </button>
+      </div>
+    </div>
+  </button>
+</div>
 
    
 </div>

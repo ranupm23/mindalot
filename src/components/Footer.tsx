@@ -57,12 +57,19 @@ const Footer = () => {
         {/* Background Logo (50% size, left side) */}
         <div className="absolute -left-16 top-20">
   <Image
-    src={footerBgLogo}
-    alt="background logo"
-    width={116.5}
-    height={69.5}
-    className="w-[116.5px] h-auto opacity-100 filter drop-shadow-2xl brightness-50 contrast-200"
-  />
+  src={footerBgLogo}
+  alt="background logo"
+  width={116.5}
+  height={69.5}
+  style={{
+    width: "116.5px",
+    height: "auto",
+    opacity: 1,
+    // Highly visible #5C4B3F
+    filter: "sepia(0.9) saturate(1.6) hue-rotate(-35deg) brightness(0.75) contrast(2.0)",
+    imageRendering: "crisp-edges",
+  }}
+/>
 </div>
         
         {/* Main Logo */}

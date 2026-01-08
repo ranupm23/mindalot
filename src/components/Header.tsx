@@ -72,8 +72,8 @@ export default function Header({ navTextColor = "#F6F2EB" }: HeaderProps) {
               <Image 
                 src={headerLogo} 
                 alt="Logo" 
-                width={112} 
-                height={68} 
+                width={115} 
+                height={71} 
                 priority 
                 className="logo-image"
               />
