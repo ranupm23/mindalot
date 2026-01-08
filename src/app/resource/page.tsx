@@ -56,7 +56,7 @@ const ResourcePage = () => {
           <div className='flex-1 container-page xl:pr-0 xl:pl-0 px-4 sm:px-6 md:px-8'>
               <div className="flex flex-col lg:flex-row lg:justify-between gap-6 sm:gap-8 lg:gap-9">
                   {/* Left Text Section */}
-                  <div className="relative z-10 flex flex-col items-center sm:items-start pt-16 sm:pt-20 lg:pb-20 text-center sm:text-left whitespace-normal">
+                  <div className="relative z-10 flex flex-col items-center sm:items-start pt-16 sm:pt-20 lg:pb-20 text-center sm:text-left whitespace-nowrap">
                       <h1 className="font-inter font-semibold text-[26px] sm:text-[32px] md:text-[42px] lg:text-[55px] leading-[32px] sm:leading-[40px] md:leading-[55px] lg:leading-[80px] tracking-[-0.06em] text-[#5C4737]">
                           Curated resources from<br />
                           real professionals, <span className="whitespace-nowrap">no fluff.</span>
@@ -90,8 +90,7 @@ const ResourcePage = () => {
 }
 const SlideImages = () => {
     return (
-        <div className='lg:mt-[40px] mx-auto lg:mx-0 w-full max-w-[400px] sm:max-w-[450px] md:max-w-[523px] h-[200px] sm:h-[250px] md:h-[500px] flex items-center relative group hover:[&>img]:scale-110 hover:[&>div:not(.blur-bg)]:scale-115 transition-all duration-500'>
-            {/* Circles */}
+         <div className='lg:mt-[40px] mx-auto lg:mx-0 w-[400px] xl:w-[400px] max-w-[523px] h-[200px] sm:h-[250px] md:h-[500px] flex items-center relative group hover:[&>img]:scale-110 hover:[&>div:not(.blur-bg)]:scale-115 transition-all duration-500'>
             <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[120px] sm:w-[150px] md:w-[180px] h-[120px] sm:h-[150px] md:h-[180px] border-2 border-white/25 rounded-full'></div>
             <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[80px] sm:w-[120px] md:w-[130px] h-[80px] sm:h-[120px] md:h-[130px] border-2 border-white/45 rounded-full'></div>
             <div className='absolute left-1/2 top-1/2 -translate-1/2 z-10 w-[40px] sm:w-[80px] md:w-20 h-[40px] sm:h-[80px] md:h-20 border-2 border-white/65 rounded-full'></div>
