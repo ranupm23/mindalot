@@ -282,7 +282,7 @@ const AccessMoreResourceSection = () => {
   return (
     <div className="pb-20">
       <h2 className="text-[30px] lg:text-[40px] xl:text-[50px] text-[#5C4737] font-semibold text-center">
-        Access More Resources
+        Access More Resource
       </h2>
 
       <p className="text-sm md:text-base xl:text-lg font-medium mt-4 mb-[30px] text-center">
