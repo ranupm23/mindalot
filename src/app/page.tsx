@@ -570,6 +570,9 @@ export default function Home() {
           </div>
         </div>
 
+
+        <div className="max-w-[1600px] mx-auto px-12 2xl:px-24">
+
         {/* DESKTOP LAYOUT - EXACT ORIGINAL DESIGN with automatic rotation */}
         <div className="hidden lg:block relative w-full h-[712px] xl:h-[750px]">
           
@@ -765,6 +768,7 @@ export default function Home() {
 
               </div>
           </div>
+        </div>
         </div>
       </section>
     );
@@ -1371,15 +1375,30 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
         {duplicatedLogos.map((logo, index) => (
           <div
             key={index}
-            className="flex items-center justify-center h-24 sm:h-32 mx-6 sm:mx-10 shrink-0 transition-all duration-500 hover:scale-110 hover:rotate-2"
+           className="flex items-center justify-center h-24 sm:h-32 mx-6 sm:mx-10 2xl:mx-4 shrink-0"
+
           >
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={logo.width}
-              height={logo.height}
-              className="max-h-full w-auto object-contain opacity-70 hover:opacity-100 transition duration-500 brightness-110 hover:drop-shadow-lg"
-            />
+            {duplicatedLogos.map((logo, index) => (
+  <div
+    key={index}
+    className="flex items-center justify-center h-24 sm:h-32 xl:h-40 2xl:h-44 mx-6 sm:mx-10 shrink-0"
+  >
+    <Image
+  src={logo.src}
+  alt={logo.alt}
+  width={logo.width}
+  height={logo.height}
+  className="
+    w-auto h-full object-contain
+    xl:scale-70
+    2xl:scale-75
+    transition-transform
+  "
+/>
+
+  </div>
+))}
+
           </div>
         ))}
       </div>
@@ -1416,21 +1435,25 @@ const Trusted = () => {
         {/* Description */}
         <p
           className="absolute font-['Nunito_Sans'] font-normal text-[18px] leading-none text-black w-[406px] h-[50px]"
-          style={{ top: '125px', left: '86px' }}
+          style={{ top: '115px', left: '90px' }}
         >
           Trusted by leading schools and Clients that care for student well-being.
         </p>
 
         {/* Images Layout (Carousel) */}
         <div
-          className="
-            absolute w-[922px] h-[144px]
-            xl:h-[160px]
-            2xl:h-[180px]
-            overflow-hidden
-          "
-          style={{ top: '49px', left: '530px' }}
-        >
+  className="
+    absolute
+    w-[922px]
+    2xl:w-[1800px]
+    h-[144px]
+    xl:h-[160px]
+    2xl:h-[180px]
+    overflow-hidden
+  "
+  style={{ top: '49px', left: '530px' }}
+>
+
           <LogoCarousel logos={logos.map(logo => ({
             ...logo,
             className: "brightness-95 contrast-110 xl:brightness-100 xl:contrast-125 2xl:brightness-105 2xl:contrast-130" // Added brightness/contrast
