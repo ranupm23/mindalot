@@ -10,7 +10,7 @@ import { IoLogoYoutube } from "react-icons/io";
 
 import headerLogo from "@/assets/header-assets/Mindalotlogo.png";
 import footerBgLogo from "@/assets/footer-assets/footer-background-logo.png";
-
+import footerBgLogo2 from "@/assets/home-page/Footer/Mask group-1.png";
 const Footer = () => {
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -57,17 +57,16 @@ const Footer = () => {
         {/* Background Logo (50% size, left side) */}
         <div className="absolute -left-16 top-20">
   <Image
-  src={footerBgLogo}
+  src={footerBgLogo2}
   alt="background logo"
   width={116.5}
   height={69.5}
   style={{
     width: "116.5px",
     height: "auto",
-    opacity: 1,
+    
     // Highly visible #5C4B3F
-    filter: "sepia(0.9) saturate(1.6) hue-rotate(-35deg) brightness(0.75) contrast(2.0)",
-    imageRendering: "crisp-edges",
+    
   }}
 />
 </div>

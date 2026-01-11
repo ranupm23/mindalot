@@ -1435,7 +1435,7 @@ const Trusted = () => {
         {/* Description */}
         <p
           className="absolute font-['Nunito_Sans'] font-normal text-[18px] leading-none text-black w-[406px] h-[50px]"
-          style={{ top: '115px', left: '90px' }}
+          style={{ top: '115px', left: '86px' }}
         >
           Trusted by leading schools and Clients that care for student well-being.
         </p>
