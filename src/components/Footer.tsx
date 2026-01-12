@@ -132,7 +132,7 @@ const Footer = () => {
   </li>
   <li>
     <Link href="https://www.jagratiedu.com/Home.html" className="hover:text-[#8C7A6B]">
-      Add our team
+      Our team
     </Link>
   </li>
 </ul>
