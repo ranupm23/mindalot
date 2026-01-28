@@ -232,7 +232,7 @@ const HeroSection = () => {
 
         {/* 3. Second Paragraph - Increased size and boldness */}
         <div 
-          className="w-[90%] md:w-[534px] mt-3 md:mt-0 mb-3 md:mb-0 md:absolute md:top-[485px] md:left-1/2 md:-translate-x-1/2"
+          className="w-[90%] md:w-[534px] mt-3 md:mt-0 mb-3 md:mb-0 md:absolute md:top-[495px] md:left-1/2 md:-translate-x-1/2"
           style={{
             color: '#F6F2EB',
             opacity: 1,

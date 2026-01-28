@@ -132,15 +132,105 @@ const FeatureOffer = () => {
               <Image src={fea5} alt="fea-back" className="absolute left-1/2 top-[360px] -translate-x-1/2 w-[100%] h-[260px] rounded-[18px] object-cover border-[4px] border-white shadow-2xl z-10" />
             </div>
           </div>
-        <div className="mt-[-50] space-y-6">
-           {/* Mobile Text items... */}
-           <div><div className="text-[20px] font-semibold text-[#755840]">01</div><h3 className="text-[22px] font-semibold text-[#5C4737]">Live chat counselling</h3><p className="text-[16px] text-[#6D6D6F]">Connect instantly with trained professionals available 24/7...</p></div>
-           {/* ... (Add other mobile texts if needed) ... */}
-        </div>
+       <div className="mt-[-50px] space-y-8">
+
+  {/* 01 */}
+  <div className="flex gap-4">
+    <div className="text-[20px] font-semibold text-[#755840]">01</div>
+    <div>
+      <h3 className="text-[22px] font-semibold text-[#5C4737]">
+        Live chat counselling
+      </h3>
+      <p className="text-[16px] text-[#6D6D6F]">
+        Connect instantly with trained professionals available 24/7, offering real-time emotional support.
+      </p>
+    </div>
+  </div>
+
+  {/* 02 */}
+  <div className="flex gap-4">
+    <div className="text-[20px] font-semibold text-[#755840]">02</div>
+    <div>
+      <h3 className="text-[22px] font-semibold text-[#5C4737]">
+        Anonymity first
+      </h3>
+      <p className="text-[16px] text-[#6D6D6F]">
+        Your privacy comes first — counsellors never see your personal details.
+      </p>
+    </div>
+  </div>
+
+  {/* 03 */}
+  <div className="flex gap-4">
+    <div className="text-[20px] font-semibold text-[#755840]">03</div>
+    <div>
+      <h3 className="text-[22px] font-semibold text-[#5C4737]">
+        Goal-based nudge
+      </h3>
+      <p className="text-[16px] text-[#6D6D6F]">
+        Set achievable wellness goals and receive thoughtful reminders.
+      </p>
+    </div>
+  </div>
+
+  {/* 04 */}
+  <div className="flex gap-4">
+    <div className="text-[20px] font-semibold text-[#755840]">04</div>
+    <div>
+      <h3 className="text-[22px] font-semibold text-[#5C4737]">
+        Mood tracker
+      </h3>
+      <p className="text-[16px] text-[#6D6D6F]">
+        Tap once to express how you feel and get the right support.
+      </p>
+    </div>
+  </div>
+
+  {/* 05 */}
+  <div className="flex gap-4">
+    <div className="text-[20px] font-semibold text-[#755840]">05</div>
+    <div>
+      <h3 className="text-[22px] font-semibold text-[#5C4737]">
+        Self-assessments
+      </h3>
+      <p className="text-[16px] text-[#6D6D6F]">
+        Quick reflective assessments to understand your mental health.
+      </p>
+    </div>
+  </div>
+
+  {/* 06 */}
+  <div className="flex gap-4">
+    <div className="text-[20px] font-semibold text-[#755840]">06</div>
+    <div>
+      <h3 className="text-[22px] font-semibold text-[#5C4737]">
+        Content hub
+      </h3>
+      <p className="text-[16px] text-[#6D6D6F]">
+        Videos, podcasts, and blogs crafted by experts.
+      </p>
+    </div>
+  </div>
+
+  {/* 07 */}
+  <div className="flex gap-4">
+    <div className="text-[20px] font-semibold text-[#755840]">07</div>
+    <div>
+      <h3 className="text-[22px] font-semibold text-[#5C4737]">
+        Escalation ready
+      </h3>
+      <p className="text-[16px] text-[#6D6D6F]">
+        Smooth referrals to licensed hospitals when deeper care is needed.
+      </p>
+    </div>
+  </div>
+
+</div>
+
       </div>
 
       {/* DESKTOP */}
-      <div className="hidden md:block w-full h-[230vh]">
+      <div className="hidden md:block w-full h-[260vh]">
         
         {/* ==========================
             LEFT SIDE: IMAGE STACK
