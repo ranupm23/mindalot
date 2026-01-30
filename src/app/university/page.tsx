@@ -186,24 +186,32 @@ const HeroSection = () => {
         
         {/* 1. H1 Layout - Increased size and boldness */}
         <div
-          className="w-[90%] md:w-[704px] mb-6 md:mb-0 mt-16 md:mt-0 md:absolute md:top-[259px] md:left-1/2 md:-translate-x-1/2"
+          className="w-[90%] md:w-[704px] mb-6 md:mb-0 mt-16 md:mt-0 md:absolute md:top-[189px] md:left-1/2 md:-translate-x-1/2"
           style={{
             color: '#F6F2EB',
             opacity: 1,
           }}
         >
           <div className="flex items-center justify-center w-full h-full">
-            <h1
-              className="text-[38px] sm:text-[40px] md:text-[58px] lg:text-[68px] leading-[44px] sm:leading-[50px] md:leading-[62px] lg:leading-[72px] text-center font-bold"
-              style={{
-                fontFamily: 'Helvetica Neue, Arial, sans-serif',
-                letterSpacing: '-3%',
-                color: '#F6F2EB',
-                margin: 0,
-              }}
-            >
-              Mental health on campus is no longer
-            </h1>
+     <h1
+  className="
+    mx-auto
+    max-w-[900px]
+    text-[38px] sm:text-[40px] md:text-[58px] lg:text-[68px]
+    leading-[44px] sm:leading-[50px] md:leading-[62px] lg:leading-[72px]
+    text-center
+    font-bold
+    text-[#F6F2EB]
+  "
+  style={{
+    fontFamily: 'Helvetica Neue, Arial, sans-serif',
+    letterSpacing: '-0.03em',
+    margin: 0,
+  }}
+>
+  Mental health on campus can no longer optional.
+</h1>
+
           </div>
         </div>
 
@@ -323,7 +331,7 @@ const HeroSection = () => {
                 color: "#F6F2EB",
               }}
             >
-              Schedule a demo
+          See how it works
             </span>
 
             {/* Circle */}
@@ -383,12 +391,12 @@ const OfferSection = () => {
     {
       icon: Custom,
       title: "Custom Content Drops",
-      desc: "Targeted resources for exam anxiety, homesickness, burnout, and self-harm prevention — fostering a safer, more supportive campus environment.",
+      desc: "Resources for exam anxiety, homesickness, burnout, and emotional well-being to build a safer, more supportive campus culture.",
     },
     {
       icon: Regulator,
       title: "Regulatory Compliance",
-      desc: "Helps your institution stay compliant with UGC/NAAC/AICTE mental health directives — turning compliance into meaningful student well-being action.",
+      desc: "Supports compliance with UGC, NAAC, and AICTE mental health guidelines while strengthening student well-being systems.",
     },
   ];
 
@@ -689,7 +697,7 @@ const ConnectCampus = () => {
                 max-md:relative max-md:!top-auto max-md:!left-auto max-md:text-center
               "
             >
-              Download University Kit
+              Download institution kit
             </span>
 
             {/* Circle */}

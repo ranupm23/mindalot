@@ -317,7 +317,7 @@ This person is interested in scheduling a demo for Mind A Lot.`;
             className="text-[32px] sm:text-[50px] font-semibold text-[#3a2b20] mb-10 sm:mb-14 text-center sm:text-left"
             style={{ fontFamily: "Inter" }}
           >
-            What We Offer to Organizations?
+            How Mind-A-Lot supports your organisation
           </h2>
 
           {/* GRID - Now with video instead of last tile */}
@@ -330,7 +330,7 @@ This person is interested in scheduling a demo for Mind A Lot.`;
               },
               {
                 icon: cardcirclegrpup,
-                title: "No stigma or exposure",
+                title: "Private and judgement-free",
                 text: "Employees stay completely anonymous; counsellors never see personal or identifying details.",
               },
               {
@@ -451,7 +451,7 @@ This person is interested in scheduling a demo for Mind A Lot.`;
                        mx-auto"
             style={{ fontFamily: "Inter", fontWeight: 400, letterSpacing: "-0.03em", color: "#6d6d6f" }}
           >
-            Partner with Mind A Lot to provide mental health support that your employees will actually use.
+           Partner with Mind-A-Lot to offer mental health support that employees trust and use.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-[36px]">

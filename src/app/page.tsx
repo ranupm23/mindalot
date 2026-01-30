@@ -509,7 +509,9 @@ export default function Home() {
           <div className="max-w-2xl mx-auto w-full">
               {/* Title */}
               <h2 className="font-['Inter'] text-[32px] sm:text-[40px] font-semibold text-[#5C4737] mb-8 sm:mb-12 tracking-tight">
-              Testimonials
+               
+ 	
+What people say about Mind-A-Lot
               </h2>
 
               {/* Interactive Testimonial Card */}
@@ -593,12 +595,21 @@ export default function Home() {
               >
               
               {/* HEADING */}
-              <div
+              {/* <div
                   className="absolute w-[274px] h-[61px] font-['Inter'] text-[50px] font-semibold text-[#5C4737]"
                   style={{ top: '25px', left: '30px', letterSpacing: '-0.06em' }}
               >
-                  Testimonials
-              </div>
+                  
+ 	
+What people say about Mind-A-Lot
+              </div> */}
+              <div
+  className="absolute whitespace-nowrap font-['Inter'] text-[40px] font-semibold text-[#5C4737]"
+  style={{ top: '25px', left: '30px', letterSpacing: '-0.06em' }}
+>
+  What People Say About Mind-A-Lot
+</div>
+
 
               {/* LARGE LEFT IMAGE */}
               <Image
@@ -848,10 +859,14 @@ const HomeHero = () => {
           </h2>
 
           {/* Description Paragraph - CHANGED: "we are" */}
-          <p className="font-inter text-[#F6F2EB] lg:text-[#1C1C1BCC] text-[16px] leading-[25px] tracking-[-0.03em] text-center lg:text-right w-full max-w-[400px] lg:w-[373px] lg:h-[75px] mb-8 lg:mb-0 lg:absolute lg:top-[279px] lg:left-[783px] z-0">
-            We are an anonymous, app-based counselling platform that
-            connects you instantly to a real, <br className="hidden lg:block" /> trained professional
-          </p>
+          <p className="font-inter text-[#F6F2EB] lg:text-[#1C1C1BCC] text-[16px] leading-[25px] tracking-[-0.03em] text-center lg:text-left w-full max-w-[400px] lg:w-[373px] lg:h-[75px] mb-8 lg:mb-0 lg:absolute lg:top-[279px] lg:left-[783px] z-0">
+             
+ 	
+An app-based counselling space where you can talk to a real, trained professional   <br className="hidden lg:block" />
+  <span className="block text-right">
+    — privately and at your own pace.
+  </span> 
+  </p>
 
           {/* Left Subtitle */}
           <p className="font-inter text-[#FDE2CD] text-[20px] lg:text-[24px] font-normal leading-[120%] lg:leading-[100%] tracking-[-0.06em] text-center lg:text-left w-full max-w-[400px] lg:w-[387px] lg:h-[58px] mb-8 lg:mb-0 lg:absolute lg:top-[512px] lg:left-[160px]">
@@ -874,9 +889,9 @@ const HomeHero = () => {
   className="no-underline"
 >
   <button
-    className="group relative flex items-center justify-start font-nunito transition-all duration-300 w-[280px] lg:w-[212px] h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent text-[#F6F2EB] text-[16px] font-medium leading-[100%] tracking-[-0.03em] cursor-pointer pl-[30px] hover:bg-[#5C4737] hover:border-transparent"
+    className="group relative flex items-center justify-start font-nunito transition-all duration-300 w-[280px] lg:w-[212px] h-[60px] rounded-[30px] border-2 border-[#F6F2EB] bg-transparent text-[#F6F2EB] text-[14px] font-medium leading-[100%] tracking-[-0.03em] cursor-pointer pl-[30px] hover:bg-[#5C4737] hover:border-transparent"
   >
-    Start chat now
+    Chat on WhatsApp
     <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[3px] right-[5px] lg:left-[155px] bg-[#F6F2EB] rounded-full">
       <Image
         src={blackarrow}
@@ -888,14 +903,42 @@ const HomeHero = () => {
 </a>
 
             {/* Button 2 */}
-           
+            <button
+  onClick={redirectToAppStore}
+  className="group relative flex items-center justify-center font-nunito transition-all duration-300
+             w-[280px] lg:w-[200px] h-[60px] rounded-[30px]
+             bg-[#F6F2EB] border-none cursor-pointer hover:bg-[#5C4737]  pr-[40px]"
+>
+  {/* Centered Text */}
+  <span
+    className="transition-colors duration-300 text-[#5B4A3E] text-[18px] font-medium group-hover:text-[#F6F2EB]"
+  >
+    Get the App
+  </span>
+
+  {/* Arrow */}
+  <div
+    className="absolute flex items-center justify-center transition-transform duration-300
+               group-hover:rotate-[45deg]
+               w-[50px] h-[50px] top-[5px] right-[5px]
+               bg-[#F6F2EB] rounded-full"
+  >
+    <Image
+      src={blackarrow}
+      alt="arrow"
+      style={{ width: "20px", height: "20px" }}
+    />
+  </div>
+</button>
+
+{/*            
               <button onClick={redirectToAppStore}
                 className="group relative flex items-center font-nunito transition-all duration-300 w-[280px] lg:w-[235px] h-[60px] rounded-[30px] bg-[#F6F2EB] border-none cursor-pointer hover:bg-[#5C4737]"
               >
                 <span
-                  className="btn-text transition-colors duration-300 absolute w-full text-center lg:text-left lg:w-[151px] top-[18px] lg:left-[20px] text-[#5B4A3E] text-[18px] font-medium group-hover:text-[#F6F2EB]"
+                  className="btn-text transition-colors duration-300 absolute w-full text-center lg:text-left lg:w-[151px] top-[16px] lg:left-[20px] text-[#5B4A3E] text-[18px] font-medium group-hover:text-[#F6F2EB]"
                 >
-                  Download the app
+                  Get a App
                 </span>
                 <div className="absolute flex items-center justify-center transition-transform duration-300 group-hover:rotate-[45deg] w-[50px] h-[50px] top-[5px] right-[5px] lg:left-[181px] bg-[#F6F2EB] rounded-full">
                   <Image
@@ -904,7 +947,7 @@ const HomeHero = () => {
                     style={{ width: "20px", height: "20px" }}
                   />
                 </div>
-              </button>
+              </button> */}
             
           </div>
 
@@ -926,10 +969,10 @@ const MakeUs = () => {
           text-[#5B4A3E]
           mb-10 sm:mb-16 
           max-w-4xl
-          font-['Nunito_Sans'] leading-tight
+          font-['inter'] leading-tight
         "
       >
-        What makes us different ?
+       What makes Mind-A-Lot different?
       </h2>
 
       {/* CARDS GRID */}
@@ -944,12 +987,12 @@ const MakeUs = () => {
         "
       >
         {[
-          { no: "01", title: "Instant Human Support", desc: "Start chatting the moment you feel overwhelmed. No forms. No queues. No matching wait. A real counsellor responds in seconds." },
-          { no: "02", title: "100% Anonymous", desc: "You can choose a nickname. Your real identity stays private. Even our counsellors won't know who you are. Feel safe, share freely." },
-          { no: "03", title: "Flexible Access", desc: "Want to choose your own counsellor? Prefer video or voice? You can book that." },
-          { no: "04", title: "Goal-Based Nudges", desc: "Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time." },
-          { no: "05", title: "Mood Tracker", desc: "Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn't need to hurt you again." },
-          { no: "06", title: "Self-Discovery Tools & Library", desc: "Discover your patterns, habits, and emotional needs through quick self-assessments, then explore expert-curated videos, podcasts, stories, and guided journaling." }
+          { no: "01", title: "Instant Human Support", desc: "Talk to a real counsellor the moment you feel overwhelmed. No forms. No waiting. No automated replies — just a human who listens." },
+          { no: "02", title: "100% Anonymous", desc: " Use a name you’re comfortable with. Your identity stays private. Feel safe. Speak freely. Be heard without judgement." },
+          { no: "03", title: "Flexible Access", desc: "Choose your counsellor. Choose chat, voice, or video. Support that fits your comfort." },
+          { no: "04", title: "Gentle Daily Support", desc: "Set your personal growth goals inside the app. We send you tiny, doable nudges to help you stay on track — one gentle step at a time." },
+          { no: "05", title: "Mood Check-In", desc: "Just tap how you're feeling. We'll guide you from there. No mood history shown — because your past doesn't need to hurt you again." },
+          { no: "06", title: "Self-Discovery & Learning", desc: "Understand your thoughts and habits through simple self-assessments, and explore videos, stories, podcasts, and guided journaling created by experts." }
         ].map((item) => (
           <div
             key={item.no}
@@ -1037,7 +1080,7 @@ const Whowant = () => {
     { id: 3, imageSrc: w3, altText: "LGBTQ+ Community", title: "LGBTQ+ Community" },
     { id: 4, imageSrc: w4, altText: "Older Adults", title: "Older Adults" },
     { id: 5, imageSrc: w5, altText: "Neurodivergent Users", title: "Neurodivergent Users" },
-    { id: 6, imageSrc: w6, altText: "Anyone Needing Support", title: "Anyone Needing Support" }
+    { id: 6, imageSrc: w6, altText: "Anyone Who Needs Emotional Support", title: "Anyone Who Needs Emotional Support" }
   ];
 
   const subTextMap: Record<number, string> = {
@@ -1118,7 +1161,7 @@ const Whowant = () => {
 
         {/* HEADER */}
         <div className="col-span-3">
-          <h2 className="text-[50px] font-bold mb-2">Who it's For</h2>
+          <h2 className="text-[50px] font-bold mb-2">Who is this for?</h2>
           <p className="w-[380px] text-[18px] text-black/80 mb-4">
             Mind A Lot is for everyone who wants to feel better, grow stronger, and cope smarter.
           </p>
@@ -1258,9 +1301,10 @@ const Features = () => {
         <div className="mb-2 sm:mb-4 pl-[13px]">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black font-['Inter'] mb-2 sm:mb-3 leading-tight">
             Key features
-          </h2>
-          <p className="text-base sm:text-lg text-black font-medium font-['Nunito_Sans'] max-w-xl leading-relaxed">
-            Discover the essential features you need - all in one trusted platform.
+          </h2><p className="text-base sm:text-lg text-black font-medium font-['Nunito_Sans'] leading-relaxed">
+
+          {/* <p className="text-base sm:text-lg text-black font-medium font-['Nunito_Sans'] max-w-xl leading-relaxed"> */}
+           Simple tools designed to help you feel heard, supported, and understood.
           </p>
         </div>
 
@@ -1272,7 +1316,7 @@ const Features = () => {
             <FeatureItem
               iconSrc={fi1}
               altText="Chat"
-              title="24/7 Live Chat With Human Counsellors"
+              title="24/7 Chat With Real Counsellors"
             />
             <FeatureItem
               iconSrc={featureIcon2}
@@ -1282,7 +1326,7 @@ const Features = () => {
             <FeatureItem
               iconSrc={featureIcon3}
               altText="Mood"
-              title="Mood-Based Guidance"
+              title="Guidance Based on How You Feel"
             />
             <FeatureItem
               iconSrc={featureIcon4}
@@ -1308,7 +1352,7 @@ const Features = () => {
               <FeatureItem
                 iconSrc={featureIcon7}
                 altText="Hospital"
-                title="Escalation To Partner Hospitals For Psychiatric Care"
+                title="Access to Partner Hospitals When Medical Support Is Needed"
               />
               <FeatureItem
                 iconSrc={featureIcon5}
@@ -1426,18 +1470,18 @@ const Trusted = () => {
         
         {/* Heading - CHANGED: "institutions" */}
         <p
-          className="absolute font-['Nunito_Sans'] font-medium text-[40px] leading-none text-black w-[410px] h-[55px]"
+          className="absolute font-['Nunito_Sans'] font-medium text-[46px] leading-none text-black w-[410px] h-[55px]"
           style={{ top: '66px', left: '86px' }}
         >
-          Trusted by 50+ Clients
+          Trusted by 50+
         </p>
         
         {/* Description */}
         <p
-          className="absolute font-['Nunito_Sans'] font-normal text-[18px] leading-none text-black w-[406px] h-[50px]"
-          style={{ top: '115px', left: '86px' }}
+          className="absolute font-['Nunito_Sans'] font-normal text-[30px] leading-none text-black w-[406px] h-[50px]"
+          style={{ top: '125px', left: '86px' }}
         >
-          Trusted by leading schools and Clients that care for student well-being.
+          Institutions and partners
         </p>
 
         {/* Images Layout (Carousel) */}
@@ -1467,11 +1511,11 @@ const Trusted = () => {
         {/* Header Content - CHANGED: "institutions" */}
         <div className="mb-8">
           <h2 className="font-['Nunito_Sans'] font-medium text-3xl sm:text-4xl text-black mb-3">
-            Trusted by 50+ Institutions
+            Trusted by 50+ institutions and partners
           </h2>
           
           <p className="font-['Nunito_Sans'] font-normal text-base sm:text-lg text-black max-w-md">
-            Trusted by leading schools and institutions that care for student well-being.
+            Trusted by schools and organisations that care about emotional well-being.
           </p>
         </div>
 
@@ -1530,7 +1574,7 @@ const LastSection = () => {
             <div className="relative z-10 flex flex-col items-center justify-center py-20 px-4 text-center">
               
               <h2 className="font-inter font-semibold text-[#F6F2EB] text-[24px] sm:text-[32px] md:text-[42px] lg:text-[50px] leading-[1.2] mb-4 md:whitespace-nowrap">
-                Take the first step toward feeling better.
+                Take the first step toward feeling heard.
               </h2>
 
               <p className="font-inter font-normal text-white text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] mb-8 md:whitespace-nowrap">

@@ -13,69 +13,157 @@ import Footer from "@/components/Footer";
 
 
 // Redirect based on device
+// const redirectToAppStore = () => {
+//   if (typeof window === "undefined") return;
+
+//   const userAgent = navigator.userAgent || navigator.vendor;
+
+//   // iOS devices
+//   if (/iPad|iPhone|iPod/.test(userAgent)) {
+//     window.location.href =
+//       "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+//     return;
+//   }
+
+//   // Android devices
+//   if (/android/i.test(userAgent)) {
+//     window.location.href =
+//       "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+//     return;
+//   }
+
+//   // Desktop fallback
+//   window.location.href =
+//     "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+// };
+
+
 const redirectToAppStore = () => {
   if (typeof window === "undefined") return;
 
-  const userAgent = navigator.userAgent || navigator.vendor;
+  const userAgent = navigator.userAgent || navigator.vendor || "";
+  const platform = navigator.platform || "";
 
-  // iOS devices
+  // 📱 iOS devices
   if (/iPad|iPhone|iPod/.test(userAgent)) {
     window.location.href =
       "https://apps.apple.com/in/app/zenit-edu/id6748683332";
     return;
   }
 
-  // Android devices
+  // 📱 Android devices
   if (/android/i.test(userAgent)) {
     window.location.href =
       "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
     return;
   }
 
-  // Desktop fallback
-  window.location.href =
-    "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+  // 🖥️ macOS laptops
+  if (platform.startsWith("Mac") || /Macintosh|Mac OS X/.test(userAgent)) {
+    window.location.href = "https://apps.apple.com/in/app/zenit-edu/id6748683332"; // your website / landing page
+    return;
+  }
+
+  // 🖥️ Windows laptops
+  if (platform.startsWith("Win") || /Windows NT/.test(userAgent)) {
+    window.location.href = "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"; // your website / landing page
+    return;
+  }
+
+  // 🌐 Fallback (other devices)
+  window.location.href = "https://zenit.edu";
 };
-
 export default function FeaturePage () {
-  
-const FeatureHome = () => {
+  const FeatureHome = () => {
   return (
-    
-    <section className="relative w-full max-w-[1440px] mx-auto min-h-[320px] md:min-h-[570px] bg-[#D9D9D9] opacity-100 overflow-hidden flex flex-col items-center py-1 md:py-0">
-      <Header navTextColor="#755840"/>
-      {/* Heading */}
-      {/* Replaced absolute positioning with margins. text-3xl for mobile, text-[60px] for desktop */}
-      <h2 
-        className="w-full max-w-[740px] font-['Inter'] font-semibold text-[#5C4737] text-center
-                   text-3xl md:text-[60px] 
-                   leading-tight md:leading-[80px] 
-                   tracking-[-0.06em]
-                   mt-8 md:mt-[50px] px-4"
-        style={{ fontStyle: 'normal' }}
-      >
-        All-In-One Support System
-      </h2>
+    <section className="relative w-full max-w-[1440px] mx-auto min-h-[320px] md:min-h-[570px] overflow-hidden flex flex-col items-center py-1 md:py-0">
 
-      {/* Play Icon */}
-      {/* Added cursor-pointer. Used mt- (margin-top) to push it down from the heading */}
-      <div className="relative mt-8 md:mt-[100px] cursor-pointer hover:scale-105 transition-transform duration-300">
-        <Image 
-          src={Play} 
-          alt="Support System Icon"
-          className="w-[50px] h-[60px] md:w-[73px] md:h-[86.58px] rounded-[3px]"
-        />
+      {/* Background Video */}
+      {/* <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+      > */}
+      <video
+  className="absolute inset-0 w-full h-full object-cover object-bottom"
+  autoPlay
+  loop
+  muted
+  playsInline
+>
+        <source src="/videos/bg-video.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      {/* Content */}
+      <div className="relative z-10 w-full flex flex-col items-center">
+        <Header navTextColor="#FFFFFF" />
+
+        {/* <h2
+          className="w-full max-w-[740px] font-['Inter'] font-semibold text-white text-center
+                     text-3xl md:text-[60px]
+                     leading-tight md:leading-[80px]
+                     tracking-[-0.06em]
+                     mt-20 md:mt-[150px] px-4"
+        >
+          All-In-One Support System
+        </h2> */}
+
+        {/* Play Icon */}
+        {/* <div className="relative mt-8 md:mt-[100px] cursor-pointer hover:scale-105 transition-transform duration-300">
+          <Image
+            src={Play}
+            alt="Support System Icon"
+            className="w-[50px] h-[60px] md:w-[73px] md:h-[86.58px]"
+          />
+        </div> */}
       </div>
-
-      {/* Button */}
-      {/* The button container is now relative to the flex flow (using margin-top), 
-          but the insides remain absolute as per your specific design. */}
-      
-
 
     </section>
   );
 };
+  
+// const FeatureHome = () => {
+//   return (
+    
+//     <section className="relative w-full max-w-[1440px] mx-auto min-h-[320px] md:min-h-[570px] bg-[#D9D9D9] opacity-100 overflow-hidden flex flex-col items-center py-1 md:py-0">
+//       <Header navTextColor="#755840"/>
+//       {/* Heading */}
+//       {/* Replaced absolute positioning with margins. text-3xl for mobile, text-[60px] for desktop */}
+//       <h2 
+//         className="w-full max-w-[740px] font-['Inter'] font-semibold text-[#5C4737] text-center
+//                    text-3xl md:text-[60px] 
+//                    leading-tight md:leading-[80px] 
+//                    tracking-[-0.06em]
+//                    mt-8 md:mt-[50px] px-4"
+//         style={{ fontStyle: 'normal' }}
+//       >
+//         All-In-One Support System
+//       </h2>
+
+//       {/* Play Icon */}
+//       {/* Added cursor-pointer. Used mt- (margin-top) to push it down from the heading */}
+//       <div className="relative mt-8 md:mt-[100px] cursor-pointer hover:scale-105 transition-transform duration-300">
+//         <Image 
+//           src={Play} 
+//           alt="Support System Icon"
+//           className="w-[50px] h-[60px] md:w-[73px] md:h-[86.58px] rounded-[3px]"
+//         />
+//       </div>
+
+//       {/* Button */}
+//       {/* The button container is now relative to the flex flow (using margin-top), 
+//           but the insides remain absolute as per your specific design. */}
+      
+
+
+//     </section>
+//   );
+// };
 
 const FeatureOffer = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -139,7 +227,7 @@ const FeatureOffer = () => {
     <div className="text-[20px] font-semibold text-[#755840]">01</div>
     <div>
       <h3 className="text-[22px] font-semibold text-[#5C4737]">
-        Live chat counselling
+       Live chat with counsellors
       </h3>
       <p className="text-[16px] text-[#6D6D6F]">
         Connect instantly with trained professionals available 24/7, offering real-time emotional support.
@@ -191,7 +279,7 @@ const FeatureOffer = () => {
     <div className="text-[20px] font-semibold text-[#755840]">05</div>
     <div>
       <h3 className="text-[22px] font-semibold text-[#5C4737]">
-        Self-assessments
+        Self-reflection check-ins
       </h3>
       <p className="text-[16px] text-[#6D6D6F]">
         Quick reflective assessments to understand your mental health.
@@ -290,7 +378,13 @@ const FeatureOffer = () => {
            ========================== */}
 
         <div className={`absolute top-[752px] left-[689px] w-[27px] h-[29px] ${numStyle}`}>01</div>
-        <h3 className={`absolute top-[744px] left-[736px] w-[479px] h-[61px] ${titleStyle}`}>Live chat counselling</h3>
+        {/* <h3 className={`absolute top-[744px] left-[736px] w-[479px] h-[61px] ${titleStyle}`}>Live chat with counsellors</h3> */}
+        <h3
+  className={`absolute top-[744px] left-[736px] whitespace-nowrap ${titleStyle}`}
+>
+  Live chat with counsellors
+</h3>
+
         <p className={`absolute top-[815px] left-[736px] w-[613px] h-[70px] ${descStyle}`}>
           Connect instantly with trained professionals available 24/7, offering real-time emotional support without any waiting or delays.
         </p>
@@ -304,7 +398,7 @@ const FeatureOffer = () => {
         <div className={`absolute top-[1126px] left-[685px] w-[31px] h-[29px] ${numStyle}`}>03</div>
         <h3 className={`absolute top-[1118px] left-[736px] w-[426px] h-[61px] ${titleStyle}`}>Goal-based nudge</h3>
         <p className={`absolute top-[1189px] left-[736px] w-[613px] h-[70px] ${descStyle}`}>
-          Set simple, achievable wellness goals and receive thoughtful nudges. Daily push notifications help you stay mindful and consistent.
+         Set simple, achievable wellness goals and receive thoughtful nudges.
         </p>
 
         <div className={`absolute top-[1313px] left-[684px] w-[32px] h-[29px] ${numStyle}`}>04</div>
@@ -314,7 +408,13 @@ const FeatureOffer = () => {
         </p>
 
         <div className={`absolute top-[1500px] left-[685px] w-[31px] h-[29px] ${numStyle}`}>05</div>
-        <h3 className={`absolute top-[1492px] left-[736px] w-[413px] h-[61px] ${titleStyle}`}>Self-assessments</h3>
+        {/* <h3 className={`absolute top-[1492px] left-[736px] w-[413px] h-[61px] ${titleStyle}`}>Self-reflection check-ins</h3> */}
+        <h3
+  className={`absolute top-[1492px] left-[736px] whitespace-nowrap ${titleStyle}`}
+>
+  Self-reflection check-ins
+</h3>
+
         <p className={`absolute top-[1563px] left-[736px] w-[613px] h-[70px] ${descStyle}`}>
           Take quick, reflective assessments to track how you’re really doing. Each check-in gives you insight to understand your mind better.
         </p>

@@ -55,7 +55,7 @@ const Footer = () => {
       {/* Logo Container with footerBgLogo on left side */}
       <div className="relative flex items-center">
         {/* Background Logo (50% size, left side) */}
-        <div className="absolute -left-16 top-20">
+        <div className="absolute -left-6 top-20">
   <Image
   src={footerBgLogo2}
   alt="background logo"
@@ -77,7 +77,7 @@ const Footer = () => {
           alt="logo"
           width={233}
           height={139}
-          className="w-[263px] h-auto relative z-10"
+          className="w-[263px] h-auto relative z-10 ml-8"
         />
       </div>
       

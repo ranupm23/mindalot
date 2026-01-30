@@ -16,26 +16,100 @@ const menuItems = [
 ];
 
 // Redirect based on device
+// const redirectToAppStore = () => {
+//   if (typeof window === "undefined") return;
+
+//   const userAgent = navigator.userAgent || navigator.vendor;
+
+//   if (/iPad|iPhone|iPod/.test(userAgent)) {
+//     window.location.href =
+//       "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+//     return;
+//   }
+
+//   if (/android/i.test(userAgent)) {
+//     window.location.href =
+//       "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+//     return;
+//   }
+
+//   window.location.href =
+//     "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+// };
+
+// const redirectToAppStore = () => {
+//   if (typeof window === "undefined") return;
+
+//   const userAgent = navigator.userAgent || navigator.vendor || "";
+//   const platform = navigator.platform || "";
+
+//   // 📱 iOS devices
+//   if (/iPad|iPhone|iPod/.test(userAgent)) {
+//     window.location.href =
+//       "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+//     return;
+//   }
+
+//   // 📱 Android devices
+//   if (/android/i.test(userAgent)) {
+//     window.location.href =
+//       "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+//     return;
+//   }
+
+//   // 🖥️ macOS laptops
+//   if (platform.startsWith("Mac") || /Macintosh|Mac OS X/.test(userAgent)) {
+//     window.location.href = "https://zenit.edu"; // your website / landing page
+//     return;
+//   }
+
+//   // 🖥️ Windows laptops
+//   if (platform.startsWith("Win") || /Windows NT/.test(userAgent)) {
+//     window.location.href = "https://zenit.edu"; // your website / landing page
+//     return;
+//   }
+
+//   // 🌐 Fallback (other devices)
+//   window.location.href = "https://zenit.edu";
+// };
+
+
 const redirectToAppStore = () => {
   if (typeof window === "undefined") return;
 
-  const userAgent = navigator.userAgent || navigator.vendor;
+  const userAgent = navigator.userAgent || navigator.vendor || "";
+  const platform = navigator.platform || "";
 
+  // 📱 iOS devices
   if (/iPad|iPhone|iPod/.test(userAgent)) {
     window.location.href =
       "https://apps.apple.com/in/app/zenit-edu/id6748683332";
     return;
   }
 
+  // 📱 Android devices
   if (/android/i.test(userAgent)) {
     window.location.href =
       "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
     return;
   }
 
-  window.location.href =
-    "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+  // 🖥️ macOS laptops
+  if (platform.startsWith("Mac") || /Macintosh|Mac OS X/.test(userAgent)) {
+    window.location.href = "https://apps.apple.com/in/app/zenit-edu/id6748683332"; // your website / landing page
+    return;
+  }
+
+  // 🖥️ Windows laptops
+  if (platform.startsWith("Win") || /Windows NT/.test(userAgent)) {
+    window.location.href = "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"; // your website / landing page
+    return;
+  }
+
+  // 🌐 Fallback (other devices)
+  window.location.href = "https://zenit.edu";
 };
+
 
 // Add prop interface
 interface HeaderProps {
