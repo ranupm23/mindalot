@@ -76,94 +76,35 @@ const redirectToAppStore = () => {
 export default function FeaturePage () {
   const FeatureHome = () => {
   return (
-    <section className="relative w-full max-w-[1440px] mx-auto min-h-[320px] md:min-h-[570px] overflow-hidden flex flex-col items-center py-1 md:py-0">
+    <section className="relative w-full max-w-[1440px] mx-auto min-h-[320px] md:min-h-[570px] overflow-hidden flex flex-col items-center">
 
-      {/* Background Video */}
-      {/* <video
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-      > */}
-      <video
-  className="absolute inset-0 w-full h-full object-cover object-bottom"
-  autoPlay
-  loop
-  muted
-  playsInline
+  {/* YouTube Background Video */}
+  <div className="absolute inset-0 w-full h-full overflow-hidden">
+   <iframe
+  className="absolute bottom-0 left-1/2
+             w-[100vw] h-[56.25vw]
+             min-h-[100%] min-w-[177.77%]
+             -translate-x-1/2"
+  src="https://www.youtube.com/embed/XUQPHJzrDXk?autoplay=1&mute=1&loop=1&playlist=XUQPHJzrDXk&controls=0&modestbranding=1&rel=0"
+  frameBorder="0"
+  allow="autoplay; fullscreen"
+  allowFullScreen
 >
-        <source src="/videos/bg-video.mp4" type="video/mp4" />
-      </video>
+</iframe>
+  </div>
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40"></div>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/40"></div>
 
-      {/* Content */}
-      <div className="relative z-10 w-full flex flex-col items-center">
-        <Header navTextColor="#FFFFFF" />
+  {/* Content */}
+  <div className="relative z-10 w-full flex flex-col items-center">
+    <Header navTextColor="#FFFFFF" />
+  </div>
 
-        {/* <h2
-          className="w-full max-w-[740px] font-['Inter'] font-semibold text-white text-center
-                     text-3xl md:text-[60px]
-                     leading-tight md:leading-[80px]
-                     tracking-[-0.06em]
-                     mt-20 md:mt-[150px] px-4"
-        >
-          All-In-One Support System
-        </h2> */}
+</section>
 
-        {/* Play Icon */}
-        {/* <div className="relative mt-8 md:mt-[100px] cursor-pointer hover:scale-105 transition-transform duration-300">
-          <Image
-            src={Play}
-            alt="Support System Icon"
-            className="w-[50px] h-[60px] md:w-[73px] md:h-[86.58px]"
-          />
-        </div> */}
-      </div>
-
-    </section>
   );
-};
-  
-// const FeatureHome = () => {
-//   return (
-    
-//     <section className="relative w-full max-w-[1440px] mx-auto min-h-[320px] md:min-h-[570px] bg-[#D9D9D9] opacity-100 overflow-hidden flex flex-col items-center py-1 md:py-0">
-//       <Header navTextColor="#755840"/>
-//       {/* Heading */}
-//       {/* Replaced absolute positioning with margins. text-3xl for mobile, text-[60px] for desktop */}
-//       <h2 
-//         className="w-full max-w-[740px] font-['Inter'] font-semibold text-[#5C4737] text-center
-//                    text-3xl md:text-[60px] 
-//                    leading-tight md:leading-[80px] 
-//                    tracking-[-0.06em]
-//                    mt-8 md:mt-[50px] px-4"
-//         style={{ fontStyle: 'normal' }}
-//       >
-//         All-In-One Support System
-//       </h2>
-
-//       {/* Play Icon */}
-//       {/* Added cursor-pointer. Used mt- (margin-top) to push it down from the heading */}
-//       <div className="relative mt-8 md:mt-[100px] cursor-pointer hover:scale-105 transition-transform duration-300">
-//         <Image 
-//           src={Play} 
-//           alt="Support System Icon"
-//           className="w-[50px] h-[60px] md:w-[73px] md:h-[86.58px] rounded-[3px]"
-//         />
-//       </div>
-
-//       {/* Button */}
-//       {/* The button container is now relative to the flex flow (using margin-top), 
-//           but the insides remain absolute as per your specific design. */}
-      
-
-
-//     </section>
-//   );
-// };
+ };
 
 const FeatureOffer = () => {
   const [activeStep, setActiveStep] = useState(0);

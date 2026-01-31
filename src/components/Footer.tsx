@@ -171,14 +171,13 @@ const Footer = () => {
 
   {/* Address */}
   <a
-    href="https://www.google.com/maps/search/?api=1&query=122K+1st+block+14th+cross+19th+B+Main+Rajajinagar+Bengaluru+560010"
+    href="https://share.google/L2LVlmrYOSpWDZMB0"
     target="_blank"
     rel="noopener noreferrer"
     className="flex items-start gap-3 hover:text-[#8C7A6B] leading-tight"
   >
     <MapPin size={35} stroke="#5B4A3E" />
-    #122K, 1st block, 14th cross, 19th 'B' Main,
-    Rajajinagar, Bengaluru – 560010
+    G3X+WPG, 1st N Block, Rajajinagar, Bengaluru, Karnataka 560010
   </a>
 </div>
 
