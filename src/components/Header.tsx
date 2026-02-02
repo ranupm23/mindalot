@@ -13,6 +13,7 @@ const menuItems = [
   { name: "Features", path: "/features" },
   { name: "Resources", path: "/resource" },
   { name: "Contact", path: "/contact" },
+  { name: "Blog", path: "/blog/micro-habits-mental-wellness" },
 ];
 
 // Redirect based on device

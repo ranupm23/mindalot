@@ -131,6 +131,12 @@ const Footer = () => {
     </Link>
   </li>
   <li>
+    <Link href="/about" className="hover:text-[#8C7A6B]">
+  About Us
+</Link>
+
+  </li>
+  <li>
     <Link href="https://www.jagratiedu.com/Home.html" className="hover:text-[#8C7A6B]">
       Our team
     </Link>
