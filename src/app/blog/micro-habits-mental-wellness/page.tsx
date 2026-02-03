@@ -11,10 +11,20 @@ export default function MicroHabitsBlogPage() {
           Mind A Lot · Mental Wellness
         </p>
 
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+        {/* <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
           Mental Wellness Without Overthinking: <br />
           7 Micro-Habits That Actually Stick
-        </h1>
+        </h1> */}
+        
+<h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+  <span className="whitespace-nowrap">
+    Mental Wellness Without Overthinking:
+  </span>
+  <br />
+  <span className="text-2xl md:text-4xl">
+    7 Micro-Habits That Actually Stick
+  </span>
+</h1>
 
         <p className="text-lg text-[#5B4B3E]/80 leading-relaxed max-w-3xl mx-auto">
           Seven small, realistic habits that reduce mental load, improve focus,

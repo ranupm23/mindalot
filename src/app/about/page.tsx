@@ -86,10 +86,18 @@ export default function AboutPage() {
             "Shankar Nathan – Board Member",
             "Dr Sudarshan – Board Member",
           ].map((name, i) => (
+            // <div
+            //   key={i}
+            //   className="border border-[#5B4B3E]/20 rounded-2xl p-6 text-center hover:shadow-md transition"
+            // >
+
             <div
-              key={i}
-              className="border border-[#5B4B3E]/20 rounded-2xl p-6 text-center hover:shadow-md transition"
-            >
+  key={i}
+  className={`border border-[#5B4B3E]/20 rounded-2xl p-6 text-center hover:shadow-md transition
+    ${name === "Dr Sudarshan – Board Member" ? "lg:col-span-3 justify-self-center max-w-sm mx-auto" : ""}
+  `}
+>
+
               <h3 className="font-semibold text-lg">{name}</h3>
               <p className="text-sm text-[#5B4B3E]/60 mt-2">
                 (Profiles & photos coming soon)
