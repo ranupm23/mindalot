@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import headerLogo from "@/assets/header-assets/Mindalotlogo.png";
 
+
 const menuItems = [
   { name: "Home", path: "/" },
   { name: "Institutions", path: "/university" },
@@ -13,7 +14,7 @@ const menuItems = [
   { name: "Features", path: "/features" },
   { name: "Resources", path: "/resource" },
   { name: "Contact", path: "/contact" },
-  { name: "Blog", path: "/blog/micro-habits-mental-wellness" },
+  { name: "Blog", path: "/blog" },
 ];
 
 // Redirect based on device
