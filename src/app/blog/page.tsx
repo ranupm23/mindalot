@@ -43,13 +43,13 @@ const redirectToAppStore = () => {
 
 
 const blogData = [
-  { id: 1, title: "Therapeutic Classes", category: "Podcasts" },
-  { id: 2, title: "Mindful Yoga Session", category: "Videos" },
-  { id: 3, title: "Daily Mental Health Quiz", category: "Quizzes" },
-  { id: 4, title: "Therapeutic Classes", category: "Podcasts" },
-  { id: 5, title: "Meditation Techniques", category: "Videos" },
-  { id: 6, title: "Stress Relief Quiz", category: "Quizzes" },
+  {
+    id: 1,
+    title: "Mental Wellness Without Overthinking: 7 Micro-Habits That Actually Stick",
+    category: "Podcasts",
+  },
 ];
+
 
 export default function BlogPage() {
   const [active, setActive] = useState<Category>("All");
@@ -357,7 +357,7 @@ export default function BlogPage() {
 
             {/* GRID */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
+{/* 
               {filtered.map((item, i) => (
                 <div
                   key={item.id}
@@ -383,7 +383,35 @@ export default function BlogPage() {
                     </p>
                   </div>
                 </div>
-              ))}
+              ))} */}
+              {filtered.map((item, i) => (
+  <Link
+    key={item.id}
+    href="/blog-details"
+    className="bg-white rounded-xl overflow-hidden border border-[#e6e0da] shadow-sm hover:shadow-md transition-all duration-300"
+  >
+    <img
+      src={`https://picsum.photos/600/400?random=${i + 1}`}
+      alt="blog"
+      className="w-full h-[220px] object-cover"
+    />
+
+    <div className="p-5">
+      <span className="inline-block text-xs bg-[#ebe6e1] text-[#6b625b] px-3 py-1 rounded-full mb-3">
+        Blog
+      </span>
+
+      <h3 className="font-semibold text-lg mb-2 leading-snug">
+        {item.title}
+      </h3>
+
+      <p className="text-sm text-[#8a847e]">
+        Seven small, realistic habits that reduce mental load and improve focus.
+      </p>
+    </div>
+  </Link>
+))}
+
 
             </div>
 
