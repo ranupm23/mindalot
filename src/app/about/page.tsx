@@ -55,44 +55,53 @@ export default function BlogPage() {
       <div className="max-w-[1180px] mx-auto px-6 pt-16 pb-24">
 
         {/* ABOUT */}
-        <h1 className="text-[38px] inter font-bold mb-6  tracking-tight">
+        {/* <h1 className="text-[38px] inter font-bold mb-6  tracking-tight">
           About Mind-A-Lot
-        </h1>
+        </h1> */}
+        <h1 className="text-2xl sm:text-3xl lg:text-[38px] font-bold mb-4 sm:mb-6 tracking-tight">
+  About Mind-A-Lot
+</h1>
 
-        <div className="grid grid-cols-3 gap-10">
-          {/* Big Image */}
-          <div className="col-span-2">
-            <div className="w-full h-[400px] rounded-[16px] overflow-hidden">
-              <Image
-                src={heroimage}
-                className="w-full h-full object-cover"
-                alt=""
-              />
-            </div>
-          </div>
 
-          {/* Right Content */}
-          <div className="flex flex-col justify-between">
-            <p className="text-[15px] leading-7">
-              Mind-A-Lot is built by a team of psychologists, counsellors, and wellness professionals with on-ground experience working with students, families, and working adults.
-            </p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
+  
+  {/* Big Image */}
+  <div className="lg:col-span-2">
+    <div className="w-full h-[250px] sm:h-[350px] lg:h-[400px] rounded-[16px] overflow-hidden">
+      <Image
+        src={heroimage}
+        className="w-full h-full object-cover"
+        alt=""
+      />
+    </div>
+  </div>
 
-            <div className="w-full h-[240px] rounded-[16px] overflow-hidden mt-6">
-              <img
-                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200"
-                className="w-full h-full object-cover"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
+  {/* Right Content */}
+  <div className="flex flex-col justify-between">
+    
+    <p className="text-[14px] sm:text-[15px] leading-6 sm:leading-7">
+      Mind-A-Lot is built by a team of psychologists, counsellors, and wellness professionals with on-ground experience working with students, families, and working adults.
+    </p>
+
+    <div className="w-full h-[200px] sm:h-[220px] lg:h-[240px] rounded-[16px] overflow-hidden mt-6">
+      <img
+        src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200"
+        className="w-full h-full object-cover"
+        alt=""
+      />
+    </div>
+
+  </div>
+</div>
 
         {/* OUR MISSION */}
         <h2 className="text-[38px] font-bold mt-20 mb-8">
           Our Mission
         </h2>
 
-        <div className="grid grid-cols-3 gap-8">
+        {/* <div className="grid grid-cols-3 gap-8"> */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
 
  {[
   {
@@ -211,7 +220,9 @@ export default function BlogPage() {
         </div>
 
         {/* VISION + MISSION STRIP */}
-        <div className="grid grid-cols-2 gap-8 mt-12">
+        {/* <div className="grid grid-cols-2 gap-8 mt-12"> */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-10 lg:mt-12">
+
           <div className="bg-[#6b4f3a] text-white rounded-[14px] p-8">
             <h3 className="text-4xl font-semibold mb-3">VISION</h3>
             <p className="text-[14px] leading-6 opacity-90">
@@ -324,36 +335,44 @@ export default function BlogPage() {
 
 
 {/* FOUNDER CARD CENTERED */}
-<div className="flex justify-center mt-24">
-  <div className="w-[900px] bg-[#6b4f3a] text-white rounded-[16px] p-12 flex items-center gap-12">
-    
-    <div className="w-44 h-44 rounded-full overflow-hidden shrink-0">
-      <img
-  src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-  alt="default avatar"
-  className="w-full h-full object-cover"
-/>
+<div className="flex justify-center mt-16 sm:mt-20 lg:mt-24 px-4">
+  <div className="w-full max-w-[900px] bg-[#6b4f3a] text-white rounded-[16px] p-6 sm:p-8 lg:p-12 
+                  flex flex-col sm:flex-row items-center gap-6 sm:gap-10 lg:gap-12">
 
+    {/* Avatar */}
+    <div className="w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 rounded-full overflow-hidden shrink-0">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        alt="default avatar"
+        className="w-full h-full object-cover"
+      />
     </div>
 
-    <div>
-      <h3 className="text-[26px] font-semibold">
+    {/* Content */}
+    <div className="text-center sm:text-left">
+      
+      <h3 className="text-xl sm:text-2xl lg:text-[26px] font-semibold">
         Dr. CA Sandhya P Nagar
       </h3>
-      <p className="opacity-80 mb-5">Founder</p>
 
-      <p className="italic text-[15px] max-w-xl opacity-90 leading-7">
+      <p className="opacity-80 mb-4 sm:mb-5 text-sm sm:text-base">
+        Founder
+      </p>
+
+      <p className="italic text-[14px] sm:text-[15px] max-w-xl opacity-90 leading-6 sm:leading-7">
         “We believe that every mind deserves to be heard, understood,
         and supported without fear of judgment.”
       </p>
 
-      <div className="flex gap-12 mt-8 text-[14px] opacity-90">
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 mt-6 sm:mt-8 text-[13px] sm:text-[14px] opacity-90">
         <span>Jagriti edtech Private Limited</span>
         <span>+91 9606258596</span>
       </div>
+
     </div>
   </div>
 </div>
+
 
 <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 text-center">
   <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
