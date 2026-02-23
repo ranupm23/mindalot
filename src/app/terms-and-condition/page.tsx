@@ -24,7 +24,7 @@ export default function TermsPage() {
           Published under Rule 3(1) of the Information Technology (Intermediaries
           Guidelines) Rules, 2011, this document outlines the terms for accessing
           and using the Mind A Lot platform available at{" "}
-          <strong>mindalot.com</strong>.
+          <strong>mindalot.care</strong>.
         </p>
 
         <p className="mb-6 leading-[1.8]">
