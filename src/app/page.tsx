@@ -1583,7 +1583,7 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
   const [animationStyle, setAnimationStyle] = useState<React.CSSProperties>({});
 
   // Create 4 sets of logos for smooth infinite loop
-  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
+  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 
   useEffect(() => {
     if (trackRef.current) {
