@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import {StaticImageData} from "next/image"
 import Link from "next/link";
 import { useState, useEffect, useRef } from 'react';
+import { motion, useAnimationControls } from 'framer-motion';
+
 
 import arrow from "../assets/arrow.svg";
 import Homebg from "../assets/home-page/hero/rock.png";
@@ -60,7 +62,7 @@ import newarrow from '../assets/home-page/Footer/ffoarrow.png';
 import  rocksImage from "../assets/home-page/Footer/rock1.png";
 import blackarrow from '../assets/home-page/Footer/black arr.png';
 import CTAButton from "@/components/CTAButton";
-import { Footprints } from "lucide-react";
+import { Footprints, Logs } from "lucide-react";
 
 // Placeholder assets
 import headerLogo from "@/assets/header-assets/headerLogo.png";
@@ -1557,6 +1559,13 @@ const Features = () => {
 // };
 
 
+
+
+
+
+
+
+
 interface Logo {
   src: StaticImageData;
   alt: string;
@@ -1568,33 +1577,61 @@ interface LogoCarouselProps {
   logos: Logo[];
 }
 
-// 🔥 Smooth Infinite Logo Carousel
+// ✅ FINAL SOLUTION - Manual CSS Animation with Exact Width
 const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
-  const duplicatedLogos = [...logos, ...logos];
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [animationStyle, setAnimationStyle] = useState<React.CSSProperties>({});
 
-  return (
-    <div className="w-full overflow-hidden">
-      <style jsx global>{`
-        @keyframes scroll {
-          from {
+  // Create 4 sets of logos for smooth infinite loop
+  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
+
+  useEffect(() => {
+    if (trackRef.current) {
+      // Get the width of one complete set of logos
+      const totalWidth = trackRef.current.scrollWidth;
+      const singleSetWidth = totalWidth / 6; // Divide by 4 since we have 4 sets
+      
+      // Create a unique animation name
+      const animationName = `scrollLogos_${Date.now()}`;
+      
+      // Create style element with keyframes
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @keyframes ${animationName} {
+          0% {
             transform: translateX(0);
           }
-          to {
-            transform: translateX(-1000%);
+          100% {
+            transform: translateX(-${singleSetWidth}px);
           }
         }
-      `}</style>
+      `;
+      document.head.appendChild(style);
+      
+      // Set animation style
+      setAnimationStyle({
+        animation: `${animationName} 40s linear infinite`,
+        willChange: 'transform',
+      });
+      
+      // Cleanup
+      return () => {
+        document.head.removeChild(style);
+      };
+    }
+  }, []);
 
+  return (
+    <div className="w-full overflow-hidden relative bg-[#F6F2EB]">
       <div
-        className="flex min-w-max"
-        style={{
-          animation: "scroll 140s linear infinite" // increase seconds = slower
-        }}
+        ref={trackRef}
+        className="flex"
+        style={animationStyle}
       >
         {duplicatedLogos.map((logo, index) => (
           <div
             key={index}
-            className="flex items-center justify-center h-24 sm:h-32 xl:h-40 2xl:h-44 mx-6 sm:mx-10 shrink-0"
+            className="flex items-center justify-center h-24 sm:h-32 xl:h-40 2xl:h-44 mx-8 sm:mx-12 shrink-0"
           >
             <Image
               src={logo.src}
@@ -1602,6 +1639,7 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
               width={logo.width}
               height={logo.height}
               className="w-auto h-full object-contain"
+              priority={index < 20}
             />
           </div>
         ))}
@@ -1642,22 +1680,25 @@ const Trusted = () => {
         
         <p
           className="absolute font-['Nunito_Sans'] font-medium text-[46px] leading-none text-black"
-          style={{ top: "66px", left: "86px" }}
+          style={{ top: "66px", left: "86px", zIndex: 10 }}
         >
           Trusted by 50+
         </p>
 
         <p
           className="absolute font-['Nunito_Sans'] font-normal text-[30px] leading-none text-black"
-          style={{ top: "125px", left: "86px" }}
+          style={{ top: "125px", left: "86px", zIndex: 10 }}
         >
           Institutions and partners
         </p>
 
-        {/* FIXED: No more fixed 922px width */}
         <div
-          className="absolute left-[530px] right-0 h-[160px] overflow-hidden"
-          style={{ top: "49px" }}
+          className="absolute h-[160px] overflow-hidden"
+          style={{ 
+            top: "49px", 
+            left: "530px",
+            right: "0",
+          }}
         >
           <LogoCarousel logos={logos} />
         </div>

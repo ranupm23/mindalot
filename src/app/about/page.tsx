@@ -39,7 +39,7 @@ const redirectToAppStore = () => {
 
 export default function BlogPage() {
   const team = [
-    { name: "Dr. CA Sandhya P Nagar", role: "Founder" },
+ 
     { name: "Chinmayi Raju", role: "Board Member" },
     { name: "Chitra S V", role: "Director" },
     { name: "Lakshmi Vasudev", role: "Director" },
