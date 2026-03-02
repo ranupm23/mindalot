@@ -40,6 +40,22 @@ import t2 from "../assets/home-page/trusted/trust2.png";
 import t3 from "../assets/home-page/trusted/trust3.png";
 import t4 from "../assets/home-page/trusted/trust4.png";
 import t5 from "../assets/home-page/trusted/trust5.png";
+import t6 from "../assets/home-page/testemonial/1 (1).png"
+import t7 from "../assets/home-page/testemonial/2.png"
+import t8 from "../assets/home-page/testemonial/3.png"
+import t9 from "../assets/home-page/testemonial/4 (1).png"
+import t10 from "../assets/home-page/testemonial/5.png"
+import t11 from "../assets/home-page/testemonial/6.png"
+import t12 from "../assets/home-page/testemonial/7.png"
+import t13 from "../assets/home-page/testemonial/8.png"
+import t14 from "../assets/home-page/testemonial/9.png"
+import t15 from "../assets/home-page/testemonial/11.png"
+import t16 from "../assets/home-page/testemonial/12.png"
+import t17 from "../assets/home-page/testemonial/13.png"
+import t18 from "../assets/home-page/testemonial/14.png"
+import t19 from "../assets/home-page/testemonial/15.png"
+import t20 from "../assets/home-page/testemonial/16.png"
+
 import newarrow from '../assets/home-page/Footer/ffoarrow.png'; 
 import  rocksImage from "../assets/home-page/Footer/rock1.png";
 import blackarrow from '../assets/home-page/Footer/black arr.png';
@@ -1380,16 +1396,165 @@ const Features = () => {
 // }
 // `;
 
-const animationStyles = `
-@keyframes scroll-right-to-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-`;
+// const animationStyles = `
+// @keyframes scroll-right-to-left {
+//   0% {
+//     transform: translateX(0);
+//   }
+//   100% {
+//     transform: translateX(-50%);
+//   }
+// }
+// `;
+
+
+// interface Logo {
+//   src: StaticImageData;
+//   alt: string;
+//   width: number;
+//   height: number;
+// }
+// interface LogoCarouselProps {
+//   logos: Logo[];
+// }
+
+// // Helper component for the scrolling logo row
+// const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
+//   const duplicatedLogos = [...logos, ...logos]; // duplicate once
+
+//   return (
+//     <div className="w-full overflow-hidden">
+//       <style jsx global>{`
+//         @keyframes scroll {
+//           from {
+//             transform: translateX(0);
+//           }
+//           to {
+//             transform: translateX(-50%);
+//           }
+//         }
+//       `}</style>
+
+//       <div
+//         className="flex min-w-max"
+//         style={{
+//           animation: "scroll 20s linear infinite"
+//         }}
+//       >
+//         {duplicatedLogos.map((logo, index) => (
+//           <div
+//             key={index}
+//             className="flex items-center justify-center h-24 sm:h-32 xl:h-40 2xl:h-44 mx-6 sm:mx-10 shrink-0"
+//           >
+//             <Image
+//               src={logo.src}
+//               alt={logo.alt}
+//               width={logo.width}
+//               height={logo.height}
+//               className="w-auto h-full object-contain"
+//             />
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// const Trusted = () => {
+//   // Use existing logos
+//   const logos = [
+//     { src: t6, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//     { src: t7, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//     { src: t8, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//     { src: t9, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//     { src: t10, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//     { src: t11, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//       { src: t12, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//       { src: t13, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//       { src: t14, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//       { src: t15, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//       { src: t16, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//       { src: t17, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//       { src: t18, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//       { src: t19, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//       { src: t20, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//     { src: t1, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+//     { src: t2, alt: "Trusted Client Logo 2", width: 135, height: 96 },
+//     { src: t3, alt: "Trusted Client Logo 3", width: 107, height: 96 },
+//     { src: t4, alt: "Trusted Client Logo 4", width: 103, height: 96 },
+//     { src: t5, alt: "Trusted Client Logo 5", width: 105, height: 96 },
+//   ];
+
+//   return (
+//     <section 
+//       className="relative w-full bg-[#F6F2EB] lg:mt-[-200px] sm:py-16 lg:h-[290px] overflow-hidden" 
+//     >
+      
+//       {/* DESKTOP-ONLY LAYOUT */}
+//       <div className="hidden lg:block w-full h-full relative">
+        
+//         {/* Heading - CHANGED: "institutions" */}
+//         <p
+//           className="absolute font-['Nunito_Sans'] font-medium text-[46px] leading-none text-black w-[410px] h-[55px]"
+//           style={{ top: '66px', left: '86px' }}
+//         >
+//           Trusted by 50+
+//         </p>
+        
+//         {/* Description */}
+//         <p
+//           className="absolute font-['Nunito_Sans'] font-normal text-[30px] leading-none text-black w-[406px] h-[50px]"
+//           style={{ top: '125px', left: '86px' }}
+//         >
+//           Institutions and partners
+//         </p>
+
+//         {/* Images Layout (Carousel) */}
+//         <div
+//   className="
+//     absolute
+//     w-full
+//     2xl:w-[1800px]
+//     h-[144px]
+//     xl:h-[160px]
+//     2xl:h-[180px]
+//     overflow-hidden
+//   "
+//   style={{ top: '49px', left: '530px' }}
+// >
+
+//           <LogoCarousel logos={logos.map(logo => ({
+//             ...logo,
+//             className: "brightness-95 contrast-110 xl:brightness-100 xl:contrast-125 2xl:brightness-105 2xl:contrast-130" // Added brightness/contrast
+//           }))} />
+//         </div>
+//       </div>
+      
+//       {/* MOBILE/TABLET LAYOUT */}
+//       <div className="lg:hidden max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+        
+//         {/* Header Content - CHANGED: "institutions" */}
+//         <div className="mb-8">
+//           <h2 className="font-['Nunito_Sans'] font-medium text-3xl sm:text-4xl text-black mb-3">
+//             Trusted by 50+ institutions and partners
+//           </h2>
+          
+//           <p className="font-['Nunito_Sans'] font-normal text-base sm:text-lg text-black max-w-md">
+//             Trusted by schools and organisations that care about emotional well-being.
+//           </p>
+//         </div>
+
+//         {/* Logo Carousel */}
+//         <div className="mt-8">
+//           <LogoCarousel logos={logos.map(logo => ({
+//             ...logo,
+//             className: "brightness-95"
+//           }))} />
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
 
 
 interface Logo {
@@ -1398,51 +1563,46 @@ interface Logo {
   width: number;
   height: number;
 }
+
 interface LogoCarouselProps {
   logos: Logo[];
 }
 
-// Helper component for the scrolling logo row
+// 🔥 Smooth Infinite Logo Carousel
 const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <div className="flex w-full overflow-hidden whitespace-nowrap group">
-      <style jsx global>{animationStyles}</style>
+    <div className="w-full overflow-hidden">
+      <style jsx global>{`
+        @keyframes scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-1000%);
+          }
+        }
+      `}</style>
 
       <div
-        className="flex w-fit"
+        className="flex min-w-max"
         style={{
-          animation: 'scroll-right-to-left 20s linear infinite'
+          animation: "scroll 140s linear infinite" // increase seconds = slower
         }}
       >
         {duplicatedLogos.map((logo, index) => (
           <div
             key={index}
-           className="flex items-center justify-center h-24 sm:h-32 mx-6 sm:mx-10 2xl:mx-4 shrink-0"
-
+            className="flex items-center justify-center h-24 sm:h-32 xl:h-40 2xl:h-44 mx-6 sm:mx-10 shrink-0"
           >
-            {duplicatedLogos.map((logo, index) => (
-  <div
-    key={index}
-    className="flex items-center justify-center h-24 sm:h-32 xl:h-40 2xl:h-44 mx-6 sm:mx-10 shrink-0"
-  >
-    <Image
-  src={logo.src}
-  alt={logo.alt}
-  width={logo.width}
-  height={logo.height}
-  className="
-    w-auto h-full object-contain
-    xl:scale-70
-    2xl:scale-75
-    transition-transform
-  "
-/>
-
-  </div>
-))}
-
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={logo.width}
+              height={logo.height}
+              className="w-auto h-full object-contain"
+            />
           </div>
         ))}
       </div>
@@ -1451,80 +1611,72 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
 };
 
 const Trusted = () => {
-  // Use existing logos
   const logos = [
-    { src: t1, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-    { src: t2, alt: "Trusted Client Logo 2", width: 135, height: 96 },
-    { src: t3, alt: "Trusted Client Logo 3", width: 107, height: 96 },
-    { src: t4, alt: "Trusted Client Logo 4", width: 103, height: 96 },
-    { src: t5, alt: "Trusted Client Logo 5", width: 105, height: 96 },
+    { src: t6, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+    { src: t7, alt: "Trusted Client Logo 2", width: 97, height: 96 },
+    { src: t8, alt: "Trusted Client Logo 3", width: 97, height: 96 },
+    { src: t9, alt: "Trusted Client Logo 4", width: 97, height: 96 },
+    { src: t10, alt: "Trusted Client Logo 5", width: 97, height: 96 },
+    { src: t11, alt: "Trusted Client Logo 6", width: 97, height: 96 },
+    { src: t12, alt: "Trusted Client Logo 7", width: 97, height: 96 },
+    { src: t13, alt: "Trusted Client Logo 8", width: 97, height: 96 },
+    { src: t14, alt: "Trusted Client Logo 9", width: 97, height: 96 },
+    { src: t15, alt: "Trusted Client Logo 10", width: 97, height: 96 },
+    { src: t16, alt: "Trusted Client Logo 11", width: 97, height: 96 },
+    { src: t17, alt: "Trusted Client Logo 12", width: 97, height: 96 },
+    { src: t18, alt: "Trusted Client Logo 13", width: 97, height: 96 },
+    { src: t19, alt: "Trusted Client Logo 14", width: 97, height: 96 },
+    { src: t20, alt: "Trusted Client Logo 15", width: 97, height: 96 },
+    { src: t1, alt: "Trusted Client Logo 16", width: 97, height: 96 },
+    { src: t2, alt: "Trusted Client Logo 17", width: 135, height: 96 },
+    { src: t3, alt: "Trusted Client Logo 18", width: 107, height: 96 },
+    { src: t4, alt: "Trusted Client Logo 19", width: 103, height: 96 },
+    { src: t5, alt: "Trusted Client Logo 20", width: 105, height: 96 },
   ];
 
   return (
-    <section 
-      className="relative w-full bg-[#F6F2EB] lg:mt-[-200px] sm:py-16 lg:h-[290px] overflow-hidden" 
-    >
+    <section className="relative w-full bg-[#F6F2EB] lg:mt-[-200px] sm:py-16 lg:h-[290px] overflow-hidden">
       
-      {/* DESKTOP-ONLY LAYOUT */}
+      {/* DESKTOP */}
       <div className="hidden lg:block w-full h-full relative">
         
-        {/* Heading - CHANGED: "institutions" */}
         <p
-          className="absolute font-['Nunito_Sans'] font-medium text-[46px] leading-none text-black w-[410px] h-[55px]"
-          style={{ top: '66px', left: '86px' }}
+          className="absolute font-['Nunito_Sans'] font-medium text-[46px] leading-none text-black"
+          style={{ top: "66px", left: "86px" }}
         >
           Trusted by 50+
         </p>
-        
-        {/* Description */}
+
         <p
-          className="absolute font-['Nunito_Sans'] font-normal text-[30px] leading-none text-black w-[406px] h-[50px]"
-          style={{ top: '125px', left: '86px' }}
+          className="absolute font-['Nunito_Sans'] font-normal text-[30px] leading-none text-black"
+          style={{ top: "125px", left: "86px" }}
         >
           Institutions and partners
         </p>
 
-        {/* Images Layout (Carousel) */}
+        {/* FIXED: No more fixed 922px width */}
         <div
-  className="
-    absolute
-    w-[922px]
-    2xl:w-[1800px]
-    h-[144px]
-    xl:h-[160px]
-    2xl:h-[180px]
-    overflow-hidden
-  "
-  style={{ top: '49px', left: '530px' }}
->
-
-          <LogoCarousel logos={logos.map(logo => ({
-            ...logo,
-            className: "brightness-95 contrast-110 xl:brightness-100 xl:contrast-125 2xl:brightness-105 2xl:contrast-130" // Added brightness/contrast
-          }))} />
+          className="absolute left-[530px] right-0 h-[160px] overflow-hidden"
+          style={{ top: "49px" }}
+        >
+          <LogoCarousel logos={logos} />
         </div>
       </div>
-      
-      {/* MOBILE/TABLET LAYOUT */}
+
+      {/* MOBILE */}
       <div className="lg:hidden max-w-7xl mx-auto px-4 sm:px-6 pb-24">
-        
-        {/* Header Content - CHANGED: "institutions" */}
         <div className="mb-8">
           <h2 className="font-['Nunito_Sans'] font-medium text-3xl sm:text-4xl text-black mb-3">
             Trusted by 50+ institutions and partners
           </h2>
-          
+
           <p className="font-['Nunito_Sans'] font-normal text-base sm:text-lg text-black max-w-md">
             Trusted by schools and organisations that care about emotional well-being.
           </p>
         </div>
 
-        {/* Logo Carousel */}
         <div className="mt-8">
-          <LogoCarousel logos={logos.map(logo => ({
-            ...logo,
-            className: "brightness-95"
-          }))} />
+          <LogoCarousel logos={logos} />
         </div>
       </div>
     </section>

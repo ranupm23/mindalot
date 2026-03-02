@@ -204,7 +204,7 @@ const Footer = () => {
 
       <div className="flex items-center gap-4 mt-6">
         <a
-          href="https://www.instagram.com/mind.alot?igsh=dWh5bGNtc3JoYTNs"
+          href="https://www.instagram.com/mind_alot?igsh=MXdnNWs3cWEycjBiaA%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
         >
