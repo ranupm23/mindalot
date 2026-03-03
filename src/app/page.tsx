@@ -1387,183 +1387,17 @@ const Features = () => {
   );
 };
 
-// const animationStyles = `
-// @keyframes scroll-left-to-right {
-//   from {
-//     transform: translateX(0);
-//   }
-//   to {
-//     transform: translateX(calc(-100% / 2));
-//   }
-// }
-// `;
 
-// const animationStyles = `
-// @keyframes scroll-right-to-left {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-50%);
-//   }
-// }
-// `;
-
-
-// interface Logo {
-//   src: StaticImageData;
-//   alt: string;
-//   width: number;
-//   height: number;
-// }
-// interface LogoCarouselProps {
-//   logos: Logo[];
-// }
-
-// // Helper component for the scrolling logo row
-// const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
-//   const duplicatedLogos = [...logos, ...logos]; // duplicate once
-
-//   return (
-//     <div className="w-full overflow-hidden">
-//       <style jsx global>{`
-//         @keyframes scroll {
-//           from {
-//             transform: translateX(0);
-//           }
-//           to {
-//             transform: translateX(-50%);
-//           }
-//         }
-//       `}</style>
-
-//       <div
-//         className="flex min-w-max"
-//         style={{
-//           animation: "scroll 20s linear infinite"
-//         }}
-//       >
-//         {duplicatedLogos.map((logo, index) => (
-//           <div
-//             key={index}
-//             className="flex items-center justify-center h-24 sm:h-32 xl:h-40 2xl:h-44 mx-6 sm:mx-10 shrink-0"
-//           >
-//             <Image
-//               src={logo.src}
-//               alt={logo.alt}
-//               width={logo.width}
-//               height={logo.height}
-//               className="w-auto h-full object-contain"
-//             />
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// const Trusted = () => {
-//   // Use existing logos
-//   const logos = [
-//     { src: t6, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//     { src: t7, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//     { src: t8, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//     { src: t9, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//     { src: t10, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//     { src: t11, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//       { src: t12, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//       { src: t13, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//       { src: t14, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//       { src: t15, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//       { src: t16, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//       { src: t17, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//       { src: t18, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//       { src: t19, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//       { src: t20, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//     { src: t1, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-//     { src: t2, alt: "Trusted Client Logo 2", width: 135, height: 96 },
-//     { src: t3, alt: "Trusted Client Logo 3", width: 107, height: 96 },
-//     { src: t4, alt: "Trusted Client Logo 4", width: 103, height: 96 },
-//     { src: t5, alt: "Trusted Client Logo 5", width: 105, height: 96 },
-//   ];
-
-//   return (
-//     <section 
-//       className="relative w-full bg-[#F6F2EB] lg:mt-[-200px] sm:py-16 lg:h-[290px] overflow-hidden" 
-//     >
-      
-//       {/* DESKTOP-ONLY LAYOUT */}
-//       <div className="hidden lg:block w-full h-full relative">
-        
-//         {/* Heading - CHANGED: "institutions" */}
-//         <p
-//           className="absolute font-['Nunito_Sans'] font-medium text-[46px] leading-none text-black w-[410px] h-[55px]"
-//           style={{ top: '66px', left: '86px' }}
-//         >
-//           Trusted by 50+
-//         </p>
-        
-//         {/* Description */}
-//         <p
-//           className="absolute font-['Nunito_Sans'] font-normal text-[30px] leading-none text-black w-[406px] h-[50px]"
-//           style={{ top: '125px', left: '86px' }}
-//         >
-//           Institutions and partners
-//         </p>
-
-//         {/* Images Layout (Carousel) */}
-//         <div
-//   className="
-//     absolute
-//     w-full
-//     2xl:w-[1800px]
-//     h-[144px]
-//     xl:h-[160px]
-//     2xl:h-[180px]
-//     overflow-hidden
-//   "
-//   style={{ top: '49px', left: '530px' }}
-// >
-
-//           <LogoCarousel logos={logos.map(logo => ({
-//             ...logo,
-//             className: "brightness-95 contrast-110 xl:brightness-100 xl:contrast-125 2xl:brightness-105 2xl:contrast-130" // Added brightness/contrast
-//           }))} />
-//         </div>
-//       </div>
-      
-//       {/* MOBILE/TABLET LAYOUT */}
-//       <div className="lg:hidden max-w-7xl mx-auto px-4 sm:px-6 pb-24">
-        
-//         {/* Header Content - CHANGED: "institutions" */}
-//         <div className="mb-8">
-//           <h2 className="font-['Nunito_Sans'] font-medium text-3xl sm:text-4xl text-black mb-3">
-//             Trusted by 50+ institutions and partners
-//           </h2>
-          
-//           <p className="font-['Nunito_Sans'] font-normal text-base sm:text-lg text-black max-w-md">
-//             Trusted by schools and organisations that care about emotional well-being.
-//           </p>
-//         </div>
-
-//         {/* Logo Carousel */}
-//         <div className="mt-8">
-//           <LogoCarousel logos={logos.map(logo => ({
-//             ...logo,
-//             className: "brightness-95"
-//           }))} />
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-
-
-
-
-
-
+const animationStyles = `
+@keyframes scroll-right-to-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+`;
 
 
 interface Logo {
@@ -1572,157 +1406,194 @@ interface Logo {
   width: number;
   height: number;
 }
-
 interface LogoCarouselProps {
   logos: Logo[];
 }
 
-// ✅ FINAL SOLUTION - Manual CSS Animation with Exact Width
 const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [animationStyle, setAnimationStyle] = useState<React.CSSProperties>({});
+  const [ready, setReady] = useState(false);
 
-  // Create 4 sets of logos for smooth infinite loop
-  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
+  const duplicated = [...logos, ...logos];
 
+  // Wait for ALL images before starting animation
   useEffect(() => {
-    if (trackRef.current) {
-      // Get the width of one complete set of logos
-      const totalWidth = trackRef.current.scrollWidth;
-      const singleSetWidth = totalWidth / 6; // Divide by 4 since we have 4 sets
-      
-      // Create a unique animation name
-      const animationName = `scrollLogos_${Date.now()}`;
-      
-      // Create style element with keyframes
-      const style = document.createElement('style');
-      style.innerHTML = `
-        @keyframes ${animationName} {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-${singleSetWidth}px);
-          }
-        }
-      `;
-      document.head.appendChild(style);
-      
-      // Set animation style
-      setAnimationStyle({
-        animation: `${animationName} 40s linear infinite`,
-        willChange: 'transform',
+    const track = trackRef.current;
+    if (!track) return;
+
+    const images = Array.from(track.querySelectorAll("img"));
+
+    Promise.all(
+      images.map((img) => {
+        if (img.complete) return Promise.resolve();
+        return new Promise<void>((resolve) => {
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+        });
+      })
+    ).then(() => {
+      requestAnimationFrame(() => {
+        setReady(true);
       });
-      
-      // Cleanup
-      return () => {
-        document.head.removeChild(style);
-      };
-    }
+    });
   }, []);
 
   return (
-    <div className="w-full overflow-hidden relative bg-[#F6F2EB]">
-      <div
-        ref={trackRef}
-        className="flex"
-        style={animationStyle}
-      >
-        {duplicatedLogos.map((logo, index) => (
-          <div
-            key={index}
-            className="flex items-center justify-center h-24 sm:h-32 xl:h-40 2xl:h-44 mx-8 sm:mx-12 shrink-0"
-          >
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={logo.width}
-              height={logo.height}
-              className="w-auto h-full object-contain"
-              priority={index < 20}
-            />
-          </div>
-        ))}
+    <>
+      <style jsx global>{`
+        @keyframes infinite-scroll {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+
+        .logo-track {
+          display: flex;
+          width: max-content;
+          will-change: transform;
+          animation: infinite-scroll 25s linear infinite;
+          animation-play-state: paused;
+        }
+
+        .logo-track.start {
+          animation-play-state: running;
+        }
+      `}</style>
+
+      <div className="w-full overflow-hidden">
+        <div
+          ref={trackRef}
+          className={`logo-track ${ready ? "start" : ""}`}
+        >
+          {duplicated.map((logo, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-center mx-8 shrink-0"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                className="h-25 sm:h-28 lg:h-35 w-auto object-contain"
+                priority
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
+
 const Trusted = () => {
+  // Use existing logos
   const logos = [
     { src: t6, alt: "Trusted Client Logo 1", width: 97, height: 96 },
-    { src: t7, alt: "Trusted Client Logo 2", width: 97, height: 96 },
-    { src: t8, alt: "Trusted Client Logo 3", width: 97, height: 96 },
-    { src: t9, alt: "Trusted Client Logo 4", width: 97, height: 96 },
-    { src: t10, alt: "Trusted Client Logo 5", width: 97, height: 96 },
-    { src: t11, alt: "Trusted Client Logo 6", width: 97, height: 96 },
-    { src: t12, alt: "Trusted Client Logo 7", width: 97, height: 96 },
-    { src: t13, alt: "Trusted Client Logo 8", width: 97, height: 96 },
-    { src: t14, alt: "Trusted Client Logo 9", width: 97, height: 96 },
-    { src: t15, alt: "Trusted Client Logo 10", width: 97, height: 96 },
-    { src: t16, alt: "Trusted Client Logo 11", width: 97, height: 96 },
-    { src: t17, alt: "Trusted Client Logo 12", width: 97, height: 96 },
-    { src: t18, alt: "Trusted Client Logo 13", width: 97, height: 96 },
-    { src: t19, alt: "Trusted Client Logo 14", width: 97, height: 96 },
-    { src: t20, alt: "Trusted Client Logo 15", width: 97, height: 96 },
-    { src: t1, alt: "Trusted Client Logo 16", width: 97, height: 96 },
-    { src: t2, alt: "Trusted Client Logo 17", width: 135, height: 96 },
-    { src: t3, alt: "Trusted Client Logo 18", width: 107, height: 96 },
-    { src: t4, alt: "Trusted Client Logo 19", width: 103, height: 96 },
-    { src: t5, alt: "Trusted Client Logo 20", width: 105, height: 96 },
+    { src: t7, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+    { src: t8, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+    { src: t9, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+    { src: t10, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+    { src: t11, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+      { src: t12, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+      { src: t13, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+      { src: t14, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+      { src: t15, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+      { src: t16, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+      { src: t17, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+      { src: t18, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+      { src: t19, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+      { src: t20, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+    { src: t1, alt: "Trusted Client Logo 1", width: 97, height: 96 },
+    { src: t2, alt: "Trusted Client Logo 2", width: 135, height: 96 },
+    { src: t3, alt: "Trusted Client Logo 3", width: 107, height: 96 },
+    { src: t4, alt: "Trusted Client Logo 4", width: 103, height: 96 },
+    { src: t5, alt: "Trusted Client Logo 5", width: 105, height: 96 },
   ];
 
   return (
-    <section className="relative w-full bg-[#F6F2EB] lg:mt-[-200px] sm:py-16 lg:h-[290px] overflow-hidden">
+    <section 
+  className="relative w-full bg-[#F6F2EB] sm:py-16 lg:h-[290px] -translate-y-24 lg:-translate-y-40 overflow-hidden"
+>
       
-      {/* DESKTOP */}
+      {/* DESKTOP-ONLY LAYOUT */}
       <div className="hidden lg:block w-full h-full relative">
         
+        {/* Heading - CHANGED: "institutions" */}
         <p
-          className="absolute font-['Nunito_Sans'] font-medium text-[46px] leading-none text-black"
-          style={{ top: "66px", left: "86px", zIndex: 10 }}
+          className="absolute font-['Nunito_Sans'] font-medium text-[46px] leading-none text-black w-[410px] h-[55px]"
+          style={{ top: '66px', left: '86px' }}
         >
           Trusted by 50+
         </p>
-
+        
+        {/* Description */}
         <p
-          className="absolute font-['Nunito_Sans'] font-normal text-[30px] leading-none text-black"
-          style={{ top: "125px", left: "86px", zIndex: 10 }}
+          className="absolute font-['Nunito_Sans'] font-normal text-[30px] leading-none text-black w-[406px] h-[50px]"
+          style={{ top: '125px', left: '86px' }}
         >
           Institutions and partners
         </p>
 
+        {/* Images Layout (Carousel) */}
         <div
-          className="absolute h-[160px] overflow-hidden"
-          style={{ 
-            top: "49px", 
-            left: "530px",
-            right: "0",
-          }}
-        >
-          <LogoCarousel logos={logos} />
+  className="
+    absolute
+    w-full
+    2xl:w-[1800px]
+    h-[144px]
+    xl:h-[160px]
+    2xl:h-[180px]
+    overflow-hidden
+  "
+  style={{ top: '49px', left: '530px' }}
+>
+
+          <LogoCarousel logos={logos.map(logo => ({
+            ...logo,
+            className: "brightness-95 contrast-110 xl:brightness-100 xl:contrast-125 2xl:brightness-105 2xl:contrast-130" // Added brightness/contrast
+          }))} />
         </div>
       </div>
-
-      {/* MOBILE */}
+      
+      {/* MOBILE/TABLET LAYOUT */}
       <div className="lg:hidden max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+        
+        {/* Header Content - CHANGED: "institutions" */}
         <div className="mb-8">
           <h2 className="font-['Nunito_Sans'] font-medium text-3xl sm:text-4xl text-black mb-3">
             Trusted by 50+ institutions and partners
           </h2>
-
+          
           <p className="font-['Nunito_Sans'] font-normal text-base sm:text-lg text-black max-w-md">
             Trusted by schools and organisations that care about emotional well-being.
           </p>
         </div>
 
+        {/* Logo Carousel */}
         <div className="mt-8">
-          <LogoCarousel logos={logos} />
+          <LogoCarousel logos={logos.map(logo => ({
+            ...logo,
+            className: "brightness-95"
+          }))} />
         </div>
       </div>
     </section>
   );
 };
+
+
+
+
+
+
+
+
+
 
 const LastSection = () => {
   return (
@@ -1731,7 +1602,7 @@ const LastSection = () => {
       {/* Modal is now rendered at the top level of the Home component */}
       
       {/* CTA CARD */}
-     <div className="relative z-20 px-4 w-full flex justify-center mt-[100px] mb-[-180px] sm:mb-[-150px] lg:h-[363px]">
+     <div className="relative z-20 px-4 w-full flex justify-center  mb-[-180px] sm:mb-[-150px] lg:h-[363px]">
         <div
           className="
             relative 
