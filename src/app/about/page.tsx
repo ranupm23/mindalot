@@ -365,8 +365,8 @@ export default function BlogPage() {
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 mt-6 sm:mt-8 text-[13px] sm:text-[14px] opacity-90">
-        <span>Jagriti edtech Private Limited</span>
-        <span>+91 9606258596</span>
+        {/* <span>Jagriti edtech Private Limited</span>
+        <span>+91 9606258596</span> */}
       </div>
 
     </div>

@@ -398,16 +398,16 @@ This person is interested in scheduling a demo for Mind A Lot.`;
                 <div className="relative w-full h-40 rounded-lg overflow-hidden bg-black/30">
                   <div className="absolute inset-0 flex items-center justify-center">
                     {/* YouTube video embed */}
-                    <iframe
+                    {/* <iframe
                       src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&modestbranding=1&rel=0"
                       title="Mind A Lot Demo Video"
                       className="w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
-                    ></iframe>
+                    ></iframe> */}
                     
                     {/* Fallback if video doesn't load */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#5c4737]/80 to-[#3a2b20]/80">
+                    {/* <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#5c4737]/80 to-[#3a2b20]/80">
                       <div className="text-center p-4">
                         <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
                           <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -417,7 +417,7 @@ This person is interested in scheduling a demo for Mind A Lot.`;
                         <p className="text-white font-medium">Demo Video</p>
                         <p className="text-white/70 text-sm mt-1">Click to play</p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 

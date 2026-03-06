@@ -529,12 +529,12 @@ const OfferSection = () => {
           </p>
 
           <div className="relative w-full h-[160px] rounded-lg overflow-hidden bg-black/30 z-10">
-            <iframe
+            {/* <iframe
               src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&rel=0"
               title="Demo Video"
               className="w-full h-full"
               allowFullScreen
-            />
+            /> */}
           </div>
 
           <p className="text-white/60 text-xs mt-3 z-10 relative">

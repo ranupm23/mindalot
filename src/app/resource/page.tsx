@@ -23,7 +23,7 @@ import brownPlayIcon from '@/assets/resource-page/play.svg'
 import React from 'react'
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-
+import testimonialImageSmall from '@/assets/home-page/testemonial/Ellipse 52.png'
 // const redirectToAppStore = () => {
 //   if (typeof window === "undefined") return;
 
@@ -314,14 +314,27 @@ const PodcastSection = () => {
   >
     <div className="relative w-full h-full">
       {/* First Avatar */}
-      <div className="absolute w-[20px] h-[20px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] rounded-full border-2 border-white bg-purple-500 overflow-hidden">
-        <Image src={avatar1} alt="avatar-img" width={50} height={50} className="object-cover w-full h-full" />
-      </div>
+        {/* First Avatar */}
+  <div className="absolute w-[20px] h-[20px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] rounded-full border-2 border-white bg-purple-500 overflow-hidden flex items-center justify-center">
+    
+    <svg viewBox="0 0 90 90" className="w-full h-full">
+      <path d="M45 88c-11.049 0-21.18-2.003-29.021-8.634C6.212 71.105 0 58.764 0 45 0 20.187 20.187 0 45 0s45 20.187 45 45c0 13.765-6.212 26.105-15.979 34.366C66.181 85.998 56.049 88 45 88z" fill="#d6d6d6"/>
+      <path d="M45 60.71c-11.479 0-20.818-9.339-20.818-20.817 0-11.479 9.339-20.818 20.818-20.818 11.479 0 20.817 9.339 20.817 20.818C65.817 51.371 56.479 60.71 45 60.71z" fill="#a5a4a4"/>
+      <path d="M45 90c-10.613 0-20.922-3.773-29.028-10.625-.648-.548-.88-1.444-.579-2.237C20.034 64.919 31.933 56.71 45 56.71s24.966 8.209 29.607 20.428c.301.793.069 1.689-.579 2.237C65.922 86.227 55.613 90 45 90z" fill="#a5a4a4"/>
+    </svg>
 
-      {/* Second Avatar */}
-      <div className="absolute w-[20px] h-[20px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] rounded-full border-2 border-white translate-x-[60%] sm:translate-x-[70%] md:translate-x-[60%] bg-gray-400 overflow-hidden">
-        <Image src={avatar2} alt="avatar-img" width={50} height={50} className="object-cover w-full h-full" />
-      </div>
+  </div>
+
+  {/* Second Avatar */}
+  <div className="absolute w-[20px] h-[20px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] rounded-full border-2 border-white translate-x-[60%] sm:translate-x-[70%] md:translate-x-[60%] bg-gray-400 overflow-hidden flex items-center justify-center">
+    
+    <svg viewBox="0 0 90 90" className="w-full h-full">
+      <path d="M45 88c-11.049 0-21.18-2.003-29.021-8.634C6.212 71.105 0 58.764 0 45 0 20.187 20.187 0 45 0s45 20.187 45 45c0 13.765-6.212 26.105-15.979 34.366C66.181 85.998 56.049 88 45 88z" fill="#d6d6d6"/>
+      <path d="M45 60.71c-11.479 0-20.818-9.339-20.818-20.817 0-11.479 9.339-20.818 20.818-20.818 11.479 0 20.817 9.339 20.817 20.818C65.817 51.371 56.479 60.71 45 60.71z" fill="#a5a4a4"/>
+      <path d="M45 90c-10.613 0-20.922-3.773-29.028-10.625-.648-.548-.88-1.444-.579-2.237C20.034 64.919 31.933 56.71 45 56.71s24.966 8.209 29.607 20.428c.301.793.069 1.689-.579 2.237C65.922 86.227 55.613 90 45 90z" fill="#a5a4a4"/>
+    </svg>
+
+  </div>
 
       {/* Arrow Circle */}
       <div className="absolute w-[20px] h-[20px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] rounded-full bg-white flex justify-center items-center translate-x-[120%] sm:translate-x-[140%] md:translate-x-[120%] transition-transform group-hover:rotate-45">
