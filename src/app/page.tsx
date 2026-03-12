@@ -365,30 +365,69 @@ Application submitted on: ${new Date().toLocaleString()}
   );
 };
 
-// Redirect based on device
+
+
 const redirectToAppStore = () => {
   if (typeof window === "undefined") return;
 
-  const userAgent = navigator.userAgent || navigator.vendor;
+  const userAgent = navigator.userAgent || navigator.vendor || "";
+  const platform = navigator.platform || "";
 
-  // iOS devices
+  // 📱 iOS devices
   if (/iPad|iPhone|iPod/.test(userAgent)) {
     window.location.href =
       "https://apps.apple.com/in/app/zenit-edu/id6748683332";
     return;
   }
 
-  // Android devices
+  // 📱 Android devices
   if (/android/i.test(userAgent)) {
     window.location.href =
       "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
     return;
   }
 
-  // Desktop fallback
-  window.location.href =
-    "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+  // 🖥️ macOS laptops
+  if (platform.startsWith("Mac") || /Macintosh|Mac OS X/.test(userAgent)) {
+    window.location.href = "https://apps.apple.com/in/app/zenit-edu/id6748683332"; // your website / landing page
+    return;
+  }
+
+  // 🖥️ Windows laptops
+  if (platform.startsWith("Win") || /Windows NT/.test(userAgent)) {
+    window.location.href = "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share"; // your website / landing page
+    return;
+  }
+
+  // 🌐 Fallback (other devices)
+  window.location.href = "https://zenit.edu";
 };
+
+
+// // Redirect based on device
+// const redirectToAppStore = () => {
+//   if (typeof window === "undefined") return;
+
+//   const userAgent = navigator.userAgent || navigator.vendor;
+
+//   // iOS devices
+//   if (/iPad|iPhone|iPod/.test(userAgent)) {
+//     window.location.href =
+//       "https://apps.apple.com/in/app/zenit-edu/id6748683332";
+//     return;
+//   }
+
+//   // Android devices
+//   if (/android/i.test(userAgent)) {
+//     window.location.href =
+//       "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+//     return;
+//   }
+
+//   // Desktop fallback
+//   window.location.href =
+//     "https://play.google.com/store/apps/details?id=com.jagrati.zenit&pcampaignid=web_share";
+// };
 
 export default function Home() {
   const [joinTeamModalOpen, setJoinTeamModalOpen] = useState(false);
@@ -1590,13 +1629,13 @@ const Features = () => {
 
 
 
+
+
 /* ---------------- TYPES ---------------- */
 
 interface Logo {
   src: StaticImageData;
   alt: string;
-  width: number;
-  height: number;
 }
 
 interface LogoCarouselProps {
@@ -1606,133 +1645,95 @@ interface LogoCarouselProps {
 /* ---------------- LOGO CAROUSEL ---------------- */
 
 const LogoCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [ready, setReady] = useState(false);
 
-  // 🔥 Duplicate 3 times so all logos appear
-  const duplicated = [...logos, ...logos, ...logos];
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const images = Array.from(track.querySelectorAll("img"));
-
-    Promise.all(
-      images.map((img) => {
-        if (img.complete) return Promise.resolve();
-        return new Promise<void>((resolve) => {
-          img.onload = () => resolve();
-          img.onerror = () => resolve();
-        });
-      })
-    ).then(() => {
-      requestAnimationFrame(() => {
-        setReady(true);
-      });
-    });
-  }, []);
+  // duplicate logos for seamless loop
+  const duplicated = [...logos, ...logos];
 
   return (
-    <>
+    <div className="relative w-full overflow-hidden group">
+
+      {/* LEFT GRADIENT */}
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#F6F2EB] to-transparent" />
+
+      {/* RIGHT GRADIENT */}
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#F6F2EB] to-transparent" />
+
+      <div className="flex w-max items-center gap-16 py-6 animate-scroll group-hover:[animation-play-state:paused]">
+
+        {duplicated.map((logo, index) => (
+          <div key={index} className="flex shrink-0 items-center justify-center">
+
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={220}
+              height={140}
+              className="h-28 sm:h-32 lg:h-36 w-auto object-contain opacity-80 hover:opacity-100 transition"
+            />
+
+          </div>
+        ))}
+
+      </div>
+
       <style jsx global>{`
-        @keyframes infinite-scroll {
-          0% {
-            transform: translate3d(0, 0, 0);
+        @keyframes scroll {
+          from {
+            transform: translate3d(0,0,0);
           }
-          100% {
-            transform: translate3d(-66.66%, 0, 0);
+          to {
+            transform: translate3d(-50%,0,0);
           }
         }
 
-        .logo-track {
-          display: flex;
-          width: max-content;
-          animation: infinite-scroll 35s linear infinite;
-          animation-play-state: paused;
-        }
-
-        .logo-track.start {
-          animation-play-state: running;
+        .animate-scroll {
+          animation: scroll 40s linear infinite;
+          will-change: transform;
         }
       `}</style>
 
-      <div className="w-full overflow-hidden">
-        <div ref={trackRef} className={`logo-track ${ready ? "start" : ""}`}>
-          {duplicated.map((logo, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center mx-8 shrink-0"
-            >
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={120}
-                height={96}
-                className="h-24 sm:h-28 lg:h-32 w-auto object-contain"
-                priority
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
+    </div>
   );
 };
 
 /* ---------------- TRUSTED SECTION ---------------- */
 
 const Trusted = () => {
+
   const logos: Logo[] = [
-    { src: t6, alt: "Logo", width: 120, height: 96 },
-    { src: t7, alt: "Logo", width: 120, height: 96 },
-    { src: t8, alt: "Logo", width: 120, height: 96 },
-    { src: t9, alt: "Logo", width: 120, height: 96 },
-    { src: t10, alt: "Logo", width: 120, height: 96 },
-    { src: t11, alt: "Logo", width: 120, height: 96 },
-    { src: t12, alt: "Logo", width: 120, height: 96 },
-    { src: t13, alt: "Logo", width: 120, height: 96 },
-    { src: t14, alt: "Logo", width: 120, height: 96 },
-    { src: t15, alt: "Logo", width: 120, height: 96 },
-    { src: t16, alt: "Logo", width: 120, height: 96 },
-    { src: t17, alt: "Logo", width: 120, height: 96 },
-    { src: t18, alt: "Logo", width: 120, height: 96 },
-    { src: t19, alt: "Logo", width: 120, height: 96 },
-    { src: t20, alt: "Logo", width: 120, height: 96 },
-    { src: t1, alt: "Logo", width: 120, height: 96 },
-    { src: t2, alt: "Logo", width: 120, height: 96 },
-    { src: t3, alt: "Logo", width: 120, height: 96 },
-    { src: t4, alt: "Logo", width: 120, height: 96 },
-    { src: t5, alt: "Logo", width: 120, height: 96 },
+    { src: t1, alt: "Logo" },
+    { src: t2, alt: "Logo" },
+    { src: t3, alt: "Logo" },
+    { src: t4, alt: "Logo" },
+    { src: t5, alt: "Logo" },
+    { src: t6, alt: "Logo" },
+    { src: t7, alt: "Logo" },
+    { src: t8, alt: "Logo" },
+    { src: t9, alt: "Logo" },
+    { src: t10, alt: "Logo" },
+    { src: t11, alt: "Logo" },
+    { src: t12, alt: "Logo" },
+    { src: t13, alt: "Logo" },
+    { src: t14, alt: "Logo" },
+    { src: t15, alt: "Logo" },
+    { src: t16, alt: "Logo" },
+    { src: t17, alt: "Logo" },
+    { src: t18, alt: "Logo" },
+    { src: t19, alt: "Logo" },
+    { src: t20, alt: "Logo" },
   ];
 
   return (
-    <section className="relative w-full bg-[#F6F2EB] py-16 mt-[-200px] overflow-hidden">
-      
-      {/* DESKTOP */}
-      <div className="hidden lg:block max-w-7xl mx-auto relative">
+    <section className="relative w-full bg-[#F6F2EB] py-20 overflow-hidden mt-[-220px]">
 
-        <p className="text-[46px] font-medium mb-2">
+      <div className="max-w-7xl mx-auto px-6">
+
+        <h2 className="text-3xl lg:text-[46px] font-medium mb-4">
           Trusted by 50+
-        </p>
-
-        <p className="text-[30px] mb-10">
-          Institutions and partners
-        </p>
-
-        <LogoCarousel logos={logos} />
-
-      </div>
-
-      {/* MOBILE */}
-      <div className="lg:hidden max-w-7xl mx-auto px-4">
-
-        <h2 className="text-3xl font-medium mb-4">
-          Trusted by 50+ institutions and partners
         </h2>
 
-        <p className="text-base mb-8">
-          Trusted by schools and organisations that care about emotional well-being.
+        <p className="text-lg lg:text-[28px] mb-10">
+          Institutions and partners
         </p>
 
         <LogoCarousel logos={logos} />
@@ -1742,6 +1743,146 @@ const Trusted = () => {
     </section>
   );
 };
+
+
+
+/* ---------------- TYPES ---------------- */
+
+// interface Logo {
+//   src: StaticImageData;
+//   alt: string;
+// }
+
+// interface LogoCarouselProps {
+//   logos: Logo[];
+//   speed?: number;
+// }
+
+// /* ---------------- LOGO CAROUSEL ---------------- */
+
+// const LogoCarousel: React.FC<LogoCarouselProps> = ({
+//   logos,
+//   speed = 40,
+// }) => {
+
+//   // duplicate logos for seamless loop
+//   const duplicated = [...logos, ...logos];
+
+//   return (
+//     <div className="relative w-full overflow-hidden">
+
+//       {/* EDGE GRADIENTS */}
+//       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-[#F6F2EB] to-transparent"></div>
+//       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-[#F6F2EB] to-transparent"></div>
+
+//       {/* TRACK */}
+//       <div
+//         className="flex w-max items-center animate-scroll"
+//         style={{
+//           animationDuration: `${speed}s`,
+//         }}
+//       >
+//         {duplicated.map((logo, index) => (
+//           <div
+//             key={index}
+//             className="mx-10 flex shrink-0 items-center justify-center"
+//           >
+//             <Image
+//   src={logo.src}
+//   alt={logo.alt}
+//   width={220}
+//   height={140}
+//   className="h-28 sm:h-32 lg:h-36 w-auto object-contain opacity-90 hover:opacity-100 transition"
+// />
+//           </div>
+//         ))}
+//       </div>
+
+//       {/* ANIMATION */}
+//       <style jsx global>{`
+//         @keyframes scroll {
+//           from {
+//             transform: translate3d(0, 0, 0);
+//           }
+//           to {
+//             transform: translate3d(-50%, 0, 0);
+//           }
+//         }
+
+//         .animate-scroll {
+//           animation: scroll linear infinite;
+//           will-change: transform;
+//         }
+//       `}</style>
+//     </div>
+//   );
+// };
+
+// /* ---------------- TRUSTED SECTION ---------------- */
+
+// const Trusted = () => {
+
+//   const logos: Logo[] = [
+//     { src: t1, alt: "Logo" },
+//     { src: t2, alt: "Logo" },
+//     { src: t3, alt: "Logo" },
+//     { src: t4, alt: "Logo" },
+//     { src: t5, alt: "Logo" },
+//     { src: t6, alt: "Logo" },
+//     { src: t7, alt: "Logo" },
+//     { src: t8, alt: "Logo" },
+//     { src: t9, alt: "Logo" },
+//     { src: t10, alt: "Logo" },
+//     { src: t11, alt: "Logo" },
+//     { src: t12, alt: "Logo" },
+//     { src: t13, alt: "Logo" },
+//     { src: t14, alt: "Logo" },
+//     { src: t15, alt: "Logo" },
+//     { src: t16, alt: "Logo" },
+//     { src: t17, alt: "Logo" },
+//     { src: t18, alt: "Logo" },
+//     { src: t19, alt: "Logo" },
+//     { src: t20, alt: "Logo" },
+//   ];
+
+//   return (
+//     <section className="relative w-full bg-[#F6F2EB] py-20 overflow-hidden">
+
+//       {/* DESKTOP */}
+//       <div className="hidden lg:block max-w-7xl mx-auto">
+
+//         <p className="text-[46px] font-medium mb-2">
+//           Trusted by 50+
+//         </p>
+
+//         <p className="text-[30px] mb-12">
+//           Institutions and partners
+//         </p>
+
+//         <LogoCarousel logos={logos} speed={45} />
+
+//       </div>
+
+//       {/* MOBILE */}
+//       <div className="lg:hidden max-w-7xl mx-auto px-4">
+
+//         <h2 className="text-3xl font-medium mb-4">
+//           Trusted by 50+ institutions and partners
+//         </h2>
+
+//         <p className="text-base mb-8">
+//           Trusted by schools and organisations that care about emotional well-being.
+//         </p>
+
+//         <LogoCarousel logos={logos} speed={35} />
+
+//       </div>
+
+//     </section>
+//   );
+// };
+
+
 
 
 
